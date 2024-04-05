@@ -3,7 +3,6 @@ h1 {
     color: blue;
     text-align: center;
     margin-top: 0px;
-    margin-bottom: 5px;
 }
 
 .contenu {
@@ -15,10 +14,17 @@ h1 {
 }
 
 .nuit {
+    color: yellowgreen;
     font-size: large;
     font-weight: bold;
     margin-left: 5px;
     margin-bottom: 20px;
+}
+.hotel {
+    color: green
+}
+.appartement {
+    color: yellowgreen;
 }
 
 .jour {
@@ -26,30 +32,22 @@ h1 {
 }
 
 .jour11 {
-    margin-bottom: 132px;
+    margin-bottom: 137px;
 }
 .jour12 {
-    margin-bottom: 117px;
+    margin-bottom: 122px;
 }
 .jour21 {
     margin-bottom: 21px;
 }
 .jour22 {
-    margin-bottom: 95px;
+    margin-bottom: 99px;
 }
 .jour2342 {
-    margin-bottom: 72px;
+    margin-bottom: 76px;
 }
 .jour41 {
-    margin-bottom: 65px;
-}
-
-.hotel {
-    color: green;
-}
-
-.appartement {
-    color: yellowgreen;
+    margin-bottom: 67px;
 }
 
 .date {
