@@ -1,0 +1,101 @@
+
+h1 {
+    color: blue;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.contenu {
+    display: flex;
+}
+
+.colonne {
+    flex-grow: 1;
+}
+
+.nuit {
+    font-size: large;
+    font-weight: bold;
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+.jour {
+    margin-bottom: 20px;
+}
+
+.jour11 {
+    margin-bottom: 132px;
+}
+.jour12 {
+    margin-bottom: 117px;
+}
+.jour21 {
+    margin-bottom: 21px;
+}
+.jour22 {
+    margin-bottom: 95px;
+}
+.jour2342 {
+    margin-bottom: 72px;
+}
+.jour41 {
+    margin-bottom: 65px;
+}
+
+.hotel {
+    color: green;
+}
+
+.appartement {
+    color: yellowgreen;
+}
+
+.date {
+    font-size: large;
+    font-weight: bold;
+}
+
+.titre {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.texte {
+    margin-top: 5px;
+    margin-left: 50px;
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+a {
+    margin-left: 30px;
+}
+
+p {
+    color: red;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-bottom: 5px;
+}
+
+.option {
+    font-weight: bold;
+    margin-top: 5px;
+    margin-left: 30px;
+    margin-bottom: 5px;
+}
+
+table {
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-bottom: 5px;
+}
+
+th {
+    text-align: left;
+    padding-right: 5px;
+}
