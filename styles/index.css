@@ -17,8 +17,8 @@ h1 {
     color: yellowgreen;
     font-size: large;
     font-weight: bold;
-    margin-left: 5px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    height: 22px;
 }
 .hotel {
     color: green
@@ -28,26 +28,16 @@ h1 {
 }
 
 .jour {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
-
-.jour11 {
-    margin-bottom: 137px;
+.jour1 {
+    height: 150px;
 }
-.jour12 {
-    margin-bottom: 122px;
+.jour2 {
+    height: 220px;
 }
-.jour21 {
-    margin-bottom: 21px;
-}
-.jour22 {
-    margin-bottom: 99px;
-}
-.jour2342 {
-    margin-bottom: 76px;
-}
-.jour41 {
-    margin-bottom: 67px;
+.jour3 {
+    height: 220px;
 }
 
 .date {

@@ -4,39 +4,75 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Vendredi 3 Mai</title>
-    <link href="styles/3.css" rel="stylesheet" type="text/css">
+    <link href="styles/commun.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
-    <h1>Page détaillée du vendredi 3 Mai</h1>
+    <div class="retour"><a href="index.html">Home</a></div>
+    <h1>Vendredi 3 Mai</h1>
+    <h1>Schleißheim</h1>
 
-    <h2>Déroulement de la journée :</h2>
-    <ul>
-        <li>On libère la chambre d'hôtel entre 9h et 10h</li><br>
-        <li>On se rend au Flugwerft Schleißheim (musée de l'aviation) <strong><span style="color:red">Photo du trajet</span></strong></li><br>
-        <li>Visite du Flugwerft Schleißheim <strong><span style="color:red">Photo du musée</span></strong></li><br>
-        <li>Repas du midi : pas besoin de prévoir car Aldi et Lidl juste à côté du musée</li><br>
-        <li>Visite du château de Schleißheim l'après-midi ; En réalité il y a 2 château ainsi que des jardins <strong><span style="color:red">Photos des châteaux et des jardins</span></strong></li><br>
-        <li>Retour à l'appartement <strong><span style="color:red">Photo du trajet</span></strong></li><br>
-        <li>Chill à l'appartement jusqu'au dinner</li><br>
-        <li>Dinner à l'appartement</li><br>
-        <li>Dodo à l'appartement</li>
-    </ul>
+    <div class="bloc">
+        <div class="titre1">Programme :</div>
+        <div class="contenu">
+            <div class="elt">On libère la chambre d'hôtel entre 9h et 10h</div>
+            <div class="elt">On se rend au Flugwerft Schleißheim (musée de l'aviation) <a href="#chateau">détails</a></div>
+            <div class="elt">Visite du Flugwerft Schleißheim</div>
+            <img src="src/Flugwerft_Schleissheim.jpeg" alt="Flugwerft Schleißheim">
+            <div class="elt">Repas du midi : pas nécessairement besoin de prévoir car Aldi et Lidl juste à côté du musée</div>
+            <div class="elt">Visite du château de Schleißheim l'après-midi ; En réalité il y a 2 château ainsi que des jardins</div>
+            <div class="grille">
+                <img src="src/Neues_Schleissheim.jpeg" alt="Neues Schleißheim">
+                <img src="src/Altes_Schleissheim.jpeg" alt="Altes Schleißheim">
+                <img src="src/Schleissheim_Garten.jpeg" alt="Schleißheim Garten">
+            </div>
+            <div class="elt">Retour à l'appartement <a href="#hotel">détails</a></div>
+            <div class="elt">Chill à l'appartement jusqu'au dinner</div>
+            <div class="elt">Dinner à l'appartement</div>
+            <div class="elt">Dodo à l'appartement</div>
+        </div>
+    </div>
 
-    <p>Prix Flugwerft Schleißheim : €</p>
-    <p>Flugwerft Schleißheim réservé : Non, impossible avant le 23 avril</p>
-    <p>Adresse du Flugwerft Schleißheim : </p>
+    <div class="bloc">
+        <div class="titre1">Informations</div>
+        <div class="contenu">
+            <div class="titre2">Repas :</div>
+            <table>
+                <tr>
+                    <th>Midi :</th>
+                    <td>Pique-nique mais possibilité d'acheter sur place</td>
+                </tr>
+                <tr>
+                    <th>Soir :</th>
+                    <td>A l'hôtel</td>
+                </tr>
+            </table>
+            <div class="elt sup"></div>
 
-    <p>Prix Schleißheim : €</p>
-    <p>Schleißheim réservé : Non, impossible en ligne</p>
-    <p>Adresse du Schleißheim : </p>
+            <div class="titre2">Prix :</div>
+            <div class="elt sup"><strong>Flugwerft Schleißheim</strong> : 5€</div>
+            <div class="elt sup"><strong>Château Schleißheim</strong> : 8€</div>
 
-    <p>Repas : 1 à prévoir à l'appartement et 1 autre à acheter sur place donc pas à prévoir</p>
-    
-    <p><strong><span style="color:red">Photos</span></strong></p>
+            <div class="titre2">Réservation :</div>
+            <div class="elt sup"><strong>Flugwerft Schleißheim</strong> : pas encore possible, attendre le 23 avril</div>
+            <div class="elt sup"><strong>Château Schleißheim</strong> : pas possible, à acheter sur place <strong><span style="color:red">Prévoir du liquide</span></strong></div>
 
-    <p>Autres remarques ??</p>
+            <div class="titre2">Transport :</div>
+            <div class="elt sup" id="chateau">U5 puis 210</div>
+            <div class="elt sup" id="hotel">210 puis U5 puis 139 ?</div>
 
-    <a href="index.html">Retour</a>
+            <div class="titre2">Adresse :</div>
+            <div class="elt sup"><strong>Flugwerft Schleißheim</strong> : Effnerstraße 18, 85764 Oberschleißheim</div>
+            <div class="elt sup"><strong>Château Flugwerft Schleißheim</strong> : Neues Schloss Schleißheim, Max-Emanuel-Platz, 85764 Oberschleißheim</div>
+        </div>
 
+        <div class="bloc">
+            <div class="titre1">Autres remarques :</div>
+            <div class="contenu">
+                <div class="elt"><strong><span style="color: red;">Attention : Il faut prévoir du liquide car ils ne prennent pas la carte bleue</span></strong></div>
+                <div class="elt">Possibilité de payer des audioguides pour visiter le Neues Schleissheim</div>
+                <div class="elt">Jeu d'eau dans les jardins toutes les heures</div>
+            </div>
+        </div>
+    </div>
 </body>
