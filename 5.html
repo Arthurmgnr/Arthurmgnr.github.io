@@ -5,73 +5,241 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dimanche 5 Mai</title>
     <link href="styles/commun.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 </head>
 
 <body>
-    <div class="retour"><a href="index.html">Home</a></div>
-    <h1>Dimanche 5 Mai</h1>
-    <h1>Dachau</h1>
+    <div class="centrage">
+        <div class="retour"><a href="4.html">Previous day</a></div>
+        <div class="retour"><a href="index.html">Home</a></div>
+        <div class="retour"><a href="6.html">Next day</a></div>
+    </div>
+
+    <h1>Dimanche 5 Mai : Dachau</h1>
 
     <div class="bloc">
-        <div class="titre1">Programme :</div>
-        <div class="contenu">
-            <div class="elt">Depart pour Dachau vers 9h ou 10h <a href="#dachau">détails</a></div>
-            <div class="elt">Visite avec les audioguides du site</div>
+        <div class="titre1">Programme</div>
+        <div class="elt">Depart pour Dachau vers 9h ou 10h <a href="#dachau">détails</a></div>
+        <div class="elt">Visite avec les audioguides du site
             <img src="src/Dachau.jpeg" alt="Dachau">
-            <div class="elt">Repas du midi : Possibilité de manger au McDo à côté ou alors prévoir le repas</div>
-            <img src="src/Plan_McDo.jpeg" alt="Photo_plan">
-            <div class="elt">Visionnage du documentaire</div>
-            <div class="elt">Retour à l'appartement <a href="#appartement">détails</a></div>
-            <div class="elt">Chill à l'appartement jusqu'au dinner</div>
-            <div class="elt">Dinner à l'appartement</div>
-            <div class="elt">Dodo à l'appartement</div>
         </div>
+        <div class="elt">Repas du midi : Possibilité de manger au McDo à côté ou alors prévoir le repas
+            <a href="https://www.google.fr/maps/search/mcdonald's/@48.2672787,11.4675247,1333m/data=!3m1!1e3?entry=ttu" target="_blank">Voir carte</a>
+        </div>
+        <div class="elt">Visionnage du documentaire</div>
+        <div class="elt">Retour à l'appartement <a href="#appartement">détails</a></div>
+        <div class="elt">Chill à l'appartement jusqu'au dinner</div>
+        <div class="elt">Dinner à l'appartement</div>
+        <div class="elt">Dodo à l'appartement</div>
+        
         <div class="alerte">Possibilité d'échanger le matin et l'après-midi</div>
     </div>
     
     <div class="bloc">
-        <div class="titre1">Informations :</div>
-        <div class="contenu">
-            <div class="titre2">Repas :</div>
-            <table>
-                <tr>
-                    <th>Midi :</th>
-                    <td>Possibilité de manger au McDo qui est à côté ou prévoir le repas</td>
-                </tr>
-                <tr>
-                    <th>Soir :</th>
-                    <td>A l'appartement</td>
-                </tr>
-            </table>
-            <div class="elt sup"></div>
+        <div class="titre1">Informations</div>
+        <div class="titre2">Repas</div>
+        <div class="elt"><strong>Midi :</strong> Possibilité de manger au McDo qui est à côté ou prévoir le repas</div>
+        <div class="elt"><strong>Soir :</strong> A l'appartement</div>
+        
+        <div class="titre2">Prix</div>
+        <div class="elt"><strong>Dachau :</strong> <span class="prix gratuit">Gratuit</span></div>
+        <div class="elt"><strong>Audioguides pour visiter le site :</strong> <span class="prix">3.5€</span></div>
 
-            <div class="titre2">Prix :</div>
-            <div class="elt sup"><strong>Dachau</strong> : Gratuit</div>
-            <div class="elt sup"><strong>Audioguides pour visiter le site</strong> : 3,5€</div>
+        <div class="titre2">Réservation</div>
+        <div class="elt"><strong>Dachau + audioguides :</strong> <span class="etat impossible">Impossible en ligne</span></div>
 
-            <div class="titre2">Réservation :</div>
-            <div class="elt sup"><strong>Dachau + audioguides</strong> : pas possible</div>
+        <div class="titre2">Transport</div>
+        <div class="elt"><span style="color: #e92ba0; font-weight: bold;">A actualiser 1 semaine avant</span></div>
+        <div class="elt" id="dachau">
+            <div class="transport-titre">Appartement &#x279C; Dachau</div>
+            <div class="transport-contenu">
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">Bus 210</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Neuperlach Süd</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Neuperlach Süd</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">14 min</span>
+                    </div>
+                </div>
 
-            <div class="titre2">Transport :</div>
-            <div class="elt sup" id="dachau">U5 puis 210</div>
-            <div class="elt sup" id="appartement">210 puis U5 puis 139 ?</div>
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">U5</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Laimer Platz</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Karlsplatz (Stachus)</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">16 min</span>
+                    </div>
+                </div>
 
-            <div class="titre2">Adresse :</div>
-            <div class="elt sup"><strong>Dachau</strong> : Alte Römerstraße 75, 85221 Dachau</div>
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">S2</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Altomünster</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Dachau</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">25 min</span>
+                    </div>
+                </div>
+
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">Bus 726</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Dachau, Saubachsiedlung</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Dachau, KZ-Gedenkstätte</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">7 min</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alerte">Possibilité de prendre le S7 à la place du U5</div>
         </div>
 
-        <div class="bloc">
-            <div class="titre1">Autres remarques :</div>
-            <div class="contenu">
-                <div class="titre2">Film documentaire :</div>
-                <div class="elt sup">Anglais : 10h15, 11h45, 14h</div>
-                <div class="elt sup">Français (sur demande) : 12h30, 15h30</div>
-                <div class="elt sup">Durée : entre 30 et 45 min</div>
+        <div class="elt" id="appartement">
+            <div class="transport-titre">Dachau &#x279C; appartement</div>
+            <div class="transport-contenu">
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">Bus 744</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Dachau Bahnof</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Dachau</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">13 min</span>
+                    </div>
+                </div>
+
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">S2</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Ostbanhof</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">München Hauptbanhof</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">20 min</span>
+                    </div>
+                </div>
+
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">S2</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Messestadt Ost</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Karl-Preis-Platz</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">11 min</span>
+                    </div>
+                </div>
+
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">Bus X200</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Taufkirchen, Lilienthalstraße</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Taufk., W.-Messerschmitt-St.</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">14 min</span>
+                    </div>
+                </div>
+
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">Bus 210</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Neuperlach Süd</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Einsteinstraße</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">3 min</span>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="titre2">Adresse</div>
+        <div class="elt"><strong>Dachau :</strong> Alte Römerstraße 75, 85221 Dachau</div>
+    </div>
+
+    <div class="bloc">
+        <div class="titre1">Autres remarques</div>
+        <div class="titre2">Film documentaire</div>
+        <div class="elt">Anglais : 10h15, 11h45, 14h</div>
+        <div class="elt">Français (sur demande) : 12h30, 15h30</div>
+        <div class="elt">Durée : entre 30 et 45 min</div>
+    </div>
+
+    <div class="centrage">
+        <div class="retour"><a href="4.html">Previous day</a></div>
+        <div class="retour"><a href="index.html">Home</a></div>
+        <div class="retour"><a href="6.html">Next day</a></div>
     </div>
 </body>
-
-<!--
-    Pas besoin de prevoir de pique-nique car McDo ouvert a cote
--->

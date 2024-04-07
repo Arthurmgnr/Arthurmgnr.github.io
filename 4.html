@@ -5,70 +5,223 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Samedi 4 Mai</title>
     <link href="styles/commun.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
-    <div class="retour"><a href="index.html">Home</a></div>
-    <h1>Samedi 4 Mai</h1>
-    <h1>Allianz Arena</h1>
+    <div class="centrage">
+        <div class="retour"><a href="3.html">Previous day</a></div>
+        <div class="retour"><a href="index.html">Home</a></div>
+        <div class="retour"><a href="5.html">Next day</a></div>
+    </div>
+
+    <h1>Samedi 4 Mai : Allianz Arena</h1>
 
     <div class="bloc">
-        <div class="titre1">Programme :</div>
-        <div class="contenu">
-            <div class="elt">On part vers 9h pour se rendre au stade pour arriver vers 10h30 <a href="#stade">détails</a></div>
+        <div class="titre1">Programme</div>
+        <div class="elt">On part vers 9h pour se rendre au stade pour arriver vers 10h30 <a href="#stade">détails</a>
             <img src="src/Allianz_Arena_exterieur_2.jpeg" alt="Allianz Arena extérieur">
-            <div class="elt">Visite du musée avec les audioguides achetés sur place en prenant notre temps jusqu'à environ 12h</div>
-            <img src="src/Allianz_Arena_museum.jpeg" alt="Musée de l'Allianz Arena">
-            <div class="elt">Repas du midi : prévoir un repas car il n'y a rien à côté</div>
-            <div class="elt">Visite guidée du stade à 13h15 avec les audioguides sur nos téléphones</div>
-            <img src="src/Allianz_Arena_interieur.jpeg" alt="Allianz Arena intérieur">
-            <img src="src/Allianz_Arena_application.jpeg" alt="Application audioguide">
-            <div class="elt">Retour à l'appartement <a href="#appartement">détails</a></div>
-            <div class="elt">Chill à l'appartement jusqu'au dinner</div>
-            <div class="elt">Dinner à l'appartement</div>
-            <div class="elt">Dodo à l'appartement</div>
         </div>
+        <div class="elt">Visite du musée avec les audioguides achetés sur place en prenant notre temps jusqu'à environ 12h
+            <img src="src/Allianz_Arena_museum.jpeg" alt="Musée de l'Allianz Arena">
+        </div>
+        <div class="elt">Repas du midi : prévoir un repas car il n'y a rien à côté</div>
+        <div class="elt">Visite guidée du stade à 13h15 avec les audioguides sur nos téléphones
+            <div class="grille">
+                <div class="imageAvecTitre">
+                    <img src="src/Allianz_Arena_interieur.jpeg" alt="Allianz Arena intérieur">
+                </div>
+                <div class="imageAvecTitre">
+                    <img src="src/Allianz_Arena_application.jpeg" alt="Application audioguide">
+                    <div class="imageTitre">Application audioguide</div>
+                </div>
+            </div>
+        </div>
+        <div class="elt">Retour à l'appartement <a href="#appartement">détails</a></div>
+        <div class="elt">Chill à l'appartement jusqu'au dinner</div>
+        <div class="elt">Dinner à l'appartement</div>
+        <div class="elt">Dodo à l'appartement</div>
     </div>
 
     <div class="bloc">
-        <div class="titre1">Informations :</div>
-        <div class="contenu">
-            <div class="titre2">Repas :</div>
-            <table>
-                <tr>
-                    <th>Midi :</th>
-                    <td>Pique-nique à prévoir car il n'y a rien à côté pour acheter</td>
-                </tr>
-                <tr>
-                    <th>Soir :</th>
-                    <td>A l'appartement</td>
-                </tr>
-            </table>
-            <div class="elt sup"></div>
+        <div class="titre1">Informations</div>
+        <div class="titre2">Repas</div>
+        <div class="elt"><strong>Midi :</strong> Pique-nique à prévoir car il n'y a rien à côté pour acheter</div>
+        <div class="elt"><strong>Soir :</strong> A l'appartement</div>
 
-            <div class="titre2">Prix :</div>
-            <div class="elt sup"><strong>Musée + visite guidée</strong> : 22€</div>
-            <div class="elt sup"><strong>Audioguides pour le musée</strong> : 3€</div>
+        <div class="titre2">Prix</div>
+        <div class="elt"><strong>Musée + visite guidée :</strong> <span class="prix">22€</span></div>
+        <div class="elt"><strong>Audioguides pour le musée :</strong> <span class="prix">3€</span></div>
 
-            <div class="titre2">Réservation :</div>
-            <div class="elt sup"><strong>Musée + visite guidée</strong> : bientôt</div>
+        <div class="titre2">Réservation</div>
+        <div class="elt"><strong>Musée + visite guidée :</strong> <span class="etat reserve">Réservé</span></div>
+        <div class="elt"><strong>Audioguides pour le musée :</strong> <span class="etat reserve">Réservé</span></div>
 
-            <div class="titre2">Transport :</div>
-            <div class="elt sup" id="stade">U5 puis 210</div>
-            <div class="elt sup" id="appartement">210 puis U5 puis 139 ?</div>
+        <div class="titre2">Transport</div>
+        <div class="elt"><span style="color: #e92ba0; font-weight: bold;">A actualiser 1 semaine avant</span></div>
+        <div class="elt" id="stade">
+            <div class="transport-titre">Appartement &#x279C; Allianz Arena</div>
+            <div class="transport-contenu">
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">Bus 210</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Neuperlach Süd</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Neuperlach Süd</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="horraire">14 min</span>
+                    </div>
+                </div>
 
-            <div class="titre2">Adresse :</div>
-            <div class="elt sup"><strong>Allianz Arena</strong> : Werner-Heisenberg-Allee 25, 80939 München</div>
-        </div>
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">U5</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Laimer Platz</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Odeonsplatz</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">15 min</span>
+                    </div>
+                </div>
 
-        <div class="bloc">
-            <div class="titre1">Autres remarques :</div>
-            <div class="contenu">
-                <div class="titre2">Durées :</div>
-                <div class="elt sup">Musée : entre 1h et 1h30</div>
-                <div class="elt sup">Visite guidée : 1h</div>
-                <div class="elt">Penser à payer et récupérer les audioguides au musée, on peut pas réserver en ligne</div>
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">U6</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Garching, Forschungzentrum</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Fröttmaning</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">15 min</span>
+                    </div>
+                </div>
+
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">A pieds</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Allianz Arena</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">16 min</span>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="elt" id="appartement">
+            <div class="transport-titre">Allianz Arena &#x279C; appartement</div>
+            <div class="transport-contenu">
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">A pieds</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Allianz Arena</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">15 min</span>
+                    </div>
+                </div>
+
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">U6</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Klinikum Großhadern</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Odeonsplatz</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">15 min</span>
+                    </div>
+                </div>
+
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">U5</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Neuperlach Süd</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Neuperlach Süd</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">15 min</span>
+                    </div>
+                </div>
+
+                <div class="transport-elt">
+                    <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">Bus 210</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Bruunthal, Zusestraße</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Einsteinstraße</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="horraire">14 min</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="titre2">Adresse</div>
+        <div class="elt"><strong>Allianz Arena :</strong> Werner-Heisenberg-Allee 25, 80939 München</div>
+    </div>
+        
+    <div class="bloc">
+        <div class="titre1">Autres remarques</div>
+        <div class="titre2">Durées</div>
+        <div class="elt sup">Musée : entre 1h et 1h30</div>
+        <div class="elt sup">Visite guidée : 1h</div>
+        <div class="elt">Penser à récupérer les audioguides au musée</div>
+        
+        <div class="titre2">Informations pour la visite guidée</div>
+        <div class="elt sup">Veuillez vous présenter au point de rendez-vous désigné au moins 15 minutes avant le début de votre visite de l'arène.<br>
+            Le point de rendez-vous est le « Fantreff Nord » au niveau 3 (escalier L) de l'Allianz Arena.<br>
+            Vous recevrez des informations détaillées sur le moniteur situé à l'entrée du Fantreff.
+        </div>
+    </div>
+
+    <div class="centrage">
+        <div class="retour"><a href="3.html">Previous day</a></div>
+        <div class="retour"><a href="index.html">Home</a></div>
+        <div class="retour"><a href="5.html">Next day</a></div>
     </div>
 </body>
