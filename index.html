@@ -20,7 +20,7 @@
                 </div>
             </div>
 
-            <div class="nuit"></div>
+            <div class="nuit">Pas encore là <span style="font-size: 12px;">&#128540;</span></div>
 
             <div class="jour jour2">
                 <div class="date">Mercredi 1 Mai : <strong><span style="color:red">Férié</span></strong></div>
@@ -272,4 +272,82 @@
             </div>
         </div>
     </div>
+
+    
+    <script>
+        console.log(window.innerWidth);
+
+        function ajusterHauteur() {
+            console.log("Test");
+            var colonnes = document.querySelectorAll(".colonne");
+            var heightligne1 = 0;
+            var heightligne2 = 0;
+            var heightligne3 = 0;
+            colonnes.forEach(function(colonne, index) {
+                if (colonne.style.display != "none") {
+                    console.log(colonne.children);
+                    var jour1 =  colonne.querySelector(".jour1").offsetHeight;
+                    var jour2 =  colonne.querySelector(".jour2").offsetHeight;
+                    var jour3 =  colonne.querySelector(".jour3").offsetHeight;
+                    if (jour1 > heightligne1) {
+                        heightligne1 = jour1;
+                    }
+                    if (jour2 > heightligne2) {
+                        heightligne2 = jour2;
+                    }
+                    if (jour3 > heightligne3) {
+                        heightligne3 = jour3;
+                    }
+                }
+            });
+            /*console.log(heightligne1, heightligne2, heightligne3);*/
+            colonnes.forEach(function(colonne, index) {
+                if (colonne.style.display != "none") {
+                    var jour1 =  colonne.querySelector(".jour1");
+                    /*if (jour1.offsetHeight != heightligne1) {
+                        jour1.style.height = heightligne1 + "px";
+                    }*/
+                    jour1.style.height = heightligne1 + "px";
+                    var jour2 =  colonne.querySelector(".jour2");
+                    /*if (jour2.offsetHeight != heightligne2) {
+                        jour2.style.height = heightligne2 + "px";
+                    }*/
+                    jour2.style.height = heightligne2 + "px";
+                    var jour3 =  colonne.querySelector(".jour3");
+                    /*if (jour3.offsetHeight != heightligne3) {
+                        jour3.style.height = heightligne3 + "px";
+                    }*/
+                    jour3.style.height = heightligne3 + "px";
+                }
+            });
+        }
+        ajusterHauteur();
+        /*
+        if (window.innerWidth <= 1250) {
+            const contenu = document.querySelector('.contenu');
+            const colonnes = contenu.querySelectorAll('.colonne');
+            const jour1 = colonnes[1].querySelector('.jour1');
+            const nuit1 = colonnes[1].querySelector(".nuit");
+            colonnes[0].appendChild(jour1);
+            colonnes[0].appendChild(nuit1);
+
+            const jour2 = colonnes[2].querySelector('.jour1');
+            const nuit2 = colonnes[2].querySelector(".nuit");
+            colonnes[1].appendChild(jour2);
+            colonnes[1].appendChild(nuit2);
+            const jour3 = colonnes[2].querySelector('.jour2');
+            const nuit3 = colonnes[2].querySelector(".nuit");
+            colonnes[1].appendChild(jour3);
+            colonnes[1].appendChild(nuit3);
+
+            const enfants = colonnes[3].querySelectorAll('.colonne > *');
+            
+            for (let i = 0; i < enfants.length; i++) {
+                colonnes[2].appendChild(enfants[i]);
+            }
+            colonnes[3].style.display = "none";
+            ajusterHauteur();
+        }
+        */
+    </script>
 </body>
