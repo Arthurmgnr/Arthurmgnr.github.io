@@ -113,7 +113,7 @@ a {
     /*margin-left: 20px;*/
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 390px) {
     .contenu {
         display: block;
     }
@@ -124,10 +124,3 @@ a {
         height: fit-content;
     }
 }
-
-@media screen and (max-width: 1250px) {
-    
-}
-/*
-1250 : 4 => 3
-*/
