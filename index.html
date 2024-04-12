@@ -275,17 +275,17 @@
 
     
     <script>
-        console.log(window.innerWidth);
+        //console.log(window.innerWidth);
 
         function ajusterHauteur() {
-            console.log("Test");
+            //console.log("Test");
             var colonnes = document.querySelectorAll(".colonne");
             var heightligne1 = 0;
             var heightligne2 = 0;
             var heightligne3 = 0;
             colonnes.forEach(function(colonne, index) {
                 if (colonne.style.display != "none") {
-                    console.log(colonne.children);
+                    //console.log(colonne.children);
                     var jour1 =  colonne.querySelector(".jour1").offsetHeight;
                     var jour2 =  colonne.querySelector(".jour2").offsetHeight;
                     var jour3 =  colonne.querySelector(".jour3").offsetHeight;
@@ -321,7 +321,11 @@
                 }
             });
         }
-        ajusterHauteur();
+        
+        if (window.matchMedia("(min-width: 900px)").matches) {
+            ajusterHauteur();
+        }
+        
         /*
         if (window.innerWidth <= 1250) {
             const contenu = document.querySelector('.contenu');
