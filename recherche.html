@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de mots</title>
+</head>
+
+<body>
+    <h1>Saisir les informations sur le mot que vous chercher</h1>
+
+    <button onclick="ajout()">+</button>
+
+    <button onclick="supprime()">-</button>
+
+    <button onclick="effacerLettres()">Effacer les lettres</button>
+
+    <button onclick="reinitialiser()">Tout reinitialiser</button>
+
+    <button onclick="afficher()">Recherche</button>
+    
+    <div class="row">
+        <label for="premiereLettre">Première lettre : </label>
+        <input type="text" id="premiereLettre" name="premiereLettre">
+    </div>
+
+    <div class="row">
+        <label for="nbLettres">Nombre de lettres : </label>
+        <input type="number" id="nbLettres" name="nbLettres">
+    </div>
+
+    <div class="row">
+        <label for="lettresPasPresentes">Lettres pas présentes : </label>
+        <input type="text" id="lettresPasPresentes" name="lettresPasPresentes">
+    </div>
+
+    <div id="content"></div>
+
+    <div id="resultat"></div>
+</body>
+
+<script>
+    var rechercheActive = false;
+    const nb = 2;
+    var i = 0;
+    function ajout() {
+        i++;
+        var newElt = document.createElement("div");
+        newElt.classList.add("row");
+        
+        var labelLettre = document.createElement("label");
+        labelLettre.textContent = "Lettre :";
+        labelLettre.for = "lettre_" + i;
+        newElt.appendChild(labelLettre);
+
+        var inputLettre = document.createElement("input");
+        inputLettre.type = "text";
+        inputLettre.id = "lettre_" + i;
+        inputLettre.name = "lettre_" + i;
+        newElt.appendChild(inputLettre);
+
+        var labelNb = document.createElement("label");
+        labelNb.textContent = "Nombre d'occurences :";
+        labelNb.for = "nbOcc_" + i;
+        newElt.appendChild(labelNb);
+
+        var inputNb = document.createElement("input");
+        inputNb.type = "number";
+        inputNb.id = "nbOcc_" + i;
+        inputNb.name = "nbOcc_" + i;
+        inputNb.value = 1;
+        newElt.appendChild(inputNb);
+
+        var malPlace = document.createElement("div");
+        var labelMalPlace = document.createElement("label");
+        labelMalPlace.textContent = "Mal placés :";
+        labelMalPlace.for = "malPlace_" + i;
+        malPlace.appendChild(labelMalPlace);
+        for (var j = 0; j < parseInt(document.getElementById("nbLettres").value); j++) {
+            var inputMalPlace = document.createElement("input");
+            inputMalPlace.type = "checkbox";
+            inputMalPlace.id = "malPlace_" + i + "_" + j;
+            inputMalPlace.name = "malPlace_" + i + "_" + j;
+            malPlace.appendChild(inputMalPlace);
+        }
+        newElt.appendChild(malPlace);
+
+        var bienPlace = document.createElement("div");
+        var labelBienPlace = document.createElement("label");
+        labelBienPlace.textContent = "Bien placés :";
+        labelBienPlace.for = "bienPlace_" + i;
+        bienPlace.appendChild(labelBienPlace);
+        for (var j = 0; j < parseInt(document.getElementById("nbLettres").value); j++) {
+            var inputBienPlace = document.createElement("input");
+            inputBienPlace.type = "checkbox";
+            inputBienPlace.id = "bienPlace_" + i + "_" + j;
+            inputBienPlace.name = "bienPlace_" + i + "_" + j;
+            bienPlace.appendChild(inputBienPlace);
+        }
+        newElt.appendChild(bienPlace);
+
+        document.getElementById("content").appendChild(newElt);
+    }
+
+    function supprime() {
+        if (i > 0) {
+            var elt = document.getElementsByClassName("row")[nb + i];
+            document.getElementById("content").removeChild(elt);
+            i--;
+        }
+    }
+
+    function effacerLettres() {
+        for (var j = i; j > 0; j--) {
+            supprime();
+        }
+    }
+
+    function reinitialiser() {
+        effacerLettres();
+        document.getElementById("premiereLettre").value = "";
+        document.getElementById("nbLettres").value = "";
+        document.getElementById("lettresPasPresentes").value = "";
+    }
+
+    function convertirHTML() {
+        var lettres = {};
+        for (var j = 1; j <= i; j++) {
+            var elt = document.getElementsByClassName("row")[nb + j].children;
+            var l = elt[1].value.toUpperCase();
+            var nbOcc = parseInt(elt[3].value);
+            lettres[l] = {"Nb": nbOcc};
+            letteMalPlace = [];
+            var mp = elt[4].children;
+            for (var k = 1; k < mp.length; k++) {
+                if (mp[k].checked) {
+                    letteMalPlace.push(k - 1);
+                }
+            }
+            lettres[l]["Pas"] = letteMalPlace;
+            lettreBienPlace = [];
+            var bp = elt[5].children;
+            for (var k = 1; k < bp.length; k++) {
+                if (bp[k].checked) {
+                    lettreBienPlace.push(k - 1);
+                }
+            }
+            lettres[l]["Est"] = lettreBienPlace;
+        }
+        
+        return lettres;
+    }
+    
+    function lireFichier() {
+        return fetch("folders/" + document.getElementById("premiereLettre").value.toUpperCase() + "/" + document.getElementById("nbLettres").value)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Erreur de chargement du fichier");
+                }
+                return response.text();
+            })
+            .then(data => {
+                var mots = data.split(/\r?\n/)
+                                .filter(mot => mot.trim() != "");
+                return mots;
+            })
+            .catch(error => console.log("Erreur : ", error));
+    }
+
+    function recherche() {
+        return new Promise((resolve, reject) => {
+            lireFichier()
+                .then(liste => {
+                    var lettresPasPresentes = document.getElementById("lettresPasPresentes").value.toUpperCase();
+                    var lettres = convertirHTML();
+                    var m = [];
+                    for (mot of liste) {
+                        var pasPresent = true;
+                        for (l of lettresPasPresentes) {
+                            if (mot.includes(l)) {
+                                pasPresent = false;
+                            }
+                        }
+                        if (pasPresent) {
+                            present = true;
+                            for (l in lettres) {
+                                var dico = lettres[l];
+                                if (mot.split(l).length - 1 < dico["Nb"]) {
+                                    present = false;
+                                }
+                                if (dico["Pas"].length > 0) {
+                                    for (pos of dico["Pas"]) {
+                                        if (mot[pos] == l) {
+                                            present = false;
+                                        }
+                                    }
+                                }
+                                if (dico["Est"].length > 0) {
+                                    for (pos of dico["Est"]) {
+                                        if (mot[pos] != l) {
+                                            present = false;
+                                        }
+                                    }
+                                }
+                            }
+                            if (present) {
+                                m.push(mot);
+                            }
+                        }
+                    }
+                    resolve(m);
+                })
+                .catch(error => reject(error));
+        });
+    }
+    
+    function afficher() {
+        if (rechercheActive) {
+            effacerResultat();
+        }
+        recherche()
+            .then(mots => {
+                if (document.getElementById("premiereLettre").value != "") {
+                    var resultat = document.getElementById("resultat")
+                    var ul = document.createElement("ul");
+                    for (mot of mots) {
+                        var li = document.createElement("li");
+                        li.innerHTML = mot;
+                        ul.appendChild(li);
+                    }
+                    resultat.appendChild(ul);
+                    if (!rechercheActive) {
+                        rechercheActive = true;
+                    }
+                }
+            })
+            .catch(error => console.log("Erreur : ", error));
+    }
+
+    function effacerResultat() {
+        var resultat = document.getElementById("resultat");
+        if (resultat.children.length > 0) {
+            var ul = document.querySelector("ul");
+            if (ul) {
+                resultat.removeChild(ul);
+            }
+        }
+    }
+</script>
