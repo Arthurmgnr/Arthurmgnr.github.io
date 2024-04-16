@@ -121,6 +121,7 @@
         document.getElementById("premiereLettre").value = "";
         document.getElementById("nbLettres").value = "";
         document.getElementById("lettresPasPresentes").value = "";
+        effacerResultat();
     }
 
     function convertirHTML() {
@@ -221,14 +222,32 @@
         recherche()
             .then(mots => {
                 if (document.getElementById("premiereLettre").value != "") {
-                    var resultat = document.getElementById("resultat")
-                    var ul = document.createElement("ul");
-                    for (mot of mots) {
-                        var li = document.createElement("li");
-                        li.innerHTML = mot;
-                        ul.appendChild(li);
+                    var resultat = document.getElementById("resultat");
+                    //aqwzsxedc
+                    var table = document.createElement("table");
+                    var nbMots = mots.length;
+                    var nb = 0;
+                    var nbLettres = parseInt(document.getElementById("nbLettres").value);
+                    if (nbLettres < 10) {
+                        nb = 10;
+                    } else if (nbLettres < 12) {
+                        nb = 9;
+                    } else {
+                        nb = 8;
                     }
-                    resultat.appendChild(ul);
+                    for (var i = 0; i < nbMots; i += 10) {
+                        var tr = document.createElement("tr");
+                        for (var j = 0; j < nb; j++) {
+                            if (mots[i + j]) {
+                                var td = document.createElement("td");
+                                td.innerHTML = mots[i + j];
+                                tr.appendChild(td);
+                            }
+                        }
+                        table.appendChild(tr)
+                    }
+                    resultat.appendChild(table);
+
                     if (!rechercheActive) {
                         rechercheActive = true;
                     }
@@ -240,9 +259,9 @@
     function effacerResultat() {
         var resultat = document.getElementById("resultat");
         if (resultat.children.length > 0) {
-            var ul = document.querySelector("ul");
-            if (ul) {
-                resultat.removeChild(ul);
+            var table = document.querySelector("table");
+            if (table) {
+                resultat.removeChild(table);
             }
         }
     }
