@@ -223,7 +223,6 @@
             .then(mots => {
                 if (document.getElementById("premiereLettre").value != "") {
                     var resultat = document.getElementById("resultat");
-                    //aqwzsxedc
                     var table = document.createElement("table");
                     var nbMots = mots.length;
                     var nb = 0;
@@ -244,10 +243,9 @@
                                 tr.appendChild(td);
                             }
                         }
-                        table.appendChild(tr)
+                        table.appendChild(tr);
                     }
                     resultat.appendChild(table);
-
                     if (!rechercheActive) {
                         rechercheActive = true;
                     }
