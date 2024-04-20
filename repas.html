@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Repas</title>
     <link href="styles/commun.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" href="icones/repas.png" type="image/png">
 </head>
 
@@ -99,38 +100,200 @@
             <div class="titre2">A ne pas prévoir</div>
             <div class="elt">1 achat chez Lidl ou Aldi (Schleißheim)</div>
         </div>
-        <div class="bloc resume">
+        <div class="bloc resume" id="idees-repas">
             <div class="titre1">Idées de repas</div>
-            <div class="elt" onclick="clique(0)" id="0">Purée jambon <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(1)" id="1">Cordons bleus pâtes/petis pois carottes <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(2)" id="2">Nuggets pâtes/petis pois carottes <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(3)" id="3">Pizza/Flammekueche <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(4)" id="4">Fajitas <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(5)" id="5">Hamburger frites <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(6)" id="6">Crêpes <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(7)" id="7">Spaghettis bolognaise <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(8)" id="8">Raviolis <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(9)" id="9">Croques monsieur <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(10)" id="10">Galettes sarrasin <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(11)" id="11">Omelette, avec des pomme de terre, avec du jambon <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(12)" id="12">Poissons panés épinards <span style="font-size: 13px;"></span></div>
-            <div class="elt" onclick="clique(13)" id="13">Samoussas <span style="font-size: 13px;"></span></div>
+
+            <div class="button-ajout-repas">
+                <button title="Ajouter un repas" onclick="ajoutRepas()"><i class="material-icons small-icon">add_circle</i></button>
+            </div>
+
+            <div class="button-envoie-modif">
+                <button title="Envoyer la liste à Arthur" onclick="envoieArthur()"><i class="material-icons small-icon">mail</i></button>
+            </div>
         </div>
     </div>
 
     <script>
-        function clique(id) {
-            strId = id.toString();
-            elt = document.getElementById(strId).querySelector("span");
-            if (elt.innerHTML == "") {
-                elt.innerHTML = "✅";
+        var repas = ["Purée jambon", "Cordons bleus pâtes/petits pois carottes", "Nuggets pâtes/petits pois carottes",
+                    "Pizza/Flammekueche", "Fajitas", "Hamburger frites", "Crêpes", "Spaghettis bolognaise", "Raviolis",
+                    "Croques monsieur", "Galettes sarrasin", "Omelette, avec des pomme de terre, avec du jambon",
+                    "Poissons panés épinards", "Samoussas", "Croissants au jambon"];
+
+        // localStorage.clear()
+        // console.log(localStorage)
+        if (localStorage.length) {
+            var listeRepas = JSON.parse(localStorage.getItem("repas"));
+            // console.log(listeRepas)
+            for (elt in listeRepas) {
+                var repas = listeRepas[elt];
+                ajoutRepas(repas[0], elt, repas[1]);
             }
-            else if (elt.innerHTML == "✅") {
-                elt.innerHTML = "❌";
+        } else {
+            console.log("Non")
+            for (var i = 0; i < repas.length; i++) {
+                ajoutRepas(repas[i], i);
             }
-            else if (elt.innerHTML == "❌") {
-                elt.innerHTML = "";
+            // console.log(document.getElementById("idees-repas"))
+        }
+
+        function ajoutEmoji(element, emoji = null) {
+            var elt = element.querySelector(".elt-text").querySelector(".emoji");
+            if (emoji != null) {
+                elt.innerHTML = emoji;
+            } else {
+                if (elt.innerHTML.trim() == "") {
+                    elt.innerHTML = "✅";
+                }
+                else if (elt.innerHTML.trim() == "✅") {
+                    elt.innerHTML = "❌";
+                }
+                else if (elt.innerHTML.trim() == "❌") {
+                    elt.innerHTML = "";
+                }
             }
         }
+        
+        function supprimer(element) {
+            var elt = document.getElementById("idees-repas");
+            elt.removeChild(element);
+            miseAJourID();
+            // console.log(document.getElementById("idees-repas").querySelectorAll(".elt"));
+        }
+
+        function miseAJourID() {
+            var ideesRepas = document.getElementById("idees-repas").querySelectorAll(".elt");
+            for (var i = 0; i < ideesRepas.length; i++) {
+                var elt = ideesRepas[i];
+                elt.id = i;
+            }
+        }
+
+        function modifier(element) {
+            var editableDiv = element.querySelector(".elt-text").querySelector(".elt-repas");
+            editableDiv.contentEditable = true;
+            editableDiv.focus();
+            editableDiv.addEventListener("keydown", function(event) {
+                if (event.key === "Enter" || event.key === "Escape") {
+                    desactiverEdition(element);
+                }
+            });
+
+            editableDiv.addEventListener("blur", function() {
+                desactiverEdition(element);
+            });
+        }
+
+        function desactiverEdition(element) {
+            var editableDiv = element.querySelector(".elt-text").querySelector(".elt-repas");
+            editableDiv.contentEditable = false;
+        }
+        // console.log(document.getElementById("idees-repas"))
+        function ajoutRepas(repas = null, id = null, EMOJI = null) {
+            var ideesRepas = document.getElementById("idees-repas");
+
+            var elt = document.createElement("div");
+            elt.classList.add("elt");
+            if (id != null) {
+                elt.id = id;
+            } else {
+                elt.id = ideesRepas.children.length - 3;
+            }
+            
+            var boutons = document.createElement("div");
+            boutons.classList.add("elt-boutons");
+            var bouton1 = document.createElement("button");
+            bouton1.title = "Modifier le repas";
+            bouton1.onclick = function() {
+                modifier(this.parentNode.parentNode);
+            };
+            var icone1 = document.createElement("i");
+            icone1.classList.add("material-icons", "small-icon");
+            icone1.textContent = "edit";
+            bouton1.appendChild(icone1);
+            boutons.appendChild(bouton1);
+            var bouton2 = document.createElement("button");
+            bouton2.title = "Ajouter un émoji";
+            bouton2.onclick = function() {
+                ajoutEmoji(this.parentNode.parentNode);
+            };
+            var icone2 = document.createElement("i");
+            icone2.classList.add("material-icons", "small-icon");
+            icone2.textContent = "add_reaction";
+            bouton2.appendChild(icone2);
+            boutons.appendChild(bouton2);
+            var bouton3 = document.createElement("button");
+            bouton3.title = "Supprimer le repas";
+            bouton3.onclick = function() {
+                supprimer(this.parentNode.parentNode);
+            };
+            var icone3 = document.createElement("i");
+            icone3.classList.add("material-icons", "small-icon");
+            icone3.textContent = "delete";
+            bouton3.appendChild(icone3);
+            boutons.appendChild(bouton3);
+            
+            elt.appendChild(boutons);
+
+            var eltText = document.createElement("div");
+            eltText.classList.add("elt-text");
+            var eltRepas = document.createElement("div");
+            eltRepas.classList.add("elt-repas");
+            if (repas != null) {
+                eltRepas.textContent = repas;
+            }
+            eltText.appendChild(eltRepas);
+            var emoji = document.createElement("div");
+            emoji.classList.add("emoji");
+            if (EMOJI != null) {
+                emoji.textContent = EMOJI;
+            }
+            eltText.appendChild(emoji);
+
+            elt.appendChild(eltText);
+
+            var target = ideesRepas.children[ideesRepas.children.length - 2];
+            ideesRepas.insertBefore(elt, target);
+
+            if (repas == null) {
+                modifier(elt);
+            }
+
+            // console.log(document.getElementById("idees-repas"))
+        }
+        
+        function envoieArthur() {
+            var destinataire = "arthur.mgnr@gmail.com";
+            var objet = "Liste de repas";
+            var corpsMessage = document.getElementById("idees-repas").innerHTML;
+            var lien = "mailto:" + destinataire + "?subject=" + encodeURIComponent(objet) + "&body=" + encodeURIComponent(corpsMessage);
+            window.location.href = lien;
+        }
+
+        // console.log(JSON.stringify(["Purée jambon", "✅"]))
+        // localStorage.setItem("5", JSON.stringify(["Purée jambon", "✅"]))
+        // console.log(localStorage);
+        // localStorage.clear
+
+        // var ideesRepas = document.getElementById("idees-repas").querySelectorAll(".elt");
+        // for (var i = 0; i < ideesRepas.length; i++) {
+        //     var elt = ideesRepas[i];
+        //     var id = elt.id;
+        //     var repas = elt.querySelector(".elt-repas").textContent;
+        //     var emoji = elt.querySelector(".emoji").textContent;
+        //     console.log(id, repas, emoji)
+        // }
+
+        window.addEventListener("beforeunload", function() {
+            var ideesRepas = document.getElementById("idees-repas").querySelectorAll(".elt");
+            var listeRepas = {};
+            for (var i = 0; i < ideesRepas.length; i++) {
+                var elt = ideesRepas[i];
+                var id = elt.id;
+                var repas = elt.querySelector(".elt-repas").textContent;
+                var emoji = elt.querySelector(".emoji").textContent;
+                listeRepas[id] = [repas, emoji];
+            }
+            localStorage.setItem("repas", JSON.stringify(listeRepas));
+        })
     </script>
 </body>

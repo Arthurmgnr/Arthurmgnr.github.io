@@ -3,35 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/recherche.css" rel="stylesheet" type="text/css">
     <title>Recherche de mots</title>
 </head>
 
 <body>
     <h1>Saisir les informations sur le mot que vous chercher</h1>
 
-    <button onclick="ajout()">+</button>
-
-    <button onclick="supprime()">-</button>
-
-    <button onclick="effacerLettres()">Effacer les lettres</button>
-
-    <button onclick="reinitialiser()">Tout reinitialiser</button>
-
-    <button onclick="afficher()">Recherche</button>
+    <div class="boutons">
+        <button onclick="ajout()">+</button>
+        <button onclick="supprime()">-</button>
+        <button onclick="effacerLettres()">Effacer les lettres</button>
+        <button onclick="reinitialiser()">Réinitialiser</button>
+        <button onclick="afficher()">Recherche</button>
+    </div>
     
     <div class="row">
-        <label for="premiereLettre">Première lettre : </label>
-        <input type="text" id="premiereLettre" name="premiereLettre">
+        <label for="premiereLettre">Première lettre :</label>
+        <input type="text" class="uneLettre" id="premiereLettre" name="premiereLettre" maxlength="1" oninput="validateTextInput(this)">
     </div>
 
     <div class="row">
-        <label for="nbLettres">Nombre de lettres : </label>
-        <input type="number" id="nbLettres" name="nbLettres">
+        <label for="nbLettres">Nombre de lettres :</label>
+        <input type="number" id="nbLettres" name="nbLettres" min="4" max="12" oninput="validateNumberInput1(this);">
     </div>
 
     <div class="row">
-        <label for="lettresPasPresentes">Lettres pas présentes : </label>
-        <input type="text" id="lettresPasPresentes" name="lettresPasPresentes">
+        <label for="lettresPasPresentes">Lettres pas présentes :</label>
+        <input type="text" id="lettresPasPresentes" name="lettresPasPresentes" oninput="validateTextInput(this)">
     </div>
 
     <div id="content"></div>
@@ -41,79 +40,116 @@
 
 <script>
     var rechercheActive = false;
-    const nb = 2;
-    var i = 0;
+    var i = -1;
+
+    function verifSaisie() {
+        var inputValeur = document.getElementById("nbLettres").value;
+        if(inputValeur.trim() != '' && inputValeur != "1") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function ajout() {
-        i++;
-        var newElt = document.createElement("div");
-        newElt.classList.add("row");
-        
-        var labelLettre = document.createElement("label");
-        labelLettre.textContent = "Lettre :";
-        labelLettre.for = "lettre_" + i;
-        newElt.appendChild(labelLettre);
+        if (verifSaisie()) {
+            var newElt = document.createElement("div");
+            newElt.classList.add("nouvelleLettre");
+            
 
-        var inputLettre = document.createElement("input");
-        inputLettre.type = "text";
-        inputLettre.id = "lettre_" + i;
-        inputLettre.name = "lettre_" + i;
-        newElt.appendChild(inputLettre);
+            var lettre = document.createElement("div");
+            lettre.classList.add("lettre");
+            var labelLettre = document.createElement("label");
+            labelLettre.textContent = "Lettre :";
+            labelLettre.setAttribute("for", "lettre_" + i);
+            lettre.appendChild(labelLettre);
 
-        var labelNb = document.createElement("label");
-        labelNb.textContent = "Nombre d'occurences :";
-        labelNb.for = "nbOcc_" + i;
-        newElt.appendChild(labelNb);
+            var inputLettre = document.createElement("input");
+            inputLettre.classList.add("uneLettre");
+            inputLettre.setAttribute("maxlength", "1");
+            inputLettre.addEventListener("input", function() {
+                validateTextInput(this);
+            })
+            inputLettre.type = "text";
+            inputLettre.id = "lettre_" + i;
+            inputLettre.name = "lettre_" + i;
+            lettre.appendChild(inputLettre);
+            newElt.appendChild(lettre);
 
-        var inputNb = document.createElement("input");
-        inputNb.type = "number";
-        inputNb.id = "nbOcc_" + i;
-        inputNb.name = "nbOcc_" + i;
-        inputNb.value = 1;
-        newElt.appendChild(inputNb);
 
-        var malPlace = document.createElement("div");
-        var labelMalPlace = document.createElement("label");
-        labelMalPlace.textContent = "Mal placés :";
-        labelMalPlace.for = "malPlace_" + i;
-        malPlace.appendChild(labelMalPlace);
-        for (var j = 0; j < parseInt(document.getElementById("nbLettres").value); j++) {
-            var inputMalPlace = document.createElement("input");
-            inputMalPlace.type = "checkbox";
-            inputMalPlace.id = "malPlace_" + i + "_" + j;
-            inputMalPlace.name = "malPlace_" + i + "_" + j;
-            malPlace.appendChild(inputMalPlace);
+            var occurence = document.createElement("div");
+            occurence.classList.add("occurence");
+            var labelNb = document.createElement("label");
+            labelNb.textContent = "Nombre d'occurences :";
+            labelNb.setAttribute("for", "nbOcc_" + i);
+            occurence.appendChild(labelNb);
+
+            var inputNb = document.createElement("input");
+            inputNb.min = 1;
+            inputNb.max = 12;
+            inputNb.addEventListener("input", function() {
+                validateNumberInput2(this);
+            })
+            inputNb.type = "number";
+            inputNb.id = "nbOcc_" + i;
+            inputNb.name = "nbOcc_" + i;
+            inputNb.value = 1;
+            occurence.appendChild(inputNb);
+            newElt.appendChild(occurence);
+
+
+            var malPlace = document.createElement("div");
+            malPlace.classList.add("positions");
+            var labelMalPlace = document.createElement("label");
+            labelMalPlace.textContent = "Mal placés :";
+            malPlace.appendChild(labelMalPlace);
+            for (var j = 0; j < parseInt(document.getElementById("nbLettres").value); j++) {
+                var inputMalPlace = document.createElement("input");
+                inputMalPlace.type = "checkbox";
+                inputMalPlace.id = "malPlace_" + i + "_" + j;
+                inputMalPlace.name = "malPlace_" + i + "_" + j;
+                malPlace.appendChild(inputMalPlace);
+            }
+            newElt.appendChild(malPlace);
+
+            
+            var bienPlace = document.createElement("div");
+            bienPlace.classList.add("positions");
+            var labelBienPlace = document.createElement("label");
+            labelBienPlace.textContent = "Bien placés :";
+            bienPlace.appendChild(labelBienPlace);
+            for (var j = 0; j < parseInt(document.getElementById("nbLettres").value); j++) {
+                var inputBienPlace = document.createElement("input");
+                inputBienPlace.type = "checkbox";
+                inputBienPlace.id = "bienPlace_" + i + "_" + j;
+                inputBienPlace.name = "bienPlace_" + i + "_" + j;
+                bienPlace.appendChild(inputBienPlace);
+            }
+            newElt.appendChild(bienPlace);
+
+            document.getElementById("content").appendChild(newElt);
+
+            i++;
+
+            effacerResultat();
         }
-        newElt.appendChild(malPlace);
-
-        var bienPlace = document.createElement("div");
-        var labelBienPlace = document.createElement("label");
-        labelBienPlace.textContent = "Bien placés :";
-        labelBienPlace.for = "bienPlace_" + i;
-        bienPlace.appendChild(labelBienPlace);
-        for (var j = 0; j < parseInt(document.getElementById("nbLettres").value); j++) {
-            var inputBienPlace = document.createElement("input");
-            inputBienPlace.type = "checkbox";
-            inputBienPlace.id = "bienPlace_" + i + "_" + j;
-            inputBienPlace.name = "bienPlace_" + i + "_" + j;
-            bienPlace.appendChild(inputBienPlace);
-        }
-        newElt.appendChild(bienPlace);
-
-        document.getElementById("content").appendChild(newElt);
+        //console.log(document.body);
     }
 
     function supprime() {
-        if (i > 0) {
-            var elt = document.getElementsByClassName("row")[nb + i];
+        if (i >= 0) {
+            var elt = document.getElementsByClassName("nouvelleLettre")[i];
             document.getElementById("content").removeChild(elt);
             i--;
         }
+        effacerResultat();
     }
 
     function effacerLettres() {
-        for (var j = i; j > 0; j--) {
+        for (var j = i; j >= 0; j--) {
             supprime();
         }
+        effacerResultat();
     }
 
     function reinitialiser() {
@@ -127,8 +163,8 @@
     function convertirHTML() {
         var lettres = {};
         for (var j = 1; j <= i; j++) {
-            var elt = document.getElementsByClassName("row")[nb + j].children;
-            var l = elt[1].value.toUpperCase();
+            var elt = document.getElementsByClassName("nouvelleLettre")[j].children;
+            var l = elt[1];
             var nbOcc = parseInt(elt[3].value);
             lettres[l] = {"Nb": nbOcc};
             letteMalPlace = [];
@@ -153,7 +189,7 @@
     }
     
     function lireFichier() {
-        return fetch("folders/" + document.getElementById("premiereLettre").value.toUpperCase() + "/" + document.getElementById("nbLettres").value)
+        return fetch("folders/" + document.getElementById("premiereLettre").value + "/" + document.getElementById("nbLettres").value)
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Erreur de chargement du fichier");
@@ -172,14 +208,16 @@
         return new Promise((resolve, reject) => {
             lireFichier()
                 .then(liste => {
-                    var lettresPasPresentes = document.getElementById("lettresPasPresentes").value.toUpperCase();
+                    var lettresPasPresentes = document.getElementById("lettresPasPresentes").value;
                     var lettres = convertirHTML();
                     var m = [];
                     for (mot of liste) {
                         var pasPresent = true;
-                        for (l of lettresPasPresentes) {
-                            if (mot.includes(l)) {
-                                pasPresent = false;
+                        if (lettresPasPresentes) {
+                            for (l of lettresPasPresentes) {
+                                if (mot.includes(l)) {
+                                    pasPresent = false;
+                                }
                             }
                         }
                         if (pasPresent) {
@@ -262,5 +300,30 @@
                 resultat.removeChild(table);
             }
         }
+    }
+
+    function validateNumberInput1(input) {
+        input.value = input.value.replace(/[^0-9]/g, '');
+        var value = parseInt(input.value);
+        if (value < 4 && value != 1) {
+            input.value = 4;
+        } else if (value > 12) {
+            input.value = 12;
+        }
+    }
+
+    function validateNumberInput2(input) {
+        input.value = input.value.replace(/[^0-9]/g, '');
+        var value = parseInt(input.value);
+        var max = document.getElementById("nbLettres").value;
+        if (value == 0) {
+            input.value = 1;
+        } else if (value > max) {
+            input.value = max;
+        }
+    }
+
+    function validateTextInput(input) {
+        input.value = input.value.replace(/[^A-Za-z]/g, '').toUpperCase();
     }
 </script>
