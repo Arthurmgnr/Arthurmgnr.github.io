@@ -123,17 +123,14 @@
         // console.log(localStorage)
         if (localStorage.length) {
             var listeRepas = JSON.parse(localStorage.getItem("repas"));
-            // console.log(listeRepas)
             for (elt in listeRepas) {
                 var repas = listeRepas[elt];
                 ajoutRepas(repas[0], elt, repas[1]);
             }
         } else {
-            console.log("Non")
             for (var i = 0; i < repas.length; i++) {
                 ajoutRepas(repas[i], i);
             }
-            // console.log(document.getElementById("idees-repas"))
         }
 
         function ajoutEmoji(element, emoji = null) {
@@ -157,7 +154,6 @@
             var elt = document.getElementById("idees-repas");
             elt.removeChild(element);
             miseAJourID();
-            // console.log(document.getElementById("idees-repas").querySelectorAll(".elt"));
         }
 
         function miseAJourID() {
@@ -187,7 +183,7 @@
             var editableDiv = element.querySelector(".elt-text").querySelector(".elt-repas");
             editableDiv.contentEditable = false;
         }
-        // console.log(document.getElementById("idees-repas"))
+        
         function ajoutRepas(repas = null, id = null, EMOJI = null) {
             var ideesRepas = document.getElementById("idees-repas");
 
@@ -257,8 +253,6 @@
             if (repas == null) {
                 modifier(elt);
             }
-
-            // console.log(document.getElementById("idees-repas"))
         }
         
         function envoieArthur() {
@@ -268,20 +262,6 @@
             var lien = "mailto:" + destinataire + "?subject=" + encodeURIComponent(objet) + "&body=" + encodeURIComponent(corpsMessage);
             window.location.href = lien;
         }
-
-        // console.log(JSON.stringify(["Purée jambon", "✅"]))
-        // localStorage.setItem("5", JSON.stringify(["Purée jambon", "✅"]))
-        // console.log(localStorage);
-        // localStorage.clear
-
-        // var ideesRepas = document.getElementById("idees-repas").querySelectorAll(".elt");
-        // for (var i = 0; i < ideesRepas.length; i++) {
-        //     var elt = ideesRepas[i];
-        //     var id = elt.id;
-        //     var repas = elt.querySelector(".elt-repas").textContent;
-        //     var emoji = elt.querySelector(".emoji").textContent;
-        //     console.log(id, repas, emoji)
-        // }
 
         window.addEventListener("beforeunload", function() {
             var ideesRepas = document.getElementById("idees-repas").querySelectorAll(".elt");

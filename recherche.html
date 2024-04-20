@@ -164,11 +164,11 @@
         var lettres = {};
         for (var j = 1; j <= i; j++) {
             var elt = document.getElementsByClassName("nouvelleLettre")[j].children;
-            var l = elt[1];
-            var nbOcc = parseInt(elt[3].value);
+            var l = elt[0].querySelector("input").value;
+            var nbOcc = parseInt(elt[1].querySelector("input").value);
             lettres[l] = {"Nb": nbOcc};
             letteMalPlace = [];
-            var mp = elt[4].children;
+            var mp = elt[2].children;
             for (var k = 1; k < mp.length; k++) {
                 if (mp[k].checked) {
                     letteMalPlace.push(k - 1);
@@ -176,7 +176,7 @@
             }
             lettres[l]["Pas"] = letteMalPlace;
             lettreBienPlace = [];
-            var bp = elt[5].children;
+            var bp = elt[3].children;
             for (var k = 1; k < bp.length; k++) {
                 if (bp[k].checked) {
                     lettreBienPlace.push(k - 1);
