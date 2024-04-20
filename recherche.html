@@ -162,7 +162,7 @@
 
     function convertirHTML() {
         var lettres = {};
-        for (var j = 1; j <= i; j++) {
+        for (var j = 0; j <= i; j++) {
             var elt = document.getElementsByClassName("nouvelleLettre")[j].children;
             var l = elt[0].querySelector("input").value;
             var nbOcc = parseInt(elt[1].querySelector("input").value);
