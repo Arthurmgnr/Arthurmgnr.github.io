@@ -30,7 +30,7 @@
 
         <div class="bloc repas">
             <div class="titre1">Vendredi 3 Mai</div>
-            <div class="elt"><strong>Midi :</strong> Pas à prévoir car on achète à Lidl/Aldi</div>
+            <div class="elt"><strong>Midi :</strong> Pique-nique ou à côté</div>
             <div class="elt"><strong>Soir :</strong> A l'appartement</div>
         </div>
 
@@ -72,7 +72,7 @@
 
         <div class="bloc repas">
             <div class="titre1">Vendredi 10 Mai</div>
-            <div class="elt"><strong>Midi :</strong> Pique-nique ou à côté</div>
+            <div class="elt"><strong>Midi :</strong> Pas à prévoir car on achète à Lidl/Aldi</div>
             <div class="elt"><strong>Soir :</strong> A l'appartement</div>
         </div>
 
@@ -103,12 +103,20 @@
         <div class="bloc resume" id="idees-repas">
             <div class="titre1">Idées de repas</div>
 
-            <div class="button-ajout-repas">
+            <div class="button-ajout">
                 <button title="Ajouter un repas" onclick="ajoutRepas()"><i class="material-icons small-icon">add_circle</i></button>
             </div>
 
             <div class="button-envoie-modif">
                 <button title="Envoyer la liste à Arthur" onclick="envoieArthur()"><i class="material-icons small-icon">mail</i></button>
+            </div>
+        </div>
+
+        <div class="bloc resume" id="liste-courses">
+            <div class="titre1">Liste de courses</div>
+
+            <div class="button-ajout">
+                <button title="Ajouter un élément" onclick="ajoutElement()"><i class="material-icons small-icon">add_circle</i></button>
             </div>
         </div>
     </div>
@@ -244,6 +252,62 @@
                 emoji.textContent = EMOJI;
             }
             eltText.appendChild(emoji);
+
+            elt.appendChild(eltText);
+
+            var target = ideesRepas.children[ideesRepas.children.length - 2];
+            ideesRepas.insertBefore(elt, target);
+
+            if (repas == null) {
+                modifier(elt);
+            }
+        }
+
+        function ajoutElement(repas = null, id = null) {
+            var ideesRepas = document.getElementById("liste-courses");
+
+            var elt = document.createElement("div");
+            elt.classList.add("elt");
+            if (id != null) {
+                elt.id = id;
+            } else {
+                elt.id = ideesRepas.children.length;
+            }
+            
+            var boutons = document.createElement("div");
+            boutons.classList.add("elt-boutons");
+            var bouton1 = document.createElement("button");
+            bouton1.title = "Modifier l'élément";
+            bouton1.onclick = function() {
+                modifier(this.parentNode.parentNode);
+            };
+            var icone1 = document.createElement("i");
+            icone1.classList.add("material-icons", "small-icon");
+            icone1.textContent = "edit";
+            bouton1.appendChild(icone1);
+            boutons.appendChild(bouton1);
+            var bouton2 = document.createElement("button");
+            bouton2.title = "Supprimer l'élément";
+            bouton2.onclick = function() {
+                supprimer(this.parentNode.parentNode);
+            };
+            var icone2 = document.createElement("i");
+            icone2.classList.add("material-icons", "small-icon");
+            icone2.textContent = "delete";
+            bouton2.appendChild(icone2);
+            boutons.appendChild(bouton2);
+            
+            elt.appendChild(boutons);
+
+            var eltText = document.createElement("div");
+            eltText.classList.add("elt-text");
+            var eltRepas = document.createElement("div");
+            eltRepas.classList.add("liste-repas");
+            if (repas != null) {
+                eltRepas.textContent = repas;
+            }
+            eltText.appendChild(eltRepas);
+            
 
             elt.appendChild(eltText);
 

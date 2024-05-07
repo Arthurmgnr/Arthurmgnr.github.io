@@ -252,6 +252,9 @@ i {
     text-align: right;
     margin-bottom: 10px;
 }
+.elt-boutons button:not(:last-child) {
+    margin-right: 2px;
+}
 button {
     border: solid 2px #007bff;
     background-color: #007bff;
@@ -282,8 +285,4 @@ button:hover {
 
 .elt-text {
     display: flex;
-}
-
-.bouton-ajout-repas {
-    background-color: #f9f9f9;
 }

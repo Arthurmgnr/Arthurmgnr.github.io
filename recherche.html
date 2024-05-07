@@ -11,9 +11,6 @@
     <h1>Saisir les informations sur le mot que vous chercher</h1>
 
     <div class="boutons">
-        <button onclick="ajout()">+</button>
-        <button onclick="supprime()">-</button>
-        <button onclick="effacerLettres()">Effacer les lettres</button>
         <button onclick="reinitialiser()">Réinitialiser</button>
         <button onclick="afficher()">Recherche</button>
     </div>
@@ -31,6 +28,12 @@
     <div class="row">
         <label for="lettresPasPresentes">Lettres pas présentes :</label>
         <input type="text" id="lettresPasPresentes" name="lettresPasPresentes" oninput="validateTextInput(this)">
+    </div>
+
+    <div class="boutons">
+        <button onclick="ajout()">+</button>
+        <button onclick="supprime()">-</button>
+        <button onclick="effacerLettres()">Effacer les lettres</button>
     </div>
 
     <div id="content"></div>
