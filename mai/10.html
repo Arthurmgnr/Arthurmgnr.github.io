@@ -3,65 +3,58 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Samedi 4 Mai</title>
+    <title>Vendredi 10 Mai</title>
     <link href="styles/commun.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="icon" href="icones/stade.png" type="image/png">
+    <link rel="icon" href="icones/commemoration.png" type="image/png">
+
 </head>
 
 <body>
     <div class="centrage">
-        <div class="retour"><a href="3.html">Previous day</a></div>
-        <div class="retour"><a href="index.html">Home</a></div>
-        <div class="retour"><a href="5.html">Next day</a></div>
+        <div class="retour"><a href="9.html">Previous day</a></div>
+        <div class="retour"><a href="mai.html">Home</a></div>
+        <div class="retour"><a href="11.html">Next day</a></div>
     </div>
 
-    <h1>Samedi 4 Mai : Allianz Arena</h1>
+    <h1>Vendredi 10 Mai : Dachau</h1>
 
     <div class="bloc">
         <div class="titre1">Programme</div>
-        <div class="elt">On part vers 9h pour se rendre au stade pour arriver vers 10h30 <a href="#stade">détails</a>
-            <img src="src/Allianz_Arena_exterieur_2.jpeg" alt="Allianz Arena extérieur">
+        <div class="elt">Libérer la chambre d'hôtel</div>
+        <div class="elt">Depart pour Dachau vers 9h ou 10h <a href="#dachau">détails</a></div>
+        <div class="elt">Visite avec les audioguides du site
+            <img src="sources/Dachau.jpeg" alt="Dachau">
         </div>
-        <div class="elt">Visite du musée avec les audioguides achetés sur place en prenant notre temps jusqu'à environ 12h
-            <img src="src/Allianz_Arena_museum.jpeg" alt="Musée de l'Allianz Arena">
+        <div class="elt">Repas du midi : Possibilité de manger au McDo à côté ou alors prévoir le repas
+            <a href="https://www.google.fr/maps/search/mcdonald's/@48.2672787,11.4675247,1333m/data=!3m1!1e3?entry=ttu" target="_blank">Voir carte</a>
         </div>
-        <div class="elt">Repas du midi : prévoir un repas car il n'y a rien à côté</div>
-        <div class="elt">Visite guidée du stade à 13h15 avec les audioguides sur nos téléphones
-            <div class="grille">
-                <div class="imageAvecTitre">
-                    <img src="src/Allianz_Arena_interieur.jpeg" alt="Allianz Arena intérieur">
-                </div>
-                <div class="imageAvecTitre">
-                    <img src="src/Allianz_Arena_application.jpeg" alt="Application audioguide">
-                    <div class="imageTitre">Application audioguide</div>
-                </div>
-            </div>
-        </div>
+        <div class="elt">Visionnage du documentaire</div>
         <div class="elt">Retour à l'appartement <a href="#appartement">détails</a></div>
         <div class="elt">Chill à l'appartement jusqu'au dinner</div>
         <div class="elt">Dinner à l'appartement</div>
         <div class="elt">Dodo à l'appartement</div>
+        
+        <div class="alerte">Possibilité d'échanger le matin et l'après-midi</div>
     </div>
-
+    
     <div class="bloc">
         <div class="titre1">Informations</div>
         <div class="titre2">Repas</div>
-        <div class="elt"><strong>Midi :</strong> Pique-nique à prévoir car il n'y a rien à côté pour acheter</div>
+        <div class="elt"><strong>Midi :</strong> Possibilité de manger au McDo qui est à côté ou prévoir le repas</div>
         <div class="elt"><strong>Soir :</strong> A l'appartement</div>
-
+        
         <div class="titre2">Prix</div>
-        <div class="elt"><strong>Musée + visite guidée :</strong> <span class="prix">22€</span></div>
-        <div class="elt"><strong>Audioguides pour le musée :</strong> <span class="prix">3€</span></div>
+        <div class="elt"><strong>Dachau :</strong> <span class="prix gratuit">Gratuit</span></div>
+        <div class="elt"><strong>Audioguides pour visiter le site :</strong> <span class="prix">3.5€</span></div>
 
         <div class="titre2">Réservation</div>
-        <div class="elt"><strong>Musée + visite guidée :</strong> <span class="etat reserve">Réservé</span></div>
-        <div class="elt"><strong>Audioguides pour le musée :</strong> <span class="etat reserve">Réservé</span></div>
+        <div class="elt"><strong>Dachau + audioguides :</strong> <span class="etat impossible">Impossible en ligne</span></div>
 
         <div class="titre2">Transport</div>
         <div class="elt"><span style="color: #e92ba0; font-weight: bold;">A actualiser 1 semaine avant</span></div>
-        <div class="elt" id="stade">
-            <div class="transport-titre">Appartement &#x279C; Allianz Arena</div>
+        <div class="elt" id="dachau">
+            <div class="transport-titre">Appartement &#x279C; Dachau</div>
             <div class="transport-contenu">
                 <div class="transport-elt">
                     <div class="transport-numero">1</div>
@@ -78,7 +71,7 @@
                         <i class="material-icons">schedule</i> : <span class="horraire"></span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">timer</i> : <span class="horraire">14 min</span>
+                        <i class="material-icons">timer</i> : <span class="duree">14 min</span>
                     </div>
                 </div>
 
@@ -91,111 +84,144 @@
                         <i class="material-icons">route</i> : <span class="direction">Laimer Platz</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">place</i> : <span class="arret">Odeonsplatz</span>
+                        <i class="material-icons">place</i> : <span class="arret">Karlsplatz (Stachus)</span>
                     </div>
                     <div class="detail-transport">
                         <i class="material-icons">schedule</i> : <span class="horraire"></span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">timer</i> : <span class="duree">15 min</span>
+                        <i class="material-icons">timer</i> : <span class="duree">16 min</span>
                     </div>
                 </div>
 
                 <div class="transport-elt">
                     <div class="transport-numero">3</div>
                     <div class="detail-transport">
-                        <i class="material-icons">commute</i> : <span class="moyen-transport">U6</span>
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">S2</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">route</i> : <span class="direction">Garching, Forschungzentrum</span>
+                        <i class="material-icons">route</i> : <span class="direction">Altomünster</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">place</i> : <span class="arret">Fröttmaning</span>
+                        <i class="material-icons">place</i> : <span class="arret">Dachau</span>
                     </div>
                     <div class="detail-transport">
                         <i class="material-icons">schedule</i> : <span class="horraire"></span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">timer</i> : <span class="duree">15 min</span>
+                        <i class="material-icons">timer</i> : <span class="duree">25 min</span>
                     </div>
                 </div>
 
                 <div class="transport-elt">
                     <div class="transport-numero">4</div>
                     <div class="detail-transport">
-                        <i class="material-icons">commute</i> : <span class="moyen-transport">A pieds</span>
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">Bus 726</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">route</i> : <span class="direction">Allianz Arena</span>
+                        <i class="material-icons">route</i> : <span class="direction">Dachau, Saubachsiedlung</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">timer</i> : <span class="duree">16 min</span>
+                        <i class="material-icons">place</i> : <span class="arret">Dachau, KZ-Gedenkstätte</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">7 min</span>
                     </div>
                 </div>
             </div>
+
+            <div class="alerte">Possibilité de prendre le S7 à la place du U5</div>
         </div>
 
         <div class="elt" id="appartement">
-            <div class="transport-titre">Allianz Arena &#x279C; appartement</div>
+            <div class="transport-titre">Dachau &#x279C; appartement</div>
             <div class="transport-contenu">
                 <div class="transport-elt">
                     <div class="transport-numero">1</div>
                     <div class="detail-transport">
-                        <i class="material-icons">commute</i> : <span class="moyen-transport">A pieds</span>
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">Bus 744</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">route</i> : <span class="direction">Allianz Arena</span>
+                        <i class="material-icons">route</i> : <span class="direction">Dachau Bahnof</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">timer</i> : <span class="duree">15 min</span>
+                        <i class="material-icons">place</i> : <span class="arret">Dachau</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">13 min</span>
                     </div>
                 </div>
 
                 <div class="transport-elt">
                     <div class="transport-numero">2</div>
                     <div class="detail-transport">
-                        <i class="material-icons">commute</i> : <span class="moyen-transport">U6</span>
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">S2</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">route</i> : <span class="direction">Klinikum Großhadern</span>
+                        <i class="material-icons">route</i> : <span class="direction">Ostbanhof</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">place</i> : <span class="arret">Odeonsplatz</span>
+                        <i class="material-icons">place</i> : <span class="arret">München Hauptbanhof</span>
                     </div>
                     <div class="detail-transport">
                         <i class="material-icons">schedule</i> : <span class="horraire"></span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">timer</i> : <span class="duree">15 min</span>
+                        <i class="material-icons">timer</i> : <span class="duree">20 min</span>
                     </div>
                 </div>
 
                 <div class="transport-elt">
                     <div class="transport-numero">3</div>
                     <div class="detail-transport">
-                        <i class="material-icons">commute</i> : <span class="moyen-transport">U5</span>
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">S2</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">route</i> : <span class="direction">Neuperlach Süd</span>
+                        <i class="material-icons">route</i> : <span class="direction">Messestadt Ost</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">place</i> : <span class="arret">Neuperlach Süd</span>
+                        <i class="material-icons">place</i> : <span class="arret">Karl-Preis-Platz</span>
                     </div>
                     <div class="detail-transport">
                         <i class="material-icons">schedule</i> : <span class="horraire"></span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">timer</i> : <span class="duree">15 min</span>
+                        <i class="material-icons">timer</i> : <span class="duree">11 min</span>
                     </div>
                 </div>
 
                 <div class="transport-elt">
                     <div class="transport-numero">4</div>
                     <div class="detail-transport">
+                        <i class="material-icons">commute</i> : <span class="moyen-transport">Bus X200</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">route</i> : <span class="direction">Taufkirchen, Lilienthalstraße</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">place</i> : <span class="arret">Taufk., W.-Messerschmitt-St.</span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">schedule</i> : <span class="horraire"></span>
+                    </div>
+                    <div class="detail-transport">
+                        <i class="material-icons">timer</i> : <span class="duree">14 min</span>
+                    </div>
+                </div>
+
+                <div class="transport-elt">
+                    <div class="transport-numero">5</div>
+                    <div class="detail-transport">
                         <i class="material-icons">commute</i> : <span class="moyen-transport">Bus 210</span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">route</i> : <span class="direction">Bruunthal, Zusestraße</span>
+                        <i class="material-icons">route</i> : <span class="direction">Neuperlach Süd</span>
                     </div>
                     <div class="detail-transport">
                         <i class="material-icons">place</i> : <span class="arret">Einsteinstraße</span>
@@ -204,33 +230,27 @@
                         <i class="material-icons">schedule</i> : <span class="horraire"></span>
                     </div>
                     <div class="detail-transport">
-                        <i class="material-icons">timer</i> : <span class="horraire">14 min</span>
+                        <i class="material-icons">timer</i> : <span class="duree">3 min</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="titre2">Adresse</div>
-        <div class="elt"><strong>Allianz Arena :</strong> Werner-Heisenberg-Allee 25, 80939 München</div>
+        <div class="elt"><strong>Dachau :</strong> Alte Römerstraße 75, 85221 Dachau</div>
     </div>
-        
+
     <div class="bloc">
         <div class="titre1">Autres remarques</div>
-        <div class="titre2">Durées</div>
-        <div class="elt sup">Musée : entre 1h et 1h30</div>
-        <div class="elt sup">Visite guidée : 1h</div>
-        <div class="elt">Penser à récupérer les audioguides au musée</div>
-        
-        <div class="titre2">Informations pour la visite guidée</div>
-        <div class="elt sup">Veuillez vous présenter au point de rendez-vous désigné au moins 15 minutes avant le début de votre visite de l'arène.<br>
-            Le point de rendez-vous est le « Fantreff Nord » au niveau 3 (escalier L) de l'Allianz Arena.<br>
-            Vous recevrez des informations détaillées sur le moniteur situé à l'entrée du Fantreff.
-        </div>
+        <div class="titre2">Film documentaire</div>
+        <div class="elt">Anglais : 10h15, 11h45, 14h</div>
+        <div class="elt">Français (sur demande) : 12h30, 15h30</div>
+        <div class="elt">Durée : entre 30 et 45 min</div>
     </div>
 
     <div class="centrage">
-        <div class="retour"><a href="3.html">Previous day</a></div>
-        <div class="retour"><a href="index.html">Home</a></div>
-        <div class="retour"><a href="5.html">Next day</a></div>
+        <div class="retour"><a href="9.html">Previous day</a></div>
+        <div class="retour"><a href="mai.html">Home</a></div>
+        <div class="retour"><a href="11.html">Next day</a></div>
     </div>
 </body>
