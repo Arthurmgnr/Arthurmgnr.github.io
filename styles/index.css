@@ -1,0 +1,67 @@
+
+.bloc {
+    padding: 20px;
+    background-color: grey;
+}
+
+.test {
+    width: 800px;
+    margin: 20px auto 0;
+    background-color: white;
+    padding: 20px;
+}
+
+.bulle {
+    background-color: #86bb71;
+    border-radius: 10px;
+    border-bottom-left-radius: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-top: 15px;
+    width: fit-content;
+    text-align: justify;
+    word-wrap: break-word;
+}
+.bulle:hover {
+    cursor: pointer;
+    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
+    background-color: #589241;
+}
+
+.conv {
+    border-radius: 1.15rem;
+    line-height: 1.25;
+    padding: 0.5rem .875rem;
+    position: relative;
+    word-wrap: break-word;
+    align-items: flex-start;
+    background-color: #86bb71;
+    color: #000;
+    margin: 0.5rem 0;
+    width: fit-content;
+}
+.conv::before, .conv::after {
+    bottom: -0.1rem;
+    content: "";
+    height: 1rem;
+    position: absolute;
+}
+.conv:before {
+    border-bottom-right-radius: 0.8rem 0.7rem;
+    border-left: 1rem solid #86bb71;
+    left: -0.35rem;
+    transform: translate(0, -0.1rem);
+}
+.conv::after {
+    background-color: #fff;
+    border-bottom-right-radius: 0.5rem;
+    left: 20px;
+    transform: translate(-30px, -2px);
+    width: 10px;
+}
+.conv:hover {
+    background-color: #589241;
+}
+.conv:hover::before {
+    border-left-color: #589241;
+}
