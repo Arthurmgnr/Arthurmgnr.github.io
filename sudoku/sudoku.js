@@ -369,6 +369,14 @@ function start() {
     isRunning = false;
     startTimer();
 
+    const dimension = Math.floor(parseInt(document.querySelector(".content").offsetWidth) / 9);
+    const cellules = document.querySelectorAll("td");
+    var cpt = 0;
+    cellules.forEach(cellule => {
+        cellule.style.height = dimension + "px";
+        cellule.style.width = dimension + "px";
+    });
+
     setGrid();
     fillGrid();
 };
