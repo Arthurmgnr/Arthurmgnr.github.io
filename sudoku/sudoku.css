@@ -230,3 +230,7 @@ td:nth-child(9) {
 .hidden {
     display: none;
 }
+.cache {
+    opacity: 0;
+    pointer-events: none;
+}
