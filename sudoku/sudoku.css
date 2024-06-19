@@ -1,0 +1,227 @@
+
+:root {
+    --border-black: solid 3px black;
+    --border-black: solid 3px rgb(49, 52, 61);
+    --border-grey: solid 1px grey;
+    --border-grey: solid 1px rgb(183, 191, 208);
+
+    --background-grey: rgb(220, 230, 240);
+    --background-blue: rgb(164, 215, 254);
+    --background-dark-grey: rgb(183, 205, 229);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.joueur {
+    margin-top: 2rem;
+    font-size: large;
+    display: flex;
+    align-items: center;
+}
+input[type="text"] {
+    margin-left: 1rem;
+    font-size: large;
+    width: 5rem;
+    text-align: center;
+}
+
+.bouton {
+    font-size: xx-large;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    background-color: dodgerblue;
+    border: solid 3px dodgerblue;
+    color: white;
+    width: fit-content;
+    cursor: pointer;
+}
+.bouton:hover {
+    background-color: transparent;
+    color: dodgerblue;
+}
+
+.entete {
+    display: flex;
+    justify-content: space-around;
+}
+.entete-elt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.entete-contenu {
+    font-weight: bold;
+}
+.entete-temps {
+    display: flex;
+    align-items: center;
+}
+.entete-temps-icon {
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+table {
+    margin: 30px 0;
+    font-size: xx-large;
+    border-collapse: collapse;
+    text-align: center;
+    cursor: pointer;
+}
+td {
+    border: var(--border-grey);
+    width: 50px;
+    height: 50px;
+}
+tr:nth-child(1) td,
+tr:nth-child(4) td,
+tr:nth-child(7) td {
+    border-top: var(--border-black);
+}
+tr:nth-child(9) td {
+    border-bottom: var(--border-black);
+}
+td:nth-child(1),
+td:nth-child(4),
+td:nth-child(7) {
+    border-left: var(--border-black);
+}
+td:nth-child(9) {
+    border-right: var(--border-black);
+}
+.case-active {
+    background-color: var(--background-blue);
+}
+.case-meme-ligne-colonne-carre {
+    background-color: var(--background-grey);
+}
+.case-meme-chiffre {
+    background-color: var(--background-dark-grey);
+}
+.chiffre-trouve {
+    color: rgb(43, 71, 159);
+}
+.erreur {
+    color: red;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+.button-digit {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: xx-large;
+    /* font-weight: bold; */
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.75rem;
+}
+.button-digit:hover, .button-digit:active {
+    background-color: grey;
+}
+
+
+.alert-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+.perdu p {
+    text-align: center;
+}
+.alert-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+}
+.alert-content h1 {
+    text-align: center;
+    color: dodgerblue;
+}
+.alert-content .bouton {
+    margin: auto;
+}
+.alert-content p {
+    margin: 1rem 0;
+    font-size: x-large;
+}
+.alert-content p:first-of-type {
+    margin-top: 2rem;
+}
+.alert-content p:last-of-type {
+    margin-bottom: 2rem;
+}
+.alert-content ul {
+    list-style-type: none;
+    padding-left: 3rem;
+    font-size: large;
+    margin-top: -0.5rem;
+}
+.alert-content ul li::before {
+    content: "-";
+    position: absolute;
+    margin-left: -1rem;
+}
+
+
+/* .bouton-notes {
+    position: relative;
+}
+.note {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    border-radius: 10px;
+    padding: 2px 5px;
+    font-weight: bold;
+    color: white;
+    z-index: 2;
+}
+.note-active {
+    background-color: dodgerblue;
+}
+.note-desactive {
+    background-color: rgb(173, 173, 173);
+}
+
+.test {
+    color: green;
+} */
+
+
+
+.disabled {
+    pointer-events: none;
+}
+.hidden {
+    display: none;
+}
