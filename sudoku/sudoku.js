@@ -626,6 +626,13 @@ function clearGrid() {
     });
 };
 
+function showBackground(elt) {
+    elt.classList.add("button-digit-background");
+};
+
+function hideBackground(elt) {
+    elt.classList.remove("button-digit-background");
+};
 
 // function effacerChiffre() {
 //     const caseActive = document.querySelector(".case-active");

@@ -147,7 +147,7 @@ td:nth-child(9) {
     padding: 0.25rem 0.5rem;
     border-radius: 0.75rem;
 }
-.button-digit:hover, .button-digit:active {
+.button-digit-background {
     background-color: grey;
 }
 
