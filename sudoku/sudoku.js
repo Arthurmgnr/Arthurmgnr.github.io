@@ -512,7 +512,7 @@ function setGrid() {
     //     "88": {"etat": "", "valeur": 9}
     // };
 
-    const grid = {
+    grid = {
         "00": {"etat": "initial", "valeur": 6},
         "01": {"etat": "", "valeur": 8},
         "02": {"etat": "", "valeur": 3},
