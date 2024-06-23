@@ -203,30 +203,31 @@ function finPartie() {
         let messageContent = `${joueur} a gagné !`;
 
         let nbVetements;
+        let autreJoueur = joueur == "Arthur" ? "Estelle" : "Arthur";
         if (joueur == "Arthur") {
-            nbVetements = Math.min(5, Math.floor(elapsedTime/50));
+            nbVetements = Math.min(6, Math.floor(elapsedTime/50));
             messageContent += "\n\nVêtements :";
             switch (nbVetements) {
                 case 0:
-                    messageContent += `\n${joueur}, tu ne dois pas enfiler de vêtements.`;
+                    messageContent += `\n${autreJoueur}, tu ne dois pas enfiler de vêtements.`;
                     break;
                 case 1:
-                    messageContent += `\n${joueur}, tu dois enfiler : Chaussette droite.`;
+                    messageContent += `\n${autreJoueur}, tu dois enfiler : Chaussette droite.`;
                     break;
                 case 2:
-                    messageContent += `\n${joueur}, tu dois enfiler : Chaussette droite et Chaussette gauche.`;
+                    messageContent += `\n${autreJoueur}, tu dois enfiler : Chaussette droite et Chaussette gauche.`;
                     break;
                 case 3:
-                    messageContent += `\n${joueur}, tu dois enfiler : Chaussette droite, Chaussette gauche et Culotte.`;
+                    messageContent += `\n${autreJoueur}, tu dois enfiler : Chaussette droite, Chaussette gauche et Culotte.`;
                     break;
                 case 4:
-                    messageContent += `\n${joueur}, tu dois enfiler : Chaussette droite, Chaussette gauche, Culotte et Soutien-gorge.`;
+                    messageContent += `\n${autreJoueur}, tu dois enfiler : Chaussette droite, Chaussette gauche, Culotte et Soutien-gorge.`;
                     break;
                 case 5:
-                    messageContent += `\n${joueur}, tu dois enfiler : Chaussette droite, Chaussette gauche, Culotte, Soutien-gorge et Pantalon.`;
+                    messageContent += `\n${autreJoueur}, tu dois enfiler : Chaussette droite, Chaussette gauche, Culotte, Soutien-gorge et Pantalon.`;
                     break;
                 case 6:
-                    messageContent += `\n${joueur}, tu dois enfiler : Chaussette droite, Chaussette gauche, Culotte, Soutien-gorge, Pantalon et T-Shirt.`;
+                    messageContent += `\n${autreJoueur}, tu dois enfiler : Chaussette droite, Chaussette gauche, Culotte, Soutien-gorge, Pantalon et T-Shirt.`;
                     break;
             }
         } else {
@@ -234,22 +235,22 @@ function finPartie() {
             messageContent += "\n\nVêtements :";
             switch (nbVetements) {
                 case 0:
-                    messageContent += `\n${joueur}, tu ne dois pas enfiler de vêtements.`;
+                    messageContent += `\n${autreJoueur}, tu ne dois pas enfiler de vêtements.`;
                     break;
                 case 1:
-                    messageContent += `\n${joueur}, tu dois enfiler : Chaussette droite.`;
+                    messageContent += `\n${autreJoueur}, tu dois enfiler : Chaussette droite.`;
                     break;
                 case 2:
-                    messageContent += `\n${joueur}, tu dois enfiler : Chaussette droite et Chaussette gauche.`;
+                    messageContent += `\n${autreJoueur}, tu dois enfiler : Chaussette droite et Chaussette gauche.`;
                     break;
                 case 3:
-                    messageContent += `\n${joueur}, tu dois enfiler : Chaussette droite, Chaussette gauche et Caleçon.`;
+                    messageContent += `\n${autreJoueur}, tu dois enfiler : Chaussette droite, Chaussette gauche et Caleçon.`;
                     break;
                 case 4:
-                    messageContent += `\n${joueur}, tu dois enfiler : Chaussette droite, Chaussette gauche, Caleçon et Pantalon.`;
+                    messageContent += `\n${autreJoueur}, tu dois enfiler : Chaussette droite, Chaussette gauche, Caleçon et Pantalon.`;
                     break;
                 case 5:
-                    messageContent += `\n${joueur}, tu dois enfiler : Chaussette droite, Chaussette gauche, Caleçon, Pantalon et T-Shirt.`;
+                    messageContent += `\n${autreJoueur}, tu dois enfiler : Chaussette droite, Chaussette gauche, Caleçon, Pantalon et T-Shirt.`;
                     break;
             }
         }
@@ -373,7 +374,7 @@ function start() {
     document.querySelector(".ul-gages").classList.add("hidden");
 
     const tempJoueur = document.querySelector("#joueur").value;
-    joueur = tempJoueur.charAt(0).toUpperCase() + tempJoueur.slice(1);
+    joueur = tempJoueur.charAt(0).toUpperCase() + tempJoueur.slice(1).toLowerCase();
 
     partieFinie = false;
     partiePerdu = false;
