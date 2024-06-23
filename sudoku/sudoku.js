@@ -95,8 +95,7 @@ let tempCase;
 let joueur;
 let adresseMail = {
     "Arthur": "arthur.mgnr@gmail.com",
-    "Estelle": "arthur.mgnr@gmail.com"
-    // "Estelle": "monvoisin.estelle3@gmail.com"
+    "Estelle": "monvoisin.estelle3@gmail.com"
 };
 // let vetementsArthur = [];
 // let vetementsEstelle = [];
