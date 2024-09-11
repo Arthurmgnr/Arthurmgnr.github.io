@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDT</title>
+    <link href="edt.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+    <body>
+        <h1>Emploi du temps</h1>
+
+        <!-- <div class="switch-container">
+            <div class="switch-text">Jour</div>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <div class="switch-text">Semaine</div>
+        </div> -->
+
+        <div class="container">
+            <div class="entete">
+                <button id="previous">
+                    <span class="material-symbols-outlined">
+                        chevron_left
+                    </span>
+                </button>
+                <span>Lundi 12 septembre</span>
+                <button id="next">
+                    <span class="material-symbols-outlined">
+                        chevron_right
+                    </span>
+                </button>
+            </div>
+            <div class="edt">
+                <div class="edt-horraires">
+                    <span num="8">8h</span>
+                    <span num="9">9h</span>
+                    <span num="10">10h</span>
+                    <span num="11">11h</span>
+                    <span num="12">12h</span>
+                    <span num="13">13h</span>
+                    <span num="14">14h</span>
+                    <span num="15">15h</span>
+                    <span num="16">16h</span>
+                    <span num="17">17h</span>
+                    <span num="18">18h</span>
+                    <span num="19">19h</span>
+                    <span num="20">20h</span>
+                </div>
+                <div class="edt-cours">
+                    <div cours="1">
+                        <div class="intitule"></div>
+                        <div class="prof"></div>
+                        <div class="salle"></div>
+                        <div class="numero"></div>
+                    </div>
+                    <div cours="2">
+                        <div class="intitule"></div>
+                        <div class="prof"></div>
+                        <div class="salle"></div>
+                        <div class="numero"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="container">
+            <div class="semaine"></div>
+        </div> -->
+        
+        <!-- <div class="container">
+            <div class="mois"></div>
+        </div> -->
+
+        <script src="edt.js"></script>
+    </body>
+</html>
