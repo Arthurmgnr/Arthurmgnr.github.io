@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier des Congés</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #C9C9C9; }
+        .header { display: flex; align-items: center; justify-content: space-evenly; margin-top: 20px; }
+        h1 { color: #227D48; margin: 0; }
+        .year-container { display: flex; align-items: center; gap: 1rem; }
+        .year { all: inherit; }
+        #year { font-size: inherit; background-color: inherit; font-weight: inherit; color: inherit; }
+        /* .calendar-container { display: flex; flex-wrap: wrap; justify-content: center; width: 90%; margin: 20px auto; gap: 10px; } */
+        /* .month:not(:last-child) { margin-right: 10px; } */
+        .calendar-container { display: grid; grid-template-columns: repeat(12, 1fr); width: 90%; gap: 10px; margin: 20px auto; }
+        .month-title { font-weight: bold; font-size: large; padding: 10px 0; background-color: #227D48; color: #fff; }
+        .day { display: flex; justify-content: flex-start; border-bottom: 1px solid #ddd; background-color: #fff; align-items: center; }
+        .weekend { background-color: #D3F9D8; }
+        .holiday { background-color: #F5B084; }
+        .Q2 { background-color: #FFFF00; }
+        .CP2 { background-color: #4C93D9; }
+        .Q1 { background-color: #D86DCD; }
+        /* .CP1 { background-color: #FE3B68; } */
+        /* select { margin-left: 10px; } */
+        .dayTable { border-collapse: collapse; width: 100%; }
+        .dayTable tr { min-height: 1.5rem; max-height: 1.5rem; }
+        .dayTable td:nth-child(1) { width: 20%; } /* Colonne "Jour" */
+        .dayTable td:nth-child(2) { width: 20%; } /* Colonne "Date" */
+        .dayTable td:nth-child(3) { width: 60%; } /* Colonne "Type de congé" */
+        .summary { margin-top: 50px; }
+        .congesSummary { margin-top: 20px; margin-bottom: 50vh; font-size: x-large; }
+        input[id^="total"] { font-size: inherit; border-color: inherit; background-color: inherit; max-width: 3rem; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title-container">
+            <h1>Calendrier des Congés</h1>
+        </div>
+        <div class="year-container">
+            <h1><label class="year" for="year">Année</label></h1>
+            <h1><input type="number" id="year" value="2025" min="2000" max="2100" onchange="generateCalendar()"></h1>
+        </div>
+    </div>
+    
+    <div id="calendar" class="calendar-container"></div>
+    
+    <div class="summary">
+        <h1>Résumé des Congés</h1>
+        <table class="congesSummary" border="1" width="50%" align="center">
+            <tr>
+                <th>Catégorie</th>
+                <th>CP2</th>
+                <th>Q1</th>
+                <th>Q2</th>
+                <th>Total</th>
+            </tr>
+            <tr>
+                <th>Possibles</th>
+                <td><input type="number" id="totalCP2" value="0" min="0" max="50" onchange="updateSummary()"></td>
+                <td><input type="number" id="totalQ1" value="0" min="0" max="50" onchange="updateSummary()"></td>
+                <td><input type="number" id="totalQ2" value="0" min="0" max="50" onchange="updateSummary()"></td>
+                <td id="totalAll">0</td>
+            </tr>
+            <tr>
+                <th>Posés</th>
+                <td id="usedCP2">0</td>
+                <td id="usedQ1">0</td>
+                <td id="usedQ2">0</td>
+                <td id="usedAll">0</td>
+            </tr>
+            <tr>
+                <th>Reste</th>
+                <td id="remainingCP2">0</td>
+                <td id="remainingQ1">0</td>
+                <td id="remainingQ2">0</td>
+                <td id="remainingAll">0</td>
+            </tr>
+
+            <!-- <tr>
+                <th>Type</th><th>Total</th><th>Pris</th><th>Restant</th>
+            </tr> -->
+            <!-- <tr><td>CP1</td><td><input type="number" id="totalCP1" value="10" onchange="updateSummary()"></td><td id="usedCP1">0</td><td id="remainingCP1">10</td></tr>
+            <tr><td>CP2</td><td><input type="number" id="totalCP2" value="10" onchange="updateSummary()"></td><td id="usedCP2">0</td><td id="remainingCP2">10</td></tr>
+            <tr><td>Q1</td><td><input type="number" id="totalQ1" value="5" onchange="updateSummary()"></td><td id="usedQ1">0</td><td id="remainingQ1">5</td></tr>
+            <tr><td>Q2</td><td><input type="number" id="totalQ2" value="5" onchange="updateSummary()"></td><td id="usedQ2">0</td><td id="remainingQ2">5</td></tr>
+            <tr><td>Total</td><td id="totalAll">30</td><td id="usedAll">0</td><td id="remainingAll">30</td></tr> -->
+        </table>
+    </div>
+
+    <script>
+        let selectedDays = {};
+
+        function getEasterDate(year) {
+            let a = year % 19;
+            let b = Math.floor(year / 100);
+            let c = year % 100;
+            let d = Math.floor(b / 4);
+            let e = b % 4;
+            let f = Math.floor((b + 8) / 25);
+            let g = Math.floor((b - f + 1) / 3);
+            let h = (19 * a + b - d - g + 15) % 30;
+            let i = Math.floor(c / 4);
+            let k = c % 4;
+            let l = (32 + 2 * e + 2 * i - h - k) % 7;
+            let m = Math.floor((a + 11 * h + 22 * l) / 451);
+            let month = Math.floor((h + l - 7 * m + 114) / 31);
+            let day = ((h + l - 7 * m + 114) % 31) + 1;
+            return new Date(year, month - 1, day);
+        }
+
+        function formatDate(date) {
+            return date.toISOString().split('T')[0];
+        }
+
+        function getLundiPaques(year) {
+            let easter = getEasterDate(year);
+            let lundiPaques = new Date(easter);
+            lundiPaques.setDate(easter.getDate() + 1);
+            return lundiPaques;
+        }
+
+        function getJeudiAscension(year) {
+            let easter = getEasterDate(year);
+            let jeudiAscension = new Date(easter);
+            jeudiAscension.setDate(easter.getDate() + 39);
+            return jeudiAscension;
+        }
+
+        function getLundiPentecote(year) {
+            let easter = getEasterDate(year);
+            let lundiPentecote = new Date(easter);
+            lundiPentecote.setDate(easter.getDate() + 50);
+            return lundiPentecote;
+        }
+
+        function getRealDay(day) {
+            return (day + 6) % 7;
+        }
+
+        function generateCalendar() {
+            const year = document.getElementById("year").value;
+            const holidays = [
+                formatDate(new Date(year, 0, 1)),       // 1er Janvier
+                formatDate(new Date(year, 4, 1)),       // 1er Mai
+                formatDate(new Date(year, 4, 8)),       // 8 Mai
+                formatDate(new Date(year, 6, 14)),      // 14 Juillet
+                formatDate(new Date(year, 7, 15)),      // 15 Août
+                formatDate(new Date(year, 10, 11)),     // 11 Novembre
+                formatDate(new Date(year, 11, 25)),     // 25 Décembre
+                formatDate(getLundiPaques(year)),       // Lundi de Paques
+                formatDate(getJeudiAscension(year)),    // Jeudi de l'Ascension
+                formatDate(getLundiPentecote(year))     // Lundi de Pentecote
+            ];
+
+            const calendar = document.getElementById("calendar");
+            calendar.innerHTML = "";
+            const monthNames = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+            const dayNames = ["L", "M", "M", "J", "V", "S", "D"];
+
+            for (let month = 0; month < 12; month++) {
+                let monthDiv = document.createElement("div");
+                monthDiv.className = "month";
+                monthDiv.innerHTML = `<div class='month-title'>${monthNames[month]}</div>`;
+                
+                let dayTable = document.createElement("table");
+                dayTable.classList.add("dayTable");
+                for (let day = 1; day <= 31; day++) {
+                    let dayTr = document.createElement("tr");
+                    dayTr.className = "day";
+
+                    let date = new Date(year, month, day);
+                    if (date.getMonth() !== month) break;
+                    
+                    // let dayDiv = document.createElement("div");
+                    // dayDiv.className = "day";
+                    let dayOfWeek = dayNames[getRealDay(date.getDay())];
+
+                    let dayNumber = document.createElement("td");
+                    dayNumber.classList.add("number");
+                    dayNumber.innerText = `${dayOfWeek}`;
+
+                    let dayLetter = document.createElement("td");
+                    dayLetter.classList.add("letter");
+                    dayLetter.innerText = `${day}`;
+
+                    dayTr.appendChild(dayNumber);
+                    dayTr.appendChild(dayLetter);
+                    
+                    if (getRealDay(date.getDay()) === 5 || getRealDay(date.getDay()) === 6) dayTr.classList.add("weekend");
+                    if (holidays.includes(date.toISOString().split('T')[0])) dayTr.classList.add("holiday");
+
+                    if (!dayTr.classList.contains("weekend") && !dayTr.classList.contains("holiday")) {
+                        let td = document.createElement("td");
+                        let daySelect = document.createElement("select");
+                        // let options = ["-", "CP1", "CP2", "Q1", "Q2"];
+                        let options = ["-", "CP2", "Q1", "Q2"];
+                        options.forEach((text) => {
+                            let option = document.createElement("option");
+                            option.value = text;
+                            option.textContent = text;
+                            daySelect.appendChild(option);
+                        });
+                        daySelect.onchange = function () { selectLeave(date.toISOString().split('T')[0], this, dayTr) };
+                        td.appendChild(daySelect)
+                        dayTr.appendChild(td);
+                    }
+                    dayTable.appendChild(dayTr);
+                    monthDiv.appendChild(dayTable);
+                }
+                calendar.appendChild(monthDiv);
+            }
+        }
+        
+        function selectLeave(date, select, day) {
+            selectedDays[date] = select.value;
+            day.className = "day";
+            day.classList.add(select.value);
+            updateSummary();
+        }
+
+        function updateSummary() {
+            // let totals = { "CP1": 0, "CP2": 0, "Q1": 0, "Q2": 0 };
+            let totals = { "CP2": 0, "Q1": 0, "Q2": 0 };
+            Object.values(selectedDays).forEach(type => { if (type) totals[type]++; });
+            
+            let allUsed = 0;
+            // for (let type of ["CP1", "CP2", "Q1", "Q2"]) {
+            for (let type of ["CP2", "Q1", "Q2"]) {
+                document.getElementById(`used${type}`).innerText = totals[type];
+                let total = parseInt(document.getElementById(`total${type}`).value);
+                document.getElementById(`remaining${type}`).innerText = total - totals[type];
+                allUsed += totals[type];
+            }
+            
+            // let totalAll = parseInt(document.getElementById("totalCP1").value) + 
+            let totalAll = parseInt(document.getElementById("totalCP2").value) + 
+                           parseInt(document.getElementById("totalQ1").value) + 
+                           parseInt(document.getElementById("totalQ2").value);
+            document.getElementById("totalAll").innerText = totalAll;
+            document.getElementById("usedAll").innerText = allUsed;
+            document.getElementById("remainingAll").innerText = totalAll - allUsed;
+        }
+
+        generateCalendar();
+    </script>
+</body>
+</html>
