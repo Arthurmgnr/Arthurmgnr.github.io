@@ -18,19 +18,25 @@
         .day { display: flex; justify-content: flex-start; border-bottom: 1px solid #ddd; background-color: #fff; align-items: center; }
         .weekend { background-color: #D3F9D8; }
         .holiday { background-color: #F5B084; }
-        .Q2 { background-color: #FFFF00; }
-        .CP2 { background-color: #4C93D9; }
-        .Q1 { background-color: #D86DCD; }
+        .congeQ2 { background-color: #FFFF00; }
+        .congeCP2 { background-color: #4C93D9; }
+        .congeQ1 { background-color: #D86DCD; }
         /* .CP1 { background-color: #FE3B68; } */
         /* select { margin-left: 10px; } */
         .dayTable { border-collapse: collapse; width: 100%; }
         .dayTable tr { min-height: 1.5rem; max-height: 1.5rem; }
-        .dayTable td:nth-child(1) { width: 20%; } /* Colonne "Jour" */
-        .dayTable td:nth-child(2) { width: 20%; } /* Colonne "Date" */
-        .dayTable td:nth-child(3) { width: 60%; } /* Colonne "Type de congé" */
+        .dayTable td:nth-child(1) { width: 20%; }
+        .dayTable td:nth-child(2) { width: 20%; }
+        .dayTable td:nth-child(3) { width: 60%; }
         .summary { margin-top: 50px; }
         .congesSummary { margin-top: 20px; margin-bottom: 50vh; font-size: x-large; }
-        input[id^="total"] { font-size: inherit; border-color: inherit; background-color: inherit; max-width: 3rem; }
+        input[id^="total"] { font-size: inherit; background-color: inherit; min-width: 4rem; max-width: 4rem; text-align: center; }
+        input[id^="conge"] { vertical-align: middle; }
+
+        .saveConge { width: 50%; margin: 20px auto; display: flex; justify-content: space-evenly; }
+        button { font-size: x-large; font-weight: bold; padding: 0.5rem 1rem; border-radius: 0.75rem; background-color: dodgerblue;
+                    border: solid 3px dodgerblue; color: white; width: fit-content; min-width: 10rem; cursor: pointer; }
+        button:hover { background-color: transparent; color: dodgerblue; }
     </style>
 </head>
 <body>
@@ -43,6 +49,11 @@
             <h1><input type="number" id="year" value="2025" min="2000" max="2100" onchange="generateCalendar()"></h1>
         </div>
     </div>
+
+    <div class="saveConge">
+        <button onclick="saveDays()" title="Sauvegarder les jours de congés de l'année en cours">Save</button>
+        <button onclick="deleteDays()" title="Supprimer les jours de congés de l'année en cours">Delete</button>
+    </div>
     
     <div id="calendar" class="calendar-container"></div>
     
@@ -51,16 +62,16 @@
         <table class="congesSummary" border="1" width="50%" align="center">
             <tr>
                 <th>Catégorie</th>
-                <th>CP2</th>
-                <th>Q1</th>
-                <th>Q2</th>
+                <th>CP2 <input type="checkbox" name="congeCP2" id="congeCP2" onclick="setCongeActif(this)"></th>
+                <th>Q1 <input type="checkbox" name="congeQ1" id="congeQ1" onclick="setCongeActif(this)"></th>
+                <th>Q2 <input type="checkbox" name="congeQ2" id="congeQ2" onclick="setCongeActif(this)"></th>
                 <th>Total</th>
             </tr>
             <tr>
                 <th>Possibles</th>
-                <td><input type="number" id="totalCP2" value="0" min="0" max="50" onchange="updateSummary()"></td>
-                <td><input type="number" id="totalQ1" value="0" min="0" max="50" onchange="updateSummary()"></td>
-                <td><input type="number" id="totalQ2" value="0" min="0" max="50" onchange="updateSummary()"></td>
+                <td><input value="10" type="number" id="totalCP2" value="0" min="0" max="50" onchange="updateSummary()"></td>
+                <td><input value="10" type="number" id="totalQ1" value="0" min="0" max="50" onchange="updateSummary()"></td>
+                <td><input value="10" type="number" id="totalQ2" value="0" min="0" max="50" onchange="updateSummary()"></td>
                 <td id="totalAll">0</td>
             </tr>
             <tr>
@@ -77,20 +88,51 @@
                 <td id="remainingQ2">0</td>
                 <td id="remainingAll">0</td>
             </tr>
-
-            <!-- <tr>
-                <th>Type</th><th>Total</th><th>Pris</th><th>Restant</th>
-            </tr> -->
-            <!-- <tr><td>CP1</td><td><input type="number" id="totalCP1" value="10" onchange="updateSummary()"></td><td id="usedCP1">0</td><td id="remainingCP1">10</td></tr>
-            <tr><td>CP2</td><td><input type="number" id="totalCP2" value="10" onchange="updateSummary()"></td><td id="usedCP2">0</td><td id="remainingCP2">10</td></tr>
-            <tr><td>Q1</td><td><input type="number" id="totalQ1" value="5" onchange="updateSummary()"></td><td id="usedQ1">0</td><td id="remainingQ1">5</td></tr>
-            <tr><td>Q2</td><td><input type="number" id="totalQ2" value="5" onchange="updateSummary()"></td><td id="usedQ2">0</td><td id="remainingQ2">5</td></tr>
-            <tr><td>Total</td><td id="totalAll">30</td><td id="usedAll">0</td><td id="remainingAll">30</td></tr> -->
         </table>
     </div>
 
     <script>
+        let year = document.getElementById("year").value;
+
         let selectedDays = {};
+
+        let congeActif = "";
+
+        let dicoConge = {
+            "congeCP2": "#4C93D9",
+            "congeQ1": "#D86DCD",
+            "congeQ2": "#FFFF00"
+        };
+
+        function setCongeActif(input) {
+            if (input.checked === true) congeActif = input.id;
+            else congeActif = "";
+            let congeAll = document.querySelectorAll("input[id^='conge']");
+            document.querySelectorAll("input[id^='conge']").forEach(conge => {
+                if (conge.id !== input.id) conge.checked = false;
+            });
+        }
+
+        function rgbToHex(rgb) {
+            const result = /^rgb\((\d+), (\d+), (\d+)\)$/.exec(rgb);
+            if (!result) return null;
+
+            return `#${(
+                1 << 24 |
+                (parseInt(result[1]) << 16) |
+                (parseInt(result[2]) << 8) |
+                parseInt(result[3])
+            ).toString(16).slice(1).toUpperCase()}`;
+        }
+
+        function setCongeDay(cell) {
+            if (cell.classList.contains(congeActif)) cell.classList.remove(congeActif);
+            else {
+                cell.classList = "day";
+                cell.classList.add(congeActif);
+            }
+            updateSummary();
+        }
 
         function getEasterDate(year) {
             let a = year % 19;
@@ -140,7 +182,11 @@
         }
 
         function generateCalendar() {
-            const year = document.getElementById("year").value;
+            let dicoDays = {};
+            let dico = JSON.parse(localStorage.getItem("conges")) || {};
+            if (year in dico) dicoDays = dico[year];
+
+            // const year = document.getElementById("year").value;
             const holidays = [
                 formatDate(new Date(year, 0, 1)),       // 1er Janvier
                 formatDate(new Date(year, 4, 1)),       // 1er Mai
@@ -168,7 +214,22 @@
                 dayTable.classList.add("dayTable");
                 for (let day = 1; day <= 31; day++) {
                     let dayTr = document.createElement("tr");
-                    dayTr.className = "day";
+                    let stringDay = `${year}-${month + 1}-${day}`;
+                    
+                    let test = false;
+                    let congeTmp;
+                    if (Object.keys(dicoDays).length > 0) {
+                        for (let conge of ["CP2", "Q2", "Q1"]) {
+                            if (dicoDays[conge].includes(stringDay)) {
+                                test = true;
+                                congeTmp = conge;
+                            }
+                        }
+                    }
+                    if (test) dayTr.classList = `day conge${congeTmp}`;
+                    else dayTr.className = "day";
+                    // dayTr.className = "day";
+                    dayTr.id = stringDay;
 
                     let date = new Date(year, month, day);
                     if (date.getMonth() !== month) break;
@@ -193,17 +254,17 @@
 
                     if (!dayTr.classList.contains("weekend") && !dayTr.classList.contains("holiday")) {
                         let td = document.createElement("td");
-                        let daySelect = document.createElement("select");
-                        // let options = ["-", "CP1", "CP2", "Q1", "Q2"];
-                        let options = ["-", "CP2", "Q1", "Q2"];
-                        options.forEach((text) => {
-                            let option = document.createElement("option");
-                            option.value = text;
-                            option.textContent = text;
-                            daySelect.appendChild(option);
-                        });
-                        daySelect.onchange = function () { selectLeave(date.toISOString().split('T')[0], this, dayTr) };
-                        td.appendChild(daySelect)
+                        // let daySelect = document.createElement("select");
+                        // let options = ["-", "CP2", "Q1", "Q2"];
+                        // options.forEach((text) => {
+                        //     let option = document.createElement("option");
+                        //     option.value = text;
+                        //     option.textContent = text;
+                        //     daySelect.appendChild(option);
+                        // });
+                        // daySelect.onchange = function () { selectLeave(date.toISOString().split('T')[0], this, dayTr) };
+                        // td.appendChild(daySelect);
+                        dayTr.onclick = function() { setCongeDay(this) };
                         dayTr.appendChild(td);
                     }
                     dayTable.appendChild(dayTr);
@@ -213,37 +274,66 @@
             }
         }
         
-        function selectLeave(date, select, day) {
-            selectedDays[date] = select.value;
-            day.className = "day";
-            day.classList.add(select.value);
+        // function selectLeave(date, select, day) {
+        //     selectedDays[date] = select.value;
+        //     day.className = "day";
+        //     day.classList.add(select.value);
+        //     updateSummary();
+        // }
+
+        function updateSummary() {
+            let totalTotal = 0;
+            document.querySelectorAll("input[id^='total']").forEach(elt => {
+                totalTotal += parseInt(elt.value);
+            })
+            document.getElementById("totalAll").innerText = totalTotal;
+
+            let totalSum = 0;
+            for (let conge of ["CP2", "Q1", "Q2"]) {
+                let totalConge = document.querySelectorAll(`.conge${conge}`).length;
+                document.getElementById(`used${conge}`).innerText = totalConge;
+                totalSum += totalConge;
+                document.getElementById(`remaining${conge}`).innerText = parseInt(document.getElementById(`total${conge}`).value) - totalConge;
+            }
+            document.getElementById("usedAll").innerText = totalSum;
+            document.getElementById("remainingAll").innerText = document.getElementById("totalAll").innerText - totalSum;
+        }
+
+        function saveDays() {
+            let d = {};
+            for(let conge of ["CP2", "Q1", "Q2"]) {
+                d[conge] = [];
+                document.querySelectorAll(`.conge${conge}`).forEach(elt => {
+                    d[conge].push(elt.id);
+                })
+            }
+            
+            let test = false;
+            for (let key in d) {
+                if (d[key].length > 0) test = true;
+            }
+            if (test) {
+                let dico = JSON.parse(localStorage.getItem("conges")) || {};
+                dico[year] = d;
+                localStorage.setItem("conges", JSON.stringify(dico));
+            }
+        }
+
+        function deleteDays() {
+            for(let conge of ["CP2", "Q1", "Q2"]) {
+                document.querySelectorAll(`.conge${conge}`).forEach(elt => {
+                    elt.classList = "day";
+                })
+            }
+            let dico = JSON.parse(localStorage.getItem("conges")) || {};
+            if (year in dico) delete dico[year];
+            if (Object.keys(dico).length !== 0) localStorage.setItem("conges", JSON.stringify(dico));
+            else localStorage.removeItem("conges");
             updateSummary();
         }
 
-        function updateSummary() {
-            // let totals = { "CP1": 0, "CP2": 0, "Q1": 0, "Q2": 0 };
-            let totals = { "CP2": 0, "Q1": 0, "Q2": 0 };
-            Object.values(selectedDays).forEach(type => { if (type) totals[type]++; });
-            
-            let allUsed = 0;
-            // for (let type of ["CP1", "CP2", "Q1", "Q2"]) {
-            for (let type of ["CP2", "Q1", "Q2"]) {
-                document.getElementById(`used${type}`).innerText = totals[type];
-                let total = parseInt(document.getElementById(`total${type}`).value);
-                document.getElementById(`remaining${type}`).innerText = total - totals[type];
-                allUsed += totals[type];
-            }
-            
-            // let totalAll = parseInt(document.getElementById("totalCP1").value) + 
-            let totalAll = parseInt(document.getElementById("totalCP2").value) + 
-                           parseInt(document.getElementById("totalQ1").value) + 
-                           parseInt(document.getElementById("totalQ2").value);
-            document.getElementById("totalAll").innerText = totalAll;
-            document.getElementById("usedAll").innerText = allUsed;
-            document.getElementById("remainingAll").innerText = totalAll - allUsed;
-        }
-
         generateCalendar();
+        updateSummary();
     </script>
 </body>
 </html>
