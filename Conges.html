@@ -4,27 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendrier des Congés</title>
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=add" /> -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; background-color: #C9C9C9; }
         .header { display: flex; align-items: center; justify-content: space-evenly; margin-top: 20px; }
         h1 { color: #227D48; margin: 0; }
         .year-container { display: flex; align-items: center; gap: 1rem; }
         .year { all: inherit; }
-        #year { font-size: inherit; background-color: inherit; font-weight: inherit; color: inherit; }
-        /* .calendar-container { display: flex; flex-wrap: wrap; justify-content: center; width: 90%; margin: 20px auto; gap: 10px; } */
-        /* .month:not(:last-child) { margin-right: 10px; } */
+        #year { font-size: inherit; background-color: inherit; font-weight: inherit; color: inherit; min-width: 8rem; max-width: 8rem; text-align: center; }
         .calendar-container { display: grid; grid-template-columns: repeat(12, 1fr); width: 90%; gap: 10px; margin: 20px auto; }
         .month-title { font-weight: bold; font-size: large; padding: 10px 0; background-color: #227D48; color: #fff; }
         .day { display: flex; justify-content: flex-start; border-bottom: 1px solid #ddd; background-color: #fff; align-items: center; }
         .weekend { background-color: #D3F9D8; }
         .holiday { background-color: #F5B084; }
-        .congeQ2 { background-color: #FFFF00; }
-        .congeCP2 { background-color: #4C93D9; }
-        .congeQ1 { background-color: #D86DCD; }
-        /* .CP1 { background-color: #FE3B68; } */
-        /* select { margin-left: 10px; } */
         .dayTable { border-collapse: collapse; width: 100%; }
         .dayTable tr { min-height: 1.5rem; max-height: 1.5rem; }
         .dayTable td:nth-child(1) { width: 20%; }
@@ -36,21 +28,36 @@
         .congesSummary th, .congesSummary td { padding: 20px; border: solid 1px; }
         .congesSummary th.noBorder, .congesSummary td.noBorder { border: none; }
         input[id^="total"] { font-size: inherit; background-color: inherit; min-width: 4rem; max-width: 4rem; text-align: center; }
-        input[id^="conge"] { vertical-align: middle; }
-        .summary .buttonCategory { width: fit-content; min-width: fit-content; }
+        .congesSummary input[type="text"] { font-size: inherit; text-align: center; background-color: inherit; }
+        .noBorder { display: flex; gap: 10px; }
+        input[type="color"] { width: 30px; height: 30px; border: none; background: none; padding: 0; cursor: pointer; vertical-align: middle; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
 
         .saveConge { width: 50%; margin: 20px auto; display: flex; justify-content: space-evenly; }
-        button { font-size: x-large; font-weight: bold; padding: 0.5rem 1rem; border-radius: 0.75rem; background-color: dodgerblue;
-                    border: solid 3px dodgerblue; color: white; width: fit-content; min-width: 10rem; cursor: pointer; }
-        button:hover { background-color: transparent; color: dodgerblue; }
         
         .selection { width: 90%; display: flex; margin: 20px auto; justify-content: space-evenly; }
-        .selectionConge { font-size: x-large; font-weight: bold; cursor: pointer; padding: 2px; }
-        .selectionCongeSelected { background-color: yellow; }
-        /* .selectionCongeSelected { animation: t 2s ease-out; }
-        @keyframes t { from { background-color: yellow; } to { background-color: transparent; } } */
+        .selectionConge { font-size: x-large; font-weight: bold; cursor: pointer; padding: 10px 15px; border-radius: 0.75rem; }
 
         i.material-icons { font-weight: bold; }
+
+        button:not(.modal-button) { padding: 10px 15px; margin: 0 auto; border: none; cursor: pointer; border-radius: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-size: large; font-weight: bold; }
+        .save { background-color: #4CAF50; color: white; }
+        .delete { background-color: #f44336; color: white; }
+        .delete-category { background-color: #ff9800; color: white; }
+        .edit-category { background-color: #2196F3; color: white; }
+        .delete-category-days { background-color: #9C27B0; color: white; }
+        .add-category { background-color: #8BC34A; color: white; }
+
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.3); justify-content: center; align-items: center; }
+        .modal-content { width: 60%; background: white; padding: 20px; border-radius: 1.5rem; text-align: center; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); font-size: large; }
+        .modal-button-container { display: flex; justify-content: space-around; }/** padding: 20px ; border-top: solid 1px gray; }**/
+        .modal-button-group-right { display: flex; }
+        .modal-button { margin: 10px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: inherit; transition: background 0.3s ease; }
+        .md-not-save { background-color: rgb(220, 53, 69); color: white; }
+        .md-not-save:hover { background-color: rgb(187, 45, 59); }
+        .md-cancel { background-color: rgb(108, 117, 125); color: black; }
+        .md-cancel:hover { background-color: rgb(92, 99, 106); }
+        .md-save { background-color: rgb(13, 110, 253); color: white; }
+        .md-save:hover { background-color: rgb(8, 94, 215); }
     </style>
 </head>
 <body>
@@ -60,20 +67,20 @@
         </div>
         <div class="year-container">
             <h1><label class="year" for="year">Année</label></h1>
-            <h1><input type="number" id="year" value="2025" min="2000" max="2100" onchange="generateCalendar()"></h1>
+            <h1><input type="number" id="year" min="2000" max="2100" onchange="changeYearValue()" onfocus="storeOldValue(this)"></h1>
         </div>
     </div>
 
     <div class="saveConge">
-        <button onclick="saveYear()" title="Sauvegarder les jours de congés de l'année en cours">Save</button>
-        <button onclick="deleteYear()" title="Supprimer les jours de congés de l'année en cours">Delete</button>
+        <button class="save" onclick="saveYear()" title="Sauvegarder les données de l'année en cours">
+            <span class="material-symbols-outlined">save</span>Enregistrer
+        </button>
+        <button class="delete" onclick="deleteYear()" title="Supprimer les jours de congés posés dans le calendrier de l'année en cours">
+            <span class="material-symbols-outlined">delete</span>Supprimer
+        </button>
     </div>
 
-    <div class="selection">
-        <div class="selectionConge" id="congeCP2" onclick="setCongeActif(this)">CP2</div>
-        <div class="selectionConge" id="congeQ2" onclick="setCongeActif(this)">Q2</div>
-        <div class="selectionConge" id="congeQ1" onclick="setCongeActif(this)">Q1</div>
-    </div>
+    <div class="selection"></div>
     
     <div id="calendar" class="calendar-container"></div>
     
@@ -82,38 +89,14 @@
         <table class="congesSummary" border="1" width="50%" align="center">
             <tbody>
                 <tr>
-                    <!-- <td class="noBorder"></td> -->
+                    <td class="noBorder"></td>
                     <th>Catégorie</th>
-                    <th>Nombre de jours possibles</th>
-                    <th>Nombre de jours posés</th>
-                    <th>Nombre de jours restants</th>
+                    <th>Nombre possibles</th>
+                    <th>Nombre posés</th>
+                    <th>Nombre restants</th>
                 </tr>
                 <tr>
-                    <!-- <td class="noBorder">
-                        <button class="buttonCategory" onclick="deleteCategory()"><i class="material-icons">delete</i></button>
-                        <button class="buttonCategory" onclick="updateCategory()"><i class="material-icons">edit</i></button>
-                    </td> -->
-                    <th>CP2</th>
-                    <td><input value="0" type="number" id="totalCP2" min="0" max="50" onchange="updateSummary()"></td>
-                    <td id="usedCP2">0</td>
-                    <td id="remainingCP2">0</td>
-                </tr>
-                <tr>
-                    <!-- <td class="noBorder"></td> -->
-                    <th>Q1</th>
-                    <td><input value="0" type="number" id="totalQ1" min="0" max="50" onchange="updateSummary()"></td>
-                    <td id="usedQ1">0</td>
-                    <td id="remainingQ1">0</td>
-                </tr>
-                <tr>
-                    <!-- <td class="noBorder"></td> -->
-                    <th>Q2</th>
-                    <td><input value="0" type="number" id="totalQ2" min="0" max="50" onchange="updateSummary()"></td>
-                    <td id="usedQ2">0</td>
-                    <td id="remainingQ2">0</td>
-                </tr>
-                <tr>
-                    <!-- <td class="noBorder"></td> -->
+                    <td class="noBorder"></td>
                     <th>Total</th>
                     <td id="totalAll">0</td>
                     <td id="usedAll">0</td>
@@ -121,13 +104,32 @@
                 </tr>
             </tbody>
         </table>
-        <!-- <button id="newCategorie" onclick="addCategory()">
-            <i class="material-icons" style="vertical-align: middle;">add</i> Add category
-        </button> -->
+        <button class="add-category" onclick="addCategory()" title="Ajouter une catégorie supplémentaire">
+            <span class="material-symbols-outlined">add_circle</span>Catégorie
+        </button>
     </div>
 
+    <div id="customConfirm" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">
+                <h2>Souhaitez-vous enregistrer vos modifications ?</h2>
+                <p>Vous pouvez choisir d’enregistrer vos modifications ou non. Vous ne pouvez pas annuler cette action.</p>
+                <p>Toute modification non enregistrée sera perdue.</p>
+            </div>
+            <div class="modal-button-container">
+                <div class="modal-button-group-left">
+                    <button class="modal-button md-not-save" onclick="confirmSave(false)">Ne pas enregistrer</button>
+                </div>
+                <div class="modal-button-group-right">
+                    <button class="modal-button md-cancel" onclick="confirmSave(false)">Annuler</button>
+                    <button class="modal-button md-save" onclick="confirmSave(true)">Enregister</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+
     <script>
-        let year = document.getElementById("year").value;
+        let year = "";
 
         let isDrawing = false;
 
@@ -135,86 +137,300 @@
 
         let dicoConge = {};
 
-        function addCategory() {
+        function generateColor() {
+            function randomHexColor() {
+                return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+            }
+
+            function isForbiddenColor(hex) {
+                // Convertir hex en RGB
+                const rgb = parseInt(hex.slice(1), 16);
+                const r = (rgb >> 16) & 0xff;
+                const g = (rgb >> 8) & 0xff;
+                const b = rgb & 0xff;
+
+                // Vérifier si la couleur est dans les tons gris (valeurs R, G, B proches)
+                const isGray = Math.abs(r - g) < 30 && Math.abs(g - b) < 30 && Math.abs(r - b) < 30;
+
+                // Vérifier si la couleur est verte (G dominant)
+                const isGreen = g > r && g > b;
+
+                // Vérifier si la couleur est blanche (toutes les composantes proches de 255)
+                const isWhite = r > 230 && g > 230 && b > 230;
+
+                // Vérifier si la couleur est orange (R élevé, G modéré, B faible)
+                const isOrange = r > 180 && g > 100 && b < 50;
+
+                return isGray || isGreen || isWhite || isOrange;
+            }
+
+            let newColor;
+            do {
+                newColor = randomHexColor();
+            } while (Object.values(dicoConge).includes(newColor) || isForbiddenColor(newColor));
+
+            return newColor.toUpperCase();
+        }
+
+        function addCategory1(conge, nb, color) {
+            // Ajout de la categorie dans le summary
             const tBody = document.querySelector("tbody");
-
             const tr = document.createElement("tr");
+            tr.id = "category";
 
-            const buttons = document.createElement("td");
-            buttons.classList = "noBorder";
-
-            const buttonDelete = document.createElement("button");
-            buttonDelete.classList = "buttonCategory";
-            buttonDelete.addEventListener("onclick", function() {
-                deleteCategory()
-            });
-            const iDelete = document.createElement("i");
-            iDelete.classList = "material-icons";
-            iDelete.innerText = "delete";
-            buttonDelete.appendChild(iDelete);
-            buttons.appendChild(buttonDelete);
-
-            const buttonEdit = document.createElement("button");
-            buttonEdit.classList = "buttonCategory";
-            buttonEdit.addEventListener("onclick", function() {
-                deleteCategory()
-            });
-            const iEdit = document.createElement("i");
-            iEdit.classList = "material-icons";
-            iEdit.innerText = "edit";
-            buttonEdit.appendChild(iEdit);
-            buttons.appendChild(buttonEdit);
-
-            tr.appendChild(buttons);
-
-            const category = document.createElement("th");
-            
-            const total = document.createElement("td");
-            const totalInput = document.createElement("input");
-            totalInput.value = "0";
-            totalInput.type = "number";
-            totalInput.min = "0";
-            totalInput.max = "50";
-            totalInput.id = "total";
-            totalInput.addEventListener("onchange", function() {
-                updateSummary();
-            });
-            total.appendChild(totalInput);
-            
-            const used = document.createElement("td");
-            used.id = "used";
-            
-            const remaining = document.createElement("td");
-            remaining.id = "remaining";
-
-            tr.appendChild(category);
-            tr.appendChild(total);
-            tr.appendChild(used);
-            tr.appendChild(remaining);
+            tr.innerHTML = `
+                <td class="noBorder">
+                    <button class="delete-category" onclick="deleteCategory(this)" title="Supprimer la catégorie ainsi que les jours posés dans le calendrier">
+                        <span class="material-symbols-outlined">do_not_disturb_on</span>Catégorie
+                    </button>
+                    <button class="edit-category" onclick="updateCategory(this)" title="Modifier le nom de la catégorie">
+                        <span class="material-symbols-outlined">edit</span>Catégorie
+                    </button>
+                </td>
+                <th>
+                    <span id="span">${conge}</span>&nbsp;
+                    <input id="category-color" type="color" value="${color}" onchange="setCongeColor(this)" title="Modifier la couleur de la catégorie">
+                </th>
+                <td><input value="${nb}" type="number" id="total${conge}" min="0" max="50" onchange="updateSummary()"></td>
+                <td id="used${conge}">0</td>
+                <td id="remaining${conge}">0</td>
+                <td class="noBorder">
+                    <button class="delete-category-days" onclick="deleteCongeCategory(this)" title="Supprimer les jours posés dans le calendrier appartenant à cette catégorie">
+                        <span class="material-symbols-outlined">ink_eraser</span>Congés
+                    </button>
+                </td>
+            `;
 
             tBody.insertBefore(tr, tBody.children[tBody.children.length - 1]);
+        }
+
+        function addCategory() {
+            // Ajout de la categorie dans le summary
+            const tBody = document.querySelector("tbody");
+            const tr = document.createElement("tr");
+            tr.id = "category";
+            const color = generateColor();
+
+            tr.innerHTML = `
+                <td class="noBorder">
+                    <button class="delete-category" onclick="deleteCategory(this)" title="Supprimer la catégorie ainsi que les jours posés dans le calendrier">
+                        <span class="material-symbols-outlined">do_not_disturb_on</span>Catégorie
+                    </button>
+                    <button class="edit-category" onclick="updateCategory(this)" title="Modifier le nom de la catégorie">
+                        <span class="material-symbols-outlined">edit</span>Catégorie
+                    </button>
+                </td>
+                <th>
+                    <span id="span"></span>&nbsp;
+                    <input id="category-color" type="color" value="${color}" onchange="setCongeColor(this)" title="Modifier la couleur de la catégorie">
+                </th>
+                <td><input value="0" type="number" id="total" min="0" max="50" onchange="updateSummary()"></td>
+                <td id="used">0</td>
+                <td id="remaining">0</td>
+                <td class="noBorder">
+                    <button class="delete-category-days" onclick="deleteCongeCategory(this)" title="Supprimer les jours posés dans le calendrier appartenant à cette catégorie">
+                        <span class="material-symbols-outlined">ink_eraser</span>Congés
+                    </button>
+                </td>
+            `;
+
+            tBody.insertBefore(tr, tBody.children[tBody.children.length - 1]);
+            updateCategory(tr.querySelectorAll("button")[1]);
+        }
+
+        function setCongeColor(input) {
+            const th = input.closest("th");
+            const conge = th.querySelector("span").innerText;
+            dicoConge[conge] = input.value;
+            createStyle(conge, dicoConge[conge]);
+        }
+
+        function createStyle(value, color) {
+            // const style = document.createElement("style");
+            // const style = document.querySelector("style");
+            // style.textContent += `.${value} { background-color: ${color}; }`;
+            // document.head.appendChild(style);
+            // console.log(document.styleSheets);
+            const sheet = document.styleSheets[1];
+            sheet.insertRule(`.${value} { background-color: ${color}; }`, sheet.cssRules.length);
+        }
+
+        function updateCategory(button) {
+            const tr = button.closest("tr");
             
-            console.log(tBody);
+            const span = tr.querySelector("#span");
+
+            let valeurActuelle = span.innerHTML.trim().length != 0 ? span.innerText.trim() : "";
+            let input = document.createElement("input");
+            input.type = "text";
+            input.value = valeurActuelle;
+
+            input.onblur = function(event) {
+                updateCategoryFactorized(event, input, span, tr, valeurActuelle);
+            };
+            input.onkeypress = function(event) {
+                if (event.key === "Enter") {
+                    updateCategoryFactorized(event, input, span, tr, valeurActuelle);
+                }
+            };
+
+            span.innerHTML = "";
+            span.appendChild(input);
+            input.focus();
         }
 
-        function updateCategory() {
+        function updateCategoryFactorized(event, input, span, tr, valeurActuelle) {
+            let newValue = input.value.trim().toUpperCase();
+            if (valeurActuelle !== newValue) {
+                if (!checkCongeValide(newValue)) event.target.focus();
+                else {
+                    // Mise a jour de la ligne associe au conge
+                    newValue = newValue.trim();
+                    span.innerText = newValue;
+                    tr.querySelectorAll("td")[1].querySelector("input").id = `total${newValue}`;
+                    tr.querySelectorAll("td")[2].id = `used${newValue}`;
+                    tr.querySelectorAll("td")[3].id = `remaining${newValue}`;
+                    
+                    // Ajout de la couleur dans le dico et creation du style
+                    const color = tr.querySelector("th").querySelector("input").value.toUpperCase();
+                    dicoConge[newValue] = color;
+                    createStyle(newValue, color);
 
+                    // On regarde si on doit supprimer l'ancienne valeur du conge au dessus du calendrier
+                    // et si on doit ajouter la nouvelle valeur
+                    const selection = document.querySelector(".selection");
+                    let eltToDelete;
+                    let addElement = true;
+                    Array.from(selection.children).forEach(elt => {
+                        if (valeurActuelle.length != 0) {
+                            if (elt.id.split("top")[1] === valeurActuelle) {
+                                eltToDelete = elt;
+                            }
+                        }
+                        if (elt.id.split("top")[1] === newValue) {
+                            addElement = false;
+                        }
+                    });
+                    // console.log(addElement);
+
+                    // On supprime l'ancien element si on l'a trouve ainsi que dans le dictionnaire des conges
+                    if (eltToDelete) {
+                        selection.removeChild(eltToDelete);
+                        delete dicoConge[eltToDelete.id.split("top")[1]];
+                    }
+
+                    // On ajoute le nouvel element
+                    if (addElement) {
+                        const conge = document.createElement("div");
+                        conge.classList.add("selectionConge");
+                        conge.id = `top${newValue}`;
+                        conge.innerText = newValue;
+                        conge.addEventListener("click", function () {
+                            setCongeActif(this);
+                        });
+                        selection.appendChild(conge);
+                    }
+                }
+            }
+            else {
+                span.innerText = valeurActuelle;
+            }
         }
 
-        function deleteCategory() {
+        function checkCongeValide(newValue) {
+            if (!newValue || newValue.length === 0) return false;
+            for (let conge of getCongesList()) {
+                if (conge === newValue) {
+                    return false;
+                }
+            }
+            return true;
+        }
 
+        function deleteCategory(button) {
+            const tr = button.closest("tr");
+            const conge = tr.querySelector("#span").innerText;
+            
+            // Supprimer le conge dans le dictionnaire
+            delete dicoConge[conge];
+
+            // Remettre a "" le congeActif s'il est selectionne
+            congeActif = congeActif === conge ? "" : congeActif;
+            
+            // Supprimer l'element au dessus du calendrier
+            const selection = document.querySelector(".selection");
+            let eltToDelete;
+            Array.from(selection.children).forEach(elt => {
+                if (elt.id.split("top")[1] === conge) eltToDelete = elt;
+            });
+            if (eltToDelete) selection.removeChild(eltToDelete);
+
+            // Supprimer la ligne du tableau Summary
+            const tbody = document.querySelector("tbody");
+            tbody.removeChild(tr);
+
+            // Supprimer les jours dans le calendrier
+            document.querySelectorAll(`.${conge}`).forEach(elt => {
+                elt.classList = "day";
+            });
+
+            // Mettre a jour le tableau Summary
+            updateSummary();
+
+            // Supprimer le style
+            const sheet = document.styleSheets[1];
+            for (let i = 0; i < sheet.cssRules.length; i++) {
+                if (sheet.cssRules[i].selectorText === `.${conge}`) {
+                    sheet.deleteRule(i);
+                    break;
+                }
+            }
         }
 
         function changeYear() {
             year = document.getElementById("year").value;
         }
 
+        function changeYearValue() {
+            const [daysCalendar, daysSummary, dicoActual] = getActualAndStockage();
+
+            if (!(checkDictionnariesEqual(dicoActual["conges"], daysCalendar) && checkDictionnariesEqual(dicoActual["summary"], daysSummary))) {
+                showCustomConfirm(function(save) {
+                    if (save) {
+                        saveYear();
+                    }
+                    generateSummary();
+                });
+            }
+            else {
+                generateSummary();
+            }
+        }
+
+        function showCustomConfirm(callback) {
+            const modal = document.getElementById("customConfirm");
+            modal.style.display = "flex";
+
+            window.confirmSave = function (save) {
+                modal.style.display = "none";
+                callback(save);
+            };
+        }
+
+        // function closeCustomConfirm() {
+        //     document.getElementById("customConfirm").style.display = "none";
+        // }
+
         function setCongeActif(elt) {
-            elt.classList.toggle("selectionCongeSelected");
-            if (elt.classList.contains("selectionCongeSelected")) congeActif = elt.id;
-            else congeActif = "";
-            document.querySelectorAll("[id^='conge']").forEach(conge => {
-                if (conge.id !== elt.id) conge.classList = "selectionConge";
+            const congeId = elt.id.split("top").join("");
+            const currentColor = rgbToHex(elt.style.backgroundColor);
+
+            if (currentColor === dicoConge[congeId]) { elt.style.backgroundColor = ""; congeActif = ""; }
+            else { elt.style.backgroundColor = dicoConge[congeId]; congeActif = congeId; }
+            
+            document.querySelectorAll("[id^='top']").forEach(conge => {
+                const id = conge.id.split("top").join("");
+                if (id !== congeId) conge.style.backgroundColor = "";
             });
         }
 
@@ -231,11 +447,37 @@
         }
 
         function setCongeDay(cell) {
-            if (cell.classList.contains(congeActif)) cell.classList.remove(congeActif);
-            else {
-                cell.classList = "day";
-                cell.classList.add(congeActif);
+            if (congeActif !== "") {
+                let error = false;
+                document.querySelectorAll("#category").forEach(elt => {
+                    if (elt.querySelector("#span").innerText === congeActif && !cell.classList.contains(congeActif)) {
+                        if (elt.querySelector(`#remaining${congeActif}`).innerText === "0") error = true;
+                    }
+                });
+
+                if (error) {
+                    alert(`Vous ne disposez plus de jours de congés pour la catégorie : ${congeActif}.`);
+                    document.dispatchEvent(new Event("pointerup"));
+                    return;
+                }
+                else {
+                    if (cell.classList.contains(congeActif)) cell.classList.remove(congeActif);
+                    else {
+                        cell.classList = "day";
+                        cell.classList.add(congeActif);
+                    }
+                    updateSummary();
+                }
             }
+        }
+
+        function deleteCongeCategory(button) {
+            const tr = button.closest("tr");
+            const conge = tr.querySelector("#span").innerText;
+            
+            document.querySelectorAll(`.${conge}`).forEach(elt => {
+                elt.classList = "day";
+            });
             updateSummary();
         }
 
@@ -289,8 +531,6 @@
         function generateCalendar() {
             document.getElementById("calendar").innerHTML = "";
 
-            changeYear();
-
             let dicoDays = {};
             let dico = JSON.parse(localStorage.getItem(year.toString())) || {};
             if (Object.keys(dico).includes("conges")) {
@@ -329,14 +569,14 @@
                     let test = false;
                     let congeTmp;
                     if (Object.keys(dicoDays).length > 0) {
-                        for (let conge of ["CP2", "Q2", "Q1"]) {
+                        for (let conge of getCongesList()) {
                             if (dicoDays[conge].includes(stringDay)) {
                                 test = true;
                                 congeTmp = conge;
                             }
                         }
                     }
-                    if (test) dayTr.classList = `day conge${congeTmp}`;
+                    if (test) dayTr.classList = `day ${congeTmp}`;
                     else dayTr.className = "day";
                     dayTr.id = stringDay;
 
@@ -376,26 +616,59 @@
                 }
                 calendar.appendChild(monthDiv);
             }
-            generateSummary();
+            updateSummary();
         }
 
         function generateSummary() {
-            let dicoSummary = {};
-            let dico = JSON.parse(localStorage.getItem(year.toString())) || {};
-            if (Object.keys(dico).includes("summary")) {
-                if (Object.keys(dico["summary"]).length > 0) dicoSummary = dico["summary"];
+            if (checkErrorConge()) {
+                document.getElementById("year").value = document.getElementById("year").dataset.oldValue;
+                throwErrorConge();
             }
+            else {
+                document.getElementById("year").dataset.oldValue = document.getElementById("year").value;
+                changeYear();
 
-            for (let conge of ["CP2", "Q2", "Q1"]) {
-                if (Object.keys(dicoSummary).includes(conge)) {
-                    document.getElementById(`total${conge}`).value = dicoSummary[conge];
+                document.querySelectorAll("#category").forEach(cat => {
+                    deleteCategory(cat.querySelector("button.delete-category"));
+                });
+
+                dicoConge = {};
+
+                let dicoSummary = {};
+                let dico = JSON.parse(localStorage.getItem(year.toString())) || {};
+                if (Object.keys(dico).includes("summary")) {
+                    if (Object.keys(dico["summary"]).length > 0) dicoSummary = dico["summary"];
                 }
-                else {
-                    document.getElementById(`total${conge}`).value = "0";
+
+                Object.keys(dicoSummary).forEach(elt => {
+                    dicoConge[elt] = dicoSummary[elt][1].toUpperCase();
+                    createStyle(elt, dicoSummary[elt][1].toUpperCase());
+                });
+                
+                if (Object.keys(dicoSummary).length !== 0) {
+                    // On ajoute les categories dans le tableau et au dessus du calendrier
+                    for (let conge of getCongesList()) {
+                        if (Object.keys(dicoSummary).includes(conge)) {
+                            addCategory1(conge, dicoSummary[conge][0], dicoSummary[conge][1]);
+                            const selection = document.querySelector(".selection");
+                            // On ajoute le nouvel element
+                            const congeElt = document.createElement("div");
+                            congeElt.classList.add("selectionConge");
+                            congeElt.id = `top${conge}`;
+                            congeElt.innerText = conge;
+                            congeElt.addEventListener("click", function () {
+                                setCongeActif(this);
+                            });
+                            selection.appendChild(congeElt);
+                        }
+                        else {
+                            document.querySelector(`input#total${conge}`).value = "0";
+                        }
+                    }
                 }
+
+                generateCalendar();
             }
-
-            updateSummary();
         }
 
         function updateSummary() {
@@ -406,8 +679,8 @@
             document.getElementById("totalAll").innerText = totalTotal;
 
             let totalSum = 0;
-            for (let conge of ["CP2", "Q1", "Q2"]) {
-                let totalConge = document.querySelectorAll(`.conge${conge}`).length;
+            for (let conge of getCongesList()) {
+                let totalConge = document.querySelectorAll(`.${conge}`).length;
                 document.getElementById(`used${conge}`).innerText = totalConge;
                 totalSum += totalConge;
                 document.getElementById(`remaining${conge}`).innerText = parseInt(document.getElementById(`total${conge}`).value) - totalConge;
@@ -417,44 +690,23 @@
         }
 
         function saveYear() {
-            let conges = ["CP2", "Q1", "Q2"];
-
-            let daysCalendar = {};
-            let daysSummary = {};
-            for(let conge of conges) {
-                daysCalendar[conge] = [];
-                document.querySelectorAll(`.conge${conge}`).forEach(elt => {
-                    daysCalendar[conge].push(elt.id);
-                });
-
-                daysSummary[conge] = [];
-                document.querySelectorAll(`#total${conge}`).forEach(elt => {
-                    daysSummary[conge].push(elt.value);
-                });
+            if (checkErrorConge()) {
+                throwErrorConge();
             }
-            
-            let test = false;
-            for (let key in daysCalendar) {
-                if (daysCalendar[key].length > 0) test = true;
+            else {
+                const [daysCalendar, daysSummary, dico] = getActualAndStockage();
+                
+                dico["conges"] = daysCalendar;
+                dico["summary"] = daysSummary;
+                localStorage.setItem(year, JSON.stringify(dico));
             }
-
-            let dico = JSON.parse(localStorage.getItem(year.toString())) || {};
-            dico["conges"] = daysCalendar;
-            dico["summary"] = daysSummary;
-            localStorage.setItem(year, JSON.stringify(dico));
         }
 
         function deleteYear() {
-            let conges = ["CP2", "Q1", "Q2"];
-
-            for(let conge of conges) {
-                document.querySelectorAll(`.conge${conge}`).forEach(elt => {
+            for(let conge of getCongesList()) {
+                document.querySelectorAll(`.${conge}`).forEach(elt => {
                     elt.classList = "day";
                 });
-
-                // document.querySelectorAll(`#total${conge}`).forEach(elt => {
-                //     elt.value = "0";
-                // });
             }
 
             let dico = JSON.parse(localStorage.getItem(year.toString())) || {};
@@ -464,15 +716,82 @@
             updateSummary();
         }
 
-        generateCalendar();
+        function getCongesList() {
+            return Object.keys(dicoConge);
+        }
+
+        function checkErrorConge() {
+            let error = false;
+            document.querySelectorAll("#category").forEach(cat => {
+                if (cat.querySelector("#span").innerText.length === 0) error = true;
+            });
+            return error;
+        }
+
+        function throwErrorConge() {
+            alert("Il y a une ou plusieurs catégories qui ne possèdent pas de nom !");
+        }
+
+        function storeOldValue(input) {
+            input.dataset.oldValue = input.value;
+        }
+
+        function setDate() {
+            document.getElementById("year").value = new Date().getFullYear();
+            document.getElementById("year").dataset.oldValue = document.getElementById("year").value;
+            changeYear();
+        }
+
+        setDate();
 
         generateSummary();
 
-        updateSummary();
+        function getActualAndStockage() {
+            let daysCalendar = {};
+            let daysSummary = {};
+            for (let conge of getCongesList()) {
+                daysCalendar[conge] = [];
+                document.querySelectorAll(`.${conge}`).forEach(elt => {
+                    daysCalendar[conge].push(elt.id);
+                });
+
+                daysSummary[conge] = [];
+                document.querySelectorAll(`#total${conge}`).forEach(elt => {
+                    daysSummary[conge].push(elt.value);
+                    daysSummary[conge].push(elt.closest("tr").children[1].children[1].value);
+                });
+            }
+
+            let dico = JSON.parse(localStorage.getItem(year.toString())) || {};
+            
+            return [daysCalendar, daysSummary, dico];
+        }
+
+        function checkDictionnariesEqual(dict1, dict2) {
+            let keys1 = Object.keys(dict1);
+            let keys2 = Object.keys(dict2);
+
+            if (keys1.length !== keys2.length) return false;
+
+            return keys1.every(key => {
+                if (!dict2.hasOwnProperty(key)) return false;
+
+                let list1 = [...dict1[key]].sort();
+                let list2 = [...dict2[key]].sort();
+
+                return list1.length === list2.length && list1.every((value, index) => value === list2[index]);
+            });
+        }
 
         document.addEventListener("pointerup", () => {
             isDrawing = false;
         });
+
+        // document.addEventListener("keydown", function (event) {
+        //     if (event.key === "Escape") {
+        //         closeCustomConfirm();
+        //     }
+        // });
     </script>
 </body>
 </html>
