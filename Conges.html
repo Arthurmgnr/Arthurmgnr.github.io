@@ -39,7 +39,7 @@
 
         i.material-icons { font-weight: bold; }
 
-        button:not(.modal-button) { padding: 10px 15px; margin: 0 auto; border: none; cursor: pointer; border-radius: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-size: large; font-weight: bold; }
+        button:not(.modal-button, .toast-button) { padding: 10px 15px; margin: 0 auto; border: none; cursor: pointer; border-radius: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-size: large; font-weight: bold; }
         .save { background-color: #4CAF50; color: white; }
         .delete { background-color: #f44336; color: white; }
         .delete-category { background-color: #ff9800; color: white; }
@@ -49,15 +49,33 @@
 
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.3); justify-content: center; align-items: center; }
         .modal-content { width: 60%; background: white; padding: 20px; border-radius: 1.5rem; text-align: center; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); font-size: large; }
-        .modal-button-container { display: flex; justify-content: space-around; }/** padding: 20px ; border-top: solid 1px gray; }**/
+        .modal-button-container { display: flex; justify-content: space-around; }/* padding: 20px ; border-top: solid 1px gray; }*/
         .modal-button-group-right { display: flex; }
-        .modal-button { margin: 10px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: inherit; transition: background 0.3s ease; }
+        .modal-button { margin: 10px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: inherit; }
         .md-not-save { background-color: rgb(220, 53, 69); color: white; }
         .md-not-save:hover { background-color: rgb(187, 45, 59); }
         .md-cancel { background-color: rgb(108, 117, 125); color: black; }
         .md-cancel:hover { background-color: rgb(92, 99, 106); }
         .md-save { background-color: rgb(13, 110, 253); color: white; }
         .md-save:hover { background-color: rgb(8, 94, 215); }
+
+        .wrapper { width: fit-content; position: fixed; bottom: 10px; right: 10px; display: flex; flex-direction: column-reverse; gap: 10px; z-index: 1000; align-items: flex-end; }
+        .toast { width: fit-content; padding: 10px; background-color: #ffffff; border-radius: 7px; display: flex; box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
+        .success { border-left: 8px solid #47D764; }
+        .error { border-left: 8px solid #ff355b; }
+        .info { border-left: 8px solid #2F86EB; }
+        .warning { border-left: 8px solid #FFC021; }
+        .error span { color: #ff355b; }
+        .info span { color: #2F86EB; }
+        .warning span { color: #FFC021; }
+        .container-1, .container-2 { align-self: center; }
+        .container-1 { padding: 0 18px 0 10px; }
+        .container-2 { text-align: left; }
+        .container-1 span { font-size: 35px; }
+        .success span { color: #47D764; }
+        .container-2 p:first-child { color: #101020; font-weight: bold; font-size: x-large; }
+        .container-2 p:last-child { color: #656565; font-size: large; }
+        .toast-button { border: none; margin: 0 auto; padding: 10px 15px; align-self: flex-start; background-color: transparent; font-size: x-large; color: #656565; line-height: 0; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -126,9 +144,101 @@
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
+
+    <div class="wrapper"></div>
 
     <script>
+        const types = {
+            "success": {
+                "icon": "check_circle",
+                "title": "Succès"
+            },
+            "error": {
+                "icon": "cancel",
+                "title": "Erreur"
+            },
+            "info": {
+                "icon": "info",
+                "title": "Info"
+            },
+            "warning": {
+                "icon": "error",
+                "title": "Avertissement"
+            }
+        }
+
+        const toasts = {
+            "save": {
+                "type": "success",
+                "message": "Les données ont bien été enregistrées."
+            },
+            "delete": {
+                "type": "success",
+                "message": "Les données ont bien été supprimées."
+            },
+            "error-empty-category": {
+                "type": "error",
+                "message": "Il y a 1 catégorie qui ne possède pas de nom."
+            },
+            "error-empty-categories": {
+                "type": "error",
+                "message": "Il y a {nb} catégories qui ne possèdent pas de nom."
+            },
+            "error-not-enough-days": {
+                "type": "error",
+                "message": "Vous ne disposez plus de jours de congés pour la catégorie : {congeActif}."
+            },
+            "info-reached-days": {
+                "type": "info",
+                "message": "Vous venez d'atteindre votre nombre de jours de congés maximum pour la catégorie : {congeActif}."
+            }
+        };
+
+        function addToast(toastType, variable = {}) {
+            const wrapper = document.querySelector(".wrapper");
+
+            const type = toasts[toastType]["type"];
+            let message = toasts[toastType]["message"];
+            const icon = types[type]["icon"];
+            const title = types[type]["title"];
+
+            if (Object.keys(variable).length > 0) {
+                Object.keys(variable).forEach(v => {
+                    message = message.replace(`{${v}}`, variable[v]);
+                });
+            }
+
+            const toast = document.createElement("div");
+            toast.classList.add("toast");
+            toast.classList.add(type);
+            toast.innerHTML = `
+                <div class="container-1">
+                    <span class="material-symbols-outlined">${icon}</span>
+                </div>
+                <div class="container-2">
+                    <p>${title}</p>
+                    <p>${message}</p>
+                </div>
+                <button class="toast-button" onclick="deleteToast(this)">&times;</button>
+            `;
+
+            wrapper.prepend(toast);
+
+            if (type !== "error") {
+                setTimeout(() => {
+                    toast.style.opacity = "0";
+                    setTimeout(() => toast.remove(), 500);
+                }, 3000);
+            }
+        }
+
+        function deleteToast(button) {
+            const toast = button.closest(".toast");
+            toast.style.opacity = "0";
+            setTimeout(() => toast.remove(), 500);
+        }
+
         let year = "";
 
         let isDrawing = false;
@@ -246,11 +356,6 @@
         }
 
         function createStyle(value, color) {
-            // const style = document.createElement("style");
-            // const style = document.querySelector("style");
-            // style.textContent += `.${value} { background-color: ${color}; }`;
-            // document.head.appendChild(style);
-            // console.log(document.styleSheets);
             const sheet = document.styleSheets[1];
             sheet.insertRule(`.${value} { background-color: ${color}; }`, sheet.cssRules.length);
         }
@@ -402,10 +507,20 @@
                     generateSummary();
                 });
             }
-            else {
-                generateSummary();
-            }
+            else generateSummary();
         }
+
+        // function checkIfDataToSave() {
+        //     const [daysCalendar, daysSummary, dicoActual] = getActualAndStockage();
+
+        //     if (!(checkDictionnariesEqual(dicoActual["conges"], daysCalendar) && checkDictionnariesEqual(dicoActual["summary"], daysSummary))) {
+        //         showCustomConfirm(function(save) {
+        //             if (save) {
+        //                 saveYear();
+        //             }
+        //         });
+        //     }
+        // }
 
         function showCustomConfirm(callback) {
             const modal = document.getElementById("customConfirm");
@@ -456,8 +571,8 @@
                 });
 
                 if (error) {
-                    alert(`Vous ne disposez plus de jours de congés pour la catégorie : ${congeActif}.`);
-                    document.dispatchEvent(new Event("pointerup"));
+                    addToast("error-not-enough-days", { congeActif: congeActif });
+                    document.dispatchEvent(new Event("mouseup"));
                     return;
                 }
                 else {
@@ -467,6 +582,10 @@
                         cell.classList.add(congeActif);
                     }
                     updateSummary();
+
+                    if (document.querySelector(`#remaining${congeActif}`).innerText === "0") {
+                        addToast("info-reached-days", { congeActif: congeActif });
+                    }
                 }
             }
         }
@@ -601,12 +720,12 @@
 
                     if (!dayTr.classList.contains("weekend") && !dayTr.classList.contains("holiday")) {
                         let td = document.createElement("td");
-                        dayTr.addEventListener("pointerdown", function(event) {
+                        dayTr.addEventListener("mousedown", function(event) {
                             isDrawing = true;
                             setCongeDay(this);
                             event.preventDefault();
                         });
-                        dayTr.addEventListener("pointerenter", function() {
+                        dayTr.addEventListener("mouseenter", function() {
                             if (isDrawing) { setCongeDay(this); }
                         });
                         dayTr.appendChild(td);
@@ -620,9 +739,11 @@
         }
 
         function generateSummary() {
-            if (checkErrorConge()) {
+            let [error, nb] = checkErrorConge();
+            if (error) {
                 document.getElementById("year").value = document.getElementById("year").dataset.oldValue;
-                throwErrorConge();
+                if (nb === 1) addToast("error-empty-category");
+                else addToast("error-empty-categories", { nb: nb });
             }
             else {
                 document.getElementById("year").dataset.oldValue = document.getElementById("year").value;
@@ -690,15 +811,24 @@
         }
 
         function saveYear() {
-            if (checkErrorConge()) {
-                throwErrorConge();
+            let [error, nb] = checkErrorConge();
+
+            if (error) {
+                if (nb === 1) addToast("error-empty-category");
+                else addToast("error-empty-categories", { nb: nb });
             }
             else {
                 const [daysCalendar, daysSummary, dico] = getActualAndStockage();
+
+                console.log(daysCalendar);
+                console.log(daysSummary);
+                console.log(dico);
                 
                 dico["conges"] = daysCalendar;
                 dico["summary"] = daysSummary;
                 localStorage.setItem(year, JSON.stringify(dico));
+
+                addToast("save");
             }
         }
 
@@ -714,6 +844,8 @@
             localStorage.setItem(year, JSON.stringify(dico));
 
             updateSummary();
+
+            addToast("delete");
         }
 
         function getCongesList() {
@@ -722,14 +854,11 @@
 
         function checkErrorConge() {
             let error = false;
+            let nb = 0;
             document.querySelectorAll("#category").forEach(cat => {
-                if (cat.querySelector("#span").innerText.length === 0) error = true;
+                if (cat.querySelector("#span").innerText.length === 0) { error = true; nb++; }
             });
-            return error;
-        }
-
-        function throwErrorConge() {
-            alert("Il y a une ou plusieurs catégories qui ne possèdent pas de nom !");
+            return [error, nb];
         }
 
         function storeOldValue(input) {
@@ -762,7 +891,7 @@
                 });
             }
 
-            let dico = JSON.parse(localStorage.getItem(year.toString())) || {};
+            let dico = JSON.parse(localStorage.getItem(year.toString())) || {"conges": {}, "summary": {}};
             
             return [daysCalendar, daysSummary, dico];
         }
@@ -783,7 +912,7 @@
             });
         }
 
-        document.addEventListener("pointerup", () => {
+        document.addEventListener("mouseup", () => {
             isDrawing = false;
         });
 
