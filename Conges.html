@@ -9,9 +9,11 @@
         body { font-family: Arial, sans-serif; text-align: center; background-color: #C9C9C9; }
         .header { display: flex; align-items: center; justify-content: space-evenly; margin-top: 20px; }
         h1 { color: #227D48; margin: 0; }
+        
         .year-container { display: flex; align-items: center; gap: 1rem; }
         .year { all: inherit; }
         #year { font-size: inherit; background-color: inherit; font-weight: inherit; color: inherit; min-width: 8rem; max-width: 8rem; text-align: center; }
+        
         .calendar-container { display: grid; grid-template-columns: repeat(12, 1fr); width: 90%; gap: 10px; margin: 20px auto; }
         .month-title { font-weight: bold; font-size: large; padding: 10px 0; background-color: #227D48; color: #fff; }
         .day { display: flex; justify-content: flex-start; border-bottom: 1px solid #ddd; background-color: #fff; align-items: center; }
@@ -22,6 +24,7 @@
         .dayTable td:nth-child(1) { width: 20%; }
         .dayTable td:nth-child(2) { width: 20%; }
         .dayTable td:nth-child(3) { width: 60%; }
+        .nbSemaine { text-align: end; padding-right: 10px; }
 
         .summary { margin-top: 50px; margin-bottom: 50vh; }
         .congesSummary { font-size: x-large; margin: 20px auto; width: fit-content; border: none; border-collapse: collapse; }
@@ -229,7 +232,7 @@
                 setTimeout(() => {
                     toast.style.opacity = "0";
                     setTimeout(() => toast.remove(), 500);
-                }, 3000);
+                }, 5000);
             }
         }
 
@@ -674,6 +677,8 @@
             const monthNames = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
             const dayNames = ["L", "M", "M", "J", "V", "S", "D"];
 
+            let nbSemaine = 0;
+
             for (let month = 0; month < 12; month++) {
                 let monthDiv = document.createElement("div");
                 monthDiv.className = "month";
@@ -718,8 +723,9 @@
                     if (getRealDay(date.getDay()) === 5 || getRealDay(date.getDay()) === 6) dayTr.classList.add("weekend");
                     if (holidays.includes(date.toISOString().split('T')[0])) dayTr.classList.add("holiday");
 
+                    const td = document.createElement("td");
+                    td.classList.add("nbSemaine");
                     if (!dayTr.classList.contains("weekend") && !dayTr.classList.contains("holiday")) {
-                        let td = document.createElement("td");
                         dayTr.addEventListener("mousedown", function(event) {
                             isDrawing = true;
                             setCongeDay(this);
@@ -728,8 +734,27 @@
                         dayTr.addEventListener("mouseenter", function() {
                             if (isDrawing) { setCongeDay(this); }
                         });
-                        dayTr.appendChild(td);
                     }
+                    dayTr.appendChild(td);
+
+                    if (day === 1 && month === 0 && (dayOfWeek === "L" || dayOfWeek === "M" || dayOfWeek === "J")) {
+                        nbSemaine++;
+                        dayTr.children[2].innerText = nbSemaine < 10 ? `0${nbSemaine}` : nbSemaine;
+                    }
+                    if (dayOfWeek === "L") {
+                        if (nbSemaine === 53) {
+                            if (document.getElementById(`${year}-1-1`).children[0].innerText === "J" ||
+                            (document.querySelectorAll(".month")[1].querySelectorAll("tr").length === 29 &&
+                            document.getElementById(`${year}-1-1`).children[0].innerText === "M" &&
+                            document.getElementById(`${year}-1-2`).children[0].innerText === "J")) {
+                                dayTr.children[2].innerText = nbSemaine;
+                            }
+                        }
+                        else { dayTr.children[2].innerText = nbSemaine < 10 ? `0${nbSemaine}` : nbSemaine; }
+                    }
+                        
+                    if (dayOfWeek === "D") nbSemaine++;
+
                     dayTable.appendChild(dayTr);
                     monthDiv.appendChild(dayTable);
                 }
