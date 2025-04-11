@@ -13,6 +13,8 @@
         .year-container { display: flex; align-items: center; gap: 1rem; }
         .year { all: inherit; }
         #year { font-size: inherit; background-color: inherit; font-weight: inherit; color: inherit; min-width: 8rem; max-width: 8rem; text-align: center; }
+
+        .vacances-container { display: flex; gap: 1em; align-items: center; font-weight: bold; font-size: x-large; }
         
         .calendar-container { display: grid; grid-template-columns: repeat(12, 1fr); width: 90%; gap: 10px; margin: 20px auto; }
         .month-title { font-weight: bold; font-size: large; padding: 10px 0; background-color: #227D48; color: #fff; }
@@ -23,8 +25,11 @@
         .dayTable tr { min-height: 1.5rem; max-height: 1.5rem; }
         .dayTable td:nth-child(1) { width: 20%; }
         .dayTable td:nth-child(2) { width: 20%; }
-        .dayTable td:nth-child(3) { width: 60%; }
+        .dayTable td:nth-child(3) { width: 55%; }
+        .dayTable td:nth-child(4) { width: 5%; }
         .nbSemaine { text-align: end; padding-right: 10px; }
+        .vacance { min-height: 1.4rem; max-height: 1.4rem; padding: 1px; vertical-align: middle; }
+        .vacance-color { background-color: yellow; }
 
         .summary { margin-top: 50px; margin-bottom: 50vh; }
         .congesSummary { font-size: x-large; margin: 20px auto; width: fit-content; border: none; border-collapse: collapse; }
@@ -90,6 +95,20 @@
             <h1><label class="year" for="year">Année</label></h1>
             <h1><input type="number" id="year" min="2000" max="2100" onchange="changeYearValue()" onfocus="storeOldValue(this)"></h1>
         </div>
+        <div class="vacances-container">
+            <div class="vacances-checkbox">
+                <label for="show-vacances">Vacances scolaires</label>
+                <input type="checkbox" id="show-vacances" onclick="toggleVacances()" style="vertical-align: middle;">
+            </div>
+            <div class="zones-select" style="display: none;">
+                <label for="zone-select">Zone </label>
+                <select name="zone-select" id="zone-select" onchange="updateVacances()" style="vertical-align: middle; font-size: inherit;">
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                </select>
+            </div>
+        </div>
     </div>
 
     <div class="saveConge">
@@ -152,6 +171,130 @@
     <div class="wrapper"></div>
 
     <script>
+        let isVacances = false;
+
+        const dicoVacances = {
+            "2022": {
+                "A": [["2022-02-12", "2022-02-27"], ["2022-04-16", "2022-05-01"]],
+                "B": [["2022-02-05", "2022-02-20"], ["2022-04-09", "2022-04-24"]],
+                "C": [["2022-02-19", "2022-03-06"], ["2022-04-23", "2022-05-08"]],
+                "commun": [["2022-01-01", "2022-01-02"], ["2022-05-26", "2022-05-29"], ["2022-07-", "2022-08-31"], ["2022-10-22", "2022-11-06"], ["2022-12-17", "2022-12-31"]]
+            },
+            "2023": {
+                "A": [["2023-02-04", "2023-02-19"], ["2023-04-08", "2023-04-23"]],
+                "B": [["2023-02-11", "2023-02-26"], ["2023-04-15", "2023-04-30"]],
+                "C": [["2023-02-18", "2023-03-05"], ["2023-04-22", "2023-05-07"]],
+                "commun": [["2023-01-01", "2023-01-01"], ["2023-05-18", "2023-05-21"], ["2023-07-08", "2023-09-03"], ["2023-10-21", "2023-11-05"], ["2023-12-23", "2023-12-31"]]
+            },
+            "2024": {
+                "A": [["2024-02-17", "2024-03-03"], ["2024-04-13", "2024-04-28"]],
+                "B": [["2024-02-24", "2024-03-10"], ["2024-04-20", "2024-04-05"]],
+                "C": [["2024-02-10", "2024-03-25"], ["2024-04-06", "2024-04-21"]],
+                "commun": [["2024-01-01", "2024-01-07"], ["2024-05-09", "2024-05-12"], ["2024-07-06", "2024-09-01"], ["2024-10-19", "2024-11-03"], ["2024-12-21", "2024-12-31"]]
+            },
+            "2025": {
+                "A": [["2025-02-22", "2025-03-09"], ["2025-04-19", "2025-05-04"]],
+                "B": [["2025-02-08", "2025-02-23"], ["2025-04-05", "2025-04-22"]],
+                "C": [["2025-02-15", "2025-03-02"], ["2025-04-12", "2025-04-27"]],
+                "commun": [["2025-01-01", "2025-01-05"], ["2025-05-29", "2025-06-01"], ["2025-07-05", "2025-08-31"], ["2025-10-18", "2025-11-02"], ["2025-12-20", "2025-12-31"]]
+            },
+            "2026": {
+                "A": [["2026-02-07", "2026-02-22"], ["2026-04-04", "2026-04-19"]],
+                "B": [["2026-02-14", "2026-03-01"], ["2026-04-11", "2026-04-26"]],
+                "C": [["2026-02-21", "2026-03-08"], ["2026-04-18", "2026-05-03"]],
+                "commun": [["2026-01-01", "2026-01-04"], ["2026-05-14", "2026-05-17"]]//, ["2026-07-04", "2026--"], ["2026--", "2026--"], ["2026--", "2026--"]]
+            }
+            // "2027": {
+            //     "A": [["2027--", "2027--"], ["2027--", "2027--"]],
+            //     "B": [["2027--", "2027--"], ["2027--", "2027--"]],
+            //     "C": [["2027--", "2027--"], ["2027--", "2027--"]],
+            //     "commun": [["2027--", "2027--"], ["2027-05-", "2027-05-"], ["2027--", "2027--"], ["2027--", "2027--"], ["2027--", "2027--"]]
+            // }
+        }
+
+        function checkIfVacancesAvailable() {
+            if (Object.keys(dicoVacances).includes(year)) {
+                if (dicoVacances[year]["commun"].length === 5) return [true, true];
+                else return [true, false];
+            }
+            else return false;
+        }
+
+        function toggleVacances() {
+            const zoneSelect = document.querySelector(".zones-select");
+            const input = document.getElementById("show-vacances");
+            if (input.checked) {
+                const vacancesAvailable = checkIfVacancesAvailable();
+                if (vacancesAvailable.length === 2) {
+                    if (vacancesAvailable[1] === false) addToast("warning-vacances-partially-available", { year: year });
+                    zoneSelect.style.display = "block";
+                    isVacances = true;
+                    updateVacances();
+                }
+                else {
+                    input.checked = false;
+                    addToast("error-vacances-not-available", { year: year });
+                }
+            }
+            else {
+                zoneSelect.style.display = "none";
+                isVacances = false;
+                updateVacances();
+            }
+        }
+
+        function isBetweenDates(dateStr, plages) {
+            const d = dateStr.split("-");
+            const date = `${d[0]}-${d[1].padStart(2, "0")}-${d[2].padStart(2, "0")}`;
+            return plages.some(([debut, fin]) => {
+                debut = debut.trim();
+                fin = fin.trim();
+                return date >= debut && date <= fin;
+            });
+        }
+
+        function updateVacances() {
+            if (isVacances) {
+                const zone = document.getElementById("zone-select").value;
+                const vacances = [...dicoVacances[year][zone], ...dicoVacances[year]["commun"]];
+
+                document.querySelectorAll(".vacance").forEach(vacance => {
+                    const tr = vacance.closest("tr");
+
+                    let vac = false;
+                    let other = false;
+                    let nothing = false;
+
+                    for (let v of vacances) {
+                        if (isBetweenDates(tr.id, [v])) {
+                            vac = true;
+                        }
+                        else if (tr.classList.length === 2) {
+                            other = true;
+                        }
+                        else {
+                            nothing = true;
+                        }
+                    }
+                    vacance.classList = "vacance";
+                    if (vac) vacance.classList.add("vacance-color");
+                    else if (other) vacance.classList.add(tr.classList[1]);
+                    else vacance.classList = "vacance";
+                });
+            }
+            else {
+                document.querySelectorAll(".vacance").forEach(vacance => {
+                    const tr = vacance.closest("tr");
+                    if (tr.classList.length === 2) {
+                        vacance.classList = `vacance ${tr.classList[1]}`;
+                    }
+                    else {
+                        vacance.classList = "vacance";
+                    }
+                });
+            }
+        }
+
         const types = {
             "success": {
                 "icon": "check_circle",
@@ -195,6 +338,14 @@
             "info-reached-days": {
                 "type": "info",
                 "message": "Vous venez d'atteindre votre nombre de jours de congés maximum pour la catégorie : {congeActif}."
+            },
+            "error-vacances-not-available": {
+                "type": "error",
+                "message": "Les vacances conernant l'année '{year}' ne sont pas disponibles."
+            },
+            "warning-vacances-partially-available": {
+                "type": "warning",
+                "message": "Les vacances conernant l'année '{year}' sont partiellement disponibles."
             }
         };
 
@@ -410,7 +561,7 @@
                     let eltToDelete;
                     let addElement = true;
                     Array.from(selection.children).forEach(elt => {
-                        if (valeurActuelle.length != 0) {
+                        if (valeurActuelle.length > 0) {
                             if (elt.id.split("top")[1] === valeurActuelle) {
                                 eltToDelete = elt;
                             }
@@ -419,16 +570,21 @@
                             addElement = false;
                         }
                     });
-                    // console.log(addElement);
 
-                    // On supprime l'ancien element si on l'a trouve ainsi que dans le dictionnaire des conges
-                    if (eltToDelete) {
-                        selection.removeChild(eltToDelete);
+                    // On remplace l'element et on supprime dans le dictionnaire des conges
+                    if (eltToDelete && addElement) {
+                        const conge = document.createElement("div");
+                        conge.classList.add("selectionConge");
+                        conge.id = `top${newValue}`;
+                        conge.innerText = newValue;
+                        conge.addEventListener("click", function () {
+                            setCongeActif(this);
+                        });
+                        selection.replaceChild(conge, eltToDelete);
                         delete dicoConge[eltToDelete.id.split("top")[1]];
                     }
 
-                    // On ajoute le nouvel element
-                    if (addElement) {
+                    if (!eltToDelete && addElement) {
                         const conge = document.createElement("div");
                         conge.classList.add("selectionConge");
                         conge.id = `top${newValue}`;
@@ -437,6 +593,32 @@
                             setCongeActif(this);
                         });
                         selection.appendChild(conge);
+                    }
+
+                    // // On supprime l'ancien element si on l'a trouve ainsi que dans le dictionnaire des conges
+                    // if (eltToDelete) {
+                    //     // selection.removeChild(eltToDelete);
+                    //     delete dicoConge[eltToDelete.id.split("top")[1]];
+                    // }
+
+                    // // On ajoute le nouvel element
+                    // if (addElement) {
+                    //     const conge = document.createElement("div");
+                    //     conge.classList.add("selectionConge");
+                    //     conge.id = `top${newValue}`;
+                    //     conge.innerText = newValue;
+                    //     conge.addEventListener("click", function () {
+                    //         setCongeActif(this);
+                    //     });
+                    //     // selection.appendChild(conge);
+                    //     selection.replaceChild(conge, eltToDelete);
+                    // }
+
+                    // On modifie les conges dans le calendrier
+                    if (valeurActuelle) {
+                        document.querySelectorAll(`tr.${valeurActuelle}`).forEach(elt => {
+                            elt.classList = `day ${newValue}`;
+                        });
                     }
                 }
             }
@@ -478,9 +660,11 @@
             tbody.removeChild(tr);
 
             // Supprimer les jours dans le calendrier
-            document.querySelectorAll(`.${conge}`).forEach(elt => {
-                elt.classList = "day";
-            });
+            if (conge.length > 0) {
+                document.querySelectorAll(`tr.${conge}`).forEach(elt => {
+                    elt.classList = "day";
+                });
+            }
 
             // Mettre a jour le tableau Summary
             updateSummary();
@@ -502,7 +686,10 @@
         function changeYearValue() {
             const [daysCalendar, daysSummary, dicoActual] = getActualAndStockage();
 
-            if (!(checkDictionnariesEqual(dicoActual["conges"], daysCalendar) && checkDictionnariesEqual(dicoActual["summary"], daysSummary))) {
+            if (!(checkDictionnariesEqual(dicoActual["conges"], daysCalendar) &&
+                    checkDictionnariesEqual(dicoActual["summary"], daysSummary) &&
+                    checkVacancesEqual(dicoActual["vacances"])
+                )) {
                 showCustomConfirm(function(save) {
                     if (save) {
                         saveYear();
@@ -513,18 +700,6 @@
             else generateSummary();
         }
 
-        // function checkIfDataToSave() {
-        //     const [daysCalendar, daysSummary, dicoActual] = getActualAndStockage();
-
-        //     if (!(checkDictionnariesEqual(dicoActual["conges"], daysCalendar) && checkDictionnariesEqual(dicoActual["summary"], daysSummary))) {
-        //         showCustomConfirm(function(save) {
-        //             if (save) {
-        //                 saveYear();
-        //             }
-        //         });
-        //     }
-        // }
-
         function showCustomConfirm(callback) {
             const modal = document.getElementById("customConfirm");
             modal.style.display = "flex";
@@ -534,10 +709,6 @@
                 callback(save);
             };
         }
-
-        // function closeCustomConfirm() {
-        //     document.getElementById("customConfirm").style.display = "none";
-        // }
 
         function setCongeActif(elt) {
             const congeId = elt.id.split("top").join("");
@@ -585,6 +756,7 @@
                         cell.classList.add(congeActif);
                     }
                     updateSummary();
+                    updateVacances();
 
                     if (document.querySelector(`#remaining${congeActif}`).innerText === "0") {
                         addToast("info-reached-days", { congeActif: congeActif });
@@ -597,10 +769,11 @@
             const tr = button.closest("tr");
             const conge = tr.querySelector("#span").innerText;
             
-            document.querySelectorAll(`.${conge}`).forEach(elt => {
+            document.querySelectorAll(`tr.${conge}`).forEach(elt => {
                 elt.classList = "day";
             });
             updateSummary();
+            updateVacances();
         }
 
         function getEasterDate(year) {
@@ -755,12 +928,29 @@
                         
                     if (dayOfWeek === "D") nbSemaine++;
 
+                    const vacance = document.createElement("td");
+                    vacance.classList.add("vacance");
+                    dayTr.appendChild(vacance);
+
                     dayTable.appendChild(dayTr);
                     monthDiv.appendChild(dayTable);
                 }
                 calendar.appendChild(monthDiv);
             }
             updateSummary();
+
+            if (Object.keys(dico).includes("vacances")) {
+                if (dico["vacances"] === true) {
+                    document.getElementById("show-vacances").checked = true;
+                    toggleVacances();
+                } else {
+                    document.getElementById("show-vacances").checked = false;
+                    toggleVacances();
+                }
+            } else {
+                document.getElementById("show-vacances").checked = false;
+                    toggleVacances();
+            }
         }
 
         function generateSummary() {
@@ -826,7 +1016,7 @@
 
             let totalSum = 0;
             for (let conge of getCongesList()) {
-                let totalConge = document.querySelectorAll(`.${conge}`).length;
+                let totalConge = document.querySelectorAll(`tr.${conge}`).length;
                 document.getElementById(`used${conge}`).innerText = totalConge;
                 totalSum += totalConge;
                 document.getElementById(`remaining${conge}`).innerText = parseInt(document.getElementById(`total${conge}`).value) - totalConge;
@@ -844,13 +1034,10 @@
             }
             else {
                 const [daysCalendar, daysSummary, dico] = getActualAndStockage();
-
-                console.log(daysCalendar);
-                console.log(daysSummary);
-                console.log(dico);
                 
                 dico["conges"] = daysCalendar;
                 dico["summary"] = daysSummary;
+                dico["vacances"] = isVacances;
                 localStorage.setItem(year, JSON.stringify(dico));
 
                 addToast("save");
@@ -859,7 +1046,7 @@
 
         function deleteYear() {
             for(let conge of getCongesList()) {
-                document.querySelectorAll(`.${conge}`).forEach(elt => {
+                document.querySelectorAll(`tr.${conge}`).forEach(elt => {
                     elt.classList = "day";
                 });
             }
@@ -905,7 +1092,7 @@
             let daysSummary = {};
             for (let conge of getCongesList()) {
                 daysCalendar[conge] = [];
-                document.querySelectorAll(`.${conge}`).forEach(elt => {
+                document.querySelectorAll(`tr.${conge}`).forEach(elt => {
                     daysCalendar[conge].push(elt.id);
                 });
 
@@ -916,7 +1103,7 @@
                 });
             }
 
-            let dico = JSON.parse(localStorage.getItem(year.toString())) || {"conges": {}, "summary": {}};
+            let dico = JSON.parse(localStorage.getItem(year.toString())) || {"conges": {}, "summary": {}, "vacances": false};
             
             return [daysCalendar, daysSummary, dico];
         }
@@ -935,6 +1122,10 @@
 
                 return list1.length === list2.length && list1.every((value, index) => value === list2[index]);
             });
+        }
+
+        function checkVacancesEqual(isVacancesActual) {
+            return isVacances === isVacancesActual;
         }
 
         document.addEventListener("mouseup", () => {
