@@ -1,0 +1,112 @@
+[
+    {
+        "titre": "Fiesta De Los Muertos",
+        "age": "12",
+        "duree": "30",
+        "nbJoueurs": "4-8",
+        "categories": ["Coopératif", "Ambiance"],
+        "editeur": "OldChap Editions",
+        "prix": "19,90",
+		"lienImage": "/site/resources/images/wanted_games/fiesta-de-los-muertos.jpg"
+	},
+    {
+        "titre": "Azul",
+        "age": "8",
+        "duree": "45",
+        "nbJoueurs": "2-4",
+        "categories": ["Placement", "Stratégie", "Collection", "Tuiles"],
+        "editeur": "Next Move",
+        "prix": "41,50",
+		"lienImage": "/site/resources/images/wanted_games/azul.jpg"
+	},
+    {
+        "titre": "MicroMacro : Crime City - Showdown",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "1-4",
+        "categories": ["Coopératif", "Enigme", "Observation"],
+        "editeur": "Spielwiese",
+        "prix": "24,50",
+		"lienImage": "/site/resources/images/wanted_games/micromacro-crime-city-showdown.jpg"
+	},
+    {
+        "titre": "MicroMacro : Crime City - Epic Cases",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "1-4",
+        "categories": ["Coopératif", "Enigme", "Observation"],
+        "editeur": "Spielwiese",
+        "prix": "14,50",
+		"lienImage": "/site/resources/images/wanted_games/micromacro-crime-city-epic-cases.jpg"
+	},
+    {
+        "titre": "Ricochet 3 - Quand Satan Brouille l'écoute",
+        "age": "18",
+        "duree": "30",
+        "nbJoueurs": "1-10",
+        "categories": ["Coopératif", "Déduction"],
+        "editeur": "Flip Flap Editions",
+        "prix": "19,90",
+		"lienImage": "/site/resources/images/wanted_games/ricochet-3-quand-satan-brouille-l-ecoute.jpg"
+	},
+    {
+        "titre": "Suspects",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "1-6",
+        "categories": ["Déduction", "Enigme"],
+        "editeur": "Studio H",
+        "prix": "28,90",
+		"lienImage": "/site/resources/images/wanted_games/suspects.jpg"
+	},
+    {
+        "titre": "Suspects Pocket - L'Opération Ravel",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "1-6",
+        "categories": ["Déduction", "Enigme"],
+        "editeur": "Studio H",
+        "prix": "11,50",
+		"lienImage": "/site/resources/images/wanted_games/suspects-pocket-l-operation-ravel.jpg"
+	},
+    {
+        "titre": "Suspects - Adèle & Neville, Reporters Detectives",
+        "age": "10",
+        "duree": "90",
+        "nbJoueurs": "1-6",
+        "categories": ["Déduction", "Enigme"],
+        "editeur": "Studio H",
+        "prix": "28,90",
+		"lienImage": "/site/resources/images/wanted_games/suspects-adele-neville-reporters-detectives.jpg"
+	},
+    {
+        "titre": "Suspects Pocket - La Disparition du Professeur Fairchild",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "1-6",
+        "categories": ["Déduction", "Enigme"],
+        "editeur": "Studio H",
+        "prix": "11,50",
+		"lienImage": "/site/resources/images/wanted_games/suspects-pocket-la-disparition-du-professeur-fairchild.jpg"
+	},
+    {
+        "titre": "Suspects Pocket - Hors-Jeu à Liverpool",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "1-6",
+        "categories": ["Déduction", "Enigme"],
+        "editeur": "Studio H",
+        "prix": "11,50",
+		"lienImage": "/site/resources/images/wanted_games/suspects-pocket-hors-jeu-a-liverpool.jpg"
+	},
+    {
+        "titre": "Revolver Noir",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2",
+        "categories": ["Cartes"],
+        "editeur": "Matagot",
+        "prix": "8,50",
+		"lienImage": "/site/resources/images/wanted_games/revolver-noir.jpg"
+	}
+]

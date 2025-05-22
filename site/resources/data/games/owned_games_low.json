@@ -1,0 +1,602 @@
+[
+    {
+        "titre": "Sky Team",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2",
+        "categories": ["Coopératif", "Stratégie", "Dés", "Communication"],
+        "editeur": "Scorpion Masqué",
+        "prix": "26,90",
+		"lienImage": "/site/resources/images/owned_games/sky-team.jpg"
+	},
+    {
+        "titre": "Strike",
+        "age": "8",
+        "duree": "20",
+        "nbJoueurs": "2-5",
+        "categories": ["Dés", "Ambiance", "Dextérité"],
+        "editeur": "Ravensburger",
+        "prix": "17,95",
+		"lienImage": "/site/resources/images/owned_games/strike.jpg"
+	},
+    {
+        "titre": "Perudo",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2-6",
+        "categories": ["Bluff", "Dés", "Pari"],
+        "editeur": "Asmodée",
+        "prix": "23,95",
+		"lienImage": "/site/resources/images/owned_games/perudo.jpg"
+	},
+    {
+        "titre": "Skull King",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2-8",
+        "categories": ["Plis", "Cartes", "Enchères", "Pari"],
+        "editeur": "Grandpa Beck's Games",
+        "prix": "14,90",
+		"lienImage": "/site/resources/images/owned_games/skull-king.jpg"
+	},
+    {
+        "titre": "Paquet de Chips",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2-5",
+        "categories": ["Prise de risque", "Pari", "Ambiance", "Cartes"],
+        "editeur": "Mixlore",
+        "prix": "13,50",
+		"lienImage": "/site/resources/images/owned_games/paquet-de-chips.jpg"
+	},
+    {
+        "titre": "Très Futé 4Ever",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "1-4",
+        "categories": ["Roll & Write", "Stratégie", "Dés", "Prise de risque", "Combinaison"],
+        "editeur": "Schmidt Spiele GmbH",
+        "prix": "13,50",
+		"lienImage": "/site/resources/images/owned_games/tres-fute-4ever.jpg"
+	},
+    {
+        "titre": "Metro X",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "1-6",
+        "categories": ["Draw & Write", "Stratégie", "Planification", "Optimisation"],
+        "editeur": "Schmidt Spiele GmbH",
+        "prix": "13,50",
+		"lienImage": "/site/resources/images/owned_games/metro-x.jpg"
+	},
+    {
+        "titre": "Next Station London",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "1-4",
+        "categories": ["Draw & Write", "Stratégie", "Planification", "Optimisation"],
+        "editeur": "Blue Orange",
+        "prix": "14,50",
+		"lienImage": "/site/resources/images/owned_games/next-station-london.jpg"
+	},
+    {
+        "titre": "Skyjo",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2-8",
+        "categories": ["Cartes", "Stratégie", "Familial", "Prise de risque"],
+        "editeur": "Magilano",
+        "prix": "14,90",
+		"lienImage": "/site/resources/images/owned_games/skyjo.jpg"
+	},
+    {
+        "titre": "50 Missions",
+        "age": "8",
+        "duree": "30",  
+        "nbJoueurs": "1-4",
+        "categories": ["Coopératif", "Cartes"],
+        "editeur": "Oya",
+        "prix": "16,95",
+		"lienImage": "/site/resources/images/owned_games/50-missions.jpg"
+	},
+    {
+        "titre": "Les Bâtisseurs Moyen Âge",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "2-4",
+        "categories": ["Stratégie", "Gestion de ressources", "Cartes", "Construction"],
+        "editeur": "Bombyx",
+        "prix": "14,95",
+		"lienImage": "/site/resources/images/owned_games/les-batisseurs-moyen-age.jpg"
+	},
+    {
+        "titre": "Suspects 2",
+        "age": "10",
+        "duree": "60",
+        "nbJoueurs": "1-6",
+        "categories": ["Enquête", "Coopératif", "Déduction"],
+        "editeur": "Studio H",
+        "prix": "28,90",
+		"lienImage": "/site/resources/images/owned_games/suspects-2.jpg"
+	},
+    {
+        "titre": "Lupin",
+        "age": "12",
+        "duree": "60",
+        "nbJoueurs": "1-5",
+        "categories": ["Enquête", "Coopératif"],
+        "editeur": "Space Cowboys",
+        "prix": "25",
+		"lienImage": "/site/resources/images/owned_games/lupin.jpg"
+	},
+    {
+        "titre": "Unlock Heroic Adventures",
+        "age": "10",
+        "duree": "60",
+        "nbJoueurs": "1-6",
+        "categories": ["Escape Game", "Coopératif", "Déduction", "Enigme"],
+        "editeur": "Space Cowboys",
+        "prix": "29,95",
+		"lienImage": "/site/resources/images/owned_games/unlock-heroic-adventures.jpg"
+	},
+    {
+        "titre": "John Doe",
+        "age": "12",
+        "duree": "45",
+        "nbJoueurs": "3-8",
+        "categories": ["Enquête", "Déduction"],
+        "editeur": "Don't Panic Games",
+        "prix": "20",
+		"lienImage": "/site/resources/images/owned_games/john-doe.jpg"
+	},
+    {
+        "titre": "Sky Team Extension Turbulences",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2",
+        "categories": ["Coopératif", "Stratégie", "Dés", "Communication", "Extension"],
+        "editeur": "Scorpion Masqué",
+        "prix": "10,90",
+		"lienImage": "/site/resources/images/owned_games/sky-team-extension-turbulences.jpg"
+	},
+    {
+        "titre": "Exit La Maison des Enigme",
+        "age": "10",
+        "duree": "60",
+        "nbJoueurs": "1-4",
+        "categories": ["Escape Game", "Coopératif", "Enigme"],
+        "editeur": "Iello",
+        "prix": "14,95",
+		"lienImage": "/site/resources/images/owned_games/exit-la-maison-des-enigmes.jpg"
+	},
+    {
+        "titre": "Exit La Disparition de Sherlock Holmes",
+        "age": "12",
+        "duree": "60",
+        "nbJoueurs": "1-4",
+        "categories": ["Escape Game", "Coopératif", "Enigme"],
+        "editeur": "Iello",
+        "prix": "14,95",
+		"lienImage": "/site/resources/images/owned_games/exit-la-disparition-de-sherlock-holmes.jpg"
+	},
+    {
+        "titre": "IQ Circuit",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "1",
+        "categories": ["Casse-tête", "Logique"],
+        "editeur": "Smart Games",
+        "prix": "12,90",
+		"lienImage": "/site/resources/images/owned_games/iq-circuit.jpg"
+	},
+    {
+        "titre": "IQ XOXO",
+        "age": "6",
+        "duree": "30",
+        "nbJoueurs": "1",
+        "categories": ["Casse-tête", "Logique"],
+        "editeur": "Smart Games",
+        "prix": "12,90",
+		"lienImage": "/site/resources/images/owned_games/iq-xoxo.jpg"
+	},
+    {
+        "titre": "IQ Puzzler pro",
+        "age": "6",
+        "duree": "30",
+        "nbJoueurs": "1",
+        "categories": ["Casse-tête", "Logique"],
+        "editeur": "Smart Games",
+        "prix": "12,90",
+		"lienImage": "/site/resources/images/owned_games/iq-puzzler-pro.jpg"
+	},
+    {
+        "titre": "Les Aventuriers du Rail Europe 15e Anniversaire",
+        "age": "8",
+        "duree": "60",
+        "nbJoueurs": "2-5",
+        "categories": ["Stratégie", "Plateau", "Cartes", "Optimisation", "Objectifs"],
+        "editeur": "Days of Wonder",
+        "prix": "95",
+		"lienImage": "/site/resources/images/owned_games/les-aventuriers-du-rail-europe-15e-anniversaire.jpg"
+	},
+    {
+        "titre": "Dice Forge",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "2-4",
+        "categories": ["Dés", "Construction", "Gestion de ressources", "Développement", "Combinaison"],
+        "editeur": "Libellud",
+        "prix": "42,95",
+		"lienImage": "/site/resources/images/owned_games/dice-forge.jpg"
+	},
+    {
+        "titre": "Mysterium",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "2-7",
+        "categories": ["Coopératif", "Déduction", "Ambiance", "Observation", "Interprétation d'images"],
+        "editeur": "Libellud",
+        "prix": "40,50",
+		"lienImage": "/site/resources/images/owned_games/mysterium.jpg"
+	},
+    {
+        "titre": "Mysterium Secrets & Lies",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "2-7",
+        "categories": ["Extension", "Déduction", "Observation", "Coopératif", "Interprétation d'images", "Ambiance"],
+        "editeur": "Libellud",
+        "prix": "19,95",
+		"lienImage": "/site/resources/images/owned_games/mysterium-secrets-&-lies.jpg"
+	},
+    {
+        "titre": "Mysterium Hidden Signs",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "2-7",
+        "categories": ["Extension", "Déduction", "Observation", "Coopératif", "Interprétation d'images", "Ambiance"],
+        "editeur": "Libellud",
+        "prix": "19,95",
+		"lienImage": "/site/resources/images/owned_games/mysterium-hidden-signs.jpg"
+	},
+    {
+        "titre": "Skyjo Action",
+        "age": "8",
+        "duree": "45",
+        "nbJoueurs": "2-8",
+        "categories": ["Cartes", "Stratégie", "Familial", "Prise de risque", "Extension"],
+        "editeur": "Magilano",
+        "prix": "14,90",
+		"lienImage": "/site/resources/images/owned_games/skyjo-action.jpg"
+	},
+    {
+        "titre": "Break the Code",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-4",
+        "categories": ["Déduction", "Logique", "Combinaison", "Code", "Mathématiques"],
+        "editeur": "Iello",
+        "prix": "16,95",
+		"lienImage": "/site/resources/images/owned_games/break-the-code.jpg"
+	},
+    {
+        "titre": "Break the Cube",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-4",
+        "categories": ["Déduction", "Logique", "Mémoire", "Visualisation spatiale"],
+        "editeur": "Iello",
+        "prix": "16,95",
+		"lienImage": "/site/resources/images/owned_games/break-the-cube.jpg"
+	},
+    {
+        "titre": "The Crew",
+        "age": "10",
+        "duree": "20",
+        "nbJoueurs": "3-5",
+        "categories": ["Coopératif", "Cartes", "Plis", "Communication", "Missions"],
+        "editeur": "Iello",
+        "prix": "16,50",
+		"lienImage": "/site/resources/images/owned_games/the-crew.jpg"
+	},
+    {
+        "titre": "Diamant",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "3-8",
+        "categories": ["Prise de risque", "Ambiance", "Bluff", "Exploration"],
+        "editeur": "Iello",
+        "prix": "19,95",
+		"lienImage": "/site/resources/images/owned_games/diamant.jpg"
+	},
+    {
+        "titre": "Loups Garous",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "8-18",
+        "categories": ["Rôles", "Ambiance", "Bluff"],
+        "editeur": "Asmodée",
+        "prix": "9,95",
+		"lienImage": "/site/resources/images/owned_games/loups-garous.jpg"
+	},
+    {
+        "titre": "Trio",
+        "age": "8",
+        "duree": "15",
+        "nbJoueurs": "2-6",
+        "categories": ["Mémoire", "Cartes", "Déduction"],
+        "editeur": "Cocktail Games",
+        "prix": "11,90",
+		"lienImage": "/site/resources/images/owned_games/trio.jpg"
+	},
+    {
+        "titre": "Focus",
+        "age": "8",
+        "duree": "20",
+        "nbJoueurs": "2-4",
+        "categories": ["Observation", "Coopératif", "Communication", "Association d'idées"],
+        "editeur": "Gigamic",
+        "prix": "12,50",
+		"lienImage": "/site/resources/images/owned_games/focus.jpg"
+	},
+    {
+        "titre": "L'Île Interdite",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-4",
+        "categories": ["Coopératif", "Stratégie", "Aventure"],
+        "editeur": "Gamewright",
+        "prix": "24,95",
+		"lienImage": "/site/resources/images/owned_games/l-ile-interdite.jpg"
+	},
+    {
+        "titre": "Punto",
+        "age": "6",
+        "duree": "20",
+        "nbJoueurs": "2-4",
+        "categories": ["Cartes", "Stratégie", "Combinaison", "Alignement"],
+        "editeur": "Gamewright",
+        "prix": "7,90",
+		"lienImage": "/site/resources/images/owned_games/punto.jpg"
+	},
+    {
+        "titre": "Timeline",
+        "age": "8",
+        "duree": "15",
+        "nbJoueurs": "2-8",
+        "categories": ["Culture générale", "Cartes", "Connaissance", "Chronologie", "Educatif"],
+        "editeur": "Asmodée",
+        "prix": "15",
+		"lienImage": "/site/resources/images/owned_games/timeline.jpg"
+	},
+    {
+        "titre": "Ricochet À la Poursuite du Comte Courant",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "1+",
+        "categories": ["Jeu de mots", "Déduction", "Coopératif", "Enigme", "Association d'idées", "Communication"],
+        "editeur": "Flip Flap Éditions",
+        "prix": "19,90",
+		"lienImage": "/site/resources/images/owned_games/ricochet-a-la-poursuite-du-comte-courant.jpg"
+	},
+    {
+        "titre": "Ricochet Le Profil de l'Homme sans Visage",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "1+",
+        "categories": ["Jeu de mots", "Déduction", "Coopératif", "Enigme", "Association d'idées", "Communication"],
+        "editeur": "Flip Flap Éditions",
+        "prix": "19,90",
+		"lienImage": "/site/resources/images/owned_games/ricochet-le-profil-de-l-homme-sans-visage.jpg"
+	},
+    {
+        "titre": "MicroMacro Crime City",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "1-4",
+        "categories": ["Enquête", "Observation", "Coopératif", "Enigme", "Crimes"],
+        "editeur": "Blackrock Games",
+        "prix": "24,50",
+		"lienImage": "/site/resources/images/owned_games/micromacro-crime-city.jpg"
+	},
+    {
+        "titre": "MicroMacro Crime City Full House",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "1-4",
+        "categories": ["Enquête", "Observation", "Coopératif", "Enigme", "Crimes"],
+        "editeur": "Blackrock Games",
+        "prix": "24,50",
+		"lienImage": "/site/resources/images/owned_games/micromacro-crime-city-full-house.jpg"
+	},
+    {
+        "titre": "MicroMacro Crime City Tricks Town",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "1-4",
+        "categories": ["Enquête", "Observation", "Coopératif", "Enigme", "Crimes"],
+        "editeur": "Blackrock Games",
+        "prix": "24,50",
+		"lienImage": "/site/resources/images/owned_games/micromacro-crime-city-tricks-town.jpg"
+	},
+    {
+        "titre": "L'Imposteur",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "4-10",
+        "categories": ["Rôles", "Ambiance", "Déduction", "Bluff"],
+        "editeur": "Asmodée",
+        "prix": "20,99",
+		"lienImage": "/site/resources/images/owned_games/l-imposteur.jpg"
+	},
+    {
+        "titre": "Loup Garou pour une nuit",
+        "age": "10",
+        "duree": "10",
+        "nbJoueurs": "3-10",
+        "categories": ["Rôles", "Ambiance", "Bluff"],
+        "editeur": "Ravensburger",
+        "prix": "13,50",
+		"lienImage": "/site/resources/images/owned_games/loup-garou-pour-une-nuit.jpg"
+	},
+    {
+        "titre": "6 qui surprend",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "2-10",
+        "categories": ["Cartes", "Stratégie", "Familial", "Prise de risque"],
+        "editeur": "Gigamic",
+        "prix": "16,90",
+		"lienImage": "/site/resources/images/owned_games/6-qui-surprend.jpg"
+	},
+    {
+        "titre": "Hitster 100% Chanson Française",
+        "age": "16",
+        "duree": "30",
+        "nbJoueurs": "2-10",
+        "categories": ["Musique", "Ambiance", "Chronologie", "Culture générale"],
+        "editeur": "Dujardin",
+        "prix": "28,50",
+		"lienImage": "/site/resources/images/owned_games/hitster.jpg"
+	},
+    {
+        "titre": "Codenames",
+        "age": "10",
+        "duree": "15",
+        "nbJoueurs": "2-8",
+        "categories": ["Déduction", "Coopératif", "Mémoire", "Association d'idées", "Communication", "Rôles"],
+        "editeur": "Iello",
+        "prix": "21,95",
+		"lienImage": "/site/resources/images/owned_games/codenames.jpg"
+	},
+    {
+        "titre": "Turing Machine",
+        "age": "14",
+        "duree": "20",
+        "nbJoueurs": "1-4",
+        "categories": ["Déduction", "Logique", "Code"],
+        "editeur": "Scorpion Masqué",
+        "prix": "33,90",
+		"lienImage": "/site/resources/images/owned_games/turing-machine.jpg"
+	},
+    {
+        "titre": "Trek 12",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "1-5",
+        "categories": ["Roll & Write", "Aventure", "Dés", "Combinaison"],
+        "editeur": "Lumberjacks Studio",
+        "prix": "25,50",
+		"lienImage": "/site/resources/images/owned_games/trek-12.jpg"
+	},
+    {
+        "titre": "Mr Jack",
+        "age": "9",
+        "duree": "30",
+        "nbJoueurs": "2",
+        "categories": ["Stratégie", "Déduction", "Bluff", "Rôles"],
+        "editeur": "Hurrican",
+        "prix": "26,90",
+		"lienImage": "/site/resources/images/owned_games/mr-jack.jpg"
+	},
+    {
+        "titre": "Saboteur La Grande Aventure",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "3-9",
+        "categories": ["Stratégie", "Bluff", "Cartes", "Rôles", "Construction"],
+        "editeur": "Gigamic",
+        "prix": "20",
+		"lienImage": "/site/resources/images/owned_games/saboteur-la-grande-aventure.jpg"
+	},
+    {
+        "titre": "7 Wonders",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "3-7",
+        "categories": ["Civilisation", "Cartes", "Gestion de ressources"],
+        "editeur": "Repos Production",
+        "prix": "42,95",
+		"lienImage": "/site/resources/images/owned_games/7-wonders.jpg"
+	},
+    {
+        "titre": "7 Wonders Duel",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2",
+        "categories": ["Civilisation", "Cartes", "Gestion de ressources"],
+        "editeur": "Repos Production",
+        "prix": "24,95",
+		"lienImage": "/site/resources/images/owned_games/7-wonders-duel.jpg"
+	},
+    {
+        "titre": "Splendor",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-4",
+        "categories": ["Stratégie", "Gestion de ressources", "Développement", "Combinaison"],
+        "editeur": "Space Cowboys",
+        "prix": "31,50",
+		"lienImage": "/site/resources/images/owned_games/splendor.jpg"
+	},
+    {
+        "titre": "Citadelles",
+        "age": "10",
+        "duree": "60",
+        "nbJoueurs": "2-8",
+        "categories": ["Bluff", "Stratégie", "Cartes", "Construction", "Rôles"],
+        "editeur": "Asmodée",
+        "prix": "27,95",
+		"lienImage": "/site/resources/images/owned_games/citadelles.jpg"
+	},
+    {
+        "titre": "Pandemic",
+        "age": "8",
+        "duree": "45",
+        "nbJoueurs": "2-4",
+        "categories": ["Coopératif", "Stratégie", "Rôles"],
+        "editeur": "Z-Man Games",
+        "prix": "37,90",
+		"lienImage": "/site/resources/images/owned_games/pandemic.jpg"
+	},
+    {
+        "titre": "Bandido",
+        "age": "6",
+        "duree": "15",
+        "nbJoueurs": "1-4",
+        "categories": ["Coopératif", "Cartes", "Communication", "Tuiles"],
+        "editeur": "Helvetiq",
+        "prix": "11,50",
+		"lienImage": "/site/resources/images/owned_games/bandido.jpg"
+	},
+    {
+        "titre": "Cyberteam",
+        "age": "12",
+        "duree": "60",
+        "nbJoueurs": "3-6",
+        "categories": ["Enquête", "Coopératif"],
+        "editeur": "Don't Panic Games",
+        "prix": "25",
+		"lienImage": "/site/resources/images/owned_games/cyberteam.jpg"
+	},
+    {
+        "titre": "La Dernière Heure du Titanic",
+        "age": "12",
+        "duree": "60",
+        "nbJoueurs": "1-5",
+        "categories": ["Coopératif", "Stratégie"],
+        "editeur": "Don't Panic Games",
+        "prix": "30",
+		"lienImage": "/site/resources/images/owned_games/la-derniere-heure-du-titanic.jpg"
+	},
+    {
+        "titre": "Cluedo",
+        "age": "8",
+        "duree": "45",
+        "nbJoueurs": "2-6",
+        "categories": ["Enquête", "Déduction"],
+        "editeur": "Hasbro",
+        "prix": "30",
+		"lienImage": "/site/resources/images/owned_games/cluedo.jpg"
+    }
+]
