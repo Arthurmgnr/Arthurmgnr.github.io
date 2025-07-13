@@ -206,5 +206,7 @@ export function createFilterPrix(categorie, titleElement, titleItem, prixMin, pr
         else return false;
     };
 
+    updateSlider();
+
     return [filterGroupElement, filterSelectedItem];
 }

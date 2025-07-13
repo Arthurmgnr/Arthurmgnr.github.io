@@ -108,5 +108,205 @@
         "editeur": "Matagot",
         "prix": "8,50",
 		"lienImage": "/site/resources/images/wanted_games/revolver-noir.jpg"
-	}
+	},
+    {
+        "titre": "Kronologic - Cuzco 1450",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "1-4",
+        "categories": ["Enquête", "Déduction"],
+        "editeur": "Origames",
+        "prix": "23",
+		"lienImage": "/site/resources/images/wanted_games/kronologic-cuzco-1450.jpg"
+    },
+    {
+        "titre": "Kronologic - Paris 1920 : Extension Les Amants Maudits",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "1-4",
+        "categories": ["Enquête", "Déduction"],
+        "editeur": "Origames",
+        "prix": "8",
+		"lienImage": "/site/resources/images/wanted_games/kronologic-paris-1920-extension-les-amants-maudits.jpg"
+    },
+    {
+        "titre": "Kronologic - Paris 1920 : Extension Panique à l’Opera",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "1-4",
+        "categories": ["Enquête", "Déduction"],
+        "editeur": "Origames",
+        "prix": "8",
+		"lienImage": "/site/resources/images/wanted_games/kronologic-paris-1920-extension-panique-a-lopera.jpg"
+    },
+    {
+        "titre": "Flowers",
+        "age": "7",
+        "duree": "30",
+        "nbJoueurs": "1-4",
+        "categories": ["Cartes"],
+        "editeur": "Actarus Editions",
+        "prix": "13.5",
+		"lienImage": "/site/resources/images/wanted_games/flowers.jpg"
+    },
+    {
+        "titre": "Bellevue",
+        "age": "8",
+        "duree": "20",
+        "nbJoueurs": "2-5",
+        "categories": ["Cartes", "Draft"],
+        "editeur": "Gigamic",
+        "prix": "15",
+		"lienImage": "/site/resources/images/wanted_games/bellevue.jpg"
+    },
+    {
+        "titre": "Color Words",
+        "age": "10",
+        "duree": "20",
+        "nbJoueurs": "1-6",
+        "categories": ["Mots", "Réflexion"],
+        "editeur": "Bankiiiz Editions",
+        "prix": "18",
+		"lienImage": "/site/resources/images/wanted_games/color-words.jpg"
+    },
+    {
+        "titre": "Courtisans",
+        "age": "8",
+        "duree": "20",
+        "nbJoueurs": "2-5",
+        "categories": ["Rôles", "Ambiance"],
+        "editeur": "Catch Up Games",
+        "prix": "18",
+		"lienImage": "/site/resources/images/wanted_gamescourtisans.jpg"
+    },
+    {
+        "titre": "For a Crown",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "3-5",
+        "categories": ["Bluff", "Cartes"],
+        "editeur": "Repos Production",
+        "prix": "31.5",
+		"lienImage": "/site/resources/images/wanted_games/for-a-crown.jpg"
+    },
+    {
+        "titre": "Secret Identity",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "3-8",
+        "categories": ["Ambiance", "Observation", "Déduction"],
+        "editeur": "Funnyfox",
+        "prix": "20",
+		"lienImage": "/site/resources/images/wanted_games/secret-identity.jpg"
+    },
+    {
+        "titre": "5 ou Moins",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-6",
+        "categories": ["Mémoire", "Rapidité", "Cartes", "Pouvoirs"],
+        "editeur": "Gamelia",
+        "prix": "17",
+		"lienImage": "/site/resources/images/wanted_games/5-ou-moins.jpg"
+    },
+    {
+        "titre": "The Gang",
+        "age": "10",
+        "duree": "20",
+        "nbJoueurs": "3-6",
+        "categories": ["Coopératif", "Cartes"],
+        "editeur": "Iello",
+        "prix": "16.5",
+		"lienImage": "/site/resources/images/wanted_games/the-gang.jpg"
+    },
+    {
+        "titre": "Verso",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "1-6",
+        "categories": ["Cartes"],
+        "editeur": "Gigamic",
+        "prix": "15",
+		"lienImage": "/site/resources/images/wanted_games/verso.jpg"
+    },
+    {
+        "titre": "Fil Rouge : L'Ombre du Tigre",
+        "age": "12",
+        "duree": "30",
+        "nbJoueurs": "2-4",
+        "categories": ["Cartes", "Coopératif"],
+        "editeur": "Lumberjacks Studio",
+        "prix": "16.5",
+		"lienImage": "/site/resources/images/wanted_games/fil-rouge-l-ombre-du-tigre.jpg"
+    },
+    {
+        "titre": "Opération Zèbre",
+        "age": "14",
+        "duree": "30",
+        "nbJoueurs": "2-12",
+        "categories": ["Connaissance"],
+        "editeur": "Big Moustache Games",
+        "prix": "20",
+		"lienImage": "/site/resources/images/wanted_games/operation-zebre.jpg"
+    },
+    {
+        "titre": "Flip 7",
+        "age": "8",
+        "duree": "20",
+        "nbJoueurs": "3-10",
+        "categories": ["Cartes", "Enchères"],
+        "editeur": "Catch Up Games",
+        "prix": "13.5",
+		"lienImage": "/site/resources/images/wanted_games/flip-7.jpg"
+    },
+    {
+        "titre": "Heat",
+        "age": "10",
+        "duree": "60",
+        "nbJoueurs": "1-6",
+        "categories": ["Course", "Cartes", "Pari"],
+        "editeur": "Days of wonder",
+        "prix": "60",
+		"lienImage": "/site/resources/images/wanted_games/heat.jpg"
+    },
+    {
+        "titre": "TAC-TIK",
+        "age": "7",
+        "duree": "45",
+        "nbJoueurs": "2-6",
+        "categories": [],
+        "editeur": "???",
+        "prix": "???",
+		"lienImage": "/site/resources/images/wanted_games/tac-tik.jpg"
+    },
+    {
+        "titre": "Colt Express",
+        "age": "10",
+        "duree": "40",
+        "nbJoueurs": "2-6",
+        "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
+        "editeur": "Ludonaute",
+        "prix": "31.5",
+		"lienImage": "/site/resources/images/wanted_games/colt-express.jpg"
+    },
+    {
+        "titre": "Colt Express - Big Box",
+        "age": "10",
+        "duree": "40",
+        "nbJoueurs": "2-6",
+        "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
+        "editeur": "Ludonaute",
+        "prix": "46",
+		"lienImage": "/site/resources/images/wanted_games/colt-express-big-box.jpg"
+    },
+    {
+        "titre": "Colt Express - Convoyeurs & Train blindé",
+        "age": "10",
+        "duree": "40",
+        "nbJoueurs": "2-6",
+        "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
+        "editeur": "Ludonaute",
+        "prix": "13.5",
+		"lienImage": "/site/resources/images/wanted_games/colt-express-convoyeurs-train-blinde.jpg"
+    }
 ]

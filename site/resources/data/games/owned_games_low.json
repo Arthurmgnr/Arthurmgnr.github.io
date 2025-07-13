@@ -598,5 +598,125 @@
         "editeur": "Hasbro",
         "prix": "30",
 		"lienImage": "/site/resources/images/owned_games/cluedo.jpg"
+    },
+    {
+        "titre": "Boss Quest",
+        "age": "8",
+        "duree": "20",
+        "nbJoueurs": "2-5",
+        "categories": ["Bluff", "Enchères"],
+        "editeur": "Débâcle Jeux",
+        "prix": "19",
+		"lienImage": "/site/resources/images/owned_games/boss-quest.jpg"
+    },
+    {
+        "titre": "Hitster Music Bingo",
+        "age": "16",
+        "duree": "30",
+        "nbJoueurs": "2-10",
+        "categories": ["Ambiance"],
+        "editeur": "Dujardin",
+        "prix": "38",
+		"lienImage": "/site/resources/images/owned_games/hitster-music-bingo.jpg"
+    },
+    {
+        "titre": "Behind",
+        "age": "10",
+        "duree": "60",
+        "nbJoueurs": "1+",
+        "categories": ["Coopératif", "Observation", "Déduction"],
+        "editeur": "KYF Edition",
+        "prix": "23",
+		"lienImage": "/site/resources/images/owned_games/behind.jpg"
+    },
+    {
+        "titre": "Kronologic - Paris 1920",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "1-4",
+        "categories": ["Enquête", "Déduction"],
+        "editeur": "Origames",
+        "prix": "24",
+		"lienImage": "/site/resources/images/owned_games/kronologic-paris-1920.jpg"
+    },
+    {
+        "titre": "Bomb Busters",
+        "age": "12",
+        "duree": "30",
+        "nbJoueurs": "2-5",
+        "categories": ["Coopératif", "Risque", "Communication", "Déduction"],
+        "editeur": "Cocktail games",
+        "prix": "31.5",
+		"lienImage": "/site/resources/images/owned_games/bomb-busters.jpg"
+    },
+    {
+        "titre": "La Scopette",
+        "age": "8",
+        "duree": "15",
+        "nbJoueurs": "2-6",
+        "categories": ["Cartes"],
+        "editeur": "Bakakou",
+        "prix": "15",
+		"lienImage": "/site/resources/images/owned_games/la-scopette.jpg"
+    },
+    {
+        "titre": "Château Combo",
+        "age": "10",
+        "duree": "25",
+        "nbJoueurs": "2-5",
+        "categories": ["Cartes", "Combinaison"],
+        "editeur": "Catch Up Games",
+        "prix": "18",
+		"lienImage": "/site/resources/images/owned_games/chateau-combo.jpg"
+    },
+    {
+        "titre": "Agent Avenue",
+        "age": "8",
+        "duree": "15",
+        "nbJoueurs": "2",
+        "categories": ["Cartes", "Bluff"],
+        "editeur": "Iello",
+        "prix": "20",
+		"lienImage": "/site/resources/images/owned_games/agent-avenue.jpg"
+    },
+    {
+        "titre": "Piña Coladice",
+        "age": "7",
+        "duree": "10",
+        "nbJoueurs": "2-4",
+        "categories": ["Combinaison", "Dés"],
+        "editeur": "Iello",
+        "prix": "18",
+		"lienImage": "/site/resources/images/owned_games/pina-coladice.jpg"
+    },
+    {
+        "titre": "Odin",
+        "age": "7",
+        "duree": "30",
+        "nbJoueurs": "2-6",
+        "categories": ["Cartes", "Plis"],
+        "editeur": "Helvetiq",
+        "prix": "12",
+		"lienImage": "/site/resources/images/owned_games/odin.jpg"
+    },
+    {
+        "titre": "Présages",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "4-6",
+        "categories": ["Cartes", "Aléatoire"],
+        "editeur": "Spiral Editions",
+        "prix": "16",
+		"lienImage": "/site/resources/images/owned_games/presages.jpg"
+    },
+    {
+        "titre": "Crack List",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-8",
+        "categories": ["Ambiance"],
+        "editeur": "Yaqua Studio",
+        "prix": "19",
+		"lienImage": "/site/resources/images/owned_games/crack-list.jpg"
     }
 ]
