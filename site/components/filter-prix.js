@@ -26,7 +26,7 @@ export function createFilterPrix(categorie, titleElement, titleItem, prixMin, pr
     inputTitleMin.classList = "input-title mb-2";
     inputTitleMin.innerText = "Mini (€)";
     const inputMin = document.createElement("input");
-    inputMin.type = "number";
+    inputMin.type = "float";
     inputMin.id = "minInput";
     inputMin.onkeydown = function(event) { controlKeyPress(true, event); }
     inputMin.onblur = function(event) { validateInput(true)(event); }
@@ -39,11 +39,11 @@ export function createFilterPrix(categorie, titleElement, titleItem, prixMin, pr
     inputTitleMax.classList = "input-title mb-2";
     inputTitleMax.innerText = "Mini (€)";
     const inputMax = document.createElement("input");
-    inputMax.type = "number";
+    inputMax.type = "float";
     inputMax.id = "maxInput";
-    inputMax.onkeydown = function(event) { controlKeyPress(true, event); }
-    inputMax.onblur = function(event) { validateInput(true)(event); }
-    inputMax.onchange = function(event) { validateInput(true)(event); }
+    inputMax.onkeydown = function(event) { controlKeyPress(false, event); }
+    inputMax.onblur = function(event) { validateInput(false)(event); }
+    inputMax.onchange = function(event) { validateInput(false)(event); }
     inputContainerSideMax.append(inputTitleMax, inputMax);
 
     inputContainer.append(inputContainerSideMin, inputContainerSideMax);
@@ -168,7 +168,7 @@ export function createFilterPrix(categorie, titleElement, titleItem, prixMin, pr
     
     function validateInput(isMin) {
         return function (event) {
-            const value = parseInt(event.target.value);
+            const value = parseFloat(event.target.value);
             if (isNaN(value)) {
                 if (isMin) event.target.value = minStore;
                 else event.target.value = maxStore;

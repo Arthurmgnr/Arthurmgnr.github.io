@@ -15,7 +15,7 @@ const gamesDiv = document.querySelector("#games-container");
 
 // Filter Prix
 const games_low_min = 8;
-const games_low_max = 60;
+const games_low_max = 46;
 const filterPrix = createFilterPrix(
     "prix", "Prix", "Prix :", games_low_min, games_low_max, () => { callApplyAllFilters(); }
 );
@@ -41,17 +41,16 @@ const filterDuree = createFilterDuree(
 );
 
 // Filter Editeur
-const games_low_editeur = ["Actarus Editions", "Bankiiiz Editions", "Big Moustache Games", "Catch Up Games", "Days of wonder", "Flip Flap Editions", "Funnyfox",
-    "Gamelia", "Gigamic", "Iello", "Ludonaute", "Lumberjacks Studio", "Matagot", "Next Move", "OldChap Editions", "Origames", "Repos Production", "Spielwiese",
-    "Studio H"];
+const games_low_editeur = ["Actarus Editions", "Bankiiiz Editions", "Big Moustache Games", "Catch Up Games", "Flip Flap Editions", "Funnyfox",
+    "Gamelia", "Gigamic", "Iello", "Ludonaute", "Lumberjacks Studio", "Matagot", "OldChap Editions", "Origames", "Repos Production", "Space Cowboys", "Spielwiese",
+    "Studio H", "The Flying Games"];
 const filterEditeur = createFilterEditeur(
     "editeur", "Editeur", "Editeur :", games_low_editeur, () => { callApplyAllFilters(); }
 );
 
 // Filter Categorie
-const games_low_categorie = ["Affrontement", "Ambiance", "Bluff", "Cartes", "Collection", "Combinaison", "Connaissance", "Coopératif", "Course", "Draft", "Déduction",
-    "Enchères", "Enigme", "Enquête", "Mots", "Mémoire", "Observation", "Pari", "Placement", "Pouvoirs", "Programmation", "Rapidité", "Réflexion", "Rôles", "Stratégie",
-    "Tuiles"];
+const games_low_categorie = ["Affrontement", "Ambiance", "Bluff", "Cartes", "Combinaison", "Communication", "Connaissance", "Coopératif", "Course", "Draft", "Déduction",
+    "Enchères", "Enigme", "Enquête", "Mots", "Mémoire", "Observation", "Pari", "Plis", "Pouvoirs", "Programmation", "Rapidité", "Réflexion", "Rôles"];
 const filterCategorie = createFilterCategories(
     "categorie", "Catégorie", "Catégorie :", games_low_categorie, () => { callApplyAllFilters(); }
 );

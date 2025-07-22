@@ -132,9 +132,9 @@ export function createCard(game, nb, possede) {
     image.src = game.lienImage;
     image.alt = game.titre;
     image.id = "gameImage";
-    image.addEventListener("click", function () {
-        viewGameDetails(game);
-    });
+    // image.addEventListener("click", function () {
+    //     viewGameDetails(game);
+    // });
     imageContainer.appendChild(image);
 
     const bodyContainer = document.createElement("div");
@@ -144,9 +144,9 @@ export function createCard(game, nb, possede) {
     title.classList = "fw-bold m-0 mb-2 text-truncate w-100 text-center";
     title.innerText = game.titre;
     title.id = "gameTitle";
-    title.addEventListener("click", function () {
-        viewGameDetails(game);
-    });
+    // title.addEventListener("click", function () {
+    //     viewGameDetails(game);
+    // });
 
     const categoriesContainer = document.createElement("div");
     categoriesContainer.classList = "d-flex flex-wrap justify-content-center text-center mb-2 px-2";
@@ -191,4 +191,18 @@ export function createCard(game, nb, possede) {
 
     container.appendChild(subContainer);
     return container;
+}
+
+export function firstIncludesSecond(first, second) {
+    function normalizeString(str) { return String(str).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase(); }
+
+    const f = normalizeString(first);
+    const s = normalizeString(second);
+    return f.includes(s);
+}
+
+function viewGameDetails(game) {
+    // sessionStorage.setItem("game", JSON.stringify(game));
+    // window.location.replace("GameDetails/GameDetails.html");
+    console.log("Acces a la page du jeu " + game.titre);
 }

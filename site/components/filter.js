@@ -10,7 +10,7 @@ export function createFilterGroupElement(categorie, titleElement) {
     filterGroup.id = `filter-${categorie}`;
     filterGroup.setAttribute("aria-expanded", "false");
     filterGroup.onclick = function() { toggleAriaExpanded(this); }
-    const filterGroupTitle = document.createElement("filter-group-title");
+    const filterGroupTitle = document.createElement("div");
     filterGroupTitle.classList = "filter-group-title";
     filterGroupTitle.innerText = titleElement;
     const spanTitle = document.createElement("span");

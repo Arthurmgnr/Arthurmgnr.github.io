@@ -61,22 +61,74 @@
         </nav>
     </header>
 
-    <div class="container my-5 resume-selection-container">
-        <div class="row">
-            <div class="col-lg-3 col-5">
-                <div class="filter-headers d-flex flex-column">
+    <div class="container my-md-5 resume-selection-container">
+        <div class="row d-flex flex-column flex-md-row align-items-center align-items-md-start">
+            <div class="col-lg-3 col-5 mb-5 mb-md-0">
+                <!-- <div class="filter-headers d-flex flex-column"> -->
+                <!-- <div class="d-flex flex-column">
+                    <div class="filter-group-element">
+                        <div class="filter-group" id="filter-container" aria-expanded="false">
+                            <div class="filter-group-title">Filtres</div>
+                            <span class="material-symbols-outlined filter-group-chevron">keyboard_arrow_down</span>
+                        </div>
+                        <div class="disabled" id="filter-container-bottom">
+                            <div class="filter-group-element" id="filters-list">
+                                <div class="filter-selected-item item-reset disabled">
+                                    <div class="filter-selected-item-title title-reset">
+                                        Tout réinitialiser<span class="material-symbols-outlined filter-selected-item-content-icon title-icon">replay</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-headers"></div>
+                        </div>
+                    </div> -->
+                    <!-- <h4 class="text-primary fw-bold">Filtres</h4>
                     <div class="filter-group-element" id="filters-list">
-                        <h4 class="text-primary fw-bold">Filtres</h4>
                         <div class="filter-selected-item item-reset disabled">
                             <div class="filter-selected-item-title title-reset">
                                 Tout réinitialiser<span class="material-symbols-outlined filter-selected-item-content-icon title-icon">replay</span>
                             </div>
                         </div>
+                    </div> -->
+                <!-- </div> -->
+                
+                <!-- Version desktop (≥768px) -->
+                <div class="filter-headers d-none d-md-flex flex-column" id="filter-desktop">
+                    <h4 class="text-primary fw-bold">Filtres</h4>
+                    <div class="filter-group-element" id="filters-list">
+                        <div class="filter-selected-item item-reset disabled">
+                            <div class="filter-selected-item-title title-reset">
+                                Tout réinitialiser
+                                <span class="material-symbols-outlined filter-selected-item-content-icon title-icon">replay</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Version mobile (<768px) -->
+                <div class="d-flex d-md-none flex-column" id="filter-mobile">
+                    <div class="filter-group-element">
+                        <div class="filter-group" id="filter-container" aria-expanded="false">
+                            <div class="filter-group-title">Filtres</div>
+                            <span class="material-symbols-outlined filter-group-chevron">keyboard_arrow_down</span>
+                        </div>
+                        <div class="disabled" id="filter-container-bottom">
+                            <div class="filter-group-element" id="filters-list">
+                                <div class="filter-selected-item item-reset disabled">
+                                    <div class="filter-selected-item-title title-reset">
+                                        Tout réinitialiser
+                                        <span class="material-symbols-outlined filter-selected-item-content-icon title-icon">replay</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="filter-headers"></div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-9 col-7">
-                <div class="d-flex align-items-center mx-3 mb-4">
+                <!-- <div class="d-flex align-items-center mx-3 mb-4"> -->
+                <div class="d-flex flex-column flex-lg-row align-items-center mx-3 mb-4 gap-3">
                     <div>
                         <label for="selectProductSort">Trier par</label>
                         <select name="text" id="selectProductSort">
@@ -88,6 +140,16 @@
                         </select>
                     </div>
                     <div class="mx-auto text-primary fw-bold fs-4" id="nbGames"></div>
+                    <!-- <div class="d-flex flex-column flex-lg-row align-items-center gap-2">
+                        <label>Recherche</label>
+                        <input type="text" id="searchInput" placeholder="Rechercher un jeu...">
+                        <button class="filter-group bouton w-auto p" id="searchGame">
+                            <span class="material-symbols-outlined">search</span>
+                        </button>
+                        <button class="filter-group bouton w-auto p" id="resetSearchGame">
+                            <span class="material-symbols-outlined title-icon">replay</span>
+                        </button>
+                    </div> -->
                 </div>
                 <div id="games-container" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 m-0">
                 </div>
@@ -107,4 +169,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="ownedGames.js" type="module"></script>
 </body>
+<!-- <script>
+    function getFiltersListElement() {
+        if (window.innerWidth < 768) {
+            return document.getElementById("filters-list-mobile");
+        } else {
+            return document.getElementById("filters-list-desktop");
+        }
+    }
+    const filtersList = getFiltersListElement();
+    filtersList = getFiltersListElement();
+    console.log(filtersList);
+</script> -->
 </html>

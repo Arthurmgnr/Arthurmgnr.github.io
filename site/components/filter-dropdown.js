@@ -1,5 +1,6 @@
 
-import { createFilterGroupElement, createFilterSelectionItem} from "/site/components/filter.js";
+import { createFilterGroupElement, createFilterSelectionItem } from "/site/components/filter.js";
+import { firstIncludesSecond } from "/site/components/common.js";
 
 export function createFilterDropdown(categorie, titleElement, titleItem, items, onChange) {
     // Constantes
@@ -47,11 +48,11 @@ export function createFilterDropdown(categorie, titleElement, titleItem, items, 
     });
 
     input.addEventListener("keyup", () => {
-        const value = input.value.toLowerCase();
-        const selectedItems = Array.from(filterSelectedItem.children).slice(1).map(item => item.classList[1].split("-")[2].split("_").join(" ").toLowerCase());
+        const value = input.value;
+        const selectedItems = Array.from(filterSelectedItem.children).slice(1).map(item => item.classList[1].split("-")[2].split("_").join(" "));
         Array.from(scrollableDropdown.children).forEach(item => {
-            const itemText = item.textContent.toLowerCase();
-            if (itemText.includes(value) && !selectedItems.includes(itemText)) item.style.display = "block";
+            const itemText = item.textContent;
+            if (firstIncludesSecond(itemText, value) && !firstIncludesSecond(selectedItems, itemText)) item.style.display = "block";
             else item.style.display = "none";
         });
     });
@@ -62,7 +63,7 @@ export function createFilterDropdown(categorie, titleElement, titleItem, items, 
             input.value = "";
             scrollableDropdown.style.display = "none";
             Array.from(scrollableDropdown.children).forEach(item => {
-                if (item.textContent.toLowerCase().includes(event.target.textContent.toLowerCase())) item.style.display = "none";
+                if (firstIncludesSecond(item.textContent, event.target.textContent)) item.style.display = "none";
                 else item.style.display = "block";
             });
         }
@@ -84,7 +85,7 @@ export function createFilterDropdown(categorie, titleElement, titleItem, items, 
             filtersActif.splice(filtersActif.indexOf(text.replaceAll("'", "").replaceAll("-", "")), 1);
             container.removeChild(div);
             Array.from(list.children).forEach(item => {
-                if (item.textContent.toLowerCase().includes(text.toLowerCase())) item.style.display = "block";
+                if (firstIncludesSecond(item.textContent, text)) item.style.display = "block";
             });
             if ((container.children.length - 1) === 0) container.classList.add("disabled");
 

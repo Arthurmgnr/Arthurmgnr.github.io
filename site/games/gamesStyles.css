@@ -158,11 +158,14 @@ body {
 }
 
 
-.filter-group-element:first-child {
+/* .filter-group-element:first-child {
     padding-bottom: 1rem;
-}
-.filter-group-element:not(:last-child) {
+} */
+/* .filter-group-element:not(:last-child) {
     margin-bottom: 20px;
+} */
+.filter-group-element {
+    margin-top: 20px;
 }
 .filter-group {
     display: flex;
@@ -244,3 +247,10 @@ body {
 .disabled {
     display: none;
 }
+
+/* .bouton {
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 2rem;
+} */
+ 

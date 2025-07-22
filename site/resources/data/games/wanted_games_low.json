@@ -6,18 +6,8 @@
         "nbJoueurs": "4-8",
         "categories": ["Coopératif", "Ambiance"],
         "editeur": "OldChap Editions",
-        "prix": "19,90",
+        "prix": "19.90",
 		"lienImage": "/site/resources/images/wanted_games/fiesta-de-los-muertos.jpg"
-	},
-    {
-        "titre": "Azul",
-        "age": "8",
-        "duree": "45",
-        "nbJoueurs": "2-4",
-        "categories": ["Placement", "Stratégie", "Collection", "Tuiles"],
-        "editeur": "Next Move",
-        "prix": "41,50",
-		"lienImage": "/site/resources/images/wanted_games/azul.jpg"
 	},
     {
         "titre": "MicroMacro : Crime City - Showdown",
@@ -26,7 +16,7 @@
         "nbJoueurs": "1-4",
         "categories": ["Coopératif", "Enigme", "Observation"],
         "editeur": "Spielwiese",
-        "prix": "24,50",
+        "prix": "24.50",
 		"lienImage": "/site/resources/images/wanted_games/micromacro-crime-city-showdown.jpg"
 	},
     {
@@ -36,7 +26,7 @@
         "nbJoueurs": "1-4",
         "categories": ["Coopératif", "Enigme", "Observation"],
         "editeur": "Spielwiese",
-        "prix": "14,50",
+        "prix": "14.50",
 		"lienImage": "/site/resources/images/wanted_games/micromacro-crime-city-epic-cases.jpg"
 	},
     {
@@ -46,7 +36,7 @@
         "nbJoueurs": "1-10",
         "categories": ["Coopératif", "Déduction"],
         "editeur": "Flip Flap Editions",
-        "prix": "19,90",
+        "prix": "19.90",
 		"lienImage": "/site/resources/images/wanted_games/ricochet-3-quand-satan-brouille-l-ecoute.jpg"
 	},
     {
@@ -56,7 +46,7 @@
         "nbJoueurs": "1-6",
         "categories": ["Déduction", "Enigme"],
         "editeur": "Studio H",
-        "prix": "28,90",
+        "prix": "28.90",
 		"lienImage": "/site/resources/images/wanted_games/suspects.jpg"
 	},
     {
@@ -66,7 +56,7 @@
         "nbJoueurs": "1-6",
         "categories": ["Déduction", "Enigme"],
         "editeur": "Studio H",
-        "prix": "11,50",
+        "prix": "11.50",
 		"lienImage": "/site/resources/images/wanted_games/suspects-pocket-l-operation-ravel.jpg"
 	},
     {
@@ -76,7 +66,7 @@
         "nbJoueurs": "1-6",
         "categories": ["Déduction", "Enigme"],
         "editeur": "Studio H",
-        "prix": "28,90",
+        "prix": "28.90",
 		"lienImage": "/site/resources/images/wanted_games/suspects-adele-neville-reporters-detectives.jpg"
 	},
     {
@@ -86,7 +76,7 @@
         "nbJoueurs": "1-6",
         "categories": ["Déduction", "Enigme"],
         "editeur": "Studio H",
-        "prix": "11,50",
+        "prix": "11.50",
 		"lienImage": "/site/resources/images/wanted_games/suspects-pocket-la-disparition-du-professeur-fairchild.jpg"
 	},
     {
@@ -96,7 +86,7 @@
         "nbJoueurs": "1-6",
         "categories": ["Déduction", "Enigme"],
         "editeur": "Studio H",
-        "prix": "11,50",
+        "prix": "11.50",
 		"lienImage": "/site/resources/images/wanted_games/suspects-pocket-hors-jeu-a-liverpool.jpg"
 	},
     {
@@ -106,7 +96,7 @@
         "nbJoueurs": "2",
         "categories": ["Cartes"],
         "editeur": "Matagot",
-        "prix": "8,50",
+        "prix": "8.50",
 		"lienImage": "/site/resources/images/wanted_games/revolver-noir.jpg"
 	},
     {
@@ -177,7 +167,7 @@
         "categories": ["Rôles", "Ambiance"],
         "editeur": "Catch Up Games",
         "prix": "18",
-		"lienImage": "/site/resources/images/wanted_gamescourtisans.jpg"
+		"lienImage": "/site/resources/images/wanted_games/courtisans.jpg"
     },
     {
         "titre": "For a Crown",
@@ -260,14 +250,14 @@
 		"lienImage": "/site/resources/images/wanted_games/flip-7.jpg"
     },
     {
-        "titre": "Heat",
+        "titre": "Downforce",
         "age": "10",
-        "duree": "60",
-        "nbJoueurs": "1-6",
-        "categories": ["Course", "Cartes", "Pari"],
-        "editeur": "Days of wonder",
-        "prix": "60",
-		"lienImage": "/site/resources/images/wanted_games/heat.jpg"
+        "duree": "45",
+        "nbJoueurs": "2-6",
+        "categories": ["Course", "Enchères", "Pari"],
+        "editeur": "Iello",
+        "prix": "33",
+		"lienImage": "/site/resources/images/wanted_games/downforce.jpg"
     },
     {
         "titre": "TAC-TIK",
@@ -278,16 +268,6 @@
         "editeur": "???",
         "prix": "???",
 		"lienImage": "/site/resources/images/wanted_games/tac-tik.jpg"
-    },
-    {
-        "titre": "Colt Express",
-        "age": "10",
-        "duree": "40",
-        "nbJoueurs": "2-6",
-        "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
-        "editeur": "Ludonaute",
-        "prix": "31.5",
-		"lienImage": "/site/resources/images/wanted_games/colt-express.jpg"
     },
     {
         "titre": "Colt Express - Big Box",
@@ -308,5 +288,65 @@
         "editeur": "Ludonaute",
         "prix": "13.5",
 		"lienImage": "/site/resources/images/wanted_games/colt-express-convoyeurs-train-blinde.jpg"
+    },
+    {
+        "titre": "Colt Super Express",
+        "age": "7",
+        "duree": "30",
+        "nbJoueurs": "3-7",
+        "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
+        "editeur": "Ludonaute",
+        "prix": "13.5",
+		"lienImage": "/site/resources/images/wanted_games/colt-super-express.jpg"
+    },
+    {
+        "titre": "Skull",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "3-6",
+        "categories": ["Bluff"],
+        "editeur": "Space Cowboys",
+        "prix": "18",
+		"lienImage": "/site/resources/images/wanted_games/skull-silver.jpg"
+    },
+    {
+        "titre": "Inside Job",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "3-5",
+        "categories": ["Coopératif", "Plis", "Cartes", "Déduction", "Rôles"],
+        "editeur": "Iello",
+        "prix": "16.5",
+		"lienImage": "/site/resources/images/wanted_games/inside-job.jpg"
+    },
+    {
+        "titre": "Le Roi des Nains",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "3-5",
+        "categories": ["Cartes"],
+        "editeur": "Iello",
+        "prix": "16.5",
+		"lienImage": "/site/resources/images/wanted_games/le-roi-des-nains.jpg"
+    },
+    {
+        "titre": "Mojo",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "3-8",
+        "categories": ["Cartes"],
+        "editeur": "The Flying Games",
+        "prix": "13.95",
+		"lienImage": "/site/resources/images/wanted_games/mojo.jpg"
+    },
+    {
+        "titre": "L'île des Mots Dits",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-10",
+        "categories": ["Communication", "Coopératif"],
+        "editeur": "Matagot",
+        "prix": "19.9",
+		"lienImage": "/site/resources/images/wanted_games/l-ile-des-mots-dits.jpg"
     }
 ]
