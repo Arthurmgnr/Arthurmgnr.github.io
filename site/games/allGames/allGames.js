@@ -1,5 +1,5 @@
 
-import { sortGames, addFilterValuesHeader, applyAllFilters, resetAllFilters, loadGames } from "/site/components/common.js";
+import { sortGames, addFilterValuesHeader, applyAllFilters, resetAllFilters, loadGames, setDesktopOrMobile, displayFilters } from "/site/components/common.js";
 import { createFilterPrix } from "/site/components/filter-prix.js";
 import { createFilterAge } from "/site/components/filter-age.js";
 import { createFilterNbJoueurs } from "/site/components/filter-nbJoueurs.js";
@@ -10,9 +10,11 @@ import { createFilterPossede } from "/site/components/filter-possede.js";
 
 // -------------------------------------------------------------------------------------
 
+setDesktopOrMobile();
+
 const gamesDiv = document.querySelector("#games-container");
 
-// 71 jeux
+// 110 jeux
 
 // Filter Prix
 const games_low_min = 7.9;
@@ -40,10 +42,10 @@ const filterDuree = createFilterDuree(
 );
 
 // Filter Editeur
-const games_low_editeur = ["Actarus Editions", "Asmodée", "Bakakou", "Bankiiiz Editions", "Big Moustache Games", "Blackrock Games", "Blue Orange", "Bombyx",
-    "Catch Up Games", "Cocktail Games", "Cocktail games", "Days of Wonder", "Don't Panic Games", "Dujardin", "Débâcle Jeux", "Flip Flap Editions", "Flip Flap Éditions",
-    "Funnyfox", "Gamelia", "Gamewright", "Gigamic", "Grandpa Beck's Games", "Hasbro", "Helvetiq", "Hurrican", "Iello", "KYF Edition", "Libellud", "Ludonaute",
-    "Lumberjacks Studio", "Magilano", "Matagot", "Mixlore", "Next Move", "OldChap Editions", "Origames", "Oya", "Ravensburger", "Repos Production",
+const games_low_editeur = ["Actarus Editions", "Asmodée", "Bakakou", "Bandjo !", "Bankiiiz Editions", "Big Moustache Games", "Blackrock Games", "Blue Orange",
+    "Bombyx", "Catch Up Games", "Cocktail Games", "Cocktail games", "Days of Wonder", "Don't Panic Games", "Dujardin", "Débâcle Jeux", "Flip Flap Editions",
+    "Flip Flap Éditions", "Funnyfox", "Gamelia", "Gamewright", "Gigamic", "Grandpa Beck's Games", "Hasbro", "Helvetiq", "Hurrican", "Iello", "KYF Edition", "Libellud",
+    "Ludonaute", "Lumberjacks Studio", "Magilano", "Matagot", "Mixlore", "Next Move", "OldChap Editions", "Origames", "Oya", "Ravensburger", "Repos Production",
     "Schmidt Spiele GmbH", "Scorpion Masqué", "Smart Games", "Space Cowboys", "Spielwiese", "Spiral Editions", "Studio H", "The Flying Games", "Yaqua Studio",
     "Z-Man Games"];
 const filterEditeur = createFilterEditeur(
@@ -93,79 +95,8 @@ document.querySelector(".title-reset").addEventListener("click", () => {
 });
 document.getElementById("selectProductSort").addEventListener("change", () => { sortGames(gamesDiv, document.getElementById("selectProductSort").value); });
 
-function viewGameDetails(game) {
-    // sessionStorage.setItem("game", JSON.stringify(game));
-    // window.location.replace("GameDetails/GameDetails.html");
-    console.log("Acces a la page du jeu " + game.titre);
-}
-
-// async function loadGames() {
-//     try {
-//         // Version shuffle
-//         // const FILE_PATH_OWNED = "/site/resources/data/games/owned_games_low.json";
-//         // const FILE_PATH_WANTED = "/site/resources/data/games/wanted_games_low.json";
-
-//         // function shuffleArray(array) {
-//         //     for (let i = array.length - 1; i > 0; i--) {
-//         //         const j = Math.floor(Math.random() * (i + 1));
-//         //         [array[i], array[j]] = [array[j], array[i]];
-//         //     }
-//         // }
-
-//         // const [response_owned, response_wanted] = await Promise.all([
-//         //     fetch(FILE_PATH_OWNED),
-//         //     fetch(FILE_PATH_WANTED)
-//         // ]);
-
-//         // if (!response_owned.ok) throw new Error(`Erreur lors du chargement de ${FILE_PATH_OWNED}`);
-//         // if (!response_wanted.ok) throw new Error(`Erreur lors du chargement de ${FILE_PATH_WANTED}`);
-
-//         // const owned_games = await response_owned.json();
-//         // const wanted_games = await response_wanted.json();
-
-//         // const tagged_owned = owned_games.map((game) => ({ ...game, owned: true }));
-//         // const tagged_wanted = wanted_games.map((game) => ({ ...game, owned: false }));
-
-
-//         // const all_games = [...tagged_owned, ...tagged_wanted];
-//         // shuffleArray(all_games);
-
-//         // all_games.forEach((game, index) => {
-//         //     gamesDiv.appendChild(createCard(game, index, game.owned));
-//         // });
-
-//         // if (gamesDiv.children.length > 1) document.getElementById("nbGames").textContent = `${gamesDiv.children.length} jeux`;
-//         // else document.getElementById("nbGames").textContent = `${gamesDiv.children.length} jeu`;
-
-
-
-//         // Owned games
-//         const FILE_PATH_OWNED = "/site/resources/data/games/owned_games_low.json";
-//         const response_owned = await fetch(FILE_PATH_OWNED);
-//         if (!response_owned.ok) throw new Error(`Erreur lors du chargement du fichier ${FILE_PATH_OWNED}`);
-//         const owned_games = await response_owned.json();
-//         owned_games.forEach((game, index) => {
-//             gamesDiv.appendChild(createCard(game, index, true));
-//         });
-
-//         const nb = owned_games.length;
-
-//         // Wanted games
-//         const FILE_PATH_WANTED = "/site/resources/data/games/wanted_games_low.json";
-//         const response_wanted = await fetch(FILE_PATH_WANTED);
-//         if (!response_wanted.ok) throw new Error(`Erreur lors du chargement du fichier ${FILE_PATH_WANTED}`);
-//         const wanted_games = await response_wanted.json();
-//         wanted_games.forEach((game, index) => {
-//             gamesDiv.appendChild(createCard(game, index + nb, false));
-//         });
-
-//         if (gamesDiv.children.length > 1) document.getElementById("nbGames").textContent = `${gamesDiv.children.length} jeux`;
-//         else document.getElementById("nbGames").textContent = `${gamesDiv.children.length} jeu`;
-//     } catch (error) {
-//         console.error("Erreur :", error);
-//     }
-// }
-
 loadGames(gamesDiv, document.getElementById("nbGames"),
     ["owned_games_low.json", true], ["wanted_games_low.json", false]
 );
+
+document.getElementById("filter-container").addEventListener("click", () => { displayFilters(); });

@@ -206,3 +206,20 @@ function viewGameDetails(game) {
     // window.location.replace("GameDetails/GameDetails.html");
     console.log("Acces a la page du jeu " + game.titre);
 }
+
+export function setDesktopOrMobile() {
+  if (window.innerWidth < 768) {
+    const desktop = document.getElementById("filter-desktop");
+    const mobile = document.getElementById("filter-mobile");
+
+    mobile.parentNode.insertBefore(desktop, mobile.nextSibling);
+  }
+}
+
+export function displayFilters() {
+    const isExpanded = document.getElementById("filter-container").getAttribute("aria-expanded") === "true";
+
+    document.getElementById("filter-container").setAttribute("aria-expanded", !isExpanded);
+
+    document.getElementById("filter-container-bottom").style.display = isExpanded ? "none" : "block";
+}

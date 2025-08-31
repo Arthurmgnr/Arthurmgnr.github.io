@@ -1,5 +1,5 @@
 
-import { sortGames, addFilterValuesHeader, applyAllFilters, resetAllFilters, loadGames } from "/site/components/common.js";
+import { sortGames, addFilterValuesHeader, applyAllFilters, resetAllFilters, loadGames, setDesktopOrMobile, displayFilters } from "/site/components/common.js";
 import { createFilterPrix } from "/site/components/filter-prix.js";
 import { createFilterAge } from "/site/components/filter-age.js";
 import { createFilterNbJoueurs } from "/site/components/filter-nbJoueurs.js";
@@ -9,20 +9,11 @@ import { createFilterCategories } from "/site/components/filter-categories.js";
 
 // -------------------------------------------------------------------------------------
 
-function setDesktopOrMobile() {
-  if (window.innerWidth < 768) {
-    const desktop = document.getElementById("filter-desktop");
-    const mobile = document.getElementById("filter-mobile");
-
-    mobile.parentNode.insertBefore(desktop, mobile.nextSibling);
-  }
-}
-
 setDesktopOrMobile();
 
 const gamesDiv = document.querySelector("#games-container");
 
-// 60 jeux
+// 80 jeux
 
 // Filter Prix
 const games_low_min = 7.9;
@@ -50,20 +41,22 @@ const filterDuree = createFilterDuree(
 );
 
 // Filter Editeur
-const games_low_editeur = ["Asmodée", "Bakakou", "Blackrock Games", "Blue Orange", "Bombyx", "Catch Up Games", "Cocktail Games", "Cocktail games", "Days of Wonder",
-    "Don't Panic Games", "Dujardin", "Débâcle Jeux", "Flip Flap Éditions", "Gamewright", "Gigamic", "Grandpa Beck's Games", "Hasbro", "Helvetiq", "Hurrican", "Iello",
-    "KYF Edition", "Libellud", "Lumberjacks Studio", "Magilano", "Mixlore", "Next Move", "Origames", "Oya", "Ravensburger", "Repos Production", "Schmidt Spiele GmbH",
-    "Scorpion Masqué", "Smart Games", "Space Cowboys", "Spiral Editions", "Studio H", "Yaqua Studio", "Z-Man Games"];
+const games_low_editeur = ["Asmodée", "Bakakou", "Blackrock Games", "Blue Orange", "Bombyx", "Catch Up Games", "Cocktail Games", "Days of Wonder",
+    "Don't Panic Games", "Dujardin", "Débâcle Jeux", "Flip Flap Éditions", "Funnyfox", "Gamewright", "Gigamic", "Grandpa Beck's Games", "Hasbro", "Helvetiq",
+    "Hurrican", "Iello", "KYF Edition", "Libellud", "Ludonaute", "Lumberjacks Studio", "Magilano", "Matagot", "Mixlore", "Next Move", "OldChap Editions", "Origames",
+    "Oya", "Ravensburger", "Repos Production", "Schmidt Spiele GmbH", "Scorpion Masqué", "Smart Games", "Space Cowboys", "Spiral Editions", "Studio H", "Yaqua Studio",
+    "Z-Man Games"];
 const filterEditeur = createFilterEditeur(
     "editeur", "Editeur", "Editeur :", games_low_editeur, () => { callApplyAllFilters(); }
 );
 
 // Filter Categorie
-const games_low_categorie = ["Alignement", "Aléatoire", "Ambiance", "Association d'idées", "Aventure", "Bluff", "Cartes", "Casse-tête", "Chronologie", "Civilisation",
-    "Code", "Collection", "Combinaison", "Communication", "Connaissance", "Construction", "Coopératif", "Crimes", "Culture générale", "Dextérité", "Draw & Write",
-    "Déduction", "Dés", "Développement", "Educatif", "Enchères", "Enigme", "Enquête", "Escape Game", "Exploration", "Extension", "Familial", "Gestion de ressources",
-    "Interprétation d'images", "Jeu de mots", "Logique", "Mathématiques", "Missions", "Musique", "Mémoire", "Objectifs", "Observation", "Optimisation", "Pari",
-    "Placement", "Planification", "Plateau", "Plis", "Prise de risque", "Risque", "Roll & Write", "Rôles", "Stratégie", "Tuiles", "Visualisation spatiale"];
+const games_low_categorie = ["Affrontement", "Alignement", "Aléatoire", "Ambiance", "Association d'idées", "Aventure", "Bluff", "Cartes", "Casse-tête", "Chronologie",
+    "Civilisation", "Code", "Collection", "Combinaison", "Communication", "Connaissance", "Construction", "Coopératif", "Crimes", "Culture générale", "Dextérité",
+    "Draw & Write", "Déduction", "Dés", "Développement", "Educatif", "Enchères", "Enigme", "Enquête", "Escape Game", "Exploration", "Extension", "Familial",
+    "Gestion de ressources", "Interprétation d'images", "Jeu de mots", "Logique", "Mathématiques", "Missions", "Musique", "Mémoire", "Objectifs", "Observation",
+    "Optimisation", "Pari", "Placement", "Planification", "Plateau", "Plis", "Pouvoirs", "Prise de risque", "Programmation", "Risque", "Roll & Write", "Rôles",
+    "Stratégie", "Tuiles", "Visualisation spatiale"];
 const filterCategorie = createFilterCategories(
     "categorie", "Catégorie", "Catégorie :", games_low_categorie, () => { callApplyAllFilters(); }
 );
@@ -93,85 +86,8 @@ document.querySelector(".title-reset").addEventListener("click", () => {
 });
 document.getElementById("selectProductSort").addEventListener("change", () => { sortGames(gamesDiv, document.getElementById("selectProductSort").value); });
 
-// function viewGameDetails(game) {
-//     // sessionStorage.setItem("game", JSON.stringify(game));
-//     // window.location.replace("GameDetails/GameDetails.html");
-//     console.log("Acces a la page du jeu " + game.titre);
-// }
-
 loadGames(gamesDiv, document.getElementById("nbGames"),
     ["owned_games_low.json", null]
 );
 
-// document.getElementById("searchGame").addEventListener("click", () => { searchGame(gamesDiv, document.getElementById("selectProductSort").value,
-//         document.getElementById("nbGames"), filters); });
-// document.getElementById("resetSearchGame").addEventListener("click", () => { resetSearchGame(gamesDiv, document.getElementById("selectProductSort").value,
-//         document.getElementById("nbGames"), filters); });
-
-// function searchGame() {
-//     const input = document.getElementById("searchInput").value;
-    
-//     let nbGames = 0;
-
-//     Array.from(gamesDiv.children).forEach((game) => {
-//         const toFilter = !firstIncludesSecond(game.getAttribute("titre"), input);
-
-//         if (toFilter) {
-//             game.classList.remove("d-flex");
-//             game.classList.add("disabled");
-//         }
-//         else {
-//             game.classList.remove("disabled");
-//             game.classList.add("d-flex");
-//             nbGames++;
-//         }
-//     });
-
-//     // sortGames(container, valeur);
-
-//     if (nbGames > 1) nbGamesContainer.textContent = `${nbGames} jeux`;
-//     else nbGamesContainer.textContent = `${nbGames} jeu`;
-// }
-
-// function searchGame(container, valeur, nbGamesContainer, filters) {
-//     const input = document.getElementById("searchInput").value;
-
-//     toggleResetFilter();
-         
-//     let nbGames = 0;
-
-//     Array.from(container.children).forEach((game) => {
-//         const toFilter = filters.some(({ filter, value }) => filter[0].getSelected(value(game))) || !firstIncludesSecond(game.getAttribute("titre"), input);
-
-//         if (toFilter) {
-//             game.classList.remove("d-flex");
-//             game.classList.add("disabled");
-//         }
-//         else {
-//             game.classList.remove("disabled");
-//             game.classList.add("d-flex");
-//             nbGames++;
-//         }
-//     });
-
-//     sortGames(container, valeur);
-
-//     if (nbGames > 1) nbGamesContainer.textContent = `${nbGames} jeux`;
-//     else nbGamesContainer.textContent = `${nbGames} jeu`;
-// }
-
-// function resetSearchGame(container, valeur, nbGamesContainer, filters) {
-//     document.getElementById("searchInput").value = "";
-
-//     applyAllFilters(container, valeur, nbGamesContainer, filters)
-// }
-
-document.getElementById("filter-container").addEventListener("click", () => { test(); });
-
-function test() {
-    const isExpanded = document.getElementById("filter-container").getAttribute("aria-expanded") === "true";
-
-    document.getElementById("filter-container").setAttribute("aria-expanded", !isExpanded);
-
-    document.getElementById("filter-container-bottom").style.display = isExpanded ? "none" : "block";
-}
+document.getElementById("filter-container").addEventListener("click", () => { displayFilters(); });

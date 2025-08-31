@@ -645,7 +645,7 @@
         "duree": "30",
         "nbJoueurs": "2-5",
         "categories": ["Coopératif", "Risque", "Communication", "Déduction"],
-        "editeur": "Cocktail games",
+        "editeur": "Cocktail Games",
         "prix": "31.5",
 		"lienImage": "/site/resources/images/owned_games/bomb-busters.jpg"
     },
@@ -728,5 +728,75 @@
         "editeur": "Next Move",
         "prix": "22.50",
 		"lienImage": "/site/resources/images/owned_games/azul-mini.jpg"
-	}
+	},
+    {
+        "titre": "Colt Express - Big Box",
+        "age": "10",
+        "duree": "40",
+        "nbJoueurs": "2-6",
+        "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
+        "editeur": "Ludonaute",
+        "prix": "46",
+		"lienImage": "/site/resources/images/wanted_games/colt-express-big-box.jpg"
+    },
+    {
+        "titre": "Fiesta De Los Muertos",
+        "age": "12",
+        "duree": "30",
+        "nbJoueurs": "4-8",
+        "categories": ["Coopératif", "Ambiance"],
+        "editeur": "OldChap Editions",
+        "prix": "19.90",
+		"lienImage": "/site/resources/images/wanted_games/fiesta-de-los-muertos.jpg"
+	},
+    {
+        "titre": "Revolver Noir",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2",
+        "categories": ["Cartes"],
+        "editeur": "Matagot",
+        "prix": "8.50",
+		"lienImage": "/site/resources/images/wanted_games/revolver-noir.jpg"
+	},
+    {
+        "titre": "Secret Identity",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "3-8",
+        "categories": ["Ambiance", "Observation", "Déduction"],
+        "editeur": "Funnyfox",
+        "prix": "20",
+		"lienImage": "/site/resources/images/wanted_games/secret-identity.jpg"
+    },
+    {
+        "titre": "Le Roi des Nains",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "3-5",
+        "categories": ["Cartes"],
+        "editeur": "Iello",
+        "prix": "16.5",
+		"lienImage": "/site/resources/images/wanted_games/le-roi-des-nains.jpg"
+    },
+    {
+        "titre": "Fil Rouge : L'Ombre du Tigre",
+        "age": "12",
+        "duree": "30",
+        "nbJoueurs": "2-4",
+        "categories": ["Cartes", "Coopératif"],
+        "editeur": "Lumberjacks Studio",
+        "prix": "16.5",
+		"lienImage": "/site/resources/images/wanted_games/fil-rouge-l-ombre-du-tigre.jpg"
+    },
+    {
+        "titre": "Love Letter",
+        "age": "14",
+        "duree": "30",
+        "nbJoueurs": "2-6",
+        "categories": ["Déduction", "Bluff", "Mémoire"],
+        "editeur": "Z-Man Games",
+        "prix": "11.95",
+		"lienImage": "/site/resources/images/wanted_games/love-letter.jpg"
+    }
 ]

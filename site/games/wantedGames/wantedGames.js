@@ -1,5 +1,5 @@
 
-import { sortGames, addFilterValuesHeader, applyAllFilters, resetAllFilters, loadGames } from "/site/components/common.js";
+import { sortGames, addFilterValuesHeader, applyAllFilters, resetAllFilters, loadGames, setDesktopOrMobile, displayFilters } from "/site/components/common.js";
 import { createFilterPrix } from "/site/components/filter-prix.js";
 import { createFilterAge } from "/site/components/filter-age.js";
 import { createFilterNbJoueurs } from "/site/components/filter-nbJoueurs.js";
@@ -9,19 +9,20 @@ import { createFilterCategories } from "/site/components/filter-categories.js";
 
 // -------------------------------------------------------------------------------------
 
+setDesktopOrMobile();
+
 const gamesDiv = document.querySelector("#games-container");
 
-// 11 jeux
+// 30 jeux
 
 // Filter Prix
 const games_low_min = 8;
-const games_low_max = 46;
+const games_low_max = 33;
 const filterPrix = createFilterPrix(
     "prix", "Prix", "Prix :", games_low_min, games_low_max, () => { callApplyAllFilters(); }
 );
 
 // Filter Age
-// const games_low_age = ["6 et +", "8 et +", "9 et +", "10 et +", "12 et +", "14 et +", "16 et +"];
 const games_low_age = ["7 et +", "8 et +", "10 et +", "12 et +", "14 et +", "18 et +"];
 const filterAge = createFilterAge(
     "age", "Âge", "Âge minimum :", games_low_age, () => { callApplyAllFilters(); }
@@ -41,16 +42,15 @@ const filterDuree = createFilterDuree(
 );
 
 // Filter Editeur
-const games_low_editeur = ["Actarus Editions", "Bankiiiz Editions", "Big Moustache Games", "Catch Up Games", "Flip Flap Editions", "Funnyfox",
-    "Gamelia", "Gigamic", "Iello", "Ludonaute", "Lumberjacks Studio", "Matagot", "OldChap Editions", "Origames", "Repos Production", "Space Cowboys", "Spielwiese",
-    "Studio H", "The Flying Games"];
+const games_low_editeur = ["Actarus Editions", "Bandjo !", "Bankiiiz Editions", "Big Moustache Games", "Catch Up Games", "Flip Flap Éditions", "Gamelia", "Gigamic",
+    "Iello", "Ludonaute", "Matagot", "Origames", "Repos Production", "Space Cowboys", "Spielwiese", "Studio H", "The Flying Games"];
 const filterEditeur = createFilterEditeur(
     "editeur", "Editeur", "Editeur :", games_low_editeur, () => { callApplyAllFilters(); }
 );
 
 // Filter Categorie
-const games_low_categorie = ["Affrontement", "Ambiance", "Bluff", "Cartes", "Combinaison", "Communication", "Connaissance", "Coopératif", "Course", "Draft", "Déduction",
-    "Enchères", "Enigme", "Enquête", "Mots", "Mémoire", "Observation", "Pari", "Plis", "Pouvoirs", "Programmation", "Rapidité", "Réflexion", "Rôles"];
+const games_low_categorie = ["Affrontement", "Ambiance", "Bluff", "Cartes", "Combinaison", "Communication", "Connaissance", "Coopératif", "Course", "Draft",
+    "Déduction", "Enchères", "Enigme", "Enquête", "Mots", "Mémoire", "Observation", "Pari", "Plis", "Pouvoirs", "Programmation", "Rapidité", "Réflexion", "Rôles"];
 const filterCategorie = createFilterCategories(
     "categorie", "Catégorie", "Catégorie :", games_low_categorie, () => { callApplyAllFilters(); }
 );
@@ -80,12 +80,8 @@ document.querySelector(".title-reset").addEventListener("click", () => {
 });
 document.getElementById("selectProductSort").addEventListener("change", () => { sortGames(gamesDiv, document.getElementById("selectProductSort").value); });
 
-function viewGameDetails(game) {
-    // sessionStorage.setItem("game", JSON.stringify(game));
-    // window.location.replace("GameDetails/GameDetails.html");
-    console.log("Acces a la page du jeu " + game.titre);
-}
-
 loadGames(gamesDiv, document.getElementById("nbGames"),
     ["wanted_games_low.json", null]
 );
+
+document.getElementById("filter-container").addEventListener("click", () => { displayFilters(); });

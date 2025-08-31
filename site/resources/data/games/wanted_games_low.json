@@ -1,15 +1,5 @@
 [
     {
-        "titre": "Fiesta De Los Muertos",
-        "age": "12",
-        "duree": "30",
-        "nbJoueurs": "4-8",
-        "categories": ["Coopératif", "Ambiance"],
-        "editeur": "OldChap Editions",
-        "prix": "19.90",
-		"lienImage": "/site/resources/images/wanted_games/fiesta-de-los-muertos.jpg"
-	},
-    {
         "titre": "MicroMacro : Crime City - Showdown",
         "age": "10",
         "duree": "45",
@@ -35,7 +25,7 @@
         "duree": "30",
         "nbJoueurs": "1-10",
         "categories": ["Coopératif", "Déduction"],
-        "editeur": "Flip Flap Editions",
+        "editeur": "Flip Flap Éditions",
         "prix": "19.90",
 		"lienImage": "/site/resources/images/wanted_games/ricochet-3-quand-satan-brouille-l-ecoute.jpg"
 	},
@@ -88,16 +78,6 @@
         "editeur": "Studio H",
         "prix": "11.50",
 		"lienImage": "/site/resources/images/wanted_games/suspects-pocket-hors-jeu-a-liverpool.jpg"
-	},
-    {
-        "titre": "Revolver Noir",
-        "age": "10",
-        "duree": "30",
-        "nbJoueurs": "2",
-        "categories": ["Cartes"],
-        "editeur": "Matagot",
-        "prix": "8.50",
-		"lienImage": "/site/resources/images/wanted_games/revolver-noir.jpg"
 	},
     {
         "titre": "Kronologic - Cuzco 1450",
@@ -180,16 +160,6 @@
 		"lienImage": "/site/resources/images/wanted_games/for-a-crown.jpg"
     },
     {
-        "titre": "Secret Identity",
-        "age": "10",
-        "duree": "30",
-        "nbJoueurs": "3-8",
-        "categories": ["Ambiance", "Observation", "Déduction"],
-        "editeur": "Funnyfox",
-        "prix": "20",
-		"lienImage": "/site/resources/images/wanted_games/secret-identity.jpg"
-    },
-    {
         "titre": "5 ou Moins",
         "age": "10",
         "duree": "30",
@@ -218,16 +188,6 @@
         "editeur": "Gigamic",
         "prix": "15",
 		"lienImage": "/site/resources/images/wanted_games/verso.jpg"
-    },
-    {
-        "titre": "Fil Rouge : L'Ombre du Tigre",
-        "age": "12",
-        "duree": "30",
-        "nbJoueurs": "2-4",
-        "categories": ["Cartes", "Coopératif"],
-        "editeur": "Lumberjacks Studio",
-        "prix": "16.5",
-		"lienImage": "/site/resources/images/wanted_games/fil-rouge-l-ombre-du-tigre.jpg"
     },
     {
         "titre": "Opération Zèbre",
@@ -270,16 +230,6 @@
 		"lienImage": "/site/resources/images/wanted_games/tac-tik.jpg"
     },
     {
-        "titre": "Colt Express - Big Box",
-        "age": "10",
-        "duree": "40",
-        "nbJoueurs": "2-6",
-        "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
-        "editeur": "Ludonaute",
-        "prix": "46",
-		"lienImage": "/site/resources/images/wanted_games/colt-express-big-box.jpg"
-    },
-    {
         "titre": "Colt Express - Convoyeurs & Train blindé",
         "age": "10",
         "duree": "40",
@@ -320,16 +270,6 @@
 		"lienImage": "/site/resources/images/wanted_games/inside-job.jpg"
     },
     {
-        "titre": "Le Roi des Nains",
-        "age": "10",
-        "duree": "45",
-        "nbJoueurs": "3-5",
-        "categories": ["Cartes"],
-        "editeur": "Iello",
-        "prix": "16.5",
-		"lienImage": "/site/resources/images/wanted_games/le-roi-des-nains.jpg"
-    },
-    {
         "titre": "Mojo",
         "age": "8",
         "duree": "30",
@@ -348,5 +288,15 @@
         "editeur": "Matagot",
         "prix": "19.9",
 		"lienImage": "/site/resources/images/wanted_games/l-ile-des-mots-dits.jpg"
+    },
+    {
+        "titre": "Blind Jack",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-10",
+        "categories": ["Connaissance"],
+        "editeur": "Bandjo !",
+        "prix": "13.95",
+		"lienImage": "/site/resources/images/wanted_games/blind-jack.jpg"
     }
 ]
