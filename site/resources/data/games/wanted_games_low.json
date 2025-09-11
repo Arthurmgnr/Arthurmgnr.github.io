@@ -170,16 +170,6 @@
 		"lienImage": "/site/resources/images/wanted_games/5-ou-moins.jpg"
     },
     {
-        "titre": "The Gang",
-        "age": "10",
-        "duree": "20",
-        "nbJoueurs": "3-6",
-        "categories": ["Coopératif", "Cartes"],
-        "editeur": "Iello",
-        "prix": "16.5",
-		"lienImage": "/site/resources/images/wanted_games/the-gang.jpg"
-    },
-    {
         "titre": "Verso",
         "age": "8",
         "duree": "30",

@@ -798,5 +798,15 @@
         "editeur": "Z-Man Games",
         "prix": "11.95",
 		"lienImage": "/site/resources/images/wanted_games/love-letter.jpg"
+    },
+    {
+        "titre": "The Gang",
+        "age": "10",
+        "duree": "20",
+        "nbJoueurs": "3-6",
+        "categories": ["Coopératif", "Cartes"],
+        "editeur": "Iello",
+        "prix": "16.5",
+		"lienImage": "/site/resources/images/wanted_games/the-gang.jpg"
     }
 ]
