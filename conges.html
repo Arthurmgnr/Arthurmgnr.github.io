@@ -874,7 +874,7 @@
                     let congeTmp;
                     if (Object.keys(dicoDays).length > 0) {
                         for (let conge of getCongesList()) {
-                            if (dicoDays[conge].includes(stringDay)) {
+                            if (Object.keys(dicoDays).includes(conge) && dicoDays[conge].includes(stringDay)) {
                                 test = true;
                                 congeTmp = conge;
                             }
