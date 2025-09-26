@@ -19,7 +19,7 @@
         
         .calendar-container { display: grid; grid-template-columns: repeat(12, 1fr); width: 90%; gap: 10px; margin: 20px auto; }
         .month-title { font-weight: bold; font-size: large; padding: 10px 0; background-color: #227D48; color: #fff; }
-        .day { display: flex; justify-content: flex-start; border-bottom: 1px solid #ddd; background-color: #fff; align-items: center; }
+        .day { display: flex; justify-content: flex-start; border-bottom: 1px solid #ddd; background-color: #fff; align-items: center; overflow: hidden; }
         .weekend { background-color: #D3F9D8; }
         .holiday { background-color: #F5B084; }
         .dayTable { border-collapse: collapse; width: 100%; }
@@ -29,7 +29,7 @@
         .dayTable td:nth-child(3) { width: 55%; }
         .dayTable td:nth-child(4) { width: 5%; }
         .nbSemaine { text-align: end; padding-right: 10px; }
-        .vacance { min-height: 1.4rem; max-height: 1.4rem; padding: 1px; vertical-align: middle; }
+        .vacance { align-self: stretch; }
         .vacance-color { background-color: yellow; }
 
         .summary { margin-top: 50px; margin-bottom: 50px; }
@@ -41,7 +41,6 @@
         .noBorder { display: flex; gap: 10px; }
         input[type="color"] { width: 30px; height: 30px; border: none; background: none; padding: 0; cursor: pointer; vertical-align: middle; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
 
-        /* .saveConge { width: 50%; margin: 20px auto; display: flex; justify-content: space-evenly; } */
         .saveConge { margin-top: 20px; margin-right: 20px; display: flex; justify-content: space-evenly; }
         
         .selection { width: 90%; display: flex; margin: 20px auto; justify-content: space-evenly; }
@@ -87,6 +86,11 @@
         .container-2 p:first-child { color: #101020; font-weight: bold; font-size: x-large; }
         .container-2 p:last-child { color: #656565; font-size: large; }
         .toast-button { border: none; margin: 0 auto; padding: 10px 15px; align-self: flex-start; background-color: transparent; font-size: x-large; color: #656565; line-height: 0; cursor: pointer; }
+    
+        .number-input { display: flex; align-items: center; }
+        .number-input input { text-align: center; border: none; outline: none; }
+        .number-input button { background: #f0f0f0; border: none; padding: 8px 12px; cursor: pointer; text-align: center; }
+        .number-input button:hover { background: #ddd; }
     </style>
 </head>
 <body>
@@ -96,7 +100,13 @@
         </div>
         <div class="year-container">
             <h1><label class="year" for="year">Année</label></h1>
-            <h1><input type="number" id="year" min="2000" max="2100" onchange="changeYearValue()" onfocus="storeOldValue(this)"></h1>
+            <h1>
+                <div class="number-input">
+                    <button class="minus" onclick="changeYearValueDown()">-</button>
+                    <input type="text" id="year" min="2000" max="2050" disabled>
+                    <button class="plus" onclick="changeYearValueUp()">+</button>
+                </div>
+            </h1>
         </div>
     </div>
 
@@ -684,6 +694,20 @@
 
         function changeYear() {
             year = document.getElementById("year").value;
+        }
+
+        function changeYearValueDown() {
+            const input = document.querySelector('.number-input input');
+            input.value = Math.max(input.min, parseInt(input.value || 0) - 1);
+            storeOldValue(input);
+            changeYearValue();
+        }
+
+        function changeYearValueUp() {
+            const input = document.querySelector('.number-input input');
+            input.value = Math.min(input.max, parseInt(input.value || 0) + 1);
+            storeOldValue(input);
+            changeYearValue();
         }
 
         function changeYearValue() {
