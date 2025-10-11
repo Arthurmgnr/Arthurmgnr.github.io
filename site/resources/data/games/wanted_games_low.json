@@ -215,8 +215,8 @@
         "duree": "45",
         "nbJoueurs": "2-6",
         "categories": [],
-        "editeur": "???",
-        "prix": "???",
+        "editeur": "Ludonaute",
+        "prix": "13.5",
 		"lienImage": "/site/resources/images/wanted_games/tac-tik.jpg"
     },
     {
@@ -288,5 +288,85 @@
         "editeur": "Bandjo !",
         "prix": "13.95",
 		"lienImage": "/site/resources/images/wanted_games/blind-jack.jpg"
+    },
+    {
+        "titre": "Take Time",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-4",
+        "categories": ["Coopératif", "Cartes", "Déduction"],
+        "editeur": "Libellud",
+        "prix": "22.5",
+		"lienImage": "/site/resources/images/wanted_games/take-time.jpg"
+    },
+    {
+        "titre": "Avant Après",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-6",
+        "categories": ["Cartes", "Observation", "Coopératif"],
+        "editeur": "OldChap Editions",
+        "prix": "17.9",
+		"lienImage": "/site/resources/images/wanted_games/avant-apres.jpg"
+    },
+    {
+        "titre": "Medical Mysteries - New-York Service d'Urgences",
+        "age": "14",
+        "duree": "60",
+        "nbJoueurs": "1-4",
+        "categories": ["Coopératif"],
+        "editeur": "Iello",
+        "prix": "26.9",
+		"lienImage": "/site/resources/images/wanted_games/medical-mysteries-new-york-service-d-urgences.jpg"
+    },
+    {
+        "titre": "Medical Mysteries - Miami",
+        "age": "14",
+        "duree": "60",
+        "nbJoueurs": "1-4",
+        "categories": ["Coopératif"],
+        "editeur": "Iello",
+        "prix": "26.9",
+		"lienImage": "/site/resources/images/wanted_games/medical-mysteries-miami.jpg"
+    },
+    {
+        "titre": "Guilty : Houston 2015",
+        "age": "16",
+        "duree": "180",
+        "nbJoueurs": "1-4",
+        "categories": ["Déduction", "Observation"],
+        "editeur": "Iello",
+        "prix": "17.95",
+		"lienImage": "/site/resources/images/wanted_games/guilty-houston-2015.jpg"
+    },
+    {
+        "titre": "Guilty : Monaco 1955",
+        "age": "12",
+        "duree": "180",
+        "nbJoueurs": "1-4",
+        "categories": ["Déduction", "Observation"],
+        "editeur": "Iello",
+        "prix": "17.95",
+		"lienImage": "/site/resources/images/wanted_games/guilty-monaco-1955.jpg"
+    },
+    {
+        "titre": "Guilty : Fontainebleau 1543",
+        "age": "14",
+        "duree": "180",
+        "nbJoueurs": "1-4",
+        "categories": ["Déduction", "Observation"],
+        "editeur": "Iello",
+        "prix": "17.95",
+		"lienImage": "/site/resources/images/wanted_games/guilty-fontainebleau-1543.jpg"
+    },
+    {
+        "titre": "Plan de Secours",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-5",
+        "categories": ["Bluff", "Tuiles", "Mémoire"],
+        "editeur": "Iello",
+        "prix": "11.9",
+		"lienImage": "/site/resources/images/wanted_games/plan-de-secours.jpg"
     }
 ]

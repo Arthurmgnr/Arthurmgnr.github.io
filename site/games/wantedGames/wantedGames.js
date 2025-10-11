@@ -42,15 +42,17 @@ const filterDuree = createFilterDuree(
 );
 
 // Filter Editeur
-const games_low_editeur = ["Actarus Editions", "Bandjo !", "Bankiiiz Editions", "Big Moustache Games", "Catch Up Games", "Flip Flap Éditions", "Gamelia", "Gigamic",
-    "Iello", "Ludonaute", "Matagot", "Origames", "Repos Production", "Space Cowboys", "Spielwiese", "Studio H", "The Flying Games"];
+const games_low_editeur = ["Actarus Editions", "Bandjo !", "Bankiiiz Editions", "Big Moustache Games", "Catch Up Games", "Flip Flap Éditions", "Gamelia",
+    "Gigamic", "Iello", "Libellud", "Ludonaute", "Matagot", "OldChap Editions", "Origames", "Repos Production", "Space Cowboys", "Spielwiese", "Studio H",
+    "The Flying Games"];
 const filterEditeur = createFilterEditeur(
     "editeur", "Editeur", "Editeur :", games_low_editeur, () => { callApplyAllFilters(); }
 );
 
 // Filter Categorie
 const games_low_categorie = ["Affrontement", "Ambiance", "Bluff", "Cartes", "Combinaison", "Communication", "Connaissance", "Coopératif", "Course", "Draft",
-    "Déduction", "Enchères", "Enigme", "Enquête", "Mots", "Mémoire", "Observation", "Pari", "Plis", "Pouvoirs", "Programmation", "Rapidité", "Réflexion", "Rôles"];
+    "Déduction", "Enchères", "Enigme", "Enquête", "Mots", "Mémoire", "Observation", "Pari", "Plis", "Pouvoirs", "Programmation", "Rapidité", "Réflexion",
+    "Rôles", "Tuiles"];
 const filterCategorie = createFilterCategories(
     "categorie", "Catégorie", "Catégorie :", games_low_categorie, () => { callApplyAllFilters(); }
 );
