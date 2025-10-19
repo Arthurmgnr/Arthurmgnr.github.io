@@ -737,7 +737,7 @@
         "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
         "editeur": "Ludonaute",
         "prix": "46",
-		"lienImage": "/site/resources/images/wanted_games/colt-express-big-box.jpg"
+		"lienImage": "/site/resources/images/owned_games/colt-express-big-box.jpg"
     },
     {
         "titre": "Fiesta De Los Muertos",
@@ -747,7 +747,7 @@
         "categories": ["Coopératif", "Ambiance"],
         "editeur": "OldChap Editions",
         "prix": "19.90",
-		"lienImage": "/site/resources/images/wanted_games/fiesta-de-los-muertos.jpg"
+		"lienImage": "/site/resources/images/owned_games/fiesta-de-los-muertos.jpg"
 	},
     {
         "titre": "Revolver Noir",
@@ -757,7 +757,7 @@
         "categories": ["Cartes"],
         "editeur": "Matagot",
         "prix": "8.50",
-		"lienImage": "/site/resources/images/wanted_games/revolver-noir.jpg"
+		"lienImage": "/site/resources/images/owned_games/revolver-noir.jpg"
 	},
     {
         "titre": "Secret Identity",
@@ -767,7 +767,7 @@
         "categories": ["Ambiance", "Observation", "Déduction"],
         "editeur": "Funnyfox",
         "prix": "20",
-		"lienImage": "/site/resources/images/wanted_games/secret-identity.jpg"
+		"lienImage": "/site/resources/images/owned_games/secret-identity.jpg"
     },
     {
         "titre": "Le Roi des Nains",
@@ -777,7 +777,7 @@
         "categories": ["Cartes"],
         "editeur": "Iello",
         "prix": "16.5",
-		"lienImage": "/site/resources/images/wanted_games/le-roi-des-nains.jpg"
+		"lienImage": "/site/resources/images/owned_games/le-roi-des-nains.jpg"
     },
     {
         "titre": "Fil Rouge : L'Ombre du Tigre",
@@ -787,7 +787,7 @@
         "categories": ["Cartes", "Coopératif"],
         "editeur": "Lumberjacks Studio",
         "prix": "16.5",
-		"lienImage": "/site/resources/images/wanted_games/fil-rouge-l-ombre-du-tigre.jpg"
+		"lienImage": "/site/resources/images/owned_games/fil-rouge-l-ombre-du-tigre.jpg"
     },
     {
         "titre": "Love Letter",
@@ -797,7 +797,7 @@
         "categories": ["Déduction", "Bluff", "Mémoire"],
         "editeur": "Z-Man Games",
         "prix": "11.95",
-		"lienImage": "/site/resources/images/wanted_games/love-letter.jpg"
+		"lienImage": "/site/resources/images/owned_games/love-letter.jpg"
     },
     {
         "titre": "The Gang",
@@ -807,6 +807,26 @@
         "categories": ["Coopératif", "Cartes"],
         "editeur": "Iello",
         "prix": "16.5",
-		"lienImage": "/site/resources/images/wanted_games/the-gang.jpg"
+		"lienImage": "/site/resources/images/owned_games/the-gang.jpg"
+    },
+    {
+        "titre": "For a Crown",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "3-5",
+        "categories": ["Bluff", "Cartes"],
+        "editeur": "Repos Production",
+        "prix": "31.5",
+		"lienImage": "/site/resources/images/owned_games/for-a-crown.jpg"
+    },
+    {
+        "titre": "1 % - Un Jeu qui fait Décimal",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2-6",
+        "categories": ["Bluff", "Enchères", "Cartes"],
+        "editeur": "Iello",
+        "prix": "14",
+		"lienImage": "/site/resources/images/owned_games/1.jpg"
     }
 ]

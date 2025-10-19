@@ -43,8 +43,7 @@ const filterDuree = createFilterDuree(
 
 // Filter Editeur
 const games_low_editeur = ["Actarus Editions", "Bandjo !", "Bankiiiz Editions", "Big Moustache Games", "Catch Up Games", "Flip Flap Éditions", "Gamelia",
-    "Gigamic", "Iello", "Libellud", "Ludonaute", "Matagot", "OldChap Editions", "Origames", "Repos Production", "Space Cowboys", "Spielwiese", "Studio H",
-    "The Flying Games"];
+    "Gigamic", "Iello", "Libellud", "Ludonaute", "Matagot", "OldChap Editions", "Origames", "Space Cowboys", "Spielwiese", "Studio H", "The Flying Games"];
 const filterEditeur = createFilterEditeur(
     "editeur", "Editeur", "Editeur :", games_low_editeur, () => { callApplyAllFilters(); }
 );

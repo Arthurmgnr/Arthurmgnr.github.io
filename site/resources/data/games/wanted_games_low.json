@@ -150,16 +150,6 @@
 		"lienImage": "/site/resources/images/wanted_games/courtisans.jpg"
     },
     {
-        "titre": "For a Crown",
-        "age": "8",
-        "duree": "30",
-        "nbJoueurs": "3-5",
-        "categories": ["Bluff", "Cartes"],
-        "editeur": "Repos Production",
-        "prix": "31.5",
-		"lienImage": "/site/resources/images/wanted_games/for-a-crown.jpg"
-    },
-    {
         "titre": "5 ou Moins",
         "age": "10",
         "duree": "30",
