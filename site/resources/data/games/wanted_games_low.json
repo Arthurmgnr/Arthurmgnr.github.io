@@ -205,8 +205,8 @@
         "duree": "45",
         "nbJoueurs": "2-6",
         "categories": [],
-        "editeur": "Ludonaute",
-        "prix": "13.5",
+        "editeur": "???",
+        "prix": "???",
 		"lienImage": "/site/resources/images/wanted_games/tac-tik.jpg"
     },
     {
@@ -278,16 +278,6 @@
         "editeur": "Bandjo !",
         "prix": "13.95",
 		"lienImage": "/site/resources/images/wanted_games/blind-jack.jpg"
-    },
-    {
-        "titre": "Take Time",
-        "age": "10",
-        "duree": "30",
-        "nbJoueurs": "2-4",
-        "categories": ["Coopératif", "Cartes", "Déduction"],
-        "editeur": "Libellud",
-        "prix": "22.5",
-		"lienImage": "/site/resources/images/wanted_games/take-time.jpg"
     },
     {
         "titre": "Avant Après",

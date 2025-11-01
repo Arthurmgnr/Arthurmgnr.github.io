@@ -828,5 +828,15 @@
         "editeur": "Iello",
         "prix": "14",
 		"lienImage": "/site/resources/images/owned_games/1.jpg"
+    },
+    {
+        "titre": "Take Time",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-4",
+        "categories": ["Coopératif", "Cartes", "Déduction"],
+        "editeur": "Libellud",
+        "prix": "22.5",
+		"lienImage": "/site/resources/images/owned_games/take-time.jpg"
     }
 ]
