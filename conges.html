@@ -111,10 +111,10 @@
     </div>
 
     <div class="saveConge">
-        <button class="save" onclick="saveYear()" title="Sauvegarder les données de l'année en cours">
+        <button class="save" onclick="saveYear()" title="Sauvegarder toutes les données de l'année en cours">
             <span class="material-symbols-outlined">save</span>Enregistrer
         </button>
-        <button class="delete" onclick="deleteYear()" title="Supprimer les jours de congés posés dans le calendrier de l'année en cours">
+        <button class="delete" onclick="deleteYear()" title="Supprimer les jours présents dans le calendrier ci-dessous pour l'année en cours">
             <span class="material-symbols-outlined">delete</span>Supprimer
         </button>
         <div class="vacances-container">
@@ -216,13 +216,19 @@
                 "A": [["2026-02-07", "2026-02-22"], ["2026-04-04", "2026-04-19"]],
                 "B": [["2026-02-14", "2026-03-01"], ["2026-04-11", "2026-04-26"]],
                 "C": [["2026-02-21", "2026-03-08"], ["2026-04-18", "2026-05-03"]],
-                "commun": [["2026-01-01", "2026-01-04"], ["2026-05-14", "2026-05-17"]]//, ["2026-07-04", "2026--"], ["2026--", "2026--"], ["2026--", "2026--"]]
+                "commun": [["2026-01-01", "2026-01-04"], ["2026-05-14", "2026-05-17"], ["2026-07-04", "2026-08-31"], ["2026-10-17", "2026-11-01"], ["2026-12-19", "2026-12-31"]]
+            },
+            "2027": {
+                "A": [["2027-02-13", "2027-02-28"], ["2027-04-10", "2027-04-25"]],
+                "B": [["2027-02-20", "2027-03-07"], ["2027-04-17", "2027-05-02"]],
+                "C": [["2027-02-05", "2027-02-21"], ["2027-04-03", "2027-04-18"]],
+                "commun": [["2027-01-01", "2027-01-03"], ["2027-05-06", "2027-05-09"]]//, ["2027-07-03", "2027--"], ["2027-10-", "2027-11-"], ["2027--", "2027-12-31"]]
             }
-            // "2027": {
-            //     "A": [["2027--", "2027--"], ["2027--", "2027--"]],
-            //     "B": [["2027--", "2027--"], ["2027--", "2027--"]],
-            //     "C": [["2027--", "2027--"], ["2027--", "2027--"]],
-            //     "commun": [["2027--", "2027--"], ["2027-05-", "2027-05-"], ["2027--", "2027--"], ["2027--", "2027--"], ["2027--", "2027--"]]
+            // "2028": {
+            //     "A": [["2027-02-", "2027-0-"], ["2027-04-", "2027-0-"]],
+            //     "B": [["2027-02-", "2027-0-"], ["2027-04-", "2027-0-"]],
+            //     "C": [["2027-02-", "2027-0-"], ["2027-04-", "2027-0-"]],
+            //     "commun": [["2027-01-01", "2027-01-0"], ["2027-05-", "2027-05-"], ["2027-07-0", "2027--"], ["2027-10-", "2027-11-"], ["2027-12-", "2027-12-31"]]
             // }
         }
 
@@ -354,7 +360,7 @@
             },
             "error-vacances-not-available": {
                 "type": "error",
-                "message": "Les vacances conernant l'année '{year}' ne sont pas disponibles."
+                "message": "Les vacances conernant l'année '{year}' ne sont pas encore disponibles."
             },
             "warning-vacances-partially-available": {
                 "type": "warning",
@@ -552,7 +558,7 @@
         }
 
         function updateCategoryFactorized(event, input, span, tr, valeurActuelle) {
-            let newValue = input.value.trim().toUpperCase();
+            let newValue = input.value.trim().toUpperCase().replaceAll(" ", "_");
             if (valeurActuelle !== newValue) {
                 if (!checkCongeValide(newValue)) event.target.focus();
                 else {
