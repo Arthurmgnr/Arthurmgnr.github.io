@@ -1408,9 +1408,8 @@
                 if (!Object.keys(dico).includes("vacances")) {
                     dico["vacances"] = {"actif": false, "zone": "A"};
                 }
+                localStorage.setItem(year, JSON.stringify(dico));
             }
-
-            localStorage.setItem(year, JSON.stringify(dico));
         }
 
         // --------------------
