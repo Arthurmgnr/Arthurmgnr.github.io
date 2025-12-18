@@ -19,9 +19,20 @@
         
         .calendar-container { display: grid; grid-template-columns: repeat(12, 1fr); width: 90%; gap: 10px; margin: 20px auto; }
         .month-title { font-weight: bold; font-size: large; padding: 10px 0; background-color: #227D48; color: #fff; }
-        .day { display: flex; justify-content: flex-start; border-bottom: 1px solid #ddd; background-color: #fff; align-items: center; overflow: hidden; }
-        .weekend { background-color: #D3F9D8; }
-        .holiday { background-color: #F5B084; }
+        .day { display: flex; justify-content: flex-start; border-bottom: 1px solid #ddd; background-color: #fff; align-items: center; overflow: hidden; position: relative;
+            --left: transparent;
+            --right: transparent;
+            --base: #fff;
+
+            background:
+                linear-gradient(to right, var(--left) 50%, transparent 50%),
+                linear-gradient(to left, var(--right) 50%, transparent 50%),
+                var(--base);
+        }
+        /* .weekend { background-color: #D3F9D8; } */
+        .day.weekend { --base: #D3F9D8; }
+        /* .holiday { background-color: #F5B084; } */
+        .day.holiday { --base: #F5B084; }
         .dayTable { border-collapse: collapse; width: 100%; }
         .dayTable tr { min-height: 1.5rem; max-height: 1.5rem; }
         .dayTable td:nth-child(1) { width: 20%; }
@@ -133,7 +144,12 @@
         </div>
     </div>
 
-    <div class="selection"></div>
+    <div class="selection">
+        <div class="selectionConge" style="display: flex; align-items: center; gap: 5px;">
+            <label for="half-day">Demie journée</label>
+            <input type="checkbox" id="half-day" onclick="toggleHalfDay()">
+        </div>
+    </div>
     
     <div id="calendar" class="calendar-container"></div>
     
@@ -157,7 +173,7 @@
                 </tr>
             </tbody>
         </table>
-        <button class="add-category" onclick="addCategory()" title="Ajouter une catégorie supplémentaire">
+        <button class="add-category" onclick="addCategory('', undefined, undefined)" title="Ajouter une catégorie supplémentaire">
             <span class="material-symbols-outlined">add_circle</span>Catégorie
         </button>
     </div>
@@ -285,15 +301,9 @@
                     let nothing = false;
 
                     for (let v of vacances) {
-                        if (isBetweenDates(tr.id, [v])) {
-                            vac = true;
-                        }
-                        else if (tr.classList.length === 2) {
-                            other = true;
-                        }
-                        else {
-                            nothing = true;
-                        }
+                        if (isBetweenDates(tr.id, [v])) vac = true;
+                        else if (tr.classList.length === 2) other = true;
+                        else nothing = true;
                     }
                     vacance.classList = "vacance";
                     if (vac) vacance.classList.add("vacance-color");
@@ -365,6 +375,10 @@
             "warning-vacances-partially-available": {
                 "type": "warning",
                 "message": "Les vacances conernant l'année '{year}' sont partiellement disponibles."
+            },
+            "warning-conge-already-exist": {
+                "type": "warning",
+                "message": "La catégorie '{label}' existe déjà."
             }
         };
 
@@ -418,7 +432,14 @@
 
         let congeActif = "";
 
+        let halfDay = false;
+
         let dicoConge = {};
+
+        function toggleHalfDay() {
+            const input = document.getElementById("half-day");
+            halfDay = input.checked;
+        }
 
         function generateColor() {
             function randomHexColor() {
@@ -455,11 +476,12 @@
             return newColor.toUpperCase();
         }
 
-        function addCategory1(conge, nb, color) {
-            // Ajout de la categorie dans le summary
+        function addCategory(conge, nb, col) {
             const tBody = document.querySelector("tbody");
             const tr = document.createElement("tr");
             tr.id = "category";
+            const color = col != undefined ? col : generateColor();
+            const nbConges = nb !== undefined ? nb : 0;
 
             tr.innerHTML = `
                 <td class="noBorder">
@@ -474,7 +496,7 @@
                     <span id="span">${conge}</span>&nbsp;
                     <input id="category-color" type="color" value="${color}" onchange="setCongeColor(this)" title="Modifier la couleur de la catégorie">
                 </th>
-                <td><input value="${nb}" type="number" id="total${conge}" min="0" max="50" onchange="updateSummary()"></td>
+                <td><input value="${nbConges}" type="number" id="total${conge}" min="0" max="50" onchange="updateSummary()"></td>
                 <td id="used${conge}">0</td>
                 <td id="remaining${conge}">0</td>
                 <td class="noBorder">
@@ -485,52 +507,47 @@
             `;
 
             tBody.insertBefore(tr, tBody.children[tBody.children.length - 1]);
-        }
-
-        function addCategory() {
-            // Ajout de la categorie dans le summary
-            const tBody = document.querySelector("tbody");
-            const tr = document.createElement("tr");
-            tr.id = "category";
-            const color = generateColor();
-
-            tr.innerHTML = `
-                <td class="noBorder">
-                    <button class="delete-category" onclick="deleteCategory(this)" title="Supprimer la catégorie ainsi que les jours posés dans le calendrier">
-                        <span class="material-symbols-outlined">do_not_disturb_on</span>Catégorie
-                    </button>
-                    <button class="edit-category" onclick="updateCategory(this)" title="Modifier le nom de la catégorie">
-                        <span class="material-symbols-outlined">edit</span>Catégorie
-                    </button>
-                </td>
-                <th>
-                    <span id="span"></span>&nbsp;
-                    <input id="category-color" type="color" value="${color}" onchange="setCongeColor(this)" title="Modifier la couleur de la catégorie">
-                </th>
-                <td><input value="0" type="number" id="total" min="0" max="50" onchange="updateSummary()"></td>
-                <td id="used">0</td>
-                <td id="remaining">0</td>
-                <td class="noBorder">
-                    <button class="delete-category-days" onclick="deleteCongeCategory(this)" title="Supprimer les jours posés dans le calendrier appartenant à cette catégorie">
-                        <span class="material-symbols-outlined">ink_eraser</span>Congés
-                    </button>
-                </td>
-            `;
-
-            tBody.insertBefore(tr, tBody.children[tBody.children.length - 1]);
-            updateCategory(tr.querySelectorAll("button")[1]);
+            if (col === undefined) {
+                updateCategory(tr.querySelectorAll("button")[1]);
+            }
         }
 
         function setCongeColor(input) {
             const th = input.closest("th");
             const conge = th.querySelector("span").innerText;
-            dicoConge[conge] = input.value;
+            dicoConge[conge] = input.value.toUpperCase();
+            deleteStyles(conge);
             createStyle(conge, dicoConge[conge]);
+
+            const selection = document.querySelector(".selection");
+            Array.from(selection.children).forEach((elt) => {
+                if (elt.id.includes(conge)) {
+                    elt.style.backgroundColor = dicoConge[conge];
+                } else {
+                    elt.style.backgroundColor = "";
+                }
+            });
         }
 
         function createStyle(value, color) {
             const sheet = document.styleSheets[1];
-            sheet.insertRule(`.${value} { background-color: ${color}; }`, sheet.cssRules.length);
+            // sheet.insertRule(`.${value} { background-color: ${color}; }`, sheet.cssRules.length);
+            // sheet.insertRule(`.day.half-left-${value} { background: linear-gradient(to right, ${color} 50%, rgb(255, 255, 255) 50%); }`, sheet.cssRules.length);
+            // sheet.insertRule(`.day.half-right-${value} { background: linear-gradient(to left, ${color} 50%, rgb(255, 255, 255) 50%); }`, sheet.cssRules.length);
+            
+            sheet.insertRule(
+                `.${value} { --left: ${color}; --right: ${color}; }`,
+                sheet.cssRules.length
+            );
+            sheet.insertRule(
+                `.day.half-left-${value} { --left: ${color}; }`,
+                sheet.cssRules.length
+            );
+
+            sheet.insertRule(
+                `.day.half-right-${value} { --right: ${color}; }`,
+                sheet.cssRules.length
+            );
         }
 
         function updateCategory(button) {
@@ -650,6 +667,7 @@
             if (!newValue || newValue.length === 0) return false;
             for (let conge of getCongesList()) {
                 if (conge === newValue) {
+                    addToast("warning-conge-already-exist", { label: newValue });
                     return false;
                 }
             }
@@ -670,30 +688,49 @@
             const selection = document.querySelector(".selection");
             let eltToDelete;
             Array.from(selection.children).forEach(elt => {
-                if (elt.id.split("top")[1] === conge) eltToDelete = elt;
+                if (elt.id.split("top")[1] === conge) {
+                    eltToDelete = elt;
+                }
             });
-            if (eltToDelete) selection.removeChild(eltToDelete);
+            if (eltToDelete) {
+                selection.removeChild(eltToDelete);
+            }
 
             // Supprimer la ligne du tableau Summary
             const tbody = document.querySelector("tbody");
             tbody.removeChild(tr);
 
             // Supprimer les jours dans le calendrier
-            if (conge.length > 0) {
-                document.querySelectorAll(`tr.${conge}`).forEach(elt => {
-                    elt.classList = "day";
-                });
-            }
+            deleteConges(conge);
 
             // Mettre a jour le tableau Summary
             updateSummary();
 
-            // Supprimer le style
+            // Supprimer les styles
+            deleteStyles(conge);
+        }
+
+        function deleteConges(conge) {
+            document.querySelectorAll(`tr.${conge}`).forEach(elt => {
+                elt.classList = "day";
+            });
+            document.querySelectorAll(`tr.half-left-${conge}`).forEach(elt => {
+                elt.classList.remove(`half-left-${conge}`);
+            });
+            document.querySelectorAll(`tr.half-right-${conge}`).forEach(elt => {
+                elt.classList.remove(`half-right-${conge}`);
+            });
+        }
+
+        function deleteStyles(conge) {
             const sheet = document.styleSheets[1];
-            for (let i = 0; i < sheet.cssRules.length; i++) {
-                if (sheet.cssRules[i].selectorText === `.${conge}`) {
+            // for (let i = 0; i < sheet.cssRules.length; i++) {
+            for (let i = sheet.cssRules.length - 1; i > -1; i--) {
+                if (sheet.cssRules[i].selectorText === `.${conge}` 
+                    || sheet.cssRules[i].selectorText === `.day.half-left-${conge}`
+                    || sheet.cssRules[i].selectorText === `.day.half-right-${conge}`
+                ) {
                     sheet.deleteRule(i);
-                    break;
                 }
             }
         }
@@ -722,18 +759,22 @@
                 dicoActual["vacances"] = {"actif": dicoActual["vacances"], "zone": "A"};
             }
 
-            if (!(checkDictionnariesEqual(dicoActual["conges"], daysCalendar) &&
-                    checkDictionnariesEqual(dicoActual["summary"], daysSummary) &&
+            if (!(checkCongesEqual(dicoActual["conges"], daysCalendar) &&
+                    checkSummariesEqual(dicoActual["summary"], daysSummary) &&
                     checkVacancesEqual(dicoActual["vacances"])
                 )) {
                 showCustomConfirm(function(save) {
                     if (save) {
                         saveYear();
                     }
+                    updateLocalStorage();
                     generateSummary();
                 });
             }
-            else generateSummary();
+            else {
+                updateLocalStorage();
+                generateSummary();
+            }
         }
 
         function showCustomConfirm(callback) {
@@ -750,12 +791,20 @@
             const congeId = elt.id.split("top").join("");
             const currentColor = rgbToHex(elt.style.backgroundColor);
 
-            if (currentColor === dicoConge[congeId]) { elt.style.backgroundColor = ""; congeActif = ""; }
-            else { elt.style.backgroundColor = dicoConge[congeId]; congeActif = congeId; }
+            if (currentColor === dicoConge[congeId]) {
+                elt.style.backgroundColor = "";
+                congeActif = "";
+            }
+            else {
+                elt.style.backgroundColor = dicoConge[congeId];
+                congeActif = congeId;
+            }
             
             document.querySelectorAll("[id^='top']").forEach(conge => {
                 const id = conge.id.split("top").join("");
-                if (id !== congeId) conge.style.backgroundColor = "";
+                if (id !== congeId) {
+                    conge.style.backgroundColor = "";
+                }
             });
         }
 
@@ -771,7 +820,7 @@
             ).toString(16).slice(1).toUpperCase()}`;
         }
 
-        function setCongeDay(cell) {
+        function setCongeDay(cell, halfSide) {
             if (congeActif !== "") {
                 let error = false;
                 document.querySelectorAll("#category").forEach(elt => {
@@ -786,11 +835,74 @@
                     return;
                 }
                 else {
-                    if (cell.classList.contains(congeActif)) cell.classList.remove(congeActif);
-                    else {
-                        cell.classList = "day";
-                        cell.classList.add(congeActif);
+                    const halfSideStyle = `half-${halfSide}-${congeActif}`;
+                    // Cas 1
+                    // "day" | conge             -> "day conge"
+                    // "day" | half-left-conge   -> "day half-left-conge"
+                    // "day" | half-right-conge  -> "day half-rigth-conge"
+                    if (cell.classList.length === 1) {
+                        if (!halfDay) cell.classList.add(congeActif);
+                        else cell.classList.add(halfSideStyle);
                     }
+                    
+                    else if (cell.classList.length === 2) {
+                        // Cas 2
+                        // "day conge1" | "conge1"           -> "day"
+                        // "day conge1" | "conge2"           -> "day conge2"
+                        // "day conge"  | "half-left-conge"  -> "day half-left-conge"
+                        // "day conge"  | "half-right-conge" -> "day half-right-conge"
+                        if (!cell.classList.value.includes("half")) {
+                            if (!halfDay) {
+                                if (cell.classList.contains(congeActif)) cell.classList.remove(congeActif);
+                                else cell.classList = `day ${congeActif}`;
+                            } else {
+                                cell.classList = `day ${halfSideStyle}`;
+                            }
+                        }
+
+                        // Cas 3
+                        // "day half-left-conge"  | "conge"             -> "day conge"
+                        // "day half-rigth-conge" | "conge"             -> "day conge"
+                        // "day half-left-conge1" | "half-left-conge1"  -> "day"
+                        // "day half-left-conge1" | "half-left-conge2"  -> "day half-left-conge2"
+
+                        // "day half-left-conge1" | "half-right-conge1" -> "day conge1"
+                        // "day half-left-conge1" | "half-right-conge2" -> "day half-left-conge1 half-right-conge2"
+                        else {
+                            if (!halfDay) {
+                                cell.classList = `day ${congeActif}`;
+                            } else {
+                                if (cell.classList.contains(halfSideStyle)) cell.classList.remove(halfSideStyle);
+                                else {
+                                    if (cell.classList.value.includes(halfSide)) cell.classList = `day ${halfSideStyle}`;
+                                    else {
+                                        if (cell.classList.value.includes(congeActif)) cell.classList = `day ${congeActif}`;
+                                        else cell.classList.add(halfSideStyle);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Cas 4
+                    // "day half-left-conge1 half-right-conge2" | "conge"             -> "day conge"
+                    // "day half-left-conge2 half-right-conge1" | "conge"             -> "day conge"
+                    // "day half-left-conge1 half-right-conge2" | "half-left-conge1"  -> "day half-right-conge2"
+                    // "day half-left-conge1 half-right-conge2" | "half-right-conge2" -> "day half-left-conge1"
+                    // "day half-left-conge1 half-right-conge2" | "half-left-conge3"  -> "day half-left-conge3 half-right-conge2"
+                    // "day half-left-conge1 half-right-conge2" | "half-right-conge3" -> "day half-left-conge1 half-right-conge3"
+                    else {
+                        if (!halfDay) {
+                            cell.classList = `day ${congeActif}`;
+                        } else {
+                            if (cell.classList.contains(halfSideStyle)) cell.classList.remove(halfSideStyle);
+                            else {
+                                if (cell.classList.contains(halfSide)) cell.classList = `day ${halfSideStyle}`;
+                                else cell.classList.add(halfSideStyle);
+                            }
+                        }
+                    }
+
                     updateSummary();
                     updateVacances();
 
@@ -805,9 +917,8 @@
             const tr = button.closest("tr");
             const conge = tr.querySelector("#span").innerText;
             
-            document.querySelectorAll(`tr.${conge}`).forEach(elt => {
-                elt.classList = "day";
-            });
+            deleteConges(conge);
+
             updateSummary();
             updateVacances();
         }
@@ -860,8 +971,6 @@
         }
 
         function generateCalendar() {
-            document.getElementById("calendar").innerHTML = "";
-
             let dicoDays = {};
             let dico = JSON.parse(localStorage.getItem(year.toString())) || {};
             if (Object.keys(dico).includes("conges")) {
@@ -900,21 +1009,33 @@
                     let dayTr = document.createElement("tr");
                     let stringDay = `${year}-${month + 1}-${day}`;
                     
-                    let test = false;
-                    let congeTmp;
+                    let isConge = false;
+                    let congeStyle = [];
                     if (Object.keys(dicoDays).length > 0) {
                         for (let conge of getCongesList()) {
-                            if (Object.keys(dicoDays).includes(conge) && dicoDays[conge].includes(stringDay)) {
-                                test = true;
-                                congeTmp = conge;
+                            // if (Object.keys(dicoDays).includes(conge) && dicoDays[conge].includes(stringDay)) {
+                            //     isConge = true;
+                            //     congeStyle = conge;
+                            // }
+                            if (Object.keys(dicoDays).includes(conge) && Object.keys(dicoDays[conge]).includes(stringDay)) {
+                                if (dicoDays[conge][stringDay] === "full") {
+                                    congeStyle.push(conge);
+                                } else if (dicoDays[conge][stringDay] === "left") {
+                                    congeStyle.push(`half-left-${conge}`);
+                                } else {
+                                    congeStyle.push(`half-right-${conge}`);
+                                }
+                                isConge = true;
                             }
                         }
                     }
 
                     dayTr.classList = "day";
-                    if (test) {
-                        dayTr.classList.add(`${congeTmp}`);
-                        dayTr.title = congeTmp;
+                    if (isConge) {
+                        congeStyle.forEach((style) => {
+                            dayTr.classList.add(style);
+                        });
+                        dayTr.title = congeStyle;
                     }
                     dayTr.id = stringDay;
 
@@ -950,11 +1071,28 @@
                     if (!dayTr.classList.contains("weekend") && !dayTr.classList.contains("holiday")) {
                         dayTr.addEventListener("mousedown", function(event) {
                             isDrawing = true;
-                            setCongeDay(this);
+                            const rect = this.getBoundingClientRect();
+                            const clickX = event.clientX - rect.left;
+                            const half = rect.width / 2;
+                            if (clickX < half) {
+                                setCongeDay(this, "left");
+                            } else {
+                                setCongeDay(this, "right");
+                            }
+
                             event.preventDefault();
                         });
                         dayTr.addEventListener("mouseenter", function() {
-                            if (isDrawing) { setCongeDay(this); }
+                            if (isDrawing) {
+                                const rect = this.getBoundingClientRect();
+                                const clickX = event.clientX - rect.left;
+                                const half = rect.width / 2;
+                                if (clickX < half) {
+                                    setCongeDay(this, "left");
+                                } else {
+                                    setCongeDay(this, "right");
+                                }
+                            }
                         });
                     }
                     dayTr.appendChild(weekNumber);
@@ -973,7 +1111,9 @@
                                 dayTr.children[indice].innerText = nbSemaine;
                             }
                         }
-                        else { dayTr.children[indice].innerText = nbSemaine < 10 ? `0${nbSemaine}` : nbSemaine; }
+                        else {
+                            dayTr.children[indice].innerText = nbSemaine < 10 ? `0${nbSemaine}` : nbSemaine;
+                        }
                     }
                         
                     if (dayOfWeek === "D") nbSemaine++;
@@ -1041,7 +1181,7 @@
                     // On ajoute les categories dans le tableau et au dessus du calendrier
                     for (let conge of getCongesList()) {
                         if (Object.keys(dicoSummary).includes(conge)) {
-                            addCategory1(conge, dicoSummary[conge][0], dicoSummary[conge][1]);
+                            addCategory(conge, dicoSummary[conge][0], dicoSummary[conge][1]);
                             const selection = document.querySelector(".selection");
                             // On ajoute le nouvel element
                             const congeElt = document.createElement("div");
@@ -1072,7 +1212,11 @@
 
             let totalSum = 0;
             for (let conge of getCongesList()) {
-                let totalConge = document.querySelectorAll(`tr.${conge}`).length;
+                const fullDayConge = document.querySelectorAll(`tr.${conge}`).length;
+                const halfLeftConge = document.querySelectorAll(`tr.half-left-${conge}`).length * 0.5;
+                const halfRightConge = document.querySelectorAll(`tr.half-right-${conge}`).length * 0.5;
+                const totalConge = fullDayConge + halfLeftConge + halfRightConge;
+                // console.log(fullDayConge, halfLeftConge, halfRightConge, totalConge);
                 document.getElementById(`used${conge}`).innerText = totalConge;
                 totalSum += totalConge;
                 document.getElementById(`remaining${conge}`).innerText = parseInt(document.getElementById(`total${conge}`).value) - totalConge;
@@ -1090,17 +1234,18 @@
             }
             else {
                 const [daysCalendar, daysSummary, dico] = getActualAndStockage();
-                
+
                 dico["conges"] = daysCalendar;
                 dico["summary"] = daysSummary;
                 dico["vacances"] = {"actif": isVacances, "zone": zoneVacances};
-                // if (Object.keys(dico["conges"]).length === 0 && Object.keys(dico["summary"]).length === 0 && dico["vacances"]["actif"] === false && dico["vacances"]["zone"] === "A") localStorage.removeItem(year);
                 if (Object.keys(dico["conges"]).length === 0 && Object.keys(dico["summary"]).length === 0 && dico["vacances"]["actif"] === false) {
                     localStorage.removeItem(year);
                     zoneVacances = "A";
                     document.getElementById("zone-select").value = "A";
                 }
-                else localStorage.setItem(year, JSON.stringify(dico));
+                else {
+                    localStorage.setItem(year, JSON.stringify(dico));
+                }
 
                 addToast("save");
             }
@@ -1108,9 +1253,7 @@
 
         function deleteYear() {
             for(let conge of getCongesList()) {
-                document.querySelectorAll(`tr.${conge}`).forEach(elt => {
-                    elt.classList = "day";
-                });
+                deleteConges(conge);
             }
 
             let dico = JSON.parse(localStorage.getItem(year.toString())) || {};
@@ -1124,6 +1267,7 @@
                 isVacances = false;
                 localStorage.setItem(year, JSON.stringify(dico));
                 addToast("delete");
+                document.getElementById("half-day").checked = false;
             }
             updateSummary();
             updateVacances();
@@ -1152,19 +1296,23 @@
             changeYear();
         }
 
-        setDate();
-
-        generateSummary();
-
         function getActualAndStockage() {
             let daysCalendar = {};
             let daysSummary = {};
             for (let conge of getCongesList()) {
-                daysCalendar[conge] = [];
+                daysCalendar[conge] = {};
                 document.querySelectorAll(`tr.${conge}`).forEach(elt => {
-                    daysCalendar[conge].push(elt.id);
+                    daysCalendar[conge][elt.id] = "full";
                 });
-                if (daysCalendar[conge].length === 0) delete daysCalendar[conge];
+                document.querySelectorAll(`tr.half-left-${conge}`).forEach(elt => {
+                    daysCalendar[conge][elt.id] = "left";
+                });
+                document.querySelectorAll(`tr.half-right-${conge}`).forEach(elt => {
+                    daysCalendar[conge][elt.id] = "right";
+                });
+                if (daysCalendar[conge].length === 0) {
+                    delete daysCalendar[conge];
+                }
 
                 daysSummary[conge] = [];
                 document.querySelectorAll(`#total${conge}`).forEach(elt => {
@@ -1177,14 +1325,52 @@
             return [daysCalendar, daysSummary, dico];
         }
 
-        function checkDictionnariesEqual(dict1, dict2) {
+        function checkCongesEqual(conges1, conges2) {
+            const types1 = Object.keys(conges1);
+            const types2 = Object.keys(conges2);
+
+            if (types1.length !== types2.length) {
+                return false;
+            }
+
+            return types1.every(type => {
+                if (!conges2.hasOwnProperty(type)) {
+                    return false;
+                }
+
+                const dates1 = Object.keys(conges1[type]);
+                const dates2 = Object.keys(conges2[type]);
+
+                if (dates1.length !== dates2.length) {
+                    return false;
+                }
+
+                return dates1.every(date => {
+                    return (
+                        conges2[type].hasOwnProperty(date) &&
+                        conges1[type][date] === conges2[type][date]
+                    );
+                    // if (!conges2[type].hasOwnProperty(date)) {
+                    //     return false;
+                    // }
+
+                    // return conges1[type][date] === conges2[type][date];
+                });
+            });
+        }
+
+        function checkSummariesEqual(dict1, dict2) {
             let keys1 = Object.keys(dict1);
             let keys2 = Object.keys(dict2);
 
-            if (keys1.length !== keys2.length) return false;
+            if (keys1.length !== keys2.length) {
+                return false;
+            }
 
             return keys1.every(key => {
-                if (!dict2.hasOwnProperty(key)) return false;
+                if (!dict2.hasOwnProperty(key)) {
+                    return false;
+                }
 
                 let list1 = [...dict1[key]].sort();
                 let list2 = [...dict2[key]].sort();
@@ -1200,6 +1386,41 @@
         document.addEventListener("mouseup", () => {
             isDrawing = false;
         });
+
+        function updateLocalStorage() {
+            let dico = JSON.parse(localStorage.getItem(year.toString())) || {};
+            if (Object.keys(dico).length) {
+                if (Object.keys(dico).includes("conges")) {
+                    let dicoConges = dico["conges"];
+                    let newDicoConges = {};
+                    Object.keys(dicoConges).forEach((conge) => {
+                        if (dicoConges[conge] instanceof Array) {
+                            newDicoConges[conge] = {};
+                            dicoConges[conge].forEach((day) => {
+                                newDicoConges[conge][day] = "full";
+                            });
+                        }
+                    });
+                    if (Object.keys(newDicoConges).length) {
+                        dico["conges"] = newDicoConges;
+                    }
+                }
+                if (!Object.keys(dico).includes("vacances")) {
+                    dico["vacances"] = {"actif": false, "zone": "A"};
+                }
+            }
+
+            localStorage.setItem(year, JSON.stringify(dico));
+        }
+
+        // --------------------
+        // Methodes devant etre executes une fois au demarrage de la page
+        // --------------------
+        setDate();
+
+        updateLocalStorage();
+
+        generateSummary();
 
         // document.addEventListener("keydown", function (event) {
         //     if (event.key === "Escape") {
