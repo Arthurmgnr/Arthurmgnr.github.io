@@ -7,7 +7,7 @@ path = "/Users/arthur/Desktop/__Site/Arthurmgnr.github.io/site/resources/data/ga
 
 files_to_load = [
     "owned_games_low.json",
-    "wanted_games_low.json"
+    # "wanted_games_low.json"
 ]
 
 # l_images = [elt for elt in os.listdir(path) if elt != ".DS_Store"]
@@ -18,7 +18,8 @@ for file_path in files_to_load:
     with open(full_path, "r", encoding="utf-8") as f:
         data.extend(json.load(f))
 
-print(len(data))
+print(f"Nombre de jeux = {len(data)}")
+print(f"Prix total = {sum(float(elt['prix'].replace(',', '.')) for elt in data):.2f}")
 
 
 # Prix

@@ -7,7 +7,7 @@
         "categories": ["Coopératif", "Stratégie", "Dés", "Communication"],
         "editeur": "Scorpion Masqué",
         "prix": "26.90",
-		"lienImage": "/site/resources/images/owned_games/sky-team.jpg"
+        "lienImage": "/site/resources/images/owned_games/sky-team.jpg"
 	},
     {
         "titre": "Strike",
@@ -17,7 +17,7 @@
         "categories": ["Dés", "Ambiance", "Dextérité"],
         "editeur": "Ravensburger",
         "prix": "17.95",
-		"lienImage": "/site/resources/images/owned_games/strike.jpg"
+        "lienImage": "/site/resources/images/owned_games/strike.jpg"
 	},
     {
         "titre": "Perudo",
@@ -27,7 +27,7 @@
         "categories": ["Bluff", "Dés", "Pari"],
         "editeur": "Asmodée",
         "prix": "23.95",
-		"lienImage": "/site/resources/images/owned_games/perudo.jpg"
+        "lienImage": "/site/resources/images/owned_games/perudo.jpg"
 	},
     {
         "titre": "Skull King",
@@ -37,7 +37,7 @@
         "categories": ["Plis", "Cartes", "Enchères", "Pari"],
         "editeur": "Grandpa Beck's Games",
         "prix": "14.90",
-		"lienImage": "/site/resources/images/owned_games/skull-king.jpg"
+        "lienImage": "/site/resources/images/owned_games/skull-king.jpg"
 	},
     {
         "titre": "Paquet de Chips",
@@ -47,7 +47,7 @@
         "categories": ["Prise de risque", "Pari", "Ambiance", "Cartes"],
         "editeur": "Mixlore",
         "prix": "13.50",
-		"lienImage": "/site/resources/images/owned_games/paquet-de-chips.jpg"
+        "lienImage": "/site/resources/images/owned_games/paquet-de-chips.jpg"
 	},
     {
         "titre": "Très Futé 4Ever",
@@ -57,7 +57,7 @@
         "categories": ["Roll & Write", "Stratégie", "Dés", "Prise de risque", "Combinaison"],
         "editeur": "Schmidt Spiele GmbH",
         "prix": "13.50",
-		"lienImage": "/site/resources/images/owned_games/tres-fute-4ever.jpg"
+        "lienImage": "/site/resources/images/owned_games/tres-fute-4ever.jpg"
 	},
     {
         "titre": "Metro X",
@@ -67,7 +67,7 @@
         "categories": ["Draw & Write", "Stratégie", "Planification", "Optimisation"],
         "editeur": "Schmidt Spiele GmbH",
         "prix": "13.50",
-		"lienImage": "/site/resources/images/owned_games/metro-x.jpg"
+        "lienImage": "/site/resources/images/owned_games/metro-x.jpg"
 	},
     {
         "titre": "Next Station London",
@@ -77,7 +77,7 @@
         "categories": ["Draw & Write", "Stratégie", "Planification", "Optimisation"],
         "editeur": "Blue Orange",
         "prix": "14.50",
-		"lienImage": "/site/resources/images/owned_games/next-station-london.jpg"
+        "lienImage": "/site/resources/images/owned_games/next-station-london.jpg"
 	},
     {
         "titre": "Skyjo",
@@ -87,7 +87,7 @@
         "categories": ["Cartes", "Stratégie", "Familial", "Prise de risque"],
         "editeur": "Magilano",
         "prix": "14.90",
-		"lienImage": "/site/resources/images/owned_games/skyjo.jpg"
+        "lienImage": "/site/resources/images/owned_games/skyjo.jpg"
 	},
     {
         "titre": "50 Missions",
@@ -97,7 +97,7 @@
         "categories": ["Coopératif", "Cartes"],
         "editeur": "Oya",
         "prix": "16.95",
-		"lienImage": "/site/resources/images/owned_games/50-missions.jpg"
+        "lienImage": "/site/resources/images/owned_games/50-missions.jpg"
 	},
     {
         "titre": "Les Bâtisseurs Moyen Âge",
@@ -107,7 +107,7 @@
         "categories": ["Stratégie", "Gestion de ressources", "Cartes", "Construction"],
         "editeur": "Bombyx",
         "prix": "14.95",
-		"lienImage": "/site/resources/images/owned_games/les-batisseurs-moyen-age.jpg"
+        "lienImage": "/site/resources/images/owned_games/les-batisseurs-moyen-age.jpg"
 	},
     {
         "titre": "Suspects 2",
@@ -117,7 +117,7 @@
         "categories": ["Enquête", "Coopératif", "Déduction"],
         "editeur": "Studio H",
         "prix": "28.90",
-		"lienImage": "/site/resources/images/owned_games/suspects-2.jpg"
+        "lienImage": "/site/resources/images/owned_games/suspects-2.jpg"
 	},
     {
         "titre": "Lupin",
@@ -127,7 +127,7 @@
         "categories": ["Enquête", "Coopératif"],
         "editeur": "Space Cowboys",
         "prix": "25",
-		"lienImage": "/site/resources/images/owned_games/lupin.jpg"
+        "lienImage": "/site/resources/images/owned_games/lupin.jpg"
 	},
     {
         "titre": "Unlock Heroic Adventures",
@@ -137,7 +137,7 @@
         "categories": ["Escape Game", "Coopératif", "Déduction", "Enigme"],
         "editeur": "Space Cowboys",
         "prix": "29.95",
-		"lienImage": "/site/resources/images/owned_games/unlock-heroic-adventures.jpg"
+        "lienImage": "/site/resources/images/owned_games/unlock-heroic-adventures.jpg"
 	},
     {
         "titre": "John Doe",
@@ -147,7 +147,7 @@
         "categories": ["Enquête", "Déduction"],
         "editeur": "Don't Panic Games",
         "prix": "20",
-		"lienImage": "/site/resources/images/owned_games/john-doe.jpg"
+        "lienImage": "/site/resources/images/owned_games/john-doe.jpg"
 	},
     {
         "titre": "Sky Team Extension Turbulences",
@@ -157,7 +157,7 @@
         "categories": ["Coopératif", "Stratégie", "Dés", "Communication", "Extension"],
         "editeur": "Scorpion Masqué",
         "prix": "10.90",
-		"lienImage": "/site/resources/images/owned_games/sky-team-extension-turbulences.jpg"
+        "lienImage": "/site/resources/images/owned_games/sky-team-extension-turbulences.jpg"
 	},
     {
         "titre": "Exit La Maison des Enigme",
@@ -167,7 +167,7 @@
         "categories": ["Escape Game", "Coopératif", "Enigme"],
         "editeur": "Iello",
         "prix": "14.95",
-		"lienImage": "/site/resources/images/owned_games/exit-la-maison-des-enigmes.jpg"
+        "lienImage": "/site/resources/images/owned_games/exit-la-maison-des-enigmes.jpg"
 	},
     {
         "titre": "Exit La Disparition de Sherlock Holmes",
@@ -177,7 +177,7 @@
         "categories": ["Escape Game", "Coopératif", "Enigme"],
         "editeur": "Iello",
         "prix": "14.95",
-		"lienImage": "/site/resources/images/owned_games/exit-la-disparition-de-sherlock-holmes.jpg"
+        "lienImage": "/site/resources/images/owned_games/exit-la-disparition-de-sherlock-holmes.jpg"
 	},
     {
         "titre": "IQ Circuit",
@@ -187,7 +187,7 @@
         "categories": ["Casse-tête", "Logique"],
         "editeur": "Smart Games",
         "prix": "12.90",
-		"lienImage": "/site/resources/images/owned_games/iq-circuit.jpg"
+        "lienImage": "/site/resources/images/owned_games/iq-circuit.jpg"
 	},
     {
         "titre": "IQ XOXO",
@@ -197,7 +197,7 @@
         "categories": ["Casse-tête", "Logique"],
         "editeur": "Smart Games",
         "prix": "12.90",
-		"lienImage": "/site/resources/images/owned_games/iq-xoxo.jpg"
+        "lienImage": "/site/resources/images/owned_games/iq-xoxo.jpg"
 	},
     {
         "titre": "IQ Puzzler pro",
@@ -207,7 +207,7 @@
         "categories": ["Casse-tête", "Logique"],
         "editeur": "Smart Games",
         "prix": "12.90",
-		"lienImage": "/site/resources/images/owned_games/iq-puzzler-pro.jpg"
+        "lienImage": "/site/resources/images/owned_games/iq-puzzler-pro.jpg"
 	},
     {
         "titre": "Les Aventuriers du Rail Europe 15e Anniversaire",
@@ -217,7 +217,7 @@
         "categories": ["Stratégie", "Plateau", "Cartes", "Optimisation", "Objectifs"],
         "editeur": "Days of Wonder",
         "prix": "95",
-		"lienImage": "/site/resources/images/owned_games/les-aventuriers-du-rail-europe-15e-anniversaire.jpg"
+        "lienImage": "/site/resources/images/owned_games/les-aventuriers-du-rail-europe-15e-anniversaire.jpg"
 	},
     {
         "titre": "Dice Forge",
@@ -227,7 +227,7 @@
         "categories": ["Dés", "Construction", "Gestion de ressources", "Développement", "Combinaison"],
         "editeur": "Libellud",
         "prix": "42.95",
-		"lienImage": "/site/resources/images/owned_games/dice-forge.jpg"
+        "lienImage": "/site/resources/images/owned_games/dice-forge.jpg"
 	},
     {
         "titre": "Mysterium",
@@ -237,7 +237,7 @@
         "categories": ["Coopératif", "Déduction", "Ambiance", "Observation", "Interprétation d'images"],
         "editeur": "Libellud",
         "prix": "40.50",
-		"lienImage": "/site/resources/images/owned_games/mysterium.jpg"
+        "lienImage": "/site/resources/images/owned_games/mysterium.jpg"
 	},
     {
         "titre": "Mysterium Secrets & Lies",
@@ -247,7 +247,7 @@
         "categories": ["Extension", "Déduction", "Observation", "Coopératif", "Interprétation d'images", "Ambiance"],
         "editeur": "Libellud",
         "prix": "19.95",
-		"lienImage": "/site/resources/images/owned_games/mysterium-secrets-&-lies.jpg"
+        "lienImage": "/site/resources/images/owned_games/mysterium-secrets-&-lies.jpg"
 	},
     {
         "titre": "Mysterium Hidden Signs",
@@ -257,7 +257,7 @@
         "categories": ["Extension", "Déduction", "Observation", "Coopératif", "Interprétation d'images", "Ambiance"],
         "editeur": "Libellud",
         "prix": "19.95",
-		"lienImage": "/site/resources/images/owned_games/mysterium-hidden-signs.jpg"
+        "lienImage": "/site/resources/images/owned_games/mysterium-hidden-signs.jpg"
 	},
     {
         "titre": "Skyjo Action",
@@ -267,7 +267,7 @@
         "categories": ["Cartes", "Stratégie", "Familial", "Prise de risque", "Extension"],
         "editeur": "Magilano",
         "prix": "14.90",
-		"lienImage": "/site/resources/images/owned_games/skyjo-action.jpg"
+        "lienImage": "/site/resources/images/owned_games/skyjo-action.jpg"
 	},
     {
         "titre": "Break the Code",
@@ -277,7 +277,7 @@
         "categories": ["Déduction", "Logique", "Combinaison", "Code", "Mathématiques"],
         "editeur": "Iello",
         "prix": "16.95",
-		"lienImage": "/site/resources/images/owned_games/break-the-code.jpg"
+        "lienImage": "/site/resources/images/owned_games/break-the-code.jpg"
 	},
     {
         "titre": "Break the Cube",
@@ -287,7 +287,7 @@
         "categories": ["Déduction", "Logique", "Mémoire", "Visualisation spatiale"],
         "editeur": "Iello",
         "prix": "16.95",
-		"lienImage": "/site/resources/images/owned_games/break-the-cube.jpg"
+        "lienImage": "/site/resources/images/owned_games/break-the-cube.jpg"
 	},
     {
         "titre": "The Crew",
@@ -297,7 +297,7 @@
         "categories": ["Coopératif", "Cartes", "Plis", "Communication", "Missions"],
         "editeur": "Iello",
         "prix": "16.50",
-		"lienImage": "/site/resources/images/owned_games/the-crew.jpg"
+        "lienImage": "/site/resources/images/owned_games/the-crew.jpg"
 	},
     {
         "titre": "Diamant",
@@ -307,7 +307,7 @@
         "categories": ["Prise de risque", "Ambiance", "Bluff", "Exploration"],
         "editeur": "Iello",
         "prix": "19.95",
-		"lienImage": "/site/resources/images/owned_games/diamant.jpg"
+        "lienImage": "/site/resources/images/owned_games/diamant.jpg"
 	},
     {
         "titre": "Loups Garous",
@@ -317,7 +317,7 @@
         "categories": ["Rôles", "Ambiance", "Bluff"],
         "editeur": "Asmodée",
         "prix": "9.95",
-		"lienImage": "/site/resources/images/owned_games/loups-garous.jpg"
+        "lienImage": "/site/resources/images/owned_games/loups-garous.jpg"
 	},
     {
         "titre": "Trio",
@@ -327,7 +327,7 @@
         "categories": ["Mémoire", "Cartes", "Déduction"],
         "editeur": "Cocktail Games",
         "prix": "11.90",
-		"lienImage": "/site/resources/images/owned_games/trio.jpg"
+        "lienImage": "/site/resources/images/owned_games/trio.jpg"
 	},
     {
         "titre": "Focus",
@@ -337,7 +337,7 @@
         "categories": ["Observation", "Coopératif", "Communication", "Association d'idées"],
         "editeur": "Gigamic",
         "prix": "12.50",
-		"lienImage": "/site/resources/images/owned_games/focus.jpg"
+        "lienImage": "/site/resources/images/owned_games/focus.jpg"
 	},
     {
         "titre": "L'Île Interdite",
@@ -347,7 +347,7 @@
         "categories": ["Coopératif", "Stratégie", "Aventure"],
         "editeur": "Gamewright",
         "prix": "24.95",
-		"lienImage": "/site/resources/images/owned_games/l-ile-interdite.jpg"
+        "lienImage": "/site/resources/images/owned_games/l-ile-interdite.jpg"
 	},
     {
         "titre": "Punto",
@@ -357,7 +357,7 @@
         "categories": ["Cartes", "Stratégie", "Combinaison", "Alignement"],
         "editeur": "Gamewright",
         "prix": "7.90",
-		"lienImage": "/site/resources/images/owned_games/punto.jpg"
+        "lienImage": "/site/resources/images/owned_games/punto.jpg"
 	},
     {
         "titre": "Timeline",
@@ -367,7 +367,7 @@
         "categories": ["Culture générale", "Cartes", "Connaissance", "Chronologie", "Educatif"],
         "editeur": "Asmodée",
         "prix": "15",
-		"lienImage": "/site/resources/images/owned_games/timeline.jpg"
+        "lienImage": "/site/resources/images/owned_games/timeline.jpg"
 	},
     {
         "titre": "Ricochet À la Poursuite du Comte Courant",
@@ -377,7 +377,7 @@
         "categories": ["Jeu de mots", "Déduction", "Coopératif", "Enigme", "Association d'idées", "Communication"],
         "editeur": "Flip Flap Éditions",
         "prix": "19.90",
-		"lienImage": "/site/resources/images/owned_games/ricochet-a-la-poursuite-du-comte-courant.jpg"
+        "lienImage": "/site/resources/images/owned_games/ricochet-a-la-poursuite-du-comte-courant.jpg"
 	},
     {
         "titre": "Ricochet Le Profil de l'Homme sans Visage",
@@ -387,7 +387,7 @@
         "categories": ["Jeu de mots", "Déduction", "Coopératif", "Enigme", "Association d'idées", "Communication"],
         "editeur": "Flip Flap Éditions",
         "prix": "19.90",
-		"lienImage": "/site/resources/images/owned_games/ricochet-le-profil-de-l-homme-sans-visage.jpg"
+        "lienImage": "/site/resources/images/owned_games/ricochet-le-profil-de-l-homme-sans-visage.jpg"
 	},
     {
         "titre": "MicroMacro Crime City",
@@ -397,7 +397,7 @@
         "categories": ["Enquête", "Observation", "Coopératif", "Enigme", "Crimes"],
         "editeur": "Blackrock Games",
         "prix": "24.50",
-		"lienImage": "/site/resources/images/owned_games/micromacro-crime-city.jpg"
+        "lienImage": "/site/resources/images/owned_games/micromacro-crime-city.jpg"
 	},
     {
         "titre": "MicroMacro Crime City Full House",
@@ -407,7 +407,7 @@
         "categories": ["Enquête", "Observation", "Coopératif", "Enigme", "Crimes"],
         "editeur": "Blackrock Games",
         "prix": "24.50",
-		"lienImage": "/site/resources/images/owned_games/micromacro-crime-city-full-house.jpg"
+        "lienImage": "/site/resources/images/owned_games/micromacro-crime-city-full-house.jpg"
 	},
     {
         "titre": "MicroMacro Crime City Tricks Town",
@@ -417,7 +417,7 @@
         "categories": ["Enquête", "Observation", "Coopératif", "Enigme", "Crimes"],
         "editeur": "Blackrock Games",
         "prix": "24.50",
-		"lienImage": "/site/resources/images/owned_games/micromacro-crime-city-tricks-town.jpg"
+        "lienImage": "/site/resources/images/owned_games/micromacro-crime-city-tricks-town.jpg"
 	},
     {
         "titre": "L'Imposteur",
@@ -427,7 +427,7 @@
         "categories": ["Rôles", "Ambiance", "Déduction", "Bluff"],
         "editeur": "Asmodée",
         "prix": "20.99",
-		"lienImage": "/site/resources/images/owned_games/l-imposteur.jpg"
+        "lienImage": "/site/resources/images/owned_games/l-imposteur.jpg"
 	},
     {
         "titre": "Loup Garou pour une nuit",
@@ -437,7 +437,7 @@
         "categories": ["Rôles", "Ambiance", "Bluff"],
         "editeur": "Ravensburger",
         "prix": "13.50",
-		"lienImage": "/site/resources/images/owned_games/loup-garou-pour-une-nuit.jpg"
+        "lienImage": "/site/resources/images/owned_games/loup-garou-pour-une-nuit.jpg"
 	},
     {
         "titre": "6 qui surprend",
@@ -447,7 +447,7 @@
         "categories": ["Cartes", "Stratégie", "Familial", "Prise de risque"],
         "editeur": "Gigamic",
         "prix": "16.90",
-		"lienImage": "/site/resources/images/owned_games/6-qui-surprend.jpg"
+        "lienImage": "/site/resources/images/owned_games/6-qui-surprend.jpg"
 	},
     {
         "titre": "Hitster 100% Chanson Française",
@@ -457,7 +457,7 @@
         "categories": ["Musique", "Ambiance", "Chronologie", "Culture générale"],
         "editeur": "Dujardin",
         "prix": "28.50",
-		"lienImage": "/site/resources/images/owned_games/hitster.jpg"
+        "lienImage": "/site/resources/images/owned_games/hitster.jpg"
 	},
     {
         "titre": "Codenames",
@@ -467,7 +467,7 @@
         "categories": ["Déduction", "Coopératif", "Mémoire", "Association d'idées", "Communication", "Rôles"],
         "editeur": "Iello",
         "prix": "21.95",
-		"lienImage": "/site/resources/images/owned_games/codenames.jpg"
+        "lienImage": "/site/resources/images/owned_games/codenames.jpg"
 	},
     {
         "titre": "Turing Machine",
@@ -477,7 +477,7 @@
         "categories": ["Déduction", "Logique", "Code"],
         "editeur": "Scorpion Masqué",
         "prix": "33.90",
-		"lienImage": "/site/resources/images/owned_games/turing-machine.jpg"
+        "lienImage": "/site/resources/images/owned_games/turing-machine.jpg"
 	},
     {
         "titre": "Trek 12",
@@ -487,7 +487,7 @@
         "categories": ["Roll & Write", "Aventure", "Dés", "Combinaison"],
         "editeur": "Lumberjacks Studio",
         "prix": "25.50",
-		"lienImage": "/site/resources/images/owned_games/trek-12.jpg"
+        "lienImage": "/site/resources/images/owned_games/trek-12.jpg"
 	},
     {
         "titre": "Mr Jack",
@@ -497,7 +497,7 @@
         "categories": ["Stratégie", "Déduction", "Bluff", "Rôles"],
         "editeur": "Hurrican",
         "prix": "26.90",
-		"lienImage": "/site/resources/images/owned_games/mr-jack.jpg"
+        "lienImage": "/site/resources/images/owned_games/mr-jack.jpg"
 	},
     {
         "titre": "Saboteur La Grande Aventure",
@@ -507,7 +507,7 @@
         "categories": ["Stratégie", "Bluff", "Cartes", "Rôles", "Construction"],
         "editeur": "Gigamic",
         "prix": "20",
-		"lienImage": "/site/resources/images/owned_games/saboteur-la-grande-aventure.jpg"
+        "lienImage": "/site/resources/images/owned_games/saboteur-la-grande-aventure.jpg"
 	},
     {
         "titre": "7 Wonders",
@@ -517,7 +517,7 @@
         "categories": ["Civilisation", "Cartes", "Gestion de ressources"],
         "editeur": "Repos Production",
         "prix": "42.95",
-		"lienImage": "/site/resources/images/owned_games/7-wonders.jpg"
+        "lienImage": "/site/resources/images/owned_games/7-wonders.jpg"
 	},
     {
         "titre": "7 Wonders Duel",
@@ -527,7 +527,7 @@
         "categories": ["Civilisation", "Cartes", "Gestion de ressources"],
         "editeur": "Repos Production",
         "prix": "24.95",
-		"lienImage": "/site/resources/images/owned_games/7-wonders-duel.jpg"
+        "lienImage": "/site/resources/images/owned_games/7-wonders-duel.jpg"
 	},
     {
         "titre": "Splendor",
@@ -537,7 +537,7 @@
         "categories": ["Stratégie", "Gestion de ressources", "Développement", "Combinaison"],
         "editeur": "Space Cowboys",
         "prix": "31.50",
-		"lienImage": "/site/resources/images/owned_games/splendor.jpg"
+        "lienImage": "/site/resources/images/owned_games/splendor.jpg"
 	},
     {
         "titre": "Citadelles",
@@ -547,7 +547,7 @@
         "categories": ["Bluff", "Stratégie", "Cartes", "Construction", "Rôles"],
         "editeur": "Asmodée",
         "prix": "27.95",
-		"lienImage": "/site/resources/images/owned_games/citadelles.jpg"
+        "lienImage": "/site/resources/images/owned_games/citadelles.jpg"
 	},
     {
         "titre": "Pandemic",
@@ -557,7 +557,7 @@
         "categories": ["Coopératif", "Stratégie", "Rôles"],
         "editeur": "Z-Man Games",
         "prix": "37.90",
-		"lienImage": "/site/resources/images/owned_games/pandemic.jpg"
+        "lienImage": "/site/resources/images/owned_games/pandemic.jpg"
 	},
     {
         "titre": "Bandido",
@@ -567,7 +567,7 @@
         "categories": ["Coopératif", "Cartes", "Communication", "Tuiles"],
         "editeur": "Helvetiq",
         "prix": "11.50",
-		"lienImage": "/site/resources/images/owned_games/bandido.jpg"
+        "lienImage": "/site/resources/images/owned_games/bandido.jpg"
 	},
     {
         "titre": "Cyberteam",
@@ -577,7 +577,7 @@
         "categories": ["Enquête", "Coopératif"],
         "editeur": "Don't Panic Games",
         "prix": "25",
-		"lienImage": "/site/resources/images/owned_games/cyberteam.jpg"
+        "lienImage": "/site/resources/images/owned_games/cyberteam.jpg"
 	},
     {
         "titre": "La Dernière Heure du Titanic",
@@ -587,7 +587,7 @@
         "categories": ["Coopératif", "Stratégie"],
         "editeur": "Don't Panic Games",
         "prix": "30",
-		"lienImage": "/site/resources/images/owned_games/la-derniere-heure-du-titanic.jpg"
+        "lienImage": "/site/resources/images/owned_games/la-derniere-heure-du-titanic.jpg"
 	},
     {
         "titre": "Cluedo",
@@ -597,7 +597,7 @@
         "categories": ["Enquête", "Déduction"],
         "editeur": "Hasbro",
         "prix": "30",
-		"lienImage": "/site/resources/images/owned_games/cluedo.jpg"
+        "lienImage": "/site/resources/images/owned_games/cluedo.jpg"
     },
     {
         "titre": "Boss Quest",
@@ -607,7 +607,7 @@
         "categories": ["Bluff", "Enchères"],
         "editeur": "Débâcle Jeux",
         "prix": "19",
-		"lienImage": "/site/resources/images/owned_games/boss-quest.jpg"
+        "lienImage": "/site/resources/images/owned_games/boss-quest.jpg"
     },
     {
         "titre": "Hitster Music Bingo",
@@ -617,17 +617,17 @@
         "categories": ["Ambiance"],
         "editeur": "Dujardin",
         "prix": "38",
-		"lienImage": "/site/resources/images/owned_games/hitster-music-bingo.jpg"
+        "lienImage": "/site/resources/images/owned_games/hitster-music-bingo.jpg"
     },
     {
         "titre": "Behind",
         "age": "10",
         "duree": "60",
         "nbJoueurs": "1+",
-        "categories": ["Coopératif", "Observation", "Déduction"],
+        "categories": ["Coopératif", "Observation", "Déduction", "Tuiles"],
         "editeur": "KYF Edition",
         "prix": "23",
-		"lienImage": "/site/resources/images/owned_games/behind.jpg"
+        "lienImage": "/site/resources/images/owned_games/behind.jpg"
     },
     {
         "titre": "Kronologic - Paris 1920",
@@ -637,7 +637,7 @@
         "categories": ["Enquête", "Déduction"],
         "editeur": "Origames",
         "prix": "24",
-		"lienImage": "/site/resources/images/owned_games/kronologic-paris-1920.jpg"
+        "lienImage": "/site/resources/images/owned_games/kronologic-paris-1920.jpg"
     },
     {
         "titre": "Bomb Busters",
@@ -647,7 +647,7 @@
         "categories": ["Coopératif", "Risque", "Communication", "Déduction"],
         "editeur": "Cocktail Games",
         "prix": "31.5",
-		"lienImage": "/site/resources/images/owned_games/bomb-busters.jpg"
+        "lienImage": "/site/resources/images/owned_games/bomb-busters.jpg"
     },
     {
         "titre": "La Scopette",
@@ -657,7 +657,7 @@
         "categories": ["Cartes"],
         "editeur": "Bakakou",
         "prix": "15",
-		"lienImage": "/site/resources/images/owned_games/la-scopette.jpg"
+        "lienImage": "/site/resources/images/owned_games/la-scopette.jpg"
     },
     {
         "titre": "Château Combo",
@@ -667,7 +667,7 @@
         "categories": ["Cartes", "Combinaison"],
         "editeur": "Catch Up Games",
         "prix": "18",
-		"lienImage": "/site/resources/images/owned_games/chateau-combo.jpg"
+        "lienImage": "/site/resources/images/owned_games/chateau-combo.jpg"
     },
     {
         "titre": "Agent Avenue",
@@ -677,7 +677,7 @@
         "categories": ["Cartes", "Bluff"],
         "editeur": "Iello",
         "prix": "20",
-		"lienImage": "/site/resources/images/owned_games/agent-avenue.jpg"
+        "lienImage": "/site/resources/images/owned_games/agent-avenue.jpg"
     },
     {
         "titre": "Piña Coladice",
@@ -687,7 +687,7 @@
         "categories": ["Combinaison", "Dés"],
         "editeur": "Iello",
         "prix": "18",
-		"lienImage": "/site/resources/images/owned_games/pina-coladice.jpg"
+        "lienImage": "/site/resources/images/owned_games/pina-coladice.jpg"
     },
     {
         "titre": "Odin",
@@ -697,7 +697,7 @@
         "categories": ["Cartes", "Plis"],
         "editeur": "Helvetiq",
         "prix": "12",
-		"lienImage": "/site/resources/images/owned_games/odin.jpg"
+        "lienImage": "/site/resources/images/owned_games/odin.jpg"
     },
     {
         "titre": "Présages",
@@ -707,7 +707,7 @@
         "categories": ["Cartes", "Aléatoire"],
         "editeur": "Spiral Editions",
         "prix": "16",
-		"lienImage": "/site/resources/images/owned_games/presages.jpg"
+        "lienImage": "/site/resources/images/owned_games/presages.jpg"
     },
     {
         "titre": "Crack List",
@@ -717,7 +717,7 @@
         "categories": ["Ambiance"],
         "editeur": "Yaqua Studio",
         "prix": "19",
-		"lienImage": "/site/resources/images/owned_games/crack-list.jpg"
+        "lienImage": "/site/resources/images/owned_games/crack-list.jpg"
     },
     {
         "titre": "Azul Mini",
@@ -727,7 +727,7 @@
         "categories": ["Placement", "Stratégie", "Collection", "Tuiles"],
         "editeur": "Next Move",
         "prix": "22.50",
-		"lienImage": "/site/resources/images/owned_games/azul-mini.jpg"
+        "lienImage": "/site/resources/images/owned_games/azul-mini.jpg"
 	},
     {
         "titre": "Colt Express - Big Box",
@@ -737,7 +737,7 @@
         "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
         "editeur": "Ludonaute",
         "prix": "46",
-		"lienImage": "/site/resources/images/owned_games/colt-express-big-box.jpg"
+        "lienImage": "/site/resources/images/owned_games/colt-express-big-box.jpg"
     },
     {
         "titre": "Fiesta De Los Muertos",
@@ -747,7 +747,7 @@
         "categories": ["Coopératif", "Ambiance"],
         "editeur": "OldChap Editions",
         "prix": "19.90",
-		"lienImage": "/site/resources/images/owned_games/fiesta-de-los-muertos.jpg"
+        "lienImage": "/site/resources/images/owned_games/fiesta-de-los-muertos.jpg"
 	},
     {
         "titre": "Revolver Noir",
@@ -757,7 +757,7 @@
         "categories": ["Cartes"],
         "editeur": "Matagot",
         "prix": "8.50",
-		"lienImage": "/site/resources/images/owned_games/revolver-noir.jpg"
+        "lienImage": "/site/resources/images/owned_games/revolver-noir.jpg"
 	},
     {
         "titre": "Secret Identity",
@@ -767,7 +767,7 @@
         "categories": ["Ambiance", "Observation", "Déduction"],
         "editeur": "Funnyfox",
         "prix": "20",
-		"lienImage": "/site/resources/images/owned_games/secret-identity.jpg"
+        "lienImage": "/site/resources/images/owned_games/secret-identity.jpg"
     },
     {
         "titre": "Le Roi des Nains",
@@ -777,17 +777,17 @@
         "categories": ["Cartes"],
         "editeur": "Iello",
         "prix": "16.5",
-		"lienImage": "/site/resources/images/owned_games/le-roi-des-nains.jpg"
+        "lienImage": "/site/resources/images/owned_games/le-roi-des-nains.jpg"
     },
     {
         "titre": "Fil Rouge : L'Ombre du Tigre",
         "age": "12",
-        "duree": "30",
+        "duree": "90",
         "nbJoueurs": "2-4",
         "categories": ["Cartes", "Coopératif"],
         "editeur": "Lumberjacks Studio",
         "prix": "16.5",
-		"lienImage": "/site/resources/images/owned_games/fil-rouge-l-ombre-du-tigre.jpg"
+        "lienImage": "/site/resources/images/owned_games/fil-rouge-l-ombre-du-tigre.jpg"
     },
     {
         "titre": "Love Letter",
@@ -797,7 +797,7 @@
         "categories": ["Déduction", "Bluff", "Mémoire"],
         "editeur": "Z-Man Games",
         "prix": "11.95",
-		"lienImage": "/site/resources/images/owned_games/love-letter.jpg"
+        "lienImage": "/site/resources/images/owned_games/love-letter.jpg"
     },
     {
         "titre": "The Gang",
@@ -807,7 +807,7 @@
         "categories": ["Coopératif", "Cartes"],
         "editeur": "Iello",
         "prix": "16.5",
-		"lienImage": "/site/resources/images/owned_games/the-gang.jpg"
+        "lienImage": "/site/resources/images/owned_games/the-gang.jpg"
     },
     {
         "titre": "For a Crown",
@@ -817,7 +817,7 @@
         "categories": ["Bluff", "Cartes"],
         "editeur": "Repos Production",
         "prix": "31.5",
-		"lienImage": "/site/resources/images/owned_games/for-a-crown.jpg"
+        "lienImage": "/site/resources/images/owned_games/for-a-crown.jpg"
     },
     {
         "titre": "1 % - Un Jeu qui fait Décimal",
@@ -827,7 +827,7 @@
         "categories": ["Bluff", "Enchères", "Cartes"],
         "editeur": "Iello",
         "prix": "14",
-		"lienImage": "/site/resources/images/owned_games/1.jpg"
+        "lienImage": "/site/resources/images/owned_games/1.jpg"
     },
     {
         "titre": "Take Time",
@@ -837,6 +837,196 @@
         "categories": ["Coopératif", "Cartes", "Déduction"],
         "editeur": "Libellud",
         "prix": "22.5",
-		"lienImage": "/site/resources/images/owned_games/take-time.jpg"
+        "lienImage": "/site/resources/images/owned_games/take-time.jpg"
+    },
+
+
+    
+    {
+        "titre": "Flowers",
+        "age": "7",
+        "duree": "30",
+        "nbJoueurs": "1-4",
+        "categories": ["Cartes"],
+        "editeur": "Actarus Editions",
+        "prix": "13.5",
+        "lienImage": "/site/resources/images/owned_games/flowers.jpg",
+        "acquisition": "24/12/2025"
+    },
+    {
+        "titre": "MicroMacro : Crime City - Showdown",
+        "age": "10",
+        "duree": "45",
+        "nbJoueurs": "1-4",
+        "categories": ["Coopératif", "Enigme", "Observation"],
+        "editeur": "Spielwiese",
+        "prix": "24.50",
+        "lienImage": "/site/resources/images/owned_games/micromacro-crime-city-showdown.jpg",
+        "acquisition": "24/12/2025"
+	},
+    {
+        "titre": "The Gang : Mini Extension",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "3-6",
+        "categories": ["Coopératif", "Cartes", "Extension"],
+        "editeur": "Iello",
+        "prix": "2.9",
+        "lienImage": "/site/resources/images/owned_games/the-gang-mini-extension.jpg",
+        "acquisition": "24/12/2025"
+    },
+    {
+        "titre": "Skull King - Extension",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2-9",
+        "categories": ["Plis", "Cartes", "Enchères", "Pari"],
+        "editeur": "Grandpa Beck's Games",
+        "prix": "9.5",
+        "lienImage": "/site/resources/images/owned_games/skull-king-extension.jpg",
+        "acquisition": "25/12/2025"
+    },
+    {
+        "titre": "Mojo",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "3-8",
+        "categories": ["Cartes"],
+        "editeur": "The Flying Games",
+        "prix": "13.95",
+        "lienImage": "/site/resources/images/owned_games/mojo.jpg",
+        "acquisition": "25/12/2025"
+    },
+    {
+        "titre": "Fil Rouge : Dans Leurs Regards",
+        "age": "12",
+        "duree": "90",
+        "nbJoueurs": "2-4",
+        "categories": ["Cartes", "Coopératif"],
+        "editeur": "Lumberjacks Studio",
+        "prix": "16.5",
+        "lienImage": "/site/resources/images/owned_games/fil-rouge-dans-leurs-regards.jpg",
+        "acquisition": "25/12/2025"
+    },
+    {
+        "titre": "Verso",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "1-6",
+        "categories": ["Cartes"],
+        "editeur": "Gigamic",
+        "prix": "15",
+        "lienImage": "/site/resources/images/owned_games/verso.jpg",
+        "acquisition": "25/12/2025"
+    },
+    {
+        "titre": "Bellevue",
+        "age": "8",
+        "duree": "20",
+        "nbJoueurs": "2-5",
+        "categories": ["Cartes", "Draft"],
+        "editeur": "Gigamic",
+        "prix": "15",
+        "lienImage": "/site/resources/images/owned_games/bellevue.jpg",
+        "acquisition": "25/12/2025"
+    },
+    {
+        "titre": "TAC TIK",
+        "age": "6",
+        "duree": "60",
+        "nbJoueurs": "2-8",
+        "categories": ["Cartes", "Affrontement", "Coopératif"],
+        "editeur": "Le Délirant",
+        "prix": "110",
+        "lienImage": "/site/resources/images/owned_games/tac-tik.jpg",
+        "acquisition": "27/12/2025"
+    },
+    {
+        "titre": "Blind Jack",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-10",
+        "categories": ["Connaissance"],
+        "editeur": "Bandjo !",
+        "prix": "13.95",
+        "lienImage": "/site/resources/images/owned_games/blind-jack.jpg",
+        "acquisition": "27/12/2025"
+    },
+    {
+        "titre": "Medical Mysteries - New-York Service d'Urgences",
+        "age": "14",
+        "duree": "60",
+        "nbJoueurs": "1-4",
+        "categories": ["Coopératif"],
+        "editeur": "Iello",
+        "prix": "26.9",
+        "lienImage": "/site/resources/images/owned_games/medical-mysteries-new-york-service-d-urgences.jpg",
+        "acquisition": "27/12/2025"
+    },
+    {
+        "titre": "Dixit Disney Edition",
+        "age": "8",
+        "duree": "45",
+        "nbJoueurs": "3-6",
+        "categories": ["Déduction", "Créativité"],
+        "editeur": "Libellud",
+        "prix": "35.90",
+        "lienImage": "/site/resources/images/owned_games/dixit-disney-edition.jpg",
+        "acquisition": "30/12/2025"
+    },
+    {
+        "titre": "L'île des Mots Dits",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-10",
+        "categories": ["Communication", "Coopératif"],
+        "editeur": "Matagot",
+        "prix": "19.9",
+        "lienImage": "/site/resources/images/owned_games/l-ile-des-mots-dits.jpg",
+        "acquisition": "30/12/2025"
+    },
+    {
+        "titre": "Opération Zèbre",
+        "age": "14",
+        "duree": "30",
+        "nbJoueurs": "2-12",
+        "categories": ["Connaissance"],
+        "editeur": "Big Moustache Games",
+        "prix": "20",
+        "lienImage": "/site/resources/images/owned_games/operation-zebre.jpg",
+        "acquisition": "30/12/2025"
+    },
+    {
+        "titre": "Skull Queen",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2-6",
+        "categories": ["Plis"],
+        "editeur": "Schmidt Spiele GmbH",
+        "prix": "15.90",
+        "lienImage": "/site/resources/images/owned_games/skull-queen.jpg",
+        "acquisition": "30/12/2025"
+    },
+    {
+        "titre": "Inside Job",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "3-5",
+        "categories": ["Coopératif", "Plis", "Cartes", "Déduction", "Rôles"],
+        "editeur": "Iello",
+        "prix": "16.5",
+        "lienImage": "/site/resources/images/owned_games/inside-job.jpg",
+        "acquisition": "30/12/2025"
+    },
+    {
+        "titre": "Château Combo - Au Cachot",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-5",
+        "categories": ["Cartes", "Combinaison", "Extension"],
+        "editeur": "Catch Up Games",
+        "prix": "5.9",
+        "lienImage": "/site/resources/images/owned_games/chateau-combo-au-cachot.jpg",
+        "acquisition": "30/12/2025"
     }
 ]

@@ -14,11 +14,11 @@ setDesktopOrMobile();
 
 const gamesDiv = document.querySelector("#games-container");
 
-// 110 jeux
+// 138 jeux
 
 // Filter Prix
-const games_low_min = 7.9;
-const games_low_max = 95;
+const games_low_min = 2.9;
+const games_low_max = 110;
 const filterPrix = createFilterPrix(
     "prix", "Prix", "Prix :", games_low_min, games_low_max, () => { callApplyAllFilters(); }
 );
@@ -43,21 +43,23 @@ const filterDuree = createFilterDuree(
 
 // Filter Editeur
 const games_low_editeur = ["Actarus Editions", "Asmodée", "Bakakou", "Bandjo !", "Bankiiiz Editions", "Big Moustache Games", "Blackrock Games", "Blue Orange",
-    "Bombyx", "Catch Up Games", "Cocktail Games", "Days of Wonder", "Don't Panic Games", "Dujardin", "Débâcle Jeux", "Flip Flap Éditions", "Funnyfox", "Gamelia",
-    "Gamewright", "Gigamic", "Grandpa Beck's Games", "Hasbro", "Helvetiq", "Hurrican", "Iello", "KYF Edition", "Libellud", "Ludonaute", "Lumberjacks Studio",
-    "Magilano", "Matagot", "Mixlore", "Next Move", "OldChap Editions", "Origames", "Oya", "Ravensburger", "Repos Production", "Schmidt Spiele GmbH",
-    "Scorpion Masqué", "Smart Games", "Space Cowboys", "Spielwiese", "Spiral Editions", "Studio H", "The Flying Games", "Yaqua Studio", "Z-Man Games"];
+    "Bombyx", "Catch Up Games", "Cocktail Games", "Cocktail games", "Days of Wonder", "Don't Panic Games", "Dujardin", "Débâcle Jeux", "Final Score",
+    "Flip Flap Éditions", "Funnyfox", "Gamelia", "Gamewright", "Gigamic", "Grandpa Beck's Games", "Hasbro", "Helvetiq", "Hurrican", "Iello", "KYF Edition",
+    "Le Délirant", "Libellud", "Ludonaute", "Lumberjacks Studio", "Magilano", "Matagot", "Mixlore", "Next Move", "OldChap Editions", "Origames", "Oya",
+    "Ravensburger", "Repos Production", "Savana", "Schmidt Spiele GmbH", "Scorpion Masqué", "Smart Games", "Space Cowboys", "Spielwiese", "Spiral Editions",
+    "Studio H", "The Flying Games", "Tiki Editions", "Yaqua Studio", "Z-Man Games"];
 const filterEditeur = createFilterEditeur(
     "editeur", "Editeur", "Editeur :", games_low_editeur, () => { callApplyAllFilters(); }
 );
 
 // Filter Categorie
 const games_low_categorie = ["Affrontement", "Alignement", "Aléatoire", "Ambiance", "Association d'idées", "Aventure", "Bluff", "Cartes", "Casse-tête",
-    "Chronologie", "Civilisation", "Code", "Collection", "Combinaison", "Communication", "Connaissance", "Construction", "Coopératif", "Course", "Crimes",
-    "Culture générale", "Dextérité", "Draft", "Draw & Write", "Déduction", "Dés", "Développement", "Educatif", "Enchères", "Enigme", "Enquête", "Escape Game",
-    "Exploration", "Extension", "Familial", "Gestion de ressources", "Interprétation d'images", "Jeu de mots", "Logique", "Mathématiques", "Missions", "Mots",
-    "Musique", "Mémoire", "Objectifs", "Observation", "Optimisation", "Pari", "Placement", "Planification", "Plateau", "Plis", "Pouvoirs", "Prise de risque",
-    "Programmation", "Rapidité", "Risque", "Roll & Write", "Réflexion", "Rôles", "Stratégie", "Tuiles", "Visualisation spatiale"];
+    "Chronologie", "Civilisation", "Code", "Collection", "Combinaison", "Communication", "Connaissance", "Connexion", "Construction", "Coopératif", "Couleurs",
+    "Course", "Crimes", "Créativité", "Culture générale", "Dextérité", "Draft", "Draw & Write", "Draw and Write", "Déduction", "Dés", "Développement", "Educatif",
+    "Enchères", "Enigme", "Enquête", "Escape Game", "Exploration", "Extension", "Familial", "Gestion de ressources", "Interprétation d'images", "Jeu de mots",
+    "Logique", "Mathématiques", "Missions", "Mots", "Musique", "Mémoire", "Objectifs", "Observation", "Optimisation", "Pari", "Placement", "Planification",
+    "Plateau", "Plis", "Pouvoirs", "Prise de risque", "Programmation", "Rapidité", "Risque", "Roll & Write", "Réflexion", "Rôles", "Stratégie", "Tuiles",
+    "Visualisation spatiale"];
 const filterCategorie = createFilterCategories(
     "categorie", "Catégorie", "Catégorie :", games_low_categorie, () => { callApplyAllFilters(); }
 );

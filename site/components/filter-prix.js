@@ -26,7 +26,7 @@ export function createFilterPrix(categorie, titleElement, titleItem, prixMin, pr
     inputTitleMin.classList = "input-title mb-2";
     inputTitleMin.innerText = "Mini (€)";
     const inputMin = document.createElement("input");
-    inputMin.type = "float";
+    inputMin.type = "number";
     inputMin.id = "minInput";
     inputMin.onkeydown = function(event) { controlKeyPress(true, event); }
     inputMin.onblur = function(event) { validateInput(true)(event); }
@@ -39,7 +39,7 @@ export function createFilterPrix(categorie, titleElement, titleItem, prixMin, pr
     inputTitleMax.classList = "input-title mb-2";
     inputTitleMax.innerText = "Mini (€)";
     const inputMax = document.createElement("input");
-    inputMax.type = "float";
+    inputMax.type = "number";
     inputMax.id = "maxInput";
     inputMax.onkeydown = function(event) { controlKeyPress(false, event); }
     inputMax.onblur = function(event) { validateInput(false)(event); }

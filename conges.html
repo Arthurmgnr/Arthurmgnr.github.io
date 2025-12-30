@@ -29,9 +29,7 @@
                 linear-gradient(to left, var(--right) 50%, transparent 50%),
                 var(--base);
         }
-        /* .weekend { background-color: #D3F9D8; } */
         .day.weekend { --base: #D3F9D8; }
-        /* .holiday { background-color: #F5B084; } */
         .day.holiday { --base: #F5B084; }
         .dayTable { border-collapse: collapse; width: 100%; }
         .dayTable tr { min-height: 1.5rem; max-height: 1.5rem; }
@@ -39,6 +37,11 @@
         .dayTable td:nth-child(2) { width: 20%; }
         .dayTable td:nth-child(3) { width: 55%; }
         .dayTable td:nth-child(4) { width: 5%; }
+        /* .dayTable td:nth-child(1) { width: 47%; }
+        .dayTable td:nth-child(2) { width: 47%; }
+        .dayTable td:nth-child(3) { width: 6%; }
+        .leftTd { display: flex; justify-content: space-around; }
+        .rightTd { text-align: end; } */
         .nbSemaine { text-align: end; padding-right: 10px; }
         .vacance { align-self: stretch; }
         .vacance-color { background-color: yellow; }
@@ -53,6 +56,8 @@
         input[type="color"] { width: 30px; height: 30px; border: none; background: none; padding: 0; cursor: pointer; vertical-align: middle; appearance: none; -webkit-appearance: none; -moz-appearance: none; }
 
         .saveConge { margin-top: 20px; margin-right: 20px; display: flex; justify-content: space-evenly; }
+        .help { background-color: #8B5CF6; color: white; }
+        /* .help { background-color: #0A84FF; color: white; } */
         
         .selection { width: 90%; display: flex; margin: 20px auto; justify-content: space-evenly; }
         .selectionConge { font-size: x-large; font-weight: bold; cursor: pointer; padding: 10px 15px; border-radius: 0.75rem; }
@@ -60,7 +65,7 @@
         i.material-icons { font-weight: bold; }
 
         button:not(.modal-button, .toast-button) { padding: 10px 15px; margin: 0 auto; border: none; cursor: pointer; border-radius: 0.75rem; display: flex; align-items: center; gap: 0.5rem; font-size: large; font-weight: bold; }
-        .save, .delete { margin-left: 0 !important; margin-right: 0 !important; }
+        .save, .delete, .help { margin-left: 0 !important; margin-right: 0 !important; }
         .save { background-color: #4CAF50; color: white; }
         .delete { background-color: #f44336; color: white; }
         .delete-category { background-color: #ff9800; color: white; }
@@ -69,16 +74,27 @@
         .add-category { background-color: #8BC34A; color: white; }
 
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.3); justify-content: center; align-items: center; }
-        .modal-content { width: 60%; background: white; padding: 20px; border-radius: 1.5rem; text-align: center; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); font-size: large; }
+        .modal h2 { display: block; font-size: 1.5em; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold; }
+        .modal h3 { display: block; font-size: 1.17em; margin-block-start: 0; margin-block-end: 0.8em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold; }
+        .modal-content { width: 60%; background: white; padding: 20px; border-radius: 1.5rem; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); font-size: large; }
         .modal-button-container { display: flex; justify-content: space-around; }/* padding: 20px ; border-top: solid 1px gray; }*/
         .modal-button-group-right { display: flex; }
-        .modal-button { margin: 10px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: inherit; }
+        .modal-button { margin: 10px; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: inherit; vertical-align: middle; }
         .md-not-save { background-color: rgb(220, 53, 69); color: white; }
         .md-not-save:hover { background-color: rgb(187, 45, 59); }
         .md-cancel { background-color: rgb(108, 117, 125); color: black; }
         .md-cancel:hover { background-color: rgb(92, 99, 106); }
         .md-save { background-color: rgb(13, 110, 253); color: white; }
         .md-save:hover { background-color: rgb(8, 94, 215); }
+        .modal-sub-content-container { margin: 20px; text-align: center; }
+        .modal-sub-content:nth-child(2n+1) { background-color: rgb(237, 237, 237); border-radius: 0.5rem; }
+        .modal-sub-content { padding: 20px 0; }
+        /* .modal-sub-content { padding-top: 20px; } */
+        /* .modal-sub-content { padding-bottom: 20px; } */
+        .modal table { margin: auto; }
+        .modal table, .modal th, .modal td { border-collapse: collapse; border: solid 1px; padding: 5px 10px; }
+        .modal table.none, .modal table.none th, .modal table.none td { border: none; }
+        /* .modal-separator { border-top: solid 5px grey; } */
 
         .wrapper { width: fit-content; position: fixed; bottom: 10px; right: 10px; display: flex; flex-direction: column-reverse; gap: 10px; z-index: 1000; align-items: flex-end; }
         .toast { width: fit-content; padding: 10px; background-color: #ffffff; border-radius: 7px; display: flex; box-shadow: 0 15px 30px rgba(0,0,0,0.08); }
@@ -102,6 +118,8 @@
         .number-input input { text-align: center; border: none; outline: none; }
         .number-input button { background: #f0f0f0; border: none; padding: 8px 12px; cursor: pointer; text-align: center; }
         .number-input button:hover { background: #ddd; }
+
+        /* .dayTable tr, .month-title { border-radius: 1rem; } */
     </style>
 </head>
 <body>
@@ -127,6 +145,9 @@
         </button>
         <button class="delete" onclick="deleteYear()" title="Supprimer les jours présents dans le calendrier ci-dessous pour l'année en cours">
             <span class="material-symbols-outlined">delete</span>Supprimer
+        </button>
+        <button class="help" onclick="showHelpModal()" title="Obtenir de l'aide concernant le cumul et la prise des congés">
+            <span class="material-symbols-outlined">help</span>Help
         </button>
         <div class="vacances-container">
             <div class="vacances-checkbox" style="display: flex; align-items: center; gap: 5px;">
@@ -197,9 +218,197 @@
         </div>
     </div>
 
+    <div id="helpModal" class="modal">
+        <div class="modal-content" style="width: 65%;">
+            <div style="display: flex; justify-content: end;">
+                <button class="modal-button md-cancel" onclick="showHelpModal()">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="modal-title">
+                <h2>Guide complet sur les congés : cumul, prise</h2>
+            </div>
+            <div class="modal-sub-content-container">
+                <!-- <div class="modal-separator"></div> -->
+                <div class="modal-sub-content">
+                    <h3>Tableau du nombre de jours disponible</h3>
+                    <table>
+                        <thead>
+                            <th>Catégorie</th>
+                            <th colspan="2">Jours</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Congés payés</td>
+                                <td style="border-right: none;">27</td>
+                                <td style="border-left: none;">+ ancienneté</td>
+                            </tr>
+                            <tr>
+                                <td>RTT Q1</td>
+                                <td style="border-right: none;">12</td>
+                                <td style="border-left: none;"></td>
+                            </tr>
+                            <tr>
+                                <td>RTT Q2</td>
+                                <td style="border-right: none;">10</td>
+                                <td style="border-left: none;">maximum</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- <div class="modal-separator"></div> -->
+                <div class="modal-sub-content">
+                    <h3>Ancienneté</h3>
+                    <table>
+                        <thead>
+                            <th>Année</th>
+                            <th>Jours</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- <div class="modal-separator"></div> -->
+                <div class="modal-sub-content">
+                    <h3>Cumul/Prise des congés</h3>
+                    <div>
+                        <table class="none" style="border-collapse: separate;">
+                            <thead>
+                                <th>Catégorie</th>
+                                <th></th>
+                                <th>1er juin A-1</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>1er janvier A</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>31 Mai A</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>31 décembre A</th>
+                                <th>31 janvier A+1</th>
+                            </thead>
+                            <tbody>
+                                <tr><td></td></tr>
+                                <tr>
+                                    <td rowspan="2">Congés payés</td>
+                                    <td></td>
+                                    <td style="text-align: center; background-color: #2F86EB; color: floralwhite;" colspan="12">Acquisition sur 12 mois</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align: center; border: #2F86EB solid 2px;" colspan="13">Prise sur 13 mois</td>
+                                </tr>
+                                <tr><td></td></tr>
+                                <tr>
+                                    <td rowspan="2">RTT Q1</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align: center; background-color: #98203e; color: floralwhite;" colspan="12">Acquisition sur 12 mois</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align: center; border: #98203e solid 2px;" colspan="13">Prise sur 13 mois</td>
+                                </tr>
+                                <tr><td></td></tr>
+                                <tr>
+                                    <td rowspan="2">RTT Q2</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align: center; background-color: #a92365; color: floralwhite;" colspan="12">Acquisition sur 12 mois</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td style="text-align: center; border: #a92365 solid 2px;" colspan="12">Prise sur 12 mois</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="wrapper"></div>
 
     <script>
+        let isHelpModal = false;
+
+        function showHelpModal() {
+            const modal = document.getElementById("helpModal");
+            modal.style.display = isHelpModal ? "none" : "flex";
+            isHelpModal = !isHelpModal;
+        }
+
         let isVacances = false;
         let zoneVacances = "";
 
@@ -531,23 +740,9 @@
 
         function createStyle(value, color) {
             const sheet = document.styleSheets[1];
-            // sheet.insertRule(`.${value} { background-color: ${color}; }`, sheet.cssRules.length);
-            // sheet.insertRule(`.day.half-left-${value} { background: linear-gradient(to right, ${color} 50%, rgb(255, 255, 255) 50%); }`, sheet.cssRules.length);
-            // sheet.insertRule(`.day.half-right-${value} { background: linear-gradient(to left, ${color} 50%, rgb(255, 255, 255) 50%); }`, sheet.cssRules.length);
-            
-            sheet.insertRule(
-                `.${value} { --left: ${color}; --right: ${color}; }`,
-                sheet.cssRules.length
-            );
-            sheet.insertRule(
-                `.day.half-left-${value} { --left: ${color}; }`,
-                sheet.cssRules.length
-            );
-
-            sheet.insertRule(
-                `.day.half-right-${value} { --right: ${color}; }`,
-                sheet.cssRules.length
-            );
+            sheet.insertRule(`.${value} { --base: ${color}; }`, sheet.cssRules.length);
+            sheet.insertRule(`.day.half-left-${value} { --left: ${color}; }`, sheet.cssRules.length);
+            sheet.insertRule(`.day.half-right-${value} { --right: ${color}; }`, sheet.cssRules.length);
         }
 
         function updateCategory(button) {
@@ -1013,10 +1208,6 @@
                     let congeStyle = [];
                     if (Object.keys(dicoDays).length > 0) {
                         for (let conge of getCongesList()) {
-                            // if (Object.keys(dicoDays).includes(conge) && dicoDays[conge].includes(stringDay)) {
-                            //     isConge = true;
-                            //     congeStyle = conge;
-                            // }
                             if (Object.keys(dicoDays).includes(conge) && Object.keys(dicoDays[conge]).includes(stringDay)) {
                                 if (dicoDays[conge][stringDay] === "full") {
                                     congeStyle.push(conge);
@@ -1055,16 +1246,18 @@
                     dayTr.appendChild(dayNumber);
                     dayTr.appendChild(dayLetter);
 
-                    // TEST
-                    // const congeName = document.createElement("td");
-                    // congeName.classList = "nomVacance";
-                    // if (test) {
-                    //     congeName.innerText = congeTmp;
-                    // }
-                    // dayTr.appendChild(congeName);
+                    // const left = document.createElement("td");
+                    // left.classList = "leftTd";
+                    // left.appendChild(dayNumber);
+                    // left.appendChild(dayLetter);
+                    // dayTr.appendChild(left);
                     
-                    if (getRealDay(date.getDay()) === 5 || getRealDay(date.getDay()) === 6) dayTr.classList.add("weekend");
-                    if (holidays.includes(date.toISOString().split('T')[0])) dayTr.classList.add("holiday");
+                    if (getRealDay(date.getDay()) === 5 || getRealDay(date.getDay()) === 6) {
+                        dayTr.classList.add("weekend");
+                    }
+                    if (holidays.includes(date.toISOString().split('T')[0])) {
+                        dayTr.classList.add("holiday");
+                    }
 
                     const weekNumber = document.createElement("td");
                     weekNumber.classList.add("nbSemaine");
@@ -1096,6 +1289,10 @@
                         });
                     }
                     dayTr.appendChild(weekNumber);
+                    // const right = document.createElement("td");
+                    // right.classList = "rightTd";
+                    // right.appendChild(weekNumber);
+                    // dayTr.appendChild(right);
 
                     const indice = 2;
                     if (day === 1 && month === 0 && (dayOfWeek === "L" || dayOfWeek === "M" || dayOfWeek === "J")) {
@@ -1421,11 +1618,11 @@
 
         generateSummary();
 
-        // document.addEventListener("keydown", function (event) {
-        //     if (event.key === "Escape") {
-        //         closeCustomConfirm();
-        //     }
-        // });
+        document.addEventListener("keypress", (event) => {
+            if (isHelpModal && event.key === "Escape") {
+                showHelpModal();
+            }
+        });
     </script>
 </body>
 </html>
