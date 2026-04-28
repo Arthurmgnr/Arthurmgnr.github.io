@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendrier des Congés</title>
+  <link rel="icon" type="image/png" href="island.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+  <link rel="stylesheet" href="wip_conges.css">
+</head>
+<body>
+
+  <!-- ===== En-tête ===== -->
+  <div class="header">
+    <div class="title-container">
+      <h1>Calendrier des Congés</h1>
+    </div>
+    <div class="year-container">
+      <h1><label class="year" for="year">Année</label></h1>
+      <div class="number-input">
+        <button class="minus">-</button>
+        <input type="text" id="year" min="2000" max="2050" disabled>
+        <button class="plus">+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Barre d'actions ===== -->
+  <div class="saveConge">
+    <button class="save" title="Sauvegarder toutes les données de l'année en cours">
+      <span class="material-symbols-outlined">save</span>Enregistrer
+    </button>
+    <button class="delete" title="Supprimer les jours présents dans le calendrier pour l'année en cours">
+      <span class="material-symbols-outlined">delete</span>Supprimer
+    </button>
+    <button class="help" title="Obtenir de l'aide concernant le cumul et la prise des congés">
+      <span class="material-symbols-outlined">help</span>Help
+    </button>
+    <div class="vacances-container">
+      <div class="vacances-checkbox">
+        <label for="school-holiday">Vacances scolaires</label>
+        <input type="checkbox" id="school-holiday">
+      </div>
+      <div class="zones-select">
+        <label for="zone-select">Zone</label>
+        <select id="zone-select">
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Options de pose ===== -->
+  <div class="selection">
+    <div class="selectionConge selection-option">
+      <label for="half-day">Demie journée</label>
+      <input type="checkbox" id="half-day">
+    </div>
+    <div class="selectionConge selection-option">
+      <label for="leave">Indiquer comme posé</label>
+      <input type="checkbox" id="leave">
+    </div>
+  </div>
+
+  <!-- ===== Sélecteur de catégorie de congés ===== -->
+  <div class="selection" id="conges-selector"></div>
+
+  <!-- ===== Calendrier ===== -->
+  <div class="calendar" id="calendar"></div>
+
+  <!-- ===== Résumé ===== -->
+  <div class="summary" id="summary">
+    <h1>Résumé des Congés</h1>
+    <table class="congesSummary">
+      <tbody>
+        <tr>
+          <td class="noBorder"></td>
+          <th>Catégorie</th>
+          <th>Disponibles</th>
+          <th>Posés</th>
+          <th>Planifiés</th>
+          <th>Solde réel</th>
+          <th>Solde prévisionnel</th>
+        </tr>
+        <tr>
+          <td class="noBorder"></td>
+          <th>Total</th>
+          <td id="disponiblesSum">0</td>
+          <td id="posesSum">0</td>
+          <td id="planifiesSum">0</td>
+          <td id="soldeReelSum">0</td>
+          <td id="soldePrevisionnelSum">0</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="add-category" title="Ajouter une catégorie supplémentaire">
+      <span class="material-symbols-outlined">add_circle</span>Catégorie
+    </button>
+  </div>
+
+
+  <!-- ===== Résumé Janvier N (congés reportés sur le quota N-1) ===== -->
+  <div class="summary" id="prev-year-january-section" style="display:none">
+    <h1>Janvier <span id="prev-jan-year-label"></span>
+      <span style="font-size:0.7em;font-weight:normal">&mdash; reportés sur le quota <span id="prev-jan-quota-year-label"></span></span>
+    </h1>
+    <table class="congesSummary">
+      <tbody>
+        <tr>
+          <td class="noBorder"></td>
+          <th>Catégorie</th>
+          <th>Posés</th>
+          <th>Planifiés</th>
+        </tr>
+      </tbody>
+      <tbody id="prev-year-january-tbody"></tbody>
+    </table>
+  </div>
+
+
+  <!-- ===== Modale de confirmation de suppression ===== -->
+  <div id="customConfirm" class="modal">
+    <div class="modal-content">
+      <div class="modal-title">
+        <h2>Souhaitez-vous enregistrer vos modifications ?</h2>
+        <p>Vous pouvez choisir d'enregistrer vos modifications ou non. Vous ne pouvez pas annuler cette action.</p>
+        <p>Toute modification non enregistrée sera perdue.</p>
+      </div>
+      <div class="modal-button-container">
+        <div class="modal-button-group-left">
+          <button class="modal-button md-not-save">Ne pas enregistrer</button>
+        </div>
+        <div class="modal-button-group-right">
+          <button class="modal-button md-cancel">Annuler</button>
+          <button class="modal-button md-save">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== Modale d'aide ===== -->
+  <div id="helpModal" class="modal">
+    <div class="modal-content modal-content--wide">
+      <div class="modal-close-bar">
+        <button class="modal-button md-cancel">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="modal-title">
+        <h2>Guide complet sur les congés : cumul, prise</h2>
+      </div>
+      <div class="modal-sub-content-container">
+
+        <div class="modal-sub-content">
+          <h3>Tableau du nombre de jours disponible</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Catégorie</th>
+                <th colspan="2">Jours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Congés payés</td>
+                <td style="border-right: none;">27</td>
+                <td style="border-left: none;">+ ancienneté</td>
+              </tr>
+              <tr>
+                <td>RTT Q1</td>
+                <td style="border-right: none;">12</td>
+                <td style="border-left: none;"></td>
+              </tr>
+              <tr>
+                <td>RTT Q2</td>
+                <td style="border-right: none;">10</td>
+                <td style="border-left: none;">maximum</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="modal-sub-content">
+          <h3>Ancienneté</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Année</th>
+                <th>Jours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>2</td><td>1</td></tr>
+              <tr><td>3</td><td>2</td></tr>
+              <tr><td>5</td><td>3</td></tr>
+              <tr><td>8</td><td>4</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="modal-sub-content">
+          <h3>Cumul/Prise des congés</h3>
+          <table class="none" style="border-collapse: separate;">
+            <thead>
+              <tr>
+                <th>Catégorie</th>
+                <th></th>
+                <th>1er juin A-1</th>
+                <th></th><th></th><th></th><th></th><th></th><th></th>
+                <th>1er janvier A</th>
+                <th></th><th></th><th></th>
+                <th>31 Mai A</th>
+                <th></th><th></th><th></th><th></th><th></th><th></th>
+                <th>31 décembre A</th>
+                <th>31 janvier A+1</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td></td></tr>
+              <tr>
+                <td rowspan="2">Congés payés</td>
+                <td></td>
+                <td style="text-align:center;background-color:#2F86EB;color:floralwhite;" colspan="12">Acquisition sur 12 mois</td>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+              </tr>
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td style="text-align:center;border:#2F86EB solid 2px;" colspan="13">Prise sur 13 mois</td>
+              </tr>
+              <tr><td></td></tr>
+              <tr>
+                <td rowspan="2">RTT Q1</td>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td style="text-align:center;background-color:#98203e;color:floralwhite;" colspan="12">Acquisition sur 12 mois</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td style="text-align:center;border:#98203e solid 2px;" colspan="13">Prise sur 13 mois</td>
+              </tr>
+              <tr><td></td></tr>
+              <tr>
+                <td rowspan="2">RTT Q2</td>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td style="text-align:center;background-color:#a92365;color:floralwhite;" colspan="12">Acquisition sur 12 mois</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+                <td style="text-align:center;border:#a92365 solid 2px;" colspan="12">Prise sur 12 mois</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== Modale de confirmation de suppression définitive ===== -->
+  <div id="deleteConfirm" class="modal">
+    <div class="modal-content">
+      <div class="modal-title">
+        <h2>Supprimer les données de l'année ?</h2>
+        <p>Tous les congés posés et les catégories de l'année en cours seront supprimés.</p>
+        <p>Cette action est irréversible.</p>
+      </div>
+      <div class="modal-button-container">
+        <div class="modal-button-group-left">
+          <button class="modal-button md-confirm">Supprimer</button>
+        </div>
+        <div class="modal-button-group-right">
+          <button class="modal-button md-cancel">Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ===== Conteneur de toasts ===== -->
+  <div class="wrapper"></div>
+
+  <script src="wip_conges-state.js"></script>
+  <script src="wip_conges-utils.js"></script>
+  <script src="wip_calendar-manager.js"></script>
+  <script src="wip_conges-NEW.js"></script>
+  <!-- <script src="wip_conges.js"></script> -->
+</body>
+</html>
