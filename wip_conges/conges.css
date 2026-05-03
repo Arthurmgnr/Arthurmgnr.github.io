@@ -13,7 +13,6 @@ body {
     text-align: center;
 }
 
-
 /* ---------- Header ---------- */
 
 .header {
@@ -64,7 +63,6 @@ h1 { color: var(--brand-color); margin: 0; }
     font-size: inherit;
 }
 
-
 /* ---------- Calendrier ---------- */
 
 .calendar {
@@ -107,7 +105,6 @@ h1 { color: var(--brand-color); margin: 0; }
 .day--holiday::before { background: var(--holiday-bg); }
 .day--past            { opacity: 0.55; }
 
-
 /* ---------- Couche de congés ---------- */
 
 .leave-layer {
@@ -135,7 +132,6 @@ h1 { color: var(--brand-color); margin: 0; }
     );
 }
 
-
 /* ---------- Cellules d'info du jour ---------- */
 
 .cell {
@@ -149,7 +145,6 @@ h1 { color: var(--brand-color); margin: 0; }
 .number { width: 20%; }
 .week   { width: 55%; text-align: end; padding-right: 10px; }
 
-
 /* ---------- Indicateur vacances scolaires ---------- */
 
 .vacation-flag {
@@ -160,7 +155,6 @@ h1 { color: var(--brand-color); margin: 0; }
 }
 
 .vacation-flag--active { background: var(--school-holiday-bg); }
-
 
 /* ---------- Résumé ---------- */
 
@@ -207,7 +201,6 @@ input[type="color"] {
     -webkit-appearance: none;
 }
 
-
 /* ---------- Barre d'actions ---------- */
 
 .saveConge {
@@ -216,7 +209,6 @@ input[type="color"] {
     margin-top: 20px;
     margin-right: 20px;
 }
-
 
 /* ---------- Boutons ---------- */
 
@@ -245,7 +237,6 @@ button:not(.modal-button, .toast-button) {
 .delete-category-days { background-color: #9C27B0; color: white; }
 .add-category         { background-color: #8BC34A; color: white; }
 
-
 /* ---------- Sélecteur de congés ---------- */
 
 .selection {
@@ -268,7 +259,6 @@ button:not(.modal-button, .toast-button) {
     align-items: center;
     gap: 5px;
 }
-
 
 /* ---------- Modales ---------- */
 
@@ -339,7 +329,6 @@ button:not(.modal-button, .toast-button) {
 .modal table, .modal th, .modal td { border-collapse: collapse; border: solid 1px; padding: 5px 10px; }
 .modal table.none, .modal table.none th, .modal table.none td { border: none; }
 
-
 /* ---------- Toasts ---------- */
 
 .wrapper {
@@ -398,7 +387,6 @@ button:not(.modal-button, .toast-button) {
 
 
 .prev-year-color-cell { width: 30px; }
-
 
 /* ---------- Champ numérique avec boutons ---------- */
 

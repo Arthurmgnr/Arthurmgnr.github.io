@@ -6,7 +6,7 @@
   <title>Calendrier des Congés</title>
   <link rel="icon" type="image/png" href="island.png">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
-  <link rel="stylesheet" href="wip_conges.css">
+  <link rel="stylesheet" href="conges.css">
 </head>
 <body>
 
@@ -100,7 +100,6 @@
     </button>
   </div>
 
-
   <!-- ===== Résumé Janvier N (congés reportés sur le quota N-1) ===== -->
   <div class="summary" id="prev-year-january-section" style="display:none">
     <h1>Janvier <span id="prev-jan-year-label"></span>
@@ -118,7 +117,6 @@
       <tbody id="prev-year-january-tbody"></tbody>
     </table>
   </div>
-
 
   <!-- ===== Modale de confirmation de suppression ===== -->
   <div id="customConfirm" class="modal">
@@ -139,7 +137,6 @@
       </div>
     </div>
   </div>
-
 
   <!-- ===== Modale d'aide ===== -->
   <div id="helpModal" class="modal">
@@ -261,7 +258,6 @@
     </div>
   </div>
 
-
   <!-- ===== Modale de confirmation de suppression définitive ===== -->
   <div id="deleteConfirm" class="modal">
     <div class="modal-content">
@@ -281,14 +277,20 @@
     </div>
   </div>
 
-
   <!-- ===== Conteneur de toasts ===== -->
   <div class="wrapper"></div>
 
-  <script src="wip_conges-state.js"></script>
-  <script src="wip_conges-utils.js"></script>
-  <script src="wip_calendar-manager.js"></script>
-  <script src="wip_conges-NEW.js"></script>
-  <!-- <script src="wip_conges.js"></script> -->
+  <!-- ===== Scripts ===== -->
+  <script src="app_state.js"></script>
+  <script src="calendar-manager.js"></script>
+  <script src="color_utils.js"></script>
+  <script src="date_utils.js"></script>
+  <script src="leave_utils.js"></script>
+  <script src="modal.js"></script>
+  <script src="school_hollidays.js"></script>
+  <script src="storage_utils.js"></script>
+  <script src="toast.js"></script>
+  <script src="validator_utils.js"></script>
+  <script src="conges.js"></script>
 </body>
 </html>
