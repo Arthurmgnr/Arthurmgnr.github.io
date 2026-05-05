@@ -19,6 +19,8 @@ const Toasts = {
         "warning-vacances-partially-available": { type: "warning", message: "Les vacances concernant l'année '{year}' sont partiellement disponibles." },
         "warning-conge-already-exist": { type: "warning", message: "La catégorie '{label}' existe déjà." },
         "error-invalid-category-name": { type: "error", message: "Nom invalide : {reason}" },
+        "success-export-PDF": { type: "success", message: "Téléchargement réussi" },
+        "error-export-PDF": { type: "error", message: "Echec du téléchargement" }
     },
 
     addToast(toastType, variables = {}) {

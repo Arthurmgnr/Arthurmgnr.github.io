@@ -147,16 +147,16 @@ function createCategoryRow(category, first) {
 
     tr.innerHTML = `
         <td class="noBorder">
-        <button class="delete-category" title="Supprimer la catégorie ainsi que les jours posés dans le calendrier">
-            <span class="material-symbols-outlined">do_not_disturb_on</span>Catégorie
-        </button>
-        <button class="edit-category" title="Modifier le nom de la catégorie">
-            <span class="material-symbols-outlined">edit</span>Catégorie
-        </button>
+            <button class="delete-category" title="Supprimer la catégorie ainsi que les jours posés dans le calendrier">
+                <span class="material-symbols-outlined">do_not_disturb_on</span>Catégorie
+            </button>
+            <button class="edit-category" title="Modifier le nom de la catégorie">
+                <span class="material-symbols-outlined">edit</span>Catégorie
+            </button>
         </td>
         <th>
-        <span class="category-label"></span>&nbsp;
-        <input class="category-color-picker" type="color" value="${category.color}" title="Modifier la couleur de la catégorie">
+            <span class="category-label"></span>&nbsp;
+            <input class="category-color-picker" type="color" value="${category.color}" title="Modifier la couleur de la catégorie">
         </th>
         <td><input value="${category.disponibles}" type="number" id="disponibles${category.label}" min="0" max="50"></td>
         <td id="poses${category.label}">0</td>
@@ -164,9 +164,9 @@ function createCategoryRow(category, first) {
         <td id="soldeReel${category.label}">0</td>
         <td id="soldePrevisionnel${category.label}">0</td>
         <td class="noBorder">
-        <button class="delete-category-days" title="Supprimer les jours posés dans le calendrier appartenant à cette catégorie">
-            <span class="material-symbols-outlined">ink_eraser</span>Congés
-        </button>
+            <button class="delete-category-days" title="Supprimer les jours posés dans le calendrier appartenant à cette catégorie">
+                <span class="material-symbols-outlined">ink_eraser</span>Congés
+            </button>
         </td>
     `;
 
@@ -493,6 +493,8 @@ function initHandlers() {
 
     document.addEventListener("mouseup", () => { AppState.ui.isDrawing = false; });
 
+    document.querySelector(".export").addEventListener("click", exportPDF);
+
     document.addEventListener("keydown", (event) => {
         const modifier = event.ctrlKey || event.metaKey;
         
@@ -527,3 +529,61 @@ function init() {
 }
 
 init();
+
+async function exportPDF() {
+    const spinner = document.getElementById("spinner");
+    const button = document.querySelector(".export");
+
+    try {
+        spinner.classList.remove("hidden");
+        button.disabled = true;
+
+        const element = document.getElementById("calendar");
+
+        const canvas = await html2canvas(element, {
+            scale: window.devicePixelRatio * 2,
+            useCORS: true,
+            backgroundColor: "#c9c9c9"
+        });
+
+        const { jsPDF } = window.jspdf;
+
+        const imgData = canvas.toDataURL("image/jpeg");
+        const pdf = new jsPDF("l", "mm", "a4");
+
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+
+        const margin = 10;
+        const usableWidth = pageWidth - margin * 2;
+        const usableHeight = pageHeight - margin * 2;
+
+        const ratio = canvas.width / canvas.height;
+
+        let renderWidth = usableWidth;
+        let renderHeight = renderWidth / ratio;
+
+        if (renderHeight > usableHeight) {
+            renderHeight = usableHeight;
+            renderWidth = renderHeight * ratio;
+        }
+
+        const x = (pageWidth - renderWidth) / 2;
+
+        pdf.setFillColor(201, 201, 201);
+        pdf.rect(0, 0, pageWidth, pageHeight, "F");
+
+        pdf.addImage(imgData, "JPEG", x, 10, renderWidth, renderHeight);
+
+        pdf.save("export.pdf");
+
+        Toasts.addToast("success-export-PDF");
+
+    } catch (e) {
+        console.log(e);
+        Toasts.addToast("error-export-PDF");
+    } finally {
+        spinner.classList.add("hidden");
+        button.disabled = false;
+    }
+}
