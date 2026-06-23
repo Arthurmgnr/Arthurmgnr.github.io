@@ -1,6 +1,5 @@
 
 :root {
-    /* --blue: #007bff; */
     --blue: #0d6efd;
     --orange: #F49D0F;
     --red: #dc3545;
@@ -10,12 +9,30 @@ body {
     background-color: #eaeaea;
 }
 
+.resume-selection-container {
+    position: relative;
+}
+
+.scroll-bottom {
+    position: fixed;
+    top: 4rem;
+    right: 1rem;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 10;
+    cursor: pointer;
+}
+
 #gameCard {
-    /* background-color: #ffffff; */
     transition: all 0.3s ease;
 }
 #gameCard:hover {
-    /* transform: scale(1.1); */
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
 }
 
@@ -45,13 +62,7 @@ body {
     transition: all 0.3s ease;
 }
 #gameImage:hover {
-    /* transform: scale(1.1); */
-    /* opacity: 0.8; */
     filter: brightness(1.2);
-    /* transform: scale(1.1); */
-    /* transform: translateY(-5px); */
-    /* transform: rotate(-3deg); */
-    /* transform: scale(1.05) rotate(-10deg) translateX(10px); */
 }
 
 
@@ -157,13 +168,6 @@ body {
     color: red;
 }
 
-
-/* .filter-group-element:first-child {
-    padding-bottom: 1rem;
-} */
-/* .filter-group-element:not(:last-child) {
-    margin-bottom: 20px;
-} */
 .filter-group-element {
     margin-top: 20px;
 }
@@ -229,7 +233,6 @@ body {
 .filter-selected-item-content-icon {
     font-weight: bold;
     font-size: medium;
-    /* color: var(--blue); */
     color: var(--orange);
     margin-left: 0.3rem;
 }
@@ -247,10 +250,3 @@ body {
 .disabled {
     display: none;
 }
-
-/* .bouton {
-    border: none;
-    padding: 0.3rem 0.6rem;
-    border-radius: 2rem;
-} */
- 

@@ -41,22 +41,13 @@ const filterDuree = createFilterDuree(
 );
 
 // Filter Editeur
-const games_low_editeur = ["Actarus Editions", "Asmodée", "Bakakou", "Bandjo !", "Big Moustache Games", "Blackrock Games", "Blue Orange", "Bombyx",
-    "Catch Up Games", "Cocktail Games", "Days of Wonder", "Don't Panic Games", "Dujardin", "Débâcle Jeux", "Flip Flap Éditions", "Funnyfox", "Gamewright",
-    "Gigamic", "Grandpa Beck's Games", "Hasbro", "Helvetiq", "Hurrican", "Iello", "KYF Edition", "Le Délirant", "Libellud", "Ludonaute", "Lumberjacks Studio",
-    "Magilano", "Matagot", "Mixlore", "Next Move", "OldChap Editions", "Origames", "Oya", "Ravensburger", "Repos Production", "Schmidt Spiele GmbH",
-    "Scorpion Masqué", "Smart Games", "Space Cowboys", "Spielwiese", "Spiral Editions", "Studio H", "The Flying Games", "Yaqua Studio", "Z-Man Games"];
+const games_low_editeur = ["ATM Gaming", "Actarus Editions", "Asmodée", "BCD Jeux", "Bakakou", "Bandjo !", "Big Moustache Games", "Blackrock Games", "Blue Cocker", "Blue Orange", "Bombyx", "Catch Up Games", "Cocktail Games", "Days of Wonder", "Don't Panic Games", "Dujardin", "Débâcle Jeux", "Flip Flap Éditions", "Funnyfox", "GEO PRISMA MEDIA", "Gamewright", "Gigamic", "Grandpa Beck's Games", "Hasbro", "Helvetiq", "Hurrican", "Iello", "KYF Edition", "Le Délirant", "Libellud", "Ludonaute", "Lumberjacks Studio", "Macajou", "Magilano", "Mandoo Games", "Matagot", "Mixlore", "Next Move", "OldChap Editions", "Origames", "Oya", "Ravensburger", "Repos Production", "Schmidt Spiele GmbH", "Scorpion Masqué", "Smart Games", "Space Cowboys", "Spielwiese", "Spin Master", "Spiral Editions", "Studio H", "The Flying Games", "Yaqua Studio", "Yellow Mountain Imports", "Z-Man Games"];
 const filterEditeur = createFilterEditeur(
     "editeur", "Editeur", "Editeur :", games_low_editeur, () => { callApplyAllFilters(); }
 );
 
 // Filter Categorie
-const games_low_categorie = ["Affrontement", "Alignement", "Aléatoire", "Ambiance", "Association d'idées", "Aventure", "Bluff", "Cartes", "Casse-tête",
-    "Chronologie", "Civilisation", "Code", "Collection", "Combinaison", "Communication", "Connaissance", "Construction", "Coopératif", "Crimes", "Créativité",
-    "Culture générale", "Dextérité", "Draft", "Draw & Write", "Déduction", "Dés", "Développement", "Educatif", "Enchères", "Enigme", "Enquête", "Escape Game",
-    "Exploration", "Extension", "Familial", "Gestion de ressources", "Interprétation d'images", "Jeu de mots", "Logique", "Mathématiques", "Missions", "Musique",
-    "Mémoire", "Objectifs", "Observation", "Optimisation", "Pari", "Placement", "Planification", "Plateau", "Plis", "Pouvoirs", "Prise de risque", "Programmation",
-    "Risque", "Roll & Write", "Rôles", "Stratégie", "Tuiles", "Visualisation spatiale"];
+const games_low_categorie = ["Affrontement", "Alignement", "Aléatoire", "Ambiance", "Association d'idées", "Aventure", "Bluff", "Cartes", "Casse-tête", "Chronologie", "Civilisation", "Code", "Collection", "Combinaison", "Communication", "Connaissance", "Construction", "Coopératif", "Crimes", "Créativité", "Culture générale", "Dextérité", "Draft", "Draw & Write", "Déduction", "Dés", "Développement", "Educatif", "Enchères", "Enigme", "Enquête", "Escape Game", "Exploration", "Extension", "Familial", "Gestion de ressources", "Interprétation d'images", "Jeu de mots", "Logique", "Mathématiques", "Missions", "Musique", "Mémoire", "Objectifs", "Observation", "Optimisation", "Pari", "Placement", "Planification", "Plateau", "Plis", "Pouvoirs", "Prise de risque", "Programmation", "Risque", "Roll & Write", "Rôles", "Scénario", "Stratégie", "Tuiles", "Visualisation spatiale"];
 const filterCategorie = createFilterCategories(
     "categorie", "Catégorie", "Catégorie :", games_low_categorie, () => { callApplyAllFilters(); }
 );
@@ -91,3 +82,10 @@ loadGames(gamesDiv, document.getElementById("nbGames"),
 );
 
 document.getElementById("filter-container").addEventListener("click", () => { displayFilters(); });
+
+document.querySelector(".scroll-bottom").addEventListener("click", () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+});
+document.querySelector(".scroll-top").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});

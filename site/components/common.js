@@ -150,11 +150,13 @@ export function createCard(game, nb, possede) {
 
     const categoriesContainer = document.createElement("div");
     categoriesContainer.classList = "d-flex flex-wrap justify-content-center text-center mb-2 px-2";
-    for (const category of game.categories) {
-        const categoryValue = document.createElement("span");
-        categoryValue.classList = "badge small bg-danger text-white m-0 me-2 mb-2";
-        categoryValue.innerText = category;
-        categoriesContainer.appendChild(categoryValue);
+    if (game.categories) {
+        for (const category of game.categories) {
+            const categoryValue = document.createElement("span");
+            categoryValue.classList = "badge small bg-danger text-white m-0 me-2 mb-2";
+            categoryValue.innerText = category;
+            categoriesContainer.appendChild(categoryValue);
+        }
     }
 
     const infosList = [
@@ -162,24 +164,25 @@ export function createCard(game, nb, possede) {
         ["Nombre de joueurs", game.nbJoueurs, "groups"],
         ["Durée de la partie", game.duree, "schedule"],
         ["Editeur", game.editeur, "edit_note"],
-        ["Prix", `${game.prix} €`]
+        ["Prix", game.prix, "euro"],
+        ["Date d'acquisition", game.acquisition, "event_available"]
     ];
     const infosContainer = document.createElement("div");
     infosContainer.classList = "d-flex flex-wrap justify-content-center";
     for (const info of infosList) {
-        const div = document.createElement("div");
-        div.classList = "badge small bg-secondary-subtle text-black d-flex align-items-center m-0 me-2 mb-2";
-        div.title = info[0];
-        if (info.length === 3) {
+        if (info[1]) {
+            const div = document.createElement("div");
+            div.classList = "badge small bg-secondary-subtle text-black d-flex align-items-center m-0 me-2 mb-2";
+            div.title = info[0];
             const icon = document.createElement("span");
             icon.classList = "material-symbols-outlined me-2";
             icon.innerText = info[2];
             div.appendChild(icon);
+            const value = document.createElement("span");
+            value.innerText = info[1];
+            div.appendChild(value);
+            infosContainer.appendChild(div);
         }
-        const value = document.createElement("span");
-        value.innerText = info[1];
-        div.appendChild(value);
-        infosContainer.appendChild(div);
     }
 
     bodyContainer.appendChild(title);

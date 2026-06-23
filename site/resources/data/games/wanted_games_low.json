@@ -160,16 +160,6 @@
         "lienImage": "/site/resources/images/wanted_games/colt-express-convoyeurs-train-blinde.jpg"
     },
     {
-        "titre": "Colt Super Express",
-        "age": "7",
-        "duree": "30",
-        "nbJoueurs": "3-7",
-        "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
-        "editeur": "Ludonaute",
-        "prix": "13.5",
-        "lienImage": "/site/resources/images/wanted_games/colt-super-express.jpg"
-    },
-    {
         "titre": "Skull",
         "age": "10",
         "duree": "30",
@@ -178,16 +168,6 @@
         "editeur": "Space Cowboys",
         "prix": "18",
         "lienImage": "/site/resources/images/wanted_games/skull-silver.jpg"
-    },
-    {
-        "titre": "Avant Après",
-        "age": "10",
-        "duree": "30",
-        "nbJoueurs": "2-6",
-        "categories": ["Cartes", "Observation", "Coopératif"],
-        "editeur": "OldChap Editions",
-        "prix": "17.9",
-        "lienImage": "/site/resources/images/wanted_games/avant-apres.jpg"
     },
     {
         "titre": "Medical Mysteries - Miami",
@@ -372,5 +352,35 @@
         "editeur": "Cocktail games",
         "prix": "19.95",
         "lienImage": "/site/resources/images/wanted_games/super-mega-lucky-box.jpg"
+    },
+    {
+        "titre": "Last Message",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "3-8",
+        "categories": ["Ambiance", "Déduction"],
+        "editeur": "Iello",
+        "prix": "19.95",
+        "lienImage": "/site/resources/images/wanted_games/last-message.jpg"
+    },
+    {
+        "titre": "Imagine",
+        "age": "12",
+        "duree": "45",
+        "nbJoueurs": "3-8",
+        "categories": ["Combinaison", "Créativité"],
+        "editeur": "Cocktail games",
+        "prix": "19.9",
+        "lienImage": "/site/resources/images/wanted_games/imagine.jpg"
+    },
+    {
+        "titre": "Palm Laboratory",
+        "age": "12",
+        "duree": "30",
+        "nbJoueurs": "1",
+        "categories": ["Solitaire"],
+        "editeur": "Nuts Publishing",
+        "prix": "8.95",
+        "lienImage": "/site/resources/images/wanted_games/palm-laboratory.jpg"
     }
 ]

@@ -41,16 +41,13 @@ const filterDuree = createFilterDuree(
 );
 
 // Filter Editeur
-const games_low_editeur = ["Bankiiiz Editions", "Catch Up Games", "Cocktail games", "Final Score", "Flip Flap Éditions", "Gamelia", "Iello", "KYF Edition",
-    "Libellud", "Ludonaute", "OldChap Editions", "Origames", "Savana", "Space Cowboys", "Spielwiese", "Studio H", "Tiki Editions"];
+const games_low_editeur = ["Bankiiiz Editions", "Catch Up Games", "Cocktail games", "Final Score", "Flip Flap Éditions", "Gamelia", "Iello", "KYF Edition", "Libellud", "Ludonaute", "Nuts Publishing", "Origames", "Savana", "Space Cowboys", "Spielwiese", "Studio H", "Tiki Editions"];
 const filterEditeur = createFilterEditeur(
     "editeur", "Editeur", "Editeur :", games_low_editeur, () => { callApplyAllFilters(); }
 );
 
 // Filter Categorie
-const games_low_categorie = ["Affrontement", "Ambiance", "Bluff", "Cartes", "Combinaison", "Connexion", "Coopératif", "Couleurs", "Course", "Créativité",
-    "Draw and Write", "Déduction", "Enchères", "Enigme", "Enquête", "Escape Game", "Mots", "Mémoire", "Observation", "Pari", "Placement", "Plis", "Pouvoirs",
-    "Programmation", "Rapidité", "Réflexion", "Rôles", "Tuiles"];
+const games_low_categorie = ["Affrontement", "Ambiance", "Bluff", "Cartes", "Combinaison", "Connexion", "Coopératif", "Couleurs", "Course", "Créativité", "Draw and Write", "Déduction", "Enchères", "Enigme", "Enquête", "Escape Game", "Mots", "Mémoire", "Observation", "Pari", "Placement", "Plis", "Pouvoirs", "Programmation", "Rapidité", "Réflexion", "Rôles", "Solitaire", "Tuiles"];
 const filterCategorie = createFilterCategories(
     "categorie", "Catégorie", "Catégorie :", games_low_categorie, () => { callApplyAllFilters(); }
 );
@@ -85,3 +82,10 @@ loadGames(gamesDiv, document.getElementById("nbGames"),
 );
 
 document.getElementById("filter-container").addEventListener("click", () => { displayFilters(); });
+
+document.querySelector(".scroll-bottom").addEventListener("click", () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+});
+document.querySelector(".scroll-top").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});

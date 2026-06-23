@@ -1,12 +1,18 @@
 [
     {
+        "titre": "Tapis de jeux",
+        "editeur": "BCD Jeux",
+        "prix": "26.9",
+        "lienImage": "/site/resources/images/owned_games/tapis-cartes.jpg"
+	},
+    {
         "titre": "Sky Team",
         "age": "10",
         "duree": "30",
         "nbJoueurs": "2",
         "categories": ["Coopératif", "Stratégie", "Dés", "Communication"],
         "editeur": "Scorpion Masqué",
-        "prix": "26.90",
+        "prix": "26.9",
         "lienImage": "/site/resources/images/owned_games/sky-team.jpg"
 	},
     {
@@ -208,6 +214,54 @@
         "editeur": "Smart Games",
         "prix": "12.90",
         "lienImage": "/site/resources/images/owned_games/iq-puzzler-pro.jpg"
+	},
+    {
+        "titre": "Rubik's Race",
+        "age": "7",
+        "duree": "15",
+        "nbJoueurs": "1-2",
+        "categories": ["Casse-tête", "Logique"],
+        "editeur": "Spin Master",
+        "prix": "18.9",
+        "lienImage": "/site/resources/images/owned_games/rubik-s-race.jpg"
+	},
+    {
+        "titre": "Backgammon",
+        "age": "7",
+        "duree": "30",
+        "nbJoueurs": "2",
+        "categories": ["Casse-tête"],
+        "editeur": "Yellow Mountain Imports",
+        "lienImage": "/site/resources/images/owned_games/backgammon.jpg"
+	},
+    {
+        "titre": "Jeu d'échecs",
+        "age": "14",
+        "duree": "45",
+        "nbJoueurs": "2",
+        "categories": ["Casse-tête", "Logique"],
+        "editeur": "Macajou",
+        "lienImage": "/site/resources/images/owned_games/jeu-echec.jpg"
+	},
+    {
+        "titre": "Escape Game Mystères Vaudou",
+        "age": "7",
+        "duree": "45",
+        "nbJoueurs": "1-6",
+        "categories": ["Escape Game"],
+        "editeur": "GEO PRISMA MEDIA",
+        "prix": "20",
+        "lienImage": "/site/resources/images/owned_games/escape-game-mysteres-vaudou.jpg"
+	},
+    {
+        "titre": "Escape Game American Story",
+        "age": "7",
+        "duree": "45",
+        "nbJoueurs": "1-6",
+        "categories": ["Escape Game"],
+        "editeur": "GEO PRISMA MEDIA",
+        "prix": "20",
+        "lienImage": "/site/resources/images/owned_games/escape-game-american-story.jpg"
 	},
     {
         "titre": "Les Aventuriers du Rail Europe 15e Anniversaire",
@@ -1028,5 +1082,92 @@
         "prix": "5.9",
         "lienImage": "/site/resources/images/owned_games/chateau-combo-au-cachot.jpg",
         "acquisition": "30/12/2025"
+    },
+    {
+        "titre": "Colt Super Express",
+        "age": "7",
+        "duree": "30",
+        "nbJoueurs": "3-7",
+        "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
+        "editeur": "Ludonaute",
+        "prix": "13.5",
+        "lienImage": "/site/resources/images/owned_games/colt-super-express.jpg"
+    },
+    {
+        "titre": "Stella – Dixit Universe",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "3-6",
+        "categories": ["Déduction", "Créativité"],
+        "editeur": "Libellud",
+        "prix": "35",
+        "lienImage": "/site/resources/images/owned_games/stella-dixit-universe.jpg",
+        "acquisition": "31/01/2026"
+    },
+    {
+        "titre": "Toy Battle",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2",
+        "categories": ["Affrontement", "Pouvoirs", "Draft"],
+        "editeur": "Repos Production",
+        "prix": "22.5",
+        "lienImage": "/site/resources/images/owned_games/toy-battle.jpg",
+        "acquisition": "22/04/2026"
+    },
+    {
+        "titre": "Got Five!",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2-4",
+        "categories": ["Déduction"],
+        "editeur": "Blue Orange",
+        "prix": "20.9",
+        "lienImage": "/site/resources/images/owned_games/got-five.jpg",
+        "acquisition": "22/04/2026"
+    },
+    {
+        "titre": "Avant Après",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2-6",
+        "categories": ["Cartes", "Observation", "Coopératif"],
+        "editeur": "OldChap Editions",
+        "prix": "17.9",
+        "lienImage": "/site/resources/images/owned_games/avant-apres.jpg",
+        "acquisition": "22/04/2026"
+    },
+    {
+        "titre": "Welcome To The Moon",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "1-6",
+        "categories": ["Scénario", "Draw & Write"],
+        "editeur": "Blue Cocker",
+        "prix": "35.9",
+        "lienImage": "/site/resources/images/owned_games/welcome-to-the-moon.jpg",
+        "acquisition": "23/05/2026"
+    },
+    {
+        "titre": "Pili Pili",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2-8",
+        "categories": ["Cartes", "Plis"],
+        "editeur": "ATM Gaming",
+        "prix": "13.5",
+        "lienImage": "/site/resources/images/owned_games/pili-pili.jpg",
+        "acquisition": "23/05/2026"
+    },
+    {
+        "titre": "Jekyll & Hyde vs Scotland Yard",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "2",
+        "categories": ["Cartes", "Plis"],
+        "editeur": "Mandoo Games",
+        "prix": "15.5",
+        "lienImage": "/site/resources/images/owned_games/jekyll-hyde-vs-scotland-yard.jpg",
+        "acquisition": "23/05/2026"
     }
 ]
