@@ -90,10 +90,3 @@ loadGames(gamesDiv, document.getElementById("nbGames"),
 );
 
 document.getElementById("filter-container").addEventListener("click", () => { displayFilters(); });
-
-document.querySelector(".scroll-bottom").addEventListener("click", () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-});
-document.querySelector(".scroll-top").addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-});

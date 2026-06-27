@@ -226,3 +226,27 @@ export function displayFilters() {
 
     document.getElementById("filter-container-bottom").style.display = isExpanded ? "none" : "block";
 }
+
+
+document.querySelector(".scroll-to-bottom").addEventListener("click", () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+});
+document.querySelector(".scroll-to-top").addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+const btnToTop = document.querySelector(".scroll-to-top");
+const btnToBottom = document.querySelector(".scroll-to-bottom");
+
+window.addEventListener('scroll', () => {
+    console.log(window.innerHeight, window.scrollY, document.documentElement.scrollHeight);
+    console.log(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100);
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
+        btnToBottom.style.display = "none";
+    } else if (window.scrollY > 100) {
+        btnToTop.style.display = "block";
+        btnToBottom.style.display = "block";
+    } else {
+        btnToTop.style.display = "none";
+    }
+});
