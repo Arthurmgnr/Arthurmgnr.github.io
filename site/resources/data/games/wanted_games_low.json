@@ -7,7 +7,8 @@
         "categories": ["Coopératif", "Enigme", "Observation"],
         "editeur": "Spielwiese",
         "prix": "14.50",
-        "lienImage": "/site/resources/images/wanted_games/micromacro-crime-city-epic-cases.jpg"
+        "lienImage": "/site/resources/images/wanted_games/micromacro-crime-city-epic-cases.jpg",
+        "priorite": "5"
 	},
     {
         "titre": "Ricochet 3 - Quand Satan Brouille l'écoute",
@@ -17,7 +18,8 @@
         "categories": ["Coopératif", "Déduction"],
         "editeur": "Flip Flap Éditions",
         "prix": "19.90",
-        "lienImage": "/site/resources/images/wanted_games/ricochet-3-quand-satan-brouille-l-ecoute.jpg"
+        "lienImage": "/site/resources/images/wanted_games/ricochet-3-quand-satan-brouille-l-ecoute.jpg",
+		"priorite": "5"
 	},
     {
         "titre": "Suspects",
@@ -27,7 +29,8 @@
         "categories": ["Déduction", "Enigme"],
         "editeur": "Studio H",
         "prix": "28.90",
-        "lienImage": "/site/resources/images/wanted_games/suspects.jpg"
+        "lienImage": "/site/resources/images/wanted_games/suspects.jpg",
+		"priorite": "5"
 	},
     {
         "titre": "Suspects Pocket - L'Opération Ravel",
@@ -37,7 +40,8 @@
         "categories": ["Déduction", "Enigme"],
         "editeur": "Studio H",
         "prix": "11.50",
-        "lienImage": "/site/resources/images/wanted_games/suspects-pocket-l-operation-ravel.jpg"
+        "lienImage": "/site/resources/images/wanted_games/suspects-pocket-l-operation-ravel.jpg",
+		"priorite": "5"
 	},
     {
         "titre": "Suspects - Adèle & Neville, Reporters Detectives",
@@ -47,7 +51,8 @@
         "categories": ["Déduction", "Enigme"],
         "editeur": "Studio H",
         "prix": "28.90",
-        "lienImage": "/site/resources/images/wanted_games/suspects-adele-neville-reporters-detectives.jpg"
+        "lienImage": "/site/resources/images/wanted_games/suspects-adele-neville-reporters-detectives.jpg",
+		"priorite": "5"
 	},
     {
         "titre": "Suspects Pocket - La Disparition du Professeur Fairchild",
@@ -57,7 +62,8 @@
         "categories": ["Déduction", "Enigme"],
         "editeur": "Studio H",
         "prix": "11.50",
-        "lienImage": "/site/resources/images/wanted_games/suspects-pocket-la-disparition-du-professeur-fairchild.jpg"
+        "lienImage": "/site/resources/images/wanted_games/suspects-pocket-la-disparition-du-professeur-fairchild.jpg",
+		"priorite": "5"
 	},
     {
         "titre": "Suspects Pocket - Hors-Jeu à Liverpool",
@@ -67,7 +73,8 @@
         "categories": ["Déduction", "Enigme"],
         "editeur": "Studio H",
         "prix": "11.50",
-        "lienImage": "/site/resources/images/wanted_games/suspects-pocket-hors-jeu-a-liverpool.jpg"
+        "lienImage": "/site/resources/images/wanted_games/suspects-pocket-hors-jeu-a-liverpool.jpg",
+		"priorite": "5"
 	},
     {
         "titre": "Kronologic - Cuzco 1450",
@@ -77,7 +84,8 @@
         "categories": ["Enquête", "Déduction"],
         "editeur": "Origames",
         "prix": "23",
-        "lienImage": "/site/resources/images/wanted_games/kronologic-cuzco-1450.jpg"
+        "lienImage": "/site/resources/images/wanted_games/kronologic-cuzco-1450.jpg",
+		"priorite": "5"
     },
     {
         "titre": "Kronologic - Paris 1920 : Extension Les Amants Maudits",
@@ -87,7 +95,8 @@
         "categories": ["Enquête", "Déduction"],
         "editeur": "Origames",
         "prix": "8",
-        "lienImage": "/site/resources/images/wanted_games/kronologic-paris-1920-extension-les-amants-maudits.jpg"
+        "lienImage": "/site/resources/images/wanted_games/kronologic-paris-1920-extension-les-amants-maudits.jpg",
+		"priorite": "5"
     },
     {
         "titre": "Kronologic - Paris 1920 : Extension Panique à l’Opera",
@@ -97,7 +106,8 @@
         "categories": ["Enquête", "Déduction"],
         "editeur": "Origames",
         "prix": "8",
-        "lienImage": "/site/resources/images/wanted_games/kronologic-paris-1920-extension-panique-a-lopera.jpg"
+        "lienImage": "/site/resources/images/wanted_games/kronologic-paris-1920-extension-panique-a-lopera.jpg",
+		"priorite": "5"
     },
     {
         "titre": "Color Words",
@@ -107,7 +117,8 @@
         "categories": ["Mots", "Réflexion"],
         "editeur": "Bankiiiz Editions",
         "prix": "18",
-        "lienImage": "/site/resources/images/wanted_games/color-words.jpg"
+        "lienImage": "/site/resources/images/wanted_games/color-words.jpg",
+		"priorite": "2"
     },
     {
         "titre": "Courtisans",
@@ -117,7 +128,8 @@
         "categories": ["Rôles", "Ambiance"],
         "editeur": "Catch Up Games",
         "prix": "18",
-        "lienImage": "/site/resources/images/wanted_games/courtisans.jpg"
+        "lienImage": "/site/resources/images/wanted_games/courtisans.jpg",
+		"priorite": "5"
     },
     {
         "titre": "5 ou Moins",
@@ -127,7 +139,8 @@
         "categories": ["Mémoire", "Rapidité", "Cartes", "Pouvoirs"],
         "editeur": "Gamelia",
         "prix": "17",
-        "lienImage": "/site/resources/images/wanted_games/5-ou-moins.jpg"
+        "lienImage": "/site/resources/images/wanted_games/5-ou-moins.jpg",
+		"priorite": "2"
     },
     {
         "titre": "Flip 7",
@@ -137,7 +150,8 @@
         "categories": ["Cartes", "Enchères"],
         "editeur": "Catch Up Games",
         "prix": "13.5",
-        "lienImage": "/site/resources/images/wanted_games/flip-7.jpg"
+        "lienImage": "/site/resources/images/wanted_games/flip-7.jpg",
+		"priorite": "4"
     },
     {
         "titre": "Downforce",
@@ -147,7 +161,8 @@
         "categories": ["Course", "Enchères", "Pari"],
         "editeur": "Iello",
         "prix": "33",
-        "lienImage": "/site/resources/images/wanted_games/downforce.jpg"
+        "lienImage": "/site/resources/images/wanted_games/downforce.jpg",
+		"priorite": "2"
     },
     {
         "titre": "Colt Express - Convoyeurs & Train blindé",
@@ -157,17 +172,8 @@
         "categories": ["Combinaison", "Programmation", "Affrontement", "Pouvoirs", "Déduction"],
         "editeur": "Ludonaute",
         "prix": "13.5",
-        "lienImage": "/site/resources/images/wanted_games/colt-express-convoyeurs-train-blinde.jpg"
-    },
-    {
-        "titre": "Skull",
-        "age": "10",
-        "duree": "30",
-        "nbJoueurs": "3-6",
-        "categories": ["Bluff"],
-        "editeur": "Space Cowboys",
-        "prix": "18",
-        "lienImage": "/site/resources/images/wanted_games/skull-silver.jpg"
+        "lienImage": "/site/resources/images/wanted_games/colt-express-convoyeurs-train-blinde.jpg",
+		"priorite": "2"
     },
     {
         "titre": "Medical Mysteries - Miami",
@@ -177,7 +183,8 @@
         "categories": ["Coopératif"],
         "editeur": "Iello",
         "prix": "26.9",
-        "lienImage": "/site/resources/images/wanted_games/medical-mysteries-miami.jpg"
+        "lienImage": "/site/resources/images/wanted_games/medical-mysteries-miami.jpg",
+		"priorite": "5"
     },
     {
         "titre": "Guilty : Houston 2015",
@@ -187,7 +194,8 @@
         "categories": ["Déduction", "Observation"],
         "editeur": "Iello",
         "prix": "17.95",
-        "lienImage": "/site/resources/images/wanted_games/guilty-houston-2015.jpg"
+        "lienImage": "/site/resources/images/wanted_games/guilty-houston-2015.jpg",
+		"priorite": "1"
     },
     {
         "titre": "Guilty : Monaco 1955",
@@ -197,7 +205,8 @@
         "categories": ["Déduction", "Observation"],
         "editeur": "Iello",
         "prix": "17.95",
-        "lienImage": "/site/resources/images/wanted_games/guilty-monaco-1955.jpg"
+        "lienImage": "/site/resources/images/wanted_games/guilty-monaco-1955.jpg",
+		"priorite": "1"
     },
     {
         "titre": "Guilty : Fontainebleau 1543",
@@ -207,7 +216,8 @@
         "categories": ["Déduction", "Observation"],
         "editeur": "Iello",
         "prix": "17.95",
-        "lienImage": "/site/resources/images/wanted_games/guilty-fontainebleau-1543.jpg"
+        "lienImage": "/site/resources/images/wanted_games/guilty-fontainebleau-1543.jpg",
+		"priorite": "1"
     },
     {
         "titre": "Plan de Secours",
@@ -217,12 +227,9 @@
         "categories": ["Bluff", "Tuiles", "Mémoire"],
         "editeur": "Iello",
         "prix": "11.9",
-        "lienImage": "/site/resources/images/wanted_games/plan-de-secours.jpg"
+        "lienImage": "/site/resources/images/wanted_games/plan-de-secours.jpg",
+		"priorite": "3"
     },
-
-
-
-
     {
         "titre": "Behind Purple",
         "age": "10",
@@ -231,7 +238,8 @@
         "categories": ["Coopératif", "Observation", "Déduction", "Tuiles"],
         "editeur": "KYF Edition",
         "prix": "20.9",
-        "lienImage": "/site/resources/images/wanted_games/behind-purple.jpg"
+        "lienImage": "/site/resources/images/wanted_games/behind-purple.jpg",
+		"priorite": "5"
     },
     {
         "titre": "Emblèmes",
@@ -241,7 +249,8 @@
         "categories": ["Cartes", "Placement"],
         "editeur": "Savana",
         "prix": "17.95",
-        "lienImage": "/site/resources/images/wanted_games/emblemes.jpg"
+        "lienImage": "/site/resources/images/wanted_games/emblemes.jpg",
+		"priorite": "5"
     },
     {
         "titre": "Popcorn",
@@ -251,7 +260,8 @@
         "categories": ["Placement"],
         "editeur": "Iello",
         "prix": "31.5",
-        "lienImage": "/site/resources/images/wanted_games/popcorn.jpg"
+        "lienImage": "/site/resources/images/wanted_games/popcorn.jpg",
+		"priorite": "3"
     },
     {
         "titre": "Codenames - Duo",
@@ -261,7 +271,8 @@
         "categories": ["Déduction", "Coopératif"],
         "editeur": "Iello",
         "prix": "21.95",
-        "lienImage": "/site/resources/images/wanted_games/codenames-duo.jpg"
+        "lienImage": "/site/resources/images/wanted_games/codenames-duo.jpg",
+		"priorite": "3"
     },
     {
         "titre": "Dixit",
@@ -271,7 +282,8 @@
         "categories": ["Créativité", "Déduction"],
         "editeur": "Libellud",
         "prix": "28.95",
-        "lienImage": "/site/resources/images/wanted_games/dixit.jpg"
+        "lienImage": "/site/resources/images/wanted_games/dixit.jpg",
+		"priorite": "1"
     },
     {
         "titre": "INK",
@@ -281,7 +293,8 @@
         "categories": ["Couleurs", "Tuiles", "Connexion", "Placement"],
         "editeur": "Final Score",
         "prix": "36.95",
-        "lienImage": "/site/resources/images/wanted_games/ink.jpg"
+        "lienImage": "/site/resources/images/wanted_games/ink.jpg",
+		"priorite": "3"
     },
     {
         "titre": "Unlock ! Legendary Adventures",
@@ -291,7 +304,8 @@
         "categories": ["Déduction", "Coopératif", "Escape Game"],
         "editeur": "Space Cowboys",
         "prix": "31.95",
-        "lienImage": "/site/resources/images/wanted_games/unlock-legendary-adventures.jpg"
+        "lienImage": "/site/resources/images/wanted_games/unlock-legendary-adventures.jpg",
+		"priorite": "3"
     },
     {
         "titre": "The Crew : Mission Sous-Marine",
@@ -301,7 +315,8 @@
         "categories": ["Cartes", "Plis", "Coopératif"],
         "editeur": "Iello",
         "prix": "16.5",
-        "lienImage": "/site/resources/images/wanted_games/the-crew-mission-sous-marine.jpg"
+        "lienImage": "/site/resources/images/wanted_games/the-crew-mission-sous-marine.jpg",
+		"priorite": "5"
     },
     {
         "titre": "Perfect Words",
@@ -311,7 +326,8 @@
         "categories": ["Coopératif", "Cartes"],
         "editeur": "Tiki Editions",
         "prix": "18.9",
-        "lienImage": "/site/resources/images/wanted_games/perfect-words.jpg"
+        "lienImage": "/site/resources/images/wanted_games/perfect-words.jpg",
+		"priorite": "3"
     },
     {
         "titre": "Lucky Numbers",
@@ -321,7 +337,8 @@
         "categories": ["Tuiles", "Placement"],
         "editeur": "Tiki Editions",
         "prix": "19.9",
-        "lienImage": "/site/resources/images/wanted_games/lucky-numbers.jpg"
+        "lienImage": "/site/resources/images/wanted_games/lucky-numbers.jpg",
+		"priorite": "2"
     },
     {
         "titre": "Lucky Numbers Deluxe",
@@ -331,7 +348,8 @@
         "categories": ["Tuiles", "Placement"],
         "editeur": "Tiki Editions",
         "prix": "36.9",
-        "lienImage": "/site/resources/images/wanted_games/lucky-numbers-deluxe.jpg"
+        "lienImage": "/site/resources/images/wanted_games/lucky-numbers-deluxe.jpg",
+		"priorite": "2"
     },
     {
         "titre": "Régicide",
@@ -341,7 +359,8 @@
         "categories": ["Coopératif", "Cartes"],
         "editeur": "Iello",
         "prix": "11.5",
-        "lienImage": "/site/resources/images/wanted_games/regicide.jpg"
+        "lienImage": "/site/resources/images/wanted_games/regicide.jpg",
+		"priorite": "1"
     },
     {
         "titre": "Super Mega Lucky Box",
@@ -351,7 +370,8 @@
         "categories": ["Ambiance", "Draw and Write"],
         "editeur": "Cocktail games",
         "prix": "19.95",
-        "lienImage": "/site/resources/images/wanted_games/super-mega-lucky-box.jpg"
+        "lienImage": "/site/resources/images/wanted_games/super-mega-lucky-box.jpg",
+		"priorite": "2"
     },
     {
         "titre": "Last Message",
@@ -361,7 +381,8 @@
         "categories": ["Ambiance", "Déduction"],
         "editeur": "Iello",
         "prix": "19.95",
-        "lienImage": "/site/resources/images/wanted_games/last-message.jpg"
+        "lienImage": "/site/resources/images/wanted_games/last-message.jpg",
+		"priorite": "4"
     },
     {
         "titre": "Imagine",
@@ -371,7 +392,8 @@
         "categories": ["Combinaison", "Créativité"],
         "editeur": "Cocktail games",
         "prix": "19.9",
-        "lienImage": "/site/resources/images/wanted_games/imagine.jpg"
+        "lienImage": "/site/resources/images/wanted_games/imagine.jpg",
+		"priorite": "4"
     },
     {
         "titre": "Palm Laboratory",
@@ -381,6 +403,7 @@
         "categories": ["Solitaire"],
         "editeur": "Nuts Publishing",
         "prix": "8.95",
-        "lienImage": "/site/resources/images/wanted_games/palm-laboratory.jpg"
+        "lienImage": "/site/resources/images/wanted_games/palm-laboratory.jpg",
+		"priorite": "4"
     }
 ]

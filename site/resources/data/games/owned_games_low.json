@@ -1169,5 +1169,49 @@
         "prix": "15.5",
         "lienImage": "/site/resources/images/owned_games/jekyll-hyde-vs-scotland-yard.jpg",
         "acquisition": "23/05/2026"
+    },
+    {
+        "titre": "Jeu de cochons",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2-6",
+        "categories": ["Dextérité"],
+        "editeur": "Winning Moves",
+        "prix": "13.5",
+        "lienImage": "/site/resources/images/owned_games/jeu-de-cochons.jpg",
+        "acquisition": "30/06/2026"
+    },
+    {
+        "titre": "Palm Island",
+        "age": "12",
+        "duree": "30",
+        "nbJoueurs": "1-2",
+        "categories": ["Cartes", "Solitaire"],
+        "editeur": "Nuts Publishing",
+        "prix": "11.9",
+        "lienImage": "/site/resources/images/owned_games/palm-island.jpg",
+        "acquisition": "01/07/2026"
+    },
+    {
+        "titre": "Hanabi - Grands Feux",
+        "age": "8",
+        "duree": "30",
+        "nbJoueurs": "2-5",
+        "categories": ["Cartes", "Coopératif"],
+        "editeur": "Cocktail Games",
+        "prix": "22.9",
+        "lienImage": "/site/resources/images/owned_games/hanabi-grands-feux.jpg",
+        "acquisition": "01/07/2026"
+    },
+    {
+        "titre": "Skull",
+        "age": "10",
+        "duree": "30",
+        "nbJoueurs": "3-6",
+        "categories": ["Bluff"],
+        "editeur": "Space Cowboys",
+        "prix": "17.95",
+        "lienImage": "/site/resources/images/owned_games/skull-silver.jpg",
+        "acquisition": "03/07/2026"
     }
 ]

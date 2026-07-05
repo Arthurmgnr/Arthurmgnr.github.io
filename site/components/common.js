@@ -1,6 +1,4 @@
 
-// export function int(nb) { return parseInt(nb); }
-
 export function sortGames(container, valeur) {
     const valeurKey = valeur.split(":")[0];
     const valeurSort = valeur.split(":")[1];
@@ -118,7 +116,9 @@ export function createCard(game, nb, possede) {
     container.setAttribute("editeur", game.editeur);
     container.setAttribute("categories", game.categories);
     container.setAttribute("ordre", nb);
-    if (possede != null) container.setAttribute("possede", possede);
+    if (possede != null) { container.setAttribute("possede", possede); }
+    if (game.priorite) { container.setAttribute("priorite", game.priorite); }
+    else { container.setAttribute("priorite", -1); }
 
     const subContainer = document.createElement("div");
     subContainer.classList = "row g-1 border border-3 border-primary-subtle bg-white rounded-4 overflow-hidden p-2 flex-grow-1 m-0 d-flex flex-column justify-content-evenly";
@@ -165,7 +165,8 @@ export function createCard(game, nb, possede) {
         ["Durée de la partie", game.duree, "schedule"],
         ["Editeur", game.editeur, "edit_note"],
         ["Prix", game.prix, "euro"],
-        ["Date d'acquisition", game.acquisition, "event_available"]
+        ["Date d'acquisition", game.acquisition, "event_available"],
+        ["Ordre de priorité", game.priorite, "priority_high"]
     ];
     const infosContainer = document.createElement("div");
     infosContainer.classList = "d-flex flex-wrap justify-content-center";
@@ -175,7 +176,7 @@ export function createCard(game, nb, possede) {
             div.classList = "badge small bg-secondary-subtle text-black d-flex align-items-center m-0 me-2 mb-2";
             div.title = info[0];
             const icon = document.createElement("span");
-            icon.classList = "material-symbols-outlined me-2";
+            icon.classList = "material-symbols-outlined me-1";
             icon.innerText = info[2];
             div.appendChild(icon);
             const value = document.createElement("span");
@@ -227,7 +228,6 @@ export function displayFilters() {
     document.getElementById("filter-container-bottom").style.display = isExpanded ? "none" : "block";
 }
 
-
 document.querySelector(".scroll-to-bottom").addEventListener("click", () => {
     window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 });
@@ -239,8 +239,6 @@ const btnToTop = document.querySelector(".scroll-to-top");
 const btnToBottom = document.querySelector(".scroll-to-bottom");
 
 window.addEventListener('scroll', () => {
-    console.log(window.innerHeight, window.scrollY, document.documentElement.scrollHeight);
-    console.log(window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100);
     if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 100) {
         btnToBottom.style.display = "none";
     } else if (window.scrollY > 100) {

@@ -6,6 +6,7 @@ import { createFilterNbJoueurs } from "/site/components/filter-nbJoueurs.js";
 import { createFilterDuree } from "/site/components/filter-duree.js";
 import { createFilterEditeur } from "/site/components/filter-editeur.js";
 import { createFilterCategories } from "/site/components/filter-categories.js";
+import { createFilterPriorite } from "/site/components/filter-priorite.js";
 
 // -------------------------------------------------------------------------------------
 
@@ -52,8 +53,14 @@ const filterCategorie = createFilterCategories(
     "categorie", "Catégorie", "Catégorie :", games_low_categorie, () => { callApplyAllFilters(); }
 );
 
+// Filter Priorite
+const games_low_priorite = ["1", "2", "3", "4", "5"];
+const filterPriorite = createFilterPriorite(
+    "priorite", "Ordre de priorité", "Ordre de priorité :", games_low_priorite, () => { callApplyAllFilters(); }
+);
+
 addFilterValuesHeader(document.querySelector(".filter-headers"), document.getElementById("filters-list"),
-    filterPrix, filterAge, filterNbJoueurs, filterDuree, filterEditeur, filterCategorie
+    filterPrix, filterAge, filterNbJoueurs, filterDuree, filterEditeur, filterCategorie, filterPriorite
 );
 
 const filters = [
@@ -63,6 +70,7 @@ const filters = [
     { filter: filterDuree, value: (game) => parseInt(game.attributes.duree.value) },
     { filter: filterEditeur, value: (game) => game.attributes.editeur.value },
     { filter: filterCategorie, value: (game) => game.attributes.categories.value },
+    { filter: filterPriorite, value: (game) => parseInt(game.attributes.priorite.value) },
 ];
 
 function callApplyAllFilters() {
